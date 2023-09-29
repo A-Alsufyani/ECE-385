@@ -40,8 +40,10 @@ logic SR2MUX, ADDR1MUX, MARMUX;
 logic BEN, MIO_EN, DRMUX, SR1MUX;
 logic [1:0] PCMUX, ADDR2MUX, ALUK;
 logic [15:0] MDR_In;
-logic [15:0] MAR, MDR, IR;
+logic [15:0] MAR, MDR, IR, PC;
 logic [3:0] hex_4[3:0]; 
+logic [15:0] mem_contents;
+logic [15:0] Bus_Val;
 
 HexDriver HexA (
     .clk(Clk),
@@ -50,6 +52,11 @@ HexDriver HexA (
     .hex_seg(hex_seg),
     .hex_grid(hex_grid)
 );
+
+assign hex_4[0] = IR[3:0];
+assign hex_4[1] = IR[7:4];
+assign hex_4[2] = IR[11:8];
+assign hex_4[3] = IR[15:12];
 
 // You may use the second (right) HEX driver to display additional debug information
 // For example, Prof. Cheng's solution code has PC being displayed on the right HEX
@@ -69,8 +76,64 @@ HexDriver HexB (
 assign ADDR = MAR; 
 assign MIO_EN = OE;
 
+// memory_contents(mem_contents);
 // Instantiate the rest of your modules here according to the block diagram of the SLC-3
 // including your register file, ALU, etc..
+
+// BMUX BusMux(.select[0](GatePC), .select[1](GateMDR), .select[2](GateMARMUX), .A(PC), .B(MDR), .C(MAR), .Output(Bus_Val));
+
+BMUX BusMux(.select({GatePC, GateMDR, GateMARMUX}), .A(PC), .B(MDR), .C(MAR), .Output(Bus_Val));
+
+// PMUX PCMux(.select[1:0](PCMUX), .A[15:0](PC), .B[15:0](0), .[15:0]C(0), .Output(pc_mux));
+
+PMUX PCMux(.select(PCMUX), .A(PC), .B(0), .C(0), .Output(pc_mux));
+
+
+reg1 reg_MAR (.Clk(Clk), .Reset(Reset), .Load(LD_MAR), .Din(Bus_Val), .Dout(MAR)); //MAR, Din is from bus
+reg1 reg_MDR (.Clk(Clk), .Reset(Reset), .Load(LD_MDR), .Din(MDR_In), .Dout(MDR)); //MDR, Din is from bus or mioen mux
+reg1 reg_IR (.Clk(Clk), .Reset(Reset), .Load(LD_IR), .Din(Bus_Val), .Dout(IR)); //IR , Din is from bus
+reg1 reg_PC (.Clk(Clk), .Reset(Reset), .Load(LD_PC), .Din(pc_mux), .Dout(PC)); //PC , Din is from PCMux
+
+
+
+
+
+// module BMUX (
+//     input logic [3:0] select,
+//     input logic [15:0] A,
+//     input logic [15:0] B,
+//     input logic [15:0] C,
+//     input logic [15:0] D,
+//     output logic [15:0] Output,
+// );
+// always_comb
+// begin
+//     case (select)
+//     4b' 0001: Output = A;
+//     4b' 0010: Output = B;
+//     4b' 0100: Output = C;
+//     4b' 1000: Output = D;
+//     default: //Output = X don't care;
+//     endcase
+// end
+// endmodule 
+
+// module PMUX (
+//     input logic select [1:0],
+//     input logic [15:0] A,
+//     input logic [15:0] B,
+//     input logic [15:0] C,
+//     output logic [15:0] Output,
+// );
+// always_comb
+// begin
+//     case(select)
+//     2b' 00: Output = A + 1 //pc counter
+   
+//     default: Output = A
+//     endcase
+// end
+// endmodule
 
 
 // Our I/O controller (note, this plugs into MDR/MAR)
@@ -87,6 +150,8 @@ ISDU state_controller(
 	.*, .Reset(Reset), .Run(Run), .Continue(Continue),
 	.Opcode(IR[15:12]), .IR_5(IR[5]), .IR_11(IR[11]),
    .Mem_OE(OE), .Mem_WE(WE)
+
+   
 );
 	
 endmodule

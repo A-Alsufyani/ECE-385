@@ -43,7 +43,7 @@ module  Mem2IO ( 	input logic Clk, Reset,
 		if (Reset) 
 			hex_data <= 16'd0;
 		else if (OE && WE && (ADDR[15:0] == 16'hFFFF) ) //both OE and WE to enable write
-			hex_data <= Data_from_CPU;
+			hex_data <= Data_from_CPU; 
     end
        
 	assign HEX0 = hex_data[3:0];
