@@ -41,9 +41,11 @@ logic BEN, MIO_EN, DRMUX, SR1MUX;
 logic [1:0] PCMUX, ADDR2MUX, ALUK;
 logic [15:0] MDR_In;
 logic [15:0] MAR, MDR, IR, PC;
-logic [3:0] hex_4[3:0]; 
+logic [3:0] [3:0] hex_4; 
 logic [15:0] mem_contents;
 logic [15:0] Bus_Val;
+logic [15:0] pc_mux;
+
 
 HexDriver HexA (
     .clk(Clk),
@@ -65,7 +67,7 @@ assign hex_4[3] = IR[15:12];
 HexDriver HexB (
     .clk(Clk),
     .reset(Reset),
-    .in(),
+    .in({PC[15:12], PC[11:8], PC[7:4], PC[3:0]}),
     .hex_seg(hex_segB),
     .hex_grid(hex_gridB)
 );
@@ -82,11 +84,11 @@ assign MIO_EN = OE;
 
 // BMUX BusMux(.select[0](GatePC), .select[1](GateMDR), .select[2](GateMARMUX), .A(PC), .B(MDR), .C(MAR), .Output(Bus_Val));
 
-BMUX BusMux(.select({GatePC, GateMDR, GateMARMUX}), .A(PC), .B(MDR), .C(MAR), .Output(Bus_Val));
+BMUX BusMux(.select({GateMARMUX, GateMDR, GatePC}), .A(PC), .B(MDR), .C(MAR), .Output(Bus_Val));
 
 // PMUX PCMux(.select[1:0](PCMUX), .A[15:0](PC), .B[15:0](0), .[15:0]C(0), .Output(pc_mux));
 
-PMUX PCMux(.select(PCMUX), .A(PC), .B(0), .C(0), .Output(pc_mux));
+PMUX PCMux(.select(2'b00), .A(PC), .B(0), .C(0), .Output(pc_mux));
 
 
 reg1 reg_MAR (.Clk(Clk), .Reset(Reset), .Load(LD_MAR), .Din(Bus_Val), .Dout(MAR)); //MAR, Din is from bus
