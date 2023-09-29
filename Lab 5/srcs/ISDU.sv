@@ -52,6 +52,12 @@ module ISDU (   input logic         Clk,
 				  
 				output logic        Mem_OE,
 									Mem_WE
+
+
+				// output logic Load_PC, Load_MAR, Load_MDR, Load_IR,
+				// output logic Gate_PC, Gate_MDR,
+				// output logic [3:0] CState,
+				// output logic [3:0] NState
 				);
 
 	enum logic [4:0] {  Halted, 
@@ -73,6 +79,14 @@ module ISDU (   input logic         Clk,
    
 	always_comb
 	begin 
+		// Load_PC = LD_PC;
+		// Load_MAR = LD_MAR;
+		// Load_MDR = LD_MDR;
+		// Load_IR = LD_IR; 
+		// Gate_PC = GatePC;
+		// Gate_MDR = GateMDR;
+		// CState = State;
+		// NState = Next_state;
 		// Default next state is staying at current state
 		Next_state = State;
 		
@@ -167,7 +181,6 @@ module ISDU (   input logic         Clk,
 				begin
 					Mem_OE = 1'b1;
 					
-					
 				end
 			S_33_2:
 				begin
@@ -180,7 +193,7 @@ module ISDU (   input logic         Clk,
 			S_33_4: 
 				begin
 					Mem_OE = 1'b1;
-					LD_MDR = 1'b1;
+					
 				end
 			S_35 : 
 				begin 

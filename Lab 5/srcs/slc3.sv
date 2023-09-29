@@ -50,20 +50,14 @@ logic [15:0] pc_mux;
 HexDriver HexA (
     .clk(Clk),
     .reset(Reset),
-    .in({hex_4[3][3:0],  hex_4[2][3:0], hex_4[1][3:0], hex_4[0][3:0]}),
+    .in({IR[15:12], IR[11:8], IR[7:4], IR[3:0]}),
     .hex_seg(hex_seg),
     .hex_grid(hex_grid)
 );
-
-assign hex_4[0] = IR[3:0];
-assign hex_4[1] = IR[7:4];
-assign hex_4[2] = IR[11:8];
-assign hex_4[3] = IR[15:12];
-
 // You may use the second (right) HEX driver to display additional debug information
 // For example, Prof. Cheng's solution code has PC being displayed on the right HEX
 
-
+    // .in({hex_4[3][3:0],  hex_4[2][3:0], hex_4[1][3:0], hex_4[0][3:0]}),
 HexDriver HexB (
     .clk(Clk),
     .reset(Reset),
@@ -137,8 +131,10 @@ reg1 reg_PC (.Clk(Clk), .Reset(Reset), .Load(LD_PC), .Din(pc_mux), .Dout(PC)); /
 // end
 // endmodule
 
-
 // Our I/O controller (note, this plugs into MDR/MAR)
+// logic Load_PC, Load_MAR, Load_MDR, Load_IR, Gate_PC, Gate_MDR;
+// logic [3:0] CState;
+// logic [3:0] NState;
 
 Mem2IO memory_subsystem(
     .*, .Reset(Reset), .ADDR(ADDR), .Switches(SW),

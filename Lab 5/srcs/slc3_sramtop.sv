@@ -56,6 +56,16 @@ slc3 slc(.Reset(Reset_ah), .Continue(Continue_ah), .Run(Run_ah), .WE(we_from_ISD
 Instantiateram instaRam(.Clk(Clk), .Reset(Reset_ah),.ADDR(init_ADDR), .data(init_data), .wren(we_select));
 
 //This is the physical on-chip memory, consult the documentation regarding Vivado block memory generator IP for a tutorial on how to generate this.
-blk_mem_gen_0 ram0(.addra(ADDR[9:0]), .clka(Clk), .dina(Data_to_SRAM), .ena(OE), .wea(WE), .douta(Data_from_SRAM));
+// blk_mem_gen_0 ram0(.addra(ADDR[9:0]), .clka(Clk), .dina(Data_to_SRAM), .ena(OE), .wea(WE), .douta(Data_from_SRAM));
+test_memory ram0(.address(ADDR[9:0]), .Clk(Clk), .data(Data_to_SRAM), .ena(OE), .wren(WE), .readout(Data_from_SRAM), .Reset(Reset_ah));
+
+// module test_memory ( input Reset,
+// 							input	  Clk,
+// 							input	[15:0]  data,
+// 							input	[9:0]  address,
+// 							input	  ena,
+// 							input	  wren,
+// 							output logic [15:0]  readout);
+
 
 endmodule
