@@ -27,14 +27,14 @@ initial begin : TEST_VECTORS
 Continue = 0;
 Reset = 0;
 #1 Run = 1;
-#2 Run = 0;
-#3 Continue = 1;
+#3 Run = 0;
+#550 Continue = 1;
 #8 Continue = 0;
 #6 Continue = 1;
 #8 Continue = 0;
 #6 Continue = 1;
-#8 Continue = 0;
-#4 Continue = 1;
-#6 Continue = 0;
+// #8 Continue = 0;
+// #4 Continue = 1;
+// #6 Continue = 0;
 end 
 endmodule

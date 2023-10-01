@@ -114,7 +114,7 @@ module ISDU (   input logic         Clk,
 		ADDR1MUX = 1'b0;
 		ADDR2MUX = 2'b00;
 		 
-		Mem_OE = 1'b0;
+		Mem_OE = 1'b1;
 		Mem_WE = 1'b0;
 	
 		// Assign next state
@@ -189,11 +189,12 @@ module ISDU (   input logic         Clk,
 			S_33_3 : //You may have to think about this as well to adapt to RAM with wait-states
 				begin
 					Mem_OE = 1'b1;
+
 				end
 			S_33_4: 
 				begin
 					Mem_OE = 1'b1;
-					
+					LD_MDR = 1;
 				end
 			S_35 : 
 				begin 
