@@ -10,7 +10,7 @@ logic [7:0] hex_segB;
 logic [3:0] hex_gridB;
 
 
-//slc3_sramtop bench(.*);
+// slc3_sramtop bench(.*);
  slc3_testtop bench(.*);
 
 always begin : CLOCK_GENERATION
@@ -22,19 +22,19 @@ initial begin : CLOCK_INITIALIZATION
 end
 
 initial begin : TEST_VECTORS
-SW = 16'd20;
+SW = 16'd156;
 Reset = 1;
 Run = 0;
 Continue = 0;
 #2 Reset = 0;
 #1 Run = 1;
 #3 Run = 0;
-#100 SW = 16'd3;
-#8 Continue = 1;
-#4 Continue = 0;
-#50 SW = 16'd1;
-#8 Continue = 1;
-#4 Continue = 0;
+// #180 SW = 16'd3;
+// #8 Continue = 1;
+// #4 Continue = 0;
+// #60 SW = -16'd2;
+// #8 Continue = 1;
+// #4 Continue = 0;
 // #6 Continue = 1;
 // #8 Continue = 0;
 // #4 Continue = 1;

@@ -339,6 +339,7 @@ module ISDU (   input logic         Clk,
 					LD_REG = 1'b1;
 					LD_CC = 1'b1;
 				end
+
 			S_12: //jmp
 				begin
 					SR1MUX_SELECT = 1'b0;
@@ -382,6 +383,7 @@ module ISDU (   input logic         Clk,
 					ADDR1MUX_SELECT = 1'b0;
 					ADDR2MUX_SELECT = 2'b11;
 					GateMARMUX = 1'b1;
+					Mem_OE = 1'b0;
 				end
 			S_16_1:
 				begin

@@ -80,7 +80,6 @@ HexDriver HexB (
 //	input into MDR)
 assign ADDR = MAR; 
 assign MIO_EN = OE;
-assign LED = IR110_SEXT;
 // memory_contents(mem_contents);
 // Instantiate the rest of your modules here according to the block diagram of the SLC-3
 // including your register file, ALU, etc..
@@ -107,6 +106,7 @@ reg16 reg_MAR (.Clk(Clk), .Reset(Reset), .Load(LD_MAR), .Din(Bus_Val), .Dout(MAR
 reg16 reg_MDR (.Clk(Clk), .Reset(Reset), .Load(LD_MDR), .Din(MDRMux_Out), .Dout(MDR)); //MDR, Din is from bus or mioen mux
 reg16 reg_IR (.Clk(Clk), .Reset(Reset), .Load(LD_IR), .Din(Bus_Val), .Dout(IR)); //IR , Din is from bus
 reg16 reg_PC (.Clk(Clk), .Reset(Reset), .Load(LD_PC), .Din(pc_mux), .Dout(PC)); //PC , Din is from PCMux
+regled reg_LED (.Clk(Clk), .Reset(Reset), .Load(LD_LED), .Din(IR110_SEXT), .Dout(LED));
 
 
 NZP nzp (.*, .Bus_input(Bus_Val), .IRNZP(IR[11:9]));
