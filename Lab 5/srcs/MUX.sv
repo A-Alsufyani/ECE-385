@@ -59,15 +59,15 @@ module PMUX (
     input logic [15:0] C,
     output logic [15:0] Output
 );
-    logic [15:0] A_new;
+    logic [15:0] PC_inc;
     always_comb
     begin
-    A_new = A + 1;
+    PC_inc = C + 1;
         case (select)
-        2'b00: Output = A_new; //pc counter
+        2'b00: Output = A; //pc counter
         2'b01: Output = B;
-        2'b10: Output = C;
-        default: Output = A;
+        2'b10: Output = PC_inc;
+        default: Output = C;
         endcase
     end
 endmodule

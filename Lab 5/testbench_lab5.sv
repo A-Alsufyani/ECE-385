@@ -22,16 +22,19 @@ initial begin : CLOCK_INITIALIZATION
 end
 
 initial begin : TEST_VECTORS
-#2 Reset = 1;
-#2 Run = 0;
+SW = 16'd20;
+Reset = 1;
+Run = 0;
 Continue = 0;
-Reset = 0;
+#2 Reset = 0;
 #1 Run = 1;
 #3 Run = 0;
-// #8 Continue = 1;
-// #8 Continue = 0;
-// #6 Continue = 1;
-// #8 Continue = 0;
+#100 SW = 16'd3;
+#8 Continue = 1;
+#4 Continue = 0;
+#50 SW = 16'd1;
+#8 Continue = 1;
+#4 Continue = 0;
 // #6 Continue = 1;
 // #8 Continue = 0;
 // #4 Continue = 1;

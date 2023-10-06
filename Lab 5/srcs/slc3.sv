@@ -48,26 +48,25 @@ logic [15:0] pc_mux;
 
 
 logic DRMUX_SELECT, SR1MUX_SELECT, SR2MUX_SELECT;
-logic [2:0] NZP_IN;
-logic [2:0] NZP, SR2;
+// logic [2:0] NZP_IN;
+// logic [2:0] NZP, SR2;
 logic [3:0] TRGT_REG;
 logic [2:0] DRMUX_OUT, SR1MUX_OUT;
-logic [15:0] SR1_Out, SR2_Out, ALU_Out, SR2MUX_OUT, ADDR1_OUT, ADDR2_OUT, ADDRS21VAL;
+logic [15:0] SR1_Out, SR2_Out, ALU_Out, SR2MUX_OUT, ADDR1_OUT, ADDR2_OUT, ADDRS21VAL, MDRMux_Out;
 
-logic[15:0] IR40_SEXT, IR50_SEXT, IR80_SEXT, IR100_SEXT;
+logic[15:0] IR40_SEXT, IR50_SEXT, IR80_SEXT, IR100_SEXT,IR110_SEXT;
 
 
 HexDriver HexA (
     .clk(Clk),
     .reset(Reset),
-    .in({hex_4[3], hex_4[2], hex_4[1], hex_4[0]}),
+    .in({hex_4[3][3:0], hex_4[2][3:0], hex_4[1][3:0], hex_4[0][3:0]}),
     .hex_seg(hex_seg),
     .hex_grid(hex_grid)
 );
 // You may use the second (right) HEX driver to display additional debug information
 // For example, Prof. Cheng's solution code has PC being displayed on the right HEX
 
-    // .in({hex_4[3][3:0],  hex_4[2][3:0], hex_4[1][3:0], hex_4[0][3:0]}),
 HexDriver HexB (
     .clk(Clk),
     .reset(Reset),
@@ -81,7 +80,7 @@ HexDriver HexB (
 //	input into MDR)
 assign ADDR = MAR; 
 assign MIO_EN = OE;
-
+assign LED = IR110_SEXT;
 // memory_contents(mem_contents);
 // Instantiate the rest of your modules here according to the block diagram of the SLC-3
 // including your register file, ALU, etc..
@@ -92,18 +91,20 @@ SEXT #(4) IR4to0_SEXT (.Num(IR[4:0]), .SEXT_Out(IR40_SEXT));
 SEXT #(5) IR5to0_SEXT (.Num(IR[5:0]), .SEXT_Out(IR50_SEXT));
 SEXT #(8) IR8to0_SEXT (.Num(IR[8:0]), .SEXT_Out(IR80_SEXT));
 SEXT #(10) IR10to0_SEXT (.Num(IR[10:0]), .SEXT_Out(IR100_SEXT));
+SEXT #(11) IR11to0_SEXT (.Num(IR[11:0]), .SEXT_Out(IR110_SEXT));
 
 
 
 
-BMUX BusMux(.select({GateALU, GateMARMUX, GateMDR, GatePC}), .A(PC), .B(MDR), .C(MAR), .D(ALU_Out), .Output(Bus_Val));
+BMUX BusMux(.select({GateALU, GateMARMUX, GateMDR, GatePC}), .A(PC), .B(MDR), .C(ADDRS21VAL), .D(ALU_Out), .Output(Bus_Val));
 
 
-PMUX PCMux(.select(PCMUX), .A(PC), .B(ADDRS21VAL), .C(Bus_Val), .Output(pc_mux));
+PMUX PCMux(.select(PCMUX), .A(Bus_Val), .B(ADDRS21VAL), .C(PC), .Output(pc_mux));
 
+MUX2_1 MDRmux(.select(MIO_EN), .A(Bus_Val), .B(MDR_In), .Output(MDRMux_Out));
 
 reg16 reg_MAR (.Clk(Clk), .Reset(Reset), .Load(LD_MAR), .Din(Bus_Val), .Dout(MAR)); //MAR, Din is from bus
-reg16 reg_MDR (.Clk(Clk), .Reset(Reset), .Load(LD_MDR), .Din(MDR_In), .Dout(MDR)); //MDR, Din is from bus or mioen mux
+reg16 reg_MDR (.Clk(Clk), .Reset(Reset), .Load(LD_MDR), .Din(MDRMux_Out), .Dout(MDR)); //MDR, Din is from bus or mioen mux
 reg16 reg_IR (.Clk(Clk), .Reset(Reset), .Load(LD_IR), .Din(Bus_Val), .Dout(IR)); //IR , Din is from bus
 reg16 reg_PC (.Clk(Clk), .Reset(Reset), .Load(LD_PC), .Din(pc_mux), .Dout(PC)); //PC , Din is from PCMux
 
@@ -120,7 +121,7 @@ RegisterFile reg_file (.Clk(Clk), .Reset(Reset), .LD_REG(LD_REG), .Dr_In(DRMUX_O
 RegMUX #(15) SR2Mux (.select(SR2MUX_SELECT), .A(SR2_Out), .B(IR40_SEXT), .Output(SR2MUX_OUT));
 
 
-ALUMOD ALU (.A(SR1_Out), .B(SR2MUX_OUT), .*);
+ALUMOD ALU (.A(SR1_Out), .B(SR2MUX_OUT), .ALU_Out(ALU_Out), .ALUK(ALUK));
 
 
 
