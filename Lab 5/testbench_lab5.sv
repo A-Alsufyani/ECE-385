@@ -10,8 +10,8 @@ logic [7:0] hex_segB;
 logic [3:0] hex_gridB;
 
 
-slc3_sramtop bench(.*);
-// slc3_testtop bench(.*);
+//slc3_sramtop bench(.*);
+ slc3_testtop bench(.*);
 
 always begin : CLOCK_GENERATION
 #1 Clk = ~Clk;
@@ -28,11 +28,11 @@ Continue = 0;
 Reset = 0;
 #1 Run = 1;
 #3 Run = 0;
-#550 Continue = 1;
-#8 Continue = 0;
-#6 Continue = 1;
-#8 Continue = 0;
-#6 Continue = 1;
+// #8 Continue = 1;
+// #8 Continue = 0;
+// #6 Continue = 1;
+// #8 Continue = 0;
+// #6 Continue = 1;
 // #8 Continue = 0;
 // #4 Continue = 1;
 // #6 Continue = 0;

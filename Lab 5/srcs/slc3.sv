@@ -36,9 +36,9 @@ module slc3(
 // Internal connections
 logic LD_MAR, LD_MDR, LD_IR, LD_BEN, LD_CC, LD_REG, LD_PC, LD_LED;
 logic GatePC, GateMDR, GateALU, GateMARMUX;
-logic SR2MUX, ADDR1MUX, MARMUX;
+logic ADDR1MUX_SELECT, MARMUX;
 logic BEN, MIO_EN, DRMUX, SR1MUX;
-logic [1:0] PCMUX, ADDR2MUX, ALUK;
+logic [1:0] PCMUX, ADDR2MUX_SELECT, ALUK;
 logic [15:0] MDR_In;
 logic [15:0] MAR, MDR, IR, PC;
 logic [3:0] [3:0] hex_4; 
@@ -47,10 +47,20 @@ logic [15:0] Bus_Val;
 logic [15:0] pc_mux;
 
 
+logic DRMUX_SELECT, SR1MUX_SELECT, SR2MUX_SELECT;
+logic [2:0] NZP_IN;
+logic [2:0] NZP, SR2;
+logic [3:0] TRGT_REG;
+logic [2:0] DRMUX_OUT, SR1MUX_OUT;
+logic [15:0] SR1_Out, SR2_Out, ALU_Out, SR2MUX_OUT, ADDR1_OUT, ADDR2_OUT, ADDRS21VAL;
+
+logic[15:0] IR40_SEXT, IR50_SEXT, IR80_SEXT, IR100_SEXT;
+
+
 HexDriver HexA (
     .clk(Clk),
     .reset(Reset),
-    .in({IR[15:12], IR[11:8], IR[7:4], IR[3:0]}),
+    .in({hex_4[3], hex_4[2], hex_4[1], hex_4[0]}),
     .hex_seg(hex_seg),
     .hex_grid(hex_grid)
 );
@@ -78,58 +88,69 @@ assign MIO_EN = OE;
 
 // BMUX BusMux(.select[0](GatePC), .select[1](GateMDR), .select[2](GateMARMUX), .A(PC), .B(MDR), .C(MAR), .Output(Bus_Val));
 
-BMUX BusMux(.select({GateMARMUX, GateMDR, GatePC}), .A(PC), .B(MDR), .C(MAR), .Output(Bus_Val));
-
-// PMUX PCMux(.select[1:0](PCMUX), .A[15:0](PC), .B[15:0](0), .[15:0]C(0), .Output(pc_mux));
-
-PMUX PCMux(.select(2'b00), .A(PC), .B(0), .C(0), .Output(pc_mux));
-
-
-reg1 reg_MAR (.Clk(Clk), .Reset(Reset), .Load(LD_MAR), .Din(Bus_Val), .Dout(MAR)); //MAR, Din is from bus
-reg1 reg_MDR (.Clk(Clk), .Reset(Reset), .Load(LD_MDR), .Din(MDR_In), .Dout(MDR)); //MDR, Din is from bus or mioen mux
-reg1 reg_IR (.Clk(Clk), .Reset(Reset), .Load(LD_IR), .Din(Bus_Val), .Dout(IR)); //IR , Din is from bus
-reg1 reg_PC (.Clk(Clk), .Reset(Reset), .Load(LD_PC), .Din(pc_mux), .Dout(PC)); //PC , Din is from PCMux
+SEXT #(4) IR4to0_SEXT (.Num(IR[4:0]), .SEXT_Out(IR40_SEXT));
+SEXT #(5) IR5to0_SEXT (.Num(IR[5:0]), .SEXT_Out(IR50_SEXT));
+SEXT #(8) IR8to0_SEXT (.Num(IR[8:0]), .SEXT_Out(IR80_SEXT));
+SEXT #(10) IR10to0_SEXT (.Num(IR[10:0]), .SEXT_Out(IR100_SEXT));
 
 
 
 
+BMUX BusMux(.select({GateALU, GateMARMUX, GateMDR, GatePC}), .A(PC), .B(MDR), .C(MAR), .D(ALU_Out), .Output(Bus_Val));
 
-// module BMUX (
-//     input logic [3:0] select,
-//     input logic [15:0] A,
-//     input logic [15:0] B,
-//     input logic [15:0] C,
-//     input logic [15:0] D,
-//     output logic [15:0] Output,
+
+PMUX PCMux(.select(PCMUX), .A(PC), .B(ADDRS21VAL), .C(Bus_Val), .Output(pc_mux));
+
+
+reg16 reg_MAR (.Clk(Clk), .Reset(Reset), .Load(LD_MAR), .Din(Bus_Val), .Dout(MAR)); //MAR, Din is from bus
+reg16 reg_MDR (.Clk(Clk), .Reset(Reset), .Load(LD_MDR), .Din(MDR_In), .Dout(MDR)); //MDR, Din is from bus or mioen mux
+reg16 reg_IR (.Clk(Clk), .Reset(Reset), .Load(LD_IR), .Din(Bus_Val), .Dout(IR)); //IR , Din is from bus
+reg16 reg_PC (.Clk(Clk), .Reset(Reset), .Load(LD_PC), .Din(pc_mux), .Dout(PC)); //PC , Din is from PCMux
+
+
+NZP nzp (.*, .Bus_input(Bus_Val), .IRNZP(IR[11:9]));
+
+
+RegMUX DRegMux(.select(DRMUX_SELECT), .A(IR[11:9]), .B(3'b111), .Output(DRMUX_OUT));
+RegMUX SR1Mux(.select(SR1MUX_SELECT), .A(IR[8:6]), .B(IR[11:9]), .Output(SR1MUX_OUT));
+
+RegisterFile reg_file (.Clk(Clk), .Reset(Reset), .LD_REG(LD_REG), .Dr_In(DRMUX_OUT), .Bus_input(Bus_Val), .SR1(SR1MUX_OUT), .SR2(IR[2:0]), .SR1out(SR1_Out), .SR2out(SR2_Out));
+// I'm not sure about .SR2 Value
+
+RegMUX #(15) SR2Mux (.select(SR2MUX_SELECT), .A(SR2_Out), .B(IR40_SEXT), .Output(SR2MUX_OUT));
+
+
+ALUMOD ALU (.A(SR1_Out), .B(SR2MUX_OUT), .*);
+
+
+
+MUX4_1 ADDR2MUX (.select(ADDR2MUX_SELECT), .A(IR100_SEXT), .B(IR80_SEXT), .C(IR50_SEXT), .D(16'b0), .Output(ADDR2_OUT));
+MUX2_1 ADDR1MUX (.select(ADDR1MUX_SELECT), .A(SR1_Out), .B(PC), .Output(ADDR1_OUT));
+
+
+
+always_comb
+begin
+    ADDRS21VAL = ADDR1_OUT + ADDR2_OUT;
+end
+
+// module ALU (
+//     input [15:0] A, B,
+//     input [1:0] ALUK,
+//     output logic [15:0] ALU_Out
 // );
-// always_comb
-// begin
-//     case (select)
-//     4b' 0001: Output = A;
-//     4b' 0010: Output = B;
-//     4b' 0100: Output = C;
-//     4b' 1000: Output = D;
-//     default: //Output = X don't care;
-//     endcase
-// end
-// endmodule 
 
-// module PMUX (
-//     input logic select [1:0],
-//     input logic [15:0] A,
-//     input logic [15:0] B,
-//     input logic [15:0] C,
-//     output logic [15:0] Output,
-// );
-// always_comb
-// begin
-//     case(select)
-//     2b' 00: Output = A + 1 //pc counter
-   
-//     default: Output = A
-//     endcase
-// end
+//     always_comb
+//     begin
+//         unique case (ALUK)
+//             2'b00:  ALU_Out = A + B;        // ADD
+//             2'b01:  ALU_Out = A & B;        // AND
+//             2'b10:  ALU_Out = !A;           // NOT
+//         endcase
+//     end
+
 // endmodule
+
 
 // Our I/O controller (note, this plugs into MDR/MAR)
 // logic Load_PC, Load_MAR, Load_MDR, Load_IR, Gate_PC, Gate_MDR;
