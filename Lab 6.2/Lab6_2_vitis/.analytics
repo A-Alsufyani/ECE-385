@@ -1,0 +1,4 @@
+timestamp=[2023-10-19 08:45:23], mode=WORKBENCH_START, duration=0:00:08.642, duration_ms=8642, data={}
+timestamp=[2023-10-19 08:45:23], mode=WORKBENCH_UI_INIT, duration=0:00:00.017, duration_ms=17, data={editors_count=0, platform_editors_count=0, projects_count=0, platform_projects_count=0, active_platform_editor=false, projects=}
+timestamp=[2023-10-19 08:45:35], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.374, duration_ms=374, data={}
+timestamp=[2023-10-19 08:46:45], mode=APP_CREATION, duration=0:00:04.138, duration_ms=4138, data={name=mb_usb, project_type=sdk, os=standalone, processor=microblaze, runtime=cpp, platform=mb_usb_hdmi_top, application_type=application}

@@ -1,0 +1,14 @@
+08:45:18 DEBUG : Logs will be stored at 'C:/Users/Abdullah/Lab6_2/Lab6_2_vitis/IDE.log'.
+08:45:24 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\Abdullah\Lab6_2\Lab6_2_vitis\temp_xsdb_launch_script.tcl
+08:45:27 INFO  : XSCT server has started successfully.
+08:45:27 INFO  : Successfully done setting XSCT server connection channel  
+08:45:27 INFO  : plnx-install-location is set to ''
+08:45:27 INFO  : Successfully done setting workspace for the tool. 
+08:45:35 INFO  : Registering command handlers for Vitis TCF services
+08:45:35 INFO  : Platform repository initialization has completed.
+08:45:36 INFO  : Successfully done query RDI_DATADIR 
+08:46:43 INFO  : Result from executing command 'getProjects': mb_usb_hdmi_top
+08:46:43 INFO  : Result from executing command 'getPlatforms': xilinx_zcu102_base_202310_1|C:/Xilinx/Vitis/2023.1/base_platforms/xilinx_zcu102_base_202310_1/xilinx_zcu102_base_202310_1.xpfm;xilinx_zcu102_base_dfx_202310_1|C:/Xilinx/Vitis/2023.1/base_platforms/xilinx_zcu102_base_dfx_202310_1/xilinx_zcu102_base_dfx_202310_1.xpfm;xilinx_zcu104_base_202310_1|C:/Xilinx/Vitis/2023.1/base_platforms/xilinx_zcu104_base_202310_1/xilinx_zcu104_base_202310_1.xpfm
+08:46:43 WARN  : An unexpected exception occurred in the module 'platform project logging'
+08:46:43 INFO  : Platform 'mb_usb_hdmi_top' is added to custom repositories.
+08:46:45 INFO  : Platform 'mb_usb_hdmi_top' is added to custom repositories.
