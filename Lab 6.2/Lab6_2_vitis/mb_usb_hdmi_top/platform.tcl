@@ -17,3 +17,31 @@ domain create -name {standalone_microblaze_0} -display-name {standalone_microbla
 platform generate -domains 
 platform active {mb_usb_hdmi_top}
 platform generate -quick
+platform generate
+platform generate
+platform active {mb_usb_hdmi_top}
+platform generate -domains 
+platform generate
+platform active {mb_usb_hdmi_top}
+platform config -updatehw {C:/Users/Abdullah/Lab6_2/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform active {mb_usb_hdmi_top}
+platform config -updatehw {C:/Users/Abdullah/Lab6_2/mb_usb_hdmi_top.xsa}
+platform active {mb_usb_hdmi_top}
+platform config -updatehw {C:/Users/Abdullah/Lab6_2/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform config -updatehw {C:/Users/Abdullah/Lab6_2/mb_usb_hdmi_top.xsa}
+platform active {mb_usb_hdmi_top}
+platform config -updatehw {C:/Users/Abdullah/Lab6_2/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform config -updatehw {C:/Users/Abdullah/Lab6_2/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform active {mb_usb_hdmi_top}
+platform config -updatehw {C:/Users/Abdullah/Lab6_2/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform active {mb_usb_hdmi_top}
+platform config -updatehw {C:/Users/Abdullah/Lab6_2/mb_usb_hdmi_top.xsa}
+platform generate -domains 
+platform active {mb_usb_hdmi_top}
+platform config -updatehw {C:/Users/Abdullah/Lab6_2/mb_usb_hdmi_top.xsa}
+platform generate -domains 

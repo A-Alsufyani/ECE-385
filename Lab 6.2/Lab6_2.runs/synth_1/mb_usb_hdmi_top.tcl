@@ -137,9 +137,9 @@ set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Lab6
 set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Lab6_2/Lab6_2.gen/sources_1/bd/mb_usb/mb_usb_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Lab6_2/Lab6_2.gen/sources_1/bd/mb_usb/ip/mb_usb_microblaze_0_0/data/mb_bootloop_le.elf]
 
-read_ip -quiet c:/Users/Abdullah/Lab6_2/Lab6_2.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
+read_ip -quiet C:/Users/Abdullah/Lab6_2/Lab6_2.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
 
-read_ip -quiet c:/Users/Abdullah/Lab6_2/Lab6_2.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+read_ip -quiet C:/Users/Abdullah/Lab6_2/Lab6_2.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Lab6_2/Lab6_2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Lab6_2/Lab6_2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Lab6_2/Lab6_2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
@@ -153,9 +153,6 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc {{C:/Users/Abdullah/Downloads/ECE385/Lab 6.2/lab6_1_provided/mb_intro_top.xdc}}
-set_property used_in_implementation false [get_files {{C:/Users/Abdullah/Downloads/ECE385/Lab 6.2/lab6_1_provided/mb_intro_top.xdc}}]
-
 read_xdc C:/Users/Abdullah/Lab6_2/Lab6_2.srcs/constrs_1/imports/pin_assignment/mb_usb_hdmi_top.xdc
 set_property used_in_implementation false [get_files C:/Users/Abdullah/Lab6_2/Lab6_2.srcs/constrs_1/imports/pin_assignment/mb_usb_hdmi_top.xdc]
 
@@ -163,7 +160,7 @@ read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental C:/Users/Abdullah/Lab6_2/Lab6_2.srcs/utils_1/imports/synth_1/mb_intro_top.dcp
+read_checkpoint -auto_incremental -incremental C:/Users/Abdullah/Lab6_2/Lab6_2.srcs/utils_1/imports/synth_1/mb_usb_hdmi_top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

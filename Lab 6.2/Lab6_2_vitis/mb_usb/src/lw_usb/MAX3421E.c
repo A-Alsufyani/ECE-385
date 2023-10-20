@@ -68,6 +68,15 @@ BYTE SPI_wr(BYTE data) {
 void MAXreg_wr(BYTE reg, BYTE val) {
 	//psuedocode:
 	//select MAX3421E 
+	XSpi_SetSlaveSelect(&SpiInstance, SpiInstance.SlaveSelectMask);
+	BYTE buf[2];
+	buf[0] = reg + 2;
+	buf[1] = val;
+	XSpi_Transfer(&SpiInstance, buf, NULL, 2);
+	if (Status != XST_SUCCESS){
+		xil_printf("single write error");
+	}
+	XSpi_SetSlaveSelect(&SpiInstance, 0);
 	//write reg + 2 via SPI
 	//write val via SPI
 	//read return code from SPI peripheral (see Xilinx examples) 
@@ -79,6 +88,19 @@ void MAXreg_wr(BYTE reg, BYTE val) {
 /* multiple-byte write */
 /* returns a pointer to a memory position after last written */
 BYTE* MAXbytes_wr(BYTE reg, BYTE nbytes, BYTE* data) {
+
+	XSpi_SetSlaveSelect(&SpiInstance, SpiInstance.SlaveSelectMask);
+	BYTE buf[nbytes+1];
+	buf[0] = reg + 2;
+	for( int i = nbytes; i > 0; i--){
+		buf[i] = data[i-1];
+	}
+
+	XSpi_Transfer(&SpiInstance, buf, NULL, nbytes+1);
+	if(Status != XST_SUCCESS){
+		xil_printf("Multiple Write Error");
+	}
+	XSpi_SetSlaveSelect(&SpiInstance, 0);
 	//psuedocode:
 	//select MAX3421E (may not be necessary if you are using SPI peripheral)
 	//write reg + 2 via SPI
@@ -87,10 +109,19 @@ BYTE* MAXbytes_wr(BYTE reg, BYTE nbytes, BYTE* data) {
 	//if return code != 0 print an error
 	//deselect MAX3421E (may not be necessary if you are using SPI peripheral)
 	//return (data + nbytes);
+	return (data + nbytes);
 }
 
 /* Single host register read        */
 BYTE MAXreg_rd(BYTE reg) {
+	XSpi_SetSlaveSelect(&SpiInstance, SpiInstance.SlaveSelectMask);
+	BYTE buf[2];
+	buf[0] = reg;
+	XSpi_Transfer(&SpiInstance, buf, buf, 2);
+	if (Status != XST_SUCCESS){
+		xil_printf("Single Read Error");
+	}
+	XSpi_SetSlaveSelect(&SpiInstance, 0);
 	//psuedocode:
 	//select MAX3421E (
 	//write reg via SPI
@@ -98,7 +129,7 @@ BYTE MAXreg_rd(BYTE reg) {
 	//read return code from SPI peripheral 
 	//if return code != 0 print an error
 	//deselect MAX3421E (may not be necessary if you are using SPI peripheral)
-	//return val
+	return buf[1];
 }
 
 
@@ -106,6 +137,18 @@ BYTE MAXreg_rd(BYTE reg) {
 /* multiple-bytes register read                             */
 /* returns a pointer to a memory position after last read   */
 BYTE* MAXbytes_rd(BYTE reg, BYTE nbytes, BYTE* data) {
+	XSpi_SetSlaveSelect(&SpiInstance, SpiInstance.SlaveSelectMask);
+	BYTE buf[nbytes+1];
+	buf[0] = reg;
+	XSpi_Transfer(&SpiInstance, buf, buf, nbytes+1);
+	
+	for( int i = nbytes; i > 0; i--){
+		data[i-1] = buf[i];
+	}
+	if(Status != XST_SUCCESS){
+		xil_printf("Multiple Read Error");
+	}
+	XSpi_SetSlaveSelect(&SpiInstance, 0);
 	//psuedocode:
 	//select MAX3421E (may not be necessary if you are using SPI peripheral)
 	//write reg via SPI
@@ -114,6 +157,7 @@ BYTE* MAXbytes_rd(BYTE reg, BYTE nbytes, BYTE* data) {
 	//if return code != 0 print an error
 	//deselect MAX3421E (may not be necessary if you are using SPI peripheral)
 	//return (data + nbytes);
+	return (data + nbytes);
 }
 /* reset MAX3421E using chip reset bit. SPI configuration is not affected   */
 void MAX3421E_reset(void) {
