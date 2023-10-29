@@ -1,0 +1,7 @@
++================================+================================+==========================================================================================+
+| Launch Setup Clock             | Launch Hold Clock              | Pin                                                                                      |
++================================+================================+==========================================================================================+
+| clk_out1_mb_hdmi_clk_wiz_1_2_1 | clk_out1_mb_hdmi_clk_wiz_1_2_1 | mb_hdmi_i/hdmi_text_controller_0/inst/vga_to_hdmi/inst/srldly_0/srl[21].srl16_i/D        |
+| clk_out1_mb_hdmi_clk_wiz_1_2_1 | clk_out1_mb_hdmi_clk_wiz_1_2_1 | mb_hdmi_i/hdmi_text_controller_0/inst/vga_to_hdmi/inst/srldly_0/srl[38].srl16_i_srlopt/D |
+| clk_out1_mb_hdmi_clk_wiz_1_2_1 | clk_out1_mb_hdmi_clk_wiz_1_2_1 | mb_hdmi_i/hdmi_text_controller_0/inst/vga_to_hdmi/inst/srldly_0/srl[23].srl16_i_srlopt/D |
++--------------------------------+--------------------------------+------------------------------------------------------------------------------------------+
