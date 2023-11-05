@@ -1,0 +1,1724 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 09:17:03 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 43) to (Rev. 44)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 08:50:13 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 42) to (Rev. 43)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 08:36:39 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 41) to (Rev. 42)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 08:20:00 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 40) to (Rev. 41)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 08:04:34 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 39) to (Rev. 40)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 07:35:10 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 38) to (Rev. 39)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 07:28:57 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 37) to (Rev. 38)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 07:24:57 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 56) to (Rev. 37)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'mb_hdmi_hdmi_text_controller_0_0'. These changes may impact your design.
+
+
+-Upgraded port 'axi_araddr' width 16 differs from original width 14
+
+-Upgraded port 'axi_awaddr' width 16 differs from original width 14
+
+
+3. Customization warnings
+-------------------------
+
+An attempt to modify the value of disabled parameter 'C_AXI_ADDR_WIDTH' from '16' to '14' has been ignored for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+
+4. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv xilinx.com:user:hdmi_text_controller:2.0 -user_name mb_hdmi_hdmi_text_controller_0_0
+set_property -dict "\
+  CONFIG.AXI.ADDR_WIDTH {14} \
+  CONFIG.AXI.ARUSER_WIDTH {0} \
+  CONFIG.AXI.AWUSER_WIDTH {0} \
+  CONFIG.AXI.BUSER_WIDTH {0} \
+  CONFIG.AXI.CLK_DOMAIN {/clk_wiz_1_clk_out1} \
+  CONFIG.AXI.DATA_WIDTH {32} \
+  CONFIG.AXI.FREQ_HZ {100000000} \
+  CONFIG.AXI.HAS_BRESP {1} \
+  CONFIG.AXI.HAS_BURST {0} \
+  CONFIG.AXI.HAS_CACHE {0} \
+  CONFIG.AXI.HAS_LOCK {0} \
+  CONFIG.AXI.HAS_PROT {1} \
+  CONFIG.AXI.HAS_QOS {0} \
+  CONFIG.AXI.HAS_REGION {0} \
+  CONFIG.AXI.HAS_RRESP {1} \
+  CONFIG.AXI.HAS_WSTRB {1} \
+  CONFIG.AXI.ID_WIDTH {0} \
+  CONFIG.AXI.INSERT_VIP {0} \
+  CONFIG.AXI.MAX_BURST_LENGTH {1} \
+  CONFIG.AXI.NUM_READ_OUTSTANDING {2} \
+  CONFIG.AXI.NUM_READ_THREADS {1} \
+  CONFIG.AXI.NUM_WRITE_OUTSTANDING {2} \
+  CONFIG.AXI.NUM_WRITE_THREADS {1} \
+  CONFIG.AXI.PHASE {0.0} \
+  CONFIG.AXI.PROTOCOL {AXI4LITE} \
+  CONFIG.AXI.READ_WRITE_MODE {READ_WRITE} \
+  CONFIG.AXI.RUSER_BITS_PER_BYTE {0} \
+  CONFIG.AXI.RUSER_WIDTH {0} \
+  CONFIG.AXI.SUPPORTS_NARROW_BURST {0} \
+  CONFIG.AXI.WIZ_DATA_WIDTH {32} \
+  CONFIG.AXI.WIZ_NUM_REG {4} \
+  CONFIG.AXI.WUSER_BITS_PER_BYTE {0} \
+  CONFIG.AXI.WUSER_WIDTH {0} \
+  CONFIG.AXI_CLK.ASSOCIATED_BUSIF {AXI} \
+  CONFIG.AXI_CLK.ASSOCIATED_PORT {} \
+  CONFIG.AXI_CLK.ASSOCIATED_RESET {axi_aresetn} \
+  CONFIG.AXI_CLK.CLK_DOMAIN {/clk_wiz_1_clk_out1} \
+  CONFIG.AXI_CLK.FREQ_HZ {100000000} \
+  CONFIG.AXI_CLK.FREQ_TOLERANCE_HZ {0} \
+  CONFIG.AXI_CLK.INSERT_VIP {0} \
+  CONFIG.AXI_CLK.PHASE {0.0} \
+  CONFIG.AXI_RST.INSERT_VIP {0} \
+  CONFIG.AXI_RST.POLARITY {ACTIVE_LOW} \
+  CONFIG.C_AXI_ADDR_WIDTH {14} \
+  CONFIG.C_AXI_BASEADDR {0xFFFFFFFF} \
+  CONFIG.C_AXI_DATA_WIDTH {32} \
+  CONFIG.C_AXI_HIGHADDR {0x00000000} \
+  CONFIG.Component_Name {mb_hdmi_hdmi_text_controller_0_0} \
+  CONFIG.HDMI.NUM_READ_OUTSTANDING {} \
+  CONFIG.HDMI.NUM_WRITE_OUTSTANDING {} \
+  CONFIG.hdmi_clk_n.ASSOCIATED_BUSIF {} \
+  CONFIG.hdmi_clk_n.ASSOCIATED_PORT {} \
+  CONFIG.hdmi_clk_n.ASSOCIATED_RESET {} \
+  CONFIG.hdmi_clk_n.CLK_DOMAIN {} \
+  CONFIG.hdmi_clk_n.FREQ_HZ {100000000} \
+  CONFIG.hdmi_clk_n.FREQ_TOLERANCE_HZ {0} \
+  CONFIG.hdmi_clk_n.INSERT_VIP {0} \
+  CONFIG.hdmi_clk_n.PHASE {0.0} \
+  CONFIG.hdmi_clk_p.ASSOCIATED_BUSIF {} \
+  CONFIG.hdmi_clk_p.ASSOCIATED_PORT {} \
+  CONFIG.hdmi_clk_p.ASSOCIATED_RESET {} \
+  CONFIG.hdmi_clk_p.CLK_DOMAIN {} \
+  CONFIG.hdmi_clk_p.FREQ_HZ {100000000} \
+  CONFIG.hdmi_clk_p.FREQ_TOLERANCE_HZ {0} \
+  CONFIG.hdmi_clk_p.INSERT_VIP {0} \
+  CONFIG.hdmi_clk_p.PHASE {0.0} " [get_ips mb_hdmi_hdmi_text_controller_0_0]
+
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 07:09:19 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 55) to (Rev. 56)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 07:04:15 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 54) to (Rev. 55)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 06:53:48 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0 (Rev. 54)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 06:53:12 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 53) to (Rev. 54)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 06:43:58 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 52) to (Rev. 53)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 06:34:20 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 51) to (Rev. 52)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 06:31:39 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 50) to (Rev. 51)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 06:20:38 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 49) to (Rev. 50)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 06:10:43 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 48) to (Rev. 49)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 03:50:46 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 47) to (Rev. 48)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 03:29:07 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 46) to (Rev. 47)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 03:03:59 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 45) to (Rev. 46)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 03:01:37 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0 (Rev. 45)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 02:51:56 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 44) to (Rev. 45)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'mb_hdmi_hdmi_text_controller_0_0'. These changes may impact your design.
+
+
+-Upgraded port 'axi_araddr' width 14 differs from original width 16
+
+-Upgraded port 'axi_awaddr' width 14 differs from original width 16
+
+
+3. Customization warnings
+-------------------------
+
+An attempt to modify the value of disabled parameter 'C_AXI_ADDR_WIDTH' from '14' to '16' has been ignored for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+
+4. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv xilinx.com:user:hdmi_text_controller:2.0 -user_name mb_hdmi_hdmi_text_controller_0_0
+set_property -dict "\
+  CONFIG.AXI.ADDR_WIDTH {16} \
+  CONFIG.AXI.ARUSER_WIDTH {0} \
+  CONFIG.AXI.AWUSER_WIDTH {0} \
+  CONFIG.AXI.BUSER_WIDTH {0} \
+  CONFIG.AXI.CLK_DOMAIN {/clk_wiz_1_clk_out1} \
+  CONFIG.AXI.DATA_WIDTH {32} \
+  CONFIG.AXI.FREQ_HZ {100000000} \
+  CONFIG.AXI.HAS_BRESP {1} \
+  CONFIG.AXI.HAS_BURST {0} \
+  CONFIG.AXI.HAS_CACHE {0} \
+  CONFIG.AXI.HAS_LOCK {0} \
+  CONFIG.AXI.HAS_PROT {1} \
+  CONFIG.AXI.HAS_QOS {0} \
+  CONFIG.AXI.HAS_REGION {0} \
+  CONFIG.AXI.HAS_RRESP {1} \
+  CONFIG.AXI.HAS_WSTRB {1} \
+  CONFIG.AXI.ID_WIDTH {0} \
+  CONFIG.AXI.INSERT_VIP {0} \
+  CONFIG.AXI.MAX_BURST_LENGTH {1} \
+  CONFIG.AXI.NUM_READ_OUTSTANDING {2} \
+  CONFIG.AXI.NUM_READ_THREADS {1} \
+  CONFIG.AXI.NUM_WRITE_OUTSTANDING {2} \
+  CONFIG.AXI.NUM_WRITE_THREADS {1} \
+  CONFIG.AXI.PHASE {0.0} \
+  CONFIG.AXI.PROTOCOL {AXI4LITE} \
+  CONFIG.AXI.READ_WRITE_MODE {READ_WRITE} \
+  CONFIG.AXI.RUSER_BITS_PER_BYTE {0} \
+  CONFIG.AXI.RUSER_WIDTH {0} \
+  CONFIG.AXI.SUPPORTS_NARROW_BURST {0} \
+  CONFIG.AXI.WIZ_DATA_WIDTH {32} \
+  CONFIG.AXI.WIZ_NUM_REG {4} \
+  CONFIG.AXI.WUSER_BITS_PER_BYTE {0} \
+  CONFIG.AXI.WUSER_WIDTH {0} \
+  CONFIG.AXI_CLK.ASSOCIATED_BUSIF {AXI} \
+  CONFIG.AXI_CLK.ASSOCIATED_PORT {} \
+  CONFIG.AXI_CLK.ASSOCIATED_RESET {axi_aresetn} \
+  CONFIG.AXI_CLK.CLK_DOMAIN {/clk_wiz_1_clk_out1} \
+  CONFIG.AXI_CLK.FREQ_HZ {100000000} \
+  CONFIG.AXI_CLK.FREQ_TOLERANCE_HZ {0} \
+  CONFIG.AXI_CLK.INSERT_VIP {0} \
+  CONFIG.AXI_CLK.PHASE {0.0} \
+  CONFIG.AXI_RST.INSERT_VIP {0} \
+  CONFIG.AXI_RST.POLARITY {ACTIVE_LOW} \
+  CONFIG.C_AXI_ADDR_WIDTH {16} \
+  CONFIG.C_AXI_BASEADDR {0xFFFFFFFF} \
+  CONFIG.C_AXI_DATA_WIDTH {32} \
+  CONFIG.C_AXI_HIGHADDR {0x00000000} \
+  CONFIG.Component_Name {mb_hdmi_hdmi_text_controller_0_0} \
+  CONFIG.HDMI.NUM_READ_OUTSTANDING {} \
+  CONFIG.HDMI.NUM_WRITE_OUTSTANDING {} \
+  CONFIG.hdmi_clk_n.ASSOCIATED_BUSIF {} \
+  CONFIG.hdmi_clk_n.ASSOCIATED_PORT {} \
+  CONFIG.hdmi_clk_n.ASSOCIATED_RESET {} \
+  CONFIG.hdmi_clk_n.CLK_DOMAIN {} \
+  CONFIG.hdmi_clk_n.FREQ_HZ {100000000} \
+  CONFIG.hdmi_clk_n.FREQ_TOLERANCE_HZ {0} \
+  CONFIG.hdmi_clk_n.INSERT_VIP {0} \
+  CONFIG.hdmi_clk_n.PHASE {0.0} \
+  CONFIG.hdmi_clk_p.ASSOCIATED_BUSIF {} \
+  CONFIG.hdmi_clk_p.ASSOCIATED_PORT {} \
+  CONFIG.hdmi_clk_p.ASSOCIATED_RESET {} \
+  CONFIG.hdmi_clk_p.CLK_DOMAIN {} \
+  CONFIG.hdmi_clk_p.FREQ_HZ {100000000} \
+  CONFIG.hdmi_clk_p.FREQ_TOLERANCE_HZ {0} \
+  CONFIG.hdmi_clk_p.INSERT_VIP {0} \
+  CONFIG.hdmi_clk_p.PHASE {0.0} " [get_ips mb_hdmi_hdmi_text_controller_0_0]
+
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 02:27:55 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 43) to (Rev. 44)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 02:13:09 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 42) to (Rev. 43)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 02:01:41 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 41) to (Rev. 42)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 01:50:56 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 40) to (Rev. 41)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 01:46:41 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 39) to (Rev. 40)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 01:39:09 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 38) to (Rev. 39)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 01:34:26 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0 (Rev. 38)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 01:33:49 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0 (Rev. 38)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 01:15:13 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 40) to (Rev. 38)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 00:58:35 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 39) to (Rev. 40)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 00:45:45 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 38) to (Rev. 39)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 00:36:09 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 37) to (Rev. 38)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 00:14:20 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 36) to (Rev. 37)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 00:01:50 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0 (Rev. 36)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Nov  4 00:00:02 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 35) to (Rev. 36)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 23:44:04 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 34) to (Rev. 35)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 23:30:00 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 33) to (Rev. 34)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 23:15:38 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 32) to (Rev. 33)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 23:02:56 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 31) to (Rev. 32)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 22:49:18 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 30) to (Rev. 31)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 22:45:15 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0 (Rev. 30)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 22:35:27 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 29) to (Rev. 30)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 22:33:57 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0 (Rev. 29)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 22:26:29 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0 (Rev. 29)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 22:25:47 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 28) to (Rev. 29)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 22:13:50 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 27) to (Rev. 28)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 21:10:52 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 26) to (Rev. 27)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 20:38:14 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 25) to (Rev. 26)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 20:21:05 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 24) to (Rev. 25)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 20:18:52 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 23) to (Rev. 24)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 20:14:02 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 22) to (Rev. 23)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 19:55:17 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 21) to (Rev. 22)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 19:12:32 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 20) to (Rev. 21)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 11:46:22 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 19) to (Rev. 20)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 11:39:51 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 18) to (Rev. 19)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 11:34:56 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 17) to (Rev. 18)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 11:23:19 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 16) to (Rev. 17)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 10:34:15 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 14) to (Rev. 16)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 10:11:43 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 13) to (Rev. 14)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 09:54:46 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 12) to (Rev. 13)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 09:29:08 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 11) to (Rev. 12)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 09:26:46 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 10) to (Rev. 11)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 09:07:05 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0 (Rev. 10)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 08:56:15 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0 (Rev. 10)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 08:38:23 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 9) to (Rev. 10)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 08:25:45 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 8) to (Rev. 9)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 08:14:05 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 7) to (Rev. 8)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 07:50:56 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 6) to (Rev. 7)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 07:09:42 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 5) to (Rev. 6)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 07:01:39 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 (xilinx.com:user:hdmi_text_controller:2.0) from (Rev. 3) to (Rev. 5)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Fri Nov  3 06:24:28 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'mb_hdmi_hdmi_text_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of mb_hdmi_hdmi_text_controller_0_0 from xilinx.com:user:hdmi_text_controller:1.0 (Rev. 21) to xilinx.com:user:hdmi_text_controller:2.0 (Rev. 3)
+
