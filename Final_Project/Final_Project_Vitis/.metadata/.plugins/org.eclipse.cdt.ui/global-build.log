@@ -1,0 +1,5 @@
+Nothing to build in platform 'Final_Top_Level'
+
+02:03:29 **** Incremental Build of configuration Debug for project final_one ****
+make all 
+make: Nothing to be done for 'all'.
