@@ -1,19 +1,8 @@
-#include <stdio.h>
-#include "platform.h"
-#include "lw_usb/GenericMacros.h"
-#include "lw_usb/GenericTypeDefs.h"
-#include "lw_usb/MAX3421E.h"
-#include "lw_usb/USB.h"
-#include "lw_usb/usb_ch9.h"
-#include "lw_usb/transfer.h"
-#include "lw_usb/HID.h"
-
-#include "xparameters.h"
-#include <xgpio.h>
+#include "lw_usb_main.h"
 
 extern HID_DEVICE hid_device;
 
-static XGpio Gpio_hex;
+XGpio Gpio_hex;
 
 static BYTE addr = 1; 				//hard-wired USB address
 const char* const devclasses[] = { " Uninitialized", " HID Keyboard", " HID Mouse", " Mass storage" };

@@ -26,7 +26,7 @@ BOOL HIDMProbe(BYTE addr, DWORD flags) {
 	rcode = XferGetConfDescr(addr, 0, CONF_DESCR_LEN, 0, bigbuf); //get configuration descriptor
 	if (rcode) {   //error handling
 		//printf("unable to get configuration descriptor");
-		return (FALSE);
+		return (BOOL_FALSE);
 	}
 	if (data_ptr->descr.config.wTotalLength > 256) {
 		total_length = 256;
@@ -36,7 +36,7 @@ BOOL HIDMProbe(BYTE addr, DWORD flags) {
 	rcode = XferGetConfDescr(addr, 0, total_length, 0, bigbuf); //get the whole configuration
 	if (rcode) {   //error handling
 		//printf("unable to get configuration");
-		return (FALSE);
+		return (BOOL_FALSE);
 	}
 	confvalue = data_ptr->descr.config.bConfigurationValue;
 	//printf("checking configuration value (length: %d): ",
@@ -90,24 +90,24 @@ BOOL HIDMProbe(BYTE addr, DWORD flags) {
 						/* configure device */
 						rcode = XferSetConf(addr, 0, confvalue); //set configuration
 						if (rcode) {   //error handling
-							return (FALSE);
+							return (BOOL_FALSE);
 						}
 						rcode = XferSetProto(addr, 0, hid_device.interface,
 								BOOT_PROTOCOL);
 						if (rcode) {   //error handling
-							return (FALSE);
+							return (BOOL_FALSE);
 						} else {
-							return (TRUE);
+							return (BOOL_TRUE);
 						}
 					}
 				}   //while( byte_ptr....
 			}   //if (Class matches
 			else { //if class don't match; die on first interface. Not really correct
-				return (FALSE);
+				return (BOOL_FALSE);
 			}
 		} //else if( data_ptr->
 	} // while( byte_ptr < &buf + total_length
-	return (FALSE);
+	return (BOOL_FALSE);
 }
 /* HID Keyboard probe. Called from USB state machine.                           */
 /* assumes configuration length is less than 256 bytes                          */
@@ -123,7 +123,7 @@ BOOL HIDKProbe(BYTE addr, DWORD flags) {
 	BYTE* byte_ptr = bigbuf;
 	rcode = XferGetConfDescr(addr, 0, CONF_DESCR_LEN, 0, bigbuf); //get configuration descriptor
 	if (rcode) {   //error handling           
-		return (FALSE);
+		return (BOOL_FALSE);
 	}
 	if (data_ptr->descr.config.wTotalLength > 256) {
 		total_length = 256;
@@ -132,7 +132,7 @@ BOOL HIDKProbe(BYTE addr, DWORD flags) {
 	}
 	rcode = XferGetConfDescr(addr, 0, total_length, 0, bigbuf); //get the whole configuration
 	if (rcode) {   //error handling
-		return (FALSE);
+		return (BOOL_FALSE);
 	}
 	confvalue = data_ptr->descr.config.bConfigurationValue; //save configuration value to use later
 	while (byte_ptr < bigbuf + total_length) {             //parse configuration
@@ -180,24 +180,24 @@ BOOL HIDKProbe(BYTE addr, DWORD flags) {
 						/* configure device */
 						rcode = XferSetConf(addr, 0, confvalue); //set configuration
 						if (rcode) {   //error handling
-							return (FALSE);
+							return (BOOL_FALSE);
 						}
 						rcode = XferSetProto(addr, 0, hid_device.interface,
 								BOOT_PROTOCOL);
 						if (rcode) {   //error handling
-							return (FALSE);
+							return (BOOL_FALSE);
 						} else {
-							return (TRUE);
+							return (BOOL_TRUE);
 						}
 					}
 				}   //while( byte_ptr....
 			}   //if (Class matches
 			else { //if class don't match; stop processing after first interface. Not really correct
-				return (FALSE);
+				return (BOOL_FALSE);
 			}
 		} //else if( data_ptr->
 	} // while( byte_ptr < &buf + total_length
-	return (FALSE);
+	return (BOOL_FALSE);
 }
 /* HID data structures initialization */
 void HID_init(void) {
@@ -221,8 +221,8 @@ BYTE kbdPoll(BOOT_KBD_REPORT* buf) {
 	return (rcode);
 }
 BOOL HIDMEventHandler(BYTE address, BYTE event, void *data, DWORD size) {
-	return (FALSE);
+	return (BOOL_FALSE);
 }
 BOOL HIDKEventHandler(BYTE address, BYTE event, void *data, DWORD size) {
-	return (FALSE);
+	return (BOOL_FALSE);
 }

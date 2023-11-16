@@ -4,7 +4,7 @@
 #define __GENERIC_TYPE_DEFS_H_
 
 typedef enum _BOOL {
-	FALSE = 0, TRUE
+	BOOL_FALSE = 0, BOOL_TRUE
 } BOOL;	// Undefined size
 
 #define	ON TRUE
