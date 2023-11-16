@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "hdmi_text_controller.h": "c",
+        "platform.h": "c"
+    }
+}

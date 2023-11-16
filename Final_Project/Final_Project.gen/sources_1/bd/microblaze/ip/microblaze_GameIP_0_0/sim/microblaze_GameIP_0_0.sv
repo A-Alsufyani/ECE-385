@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:user:GameIP:1.0
-// IP Revision: 5
+// IP Revision: 12
 
 `timescale 1ns/1ps
 

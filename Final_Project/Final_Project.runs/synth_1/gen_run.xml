@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1699864964" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/Final_Top_Level.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1700110833" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/Final_Top_Level.dcp">
   <File Type="PA-TCL" Name="Final_Top_Level.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="Final_Top_Level_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="Final_Top_Level_reports.tcl"/>
   <File Type="RDS-RDS" Name="Final_Top_Level.vds"/>
   <File Type="RDS-UTIL" Name="Final_Top_Level_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="Final_Top_Level_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="Final_Top_Level.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="Final_Top_Level_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="Final_Top_Level_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/bd/microblaze/microblaze.bd">
@@ -68,16 +71,16 @@
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_gpio_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_gpio_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="microblaze_dlmb_bram_if_cntlr_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_gpio_0_2"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_mdm_1_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_timer_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_quad_spi_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="microblaze_dlmb_bram_if_cntlr_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_gpio_0_2"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_GameIP_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_ilmb_bram_if_cntlr_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_quad_spi_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_lmb_bram_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="microblaze_microblaze_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_microblaze_0_axi_intc_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="microblaze_microblaze_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_dlmb_v10_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_clk_wiz_1_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_rst_clk_wiz_1_100M_1"/>

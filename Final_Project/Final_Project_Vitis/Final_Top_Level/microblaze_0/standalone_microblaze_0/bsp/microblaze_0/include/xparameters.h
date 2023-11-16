@@ -482,6 +482,17 @@
  
  
 /******************************************************************/
+/* Definitions for driver GAMEIP */
+#define XPAR_GAMEIP_NUM_INSTANCES 1
+
+/* Definitions for peripheral GAMEIP_0 */
+#define XPAR_GAMEIP_0_DEVICE_ID 0
+#define XPAR_GAMEIP_0_AXI_BASEADDR 0x44A10000
+#define XPAR_GAMEIP_0_AXI_HIGHADDR 0x44A1FFFF
+
+
+/******************************************************************/
+
 /* Definitions for driver BRAM */
 #define XPAR_XBRAM_NUM_INSTANCES 2U
 

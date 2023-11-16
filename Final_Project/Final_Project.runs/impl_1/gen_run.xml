@@ -1,63 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7s50csga324-1" LaunchTime="1699864964">
+<GenRun Id="impl_1" LaunchPart="xc7s50csga324-1" LaunchTime="1700110833">
   <File Type="ROUTE-PWR" Name="Final_Top_Level_power_routed.rpt"/>
   <File Type="PA-TCL" Name="Final_Top_Level.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="Final_Top_Level_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="Final_Top_Level_reports.tcl"/>
-  <File Type="BITSTR-MSK" Name="Final_Top_Level.msk"/>
-  <File Type="ROUTE-CLK" Name="Final_Top_Level_clock_utilization_routed.rpt"/>
-  <File Type="RDI-RDI" Name="Final_Top_Level.vdi"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="Final_Top_Level_bus_skew_postroute_physopted.pb"/>
-  <File Type="BG-BIT" Name="Final_Top_Level.bit"/>
-  <File Type="BG-DRC" Name="Final_Top_Level.drc"/>
-  <File Type="BG-BGN" Name="Final_Top_Level.bgn"/>
-  <File Type="BG-BIN" Name="Final_Top_Level.bin"/>
-  <File Type="BITSTR-RBT" Name="Final_Top_Level.rbt"/>
-  <File Type="BITSTR-NKY" Name="Final_Top_Level.nky"/>
-  <File Type="BITSTR-BMM" Name="Final_Top_Level_bd.bmm"/>
+  <File Type="OPT-RQA-PB" Name="Final_Top_Level_rqa_opted.pb"/>
   <File Type="BITSTR-MMI" Name="Final_Top_Level.mmi"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="Final_Top_Level_methodology_drc_routed.rpt"/>
-  <File Type="BITSTR-SYSDEF" Name="Final_Top_Level.sysdef"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="Final_Top_Level.ltx"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="Final_Top_Level_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="Final_Top_Level_timing_summary_init.rpt"/>
+  <File Type="OPT-TIMING" Name="Final_Top_Level_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="Final_Top_Level_opt.dcp"/>
   <File Type="OPT-DRC" Name="Final_Top_Level_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="Final_Top_Level.hwdef"/>
+  <File Type="PWROPT-DCP" Name="Final_Top_Level_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="Final_Top_Level_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="Final_Top_Level_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="Final_Top_Level_placed.dcp"/>
   <File Type="PLACE-IO" Name="Final_Top_Level_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="Final_Top_Level_clock_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL" Name="Final_Top_Level_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL-PB" Name="Final_Top_Level_utilization_placed.pb"/>
   <File Type="PLACE-CTRL" Name="Final_Top_Level_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="Final_Top_Level_incremental_reuse_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="Final_Top_Level_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BIN" Name="Final_Top_Level.bin"/>
+  <File Type="PLACE-TIMING" Name="Final_Top_Level_timing_summary_placed.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="Final_Top_Level_power_routed.rpx"/>
+  <File Type="PLACE-RQA-PB" Name="Final_Top_Level_rqa_placed.pb"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="Final_Top_Level_postplace_pwropt.dcp"/>
+  <File Type="BITSTR-MSK" Name="Final_Top_Level.msk"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="Final_Top_Level_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="Final_Top_Level_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="Final_Top_Level_drc_physopted.rpt"/>
+  <File Type="BITSTR-RBT" Name="Final_Top_Level.rbt"/>
+  <File Type="PHYSOPT-TIMING" Name="Final_Top_Level_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="Final_Top_Level_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="Final_Top_Level_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="Final_Top_Level_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="Final_Top_Level_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="Final_Top_Level_drc_routed.pb"/>
-  <File Type="ROUTE-PWR-RPX" Name="Final_Top_Level_power_routed.rpx"/>
+  <File Type="ROUTE-DRC-RPX" Name="Final_Top_Level_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="Final_Top_Level_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="Final_Top_Level_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="Final_Top_Level_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-RQS-PB" Name="Final_Top_Level_rqs_routed.pb"/>
   <File Type="ROUTE-STATUS" Name="Final_Top_Level_route_status.rpt"/>
   <File Type="ROUTE-STATUS-PB" Name="Final_Top_Level_route_status.pb"/>
-  <File Type="ROUTE-DCP" Name="Final_Top_Level_routed.dcp"/>
-  <File Type="ROUTE-ERROR-DCP" Name="Final_Top_Level_routed_error.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="Final_Top_Level_routed_bb.dcp"/>
   <File Type="ROUTE-TIMINGSUMMARY" Name="Final_Top_Level_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="Final_Top_Level_timing_summary_routed.pb"/>
   <File Type="ROUTE-TIMING-RPX" Name="Final_Top_Level_timing_summary_routed.rpx"/>
   <File Type="ROUTE-SIMILARITY" Name="Final_Top_Level_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="Final_Top_Level_clock_utilization_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW" Name="Final_Top_Level_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="Final_Top_Level_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="Final_Top_Level_bus_skew_routed.rpx"/>
-  <File Type="OPT-DCP" Name="Final_Top_Level_opt.dcp"/>
-  <File Type="PLACE-DCP" Name="Final_Top_Level_placed.dcp"/>
-  <File Type="PWROPT-DCP" Name="Final_Top_Level_pwropt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="Final_Top_Level_postplace_pwropt.dcp"/>
-  <File Type="PHYSOPT-DCP" Name="Final_Top_Level_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="Final_Top_Level_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="Final_Top_Level_postroute_physopt_bb.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING" Name="Final_Top_Level_timing_summary_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="Final_Top_Level_timing_summary_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="Final_Top_Level_timing_summary_postroute_physopted.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="Final_Top_Level_bus_skew_postroute_physopted.rpt"/>
+  <File Type="BG-BIT" Name="Final_Top_Level.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="Final_Top_Level_bus_skew_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="Final_Top_Level_bus_skew_postroute_physopted.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="Final_Top_Level_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="Final_Top_Level_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="Final_Top_Level_methodology_drc_routed.rpx"/>
+  <File Type="BITSTR-NKY" Name="Final_Top_Level.nky"/>
+  <File Type="BITSTR-BMM" Name="Final_Top_Level_bd.bmm"/>
   <File Type="PDI-FILE" Name="Final_Top_Level.pdi"/>
   <File Type="BOOT-PDI-FILE" Name="Final_Top_Level_soc.pdi"/>
   <File Type="PL-PDI-FILE" Name="Final_Top_Level_pld.pdi"/>
@@ -66,6 +73,13 @@
   <File Type="RNPI_FILE" Name="Final_Top_Level.rnpi"/>
   <File Type="NPI_FILE" Name="Final_Top_Level.npi"/>
   <File Type="RBD_FILE" Name="Final_Top_Level.rbd"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="Final_Top_Level.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="Final_Top_Level.sysdef"/>
+  <File Type="BG-BGN" Name="Final_Top_Level.bgn"/>
+  <File Type="BG-DRC" Name="Final_Top_Level.drc"/>
+  <File Type="RDI-RDI" Name="Final_Top_Level.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="ROUTE-RQS" Name="Final_Top_Level_routed.rqs"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="Final_Top_Level_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
@@ -140,16 +154,16 @@
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_gpio_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_gpio_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="microblaze_dlmb_bram_if_cntlr_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_gpio_0_2"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_mdm_1_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_timer_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_quad_spi_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="microblaze_dlmb_bram_if_cntlr_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_gpio_0_2"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_GameIP_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_ilmb_bram_if_cntlr_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_quad_spi_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_lmb_bram_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="microblaze_microblaze_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_microblaze_0_axi_intc_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="microblaze_microblaze_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_dlmb_v10_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_clk_wiz_1_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_rst_clk_wiz_1_100M_1"/>

@@ -818,11 +818,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 13 08:33:06 UTC 2023</spirit:value>
+            <spirit:value>Thu Nov 16 05:01:16 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:cb3f5698</spirit:value>
+            <spirit:value>9:b6e32bee</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -836,11 +836,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 13 08:32:07 UTC 2023</spirit:value>
+            <spirit:value>Thu Nov 16 05:00:13 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:cb3f5698</spirit:value>
+            <spirit:value>9:b6e32bee</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -851,7 +851,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:cb3f5698</spirit:value>
+            <spirit:value>9:b6e32bee</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -867,11 +867,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 13 08:32:07 UTC 2023</spirit:value>
+            <spirit:value>Thu Nov 16 05:00:13 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c85e019b</spirit:value>
+            <spirit:value>9:2fe91b03</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -887,11 +887,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 13 08:32:07 UTC 2023</spirit:value>
+            <spirit:value>Thu Nov 16 05:00:13 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c85e019b</spirit:value>
+            <spirit:value>9:2fe91b03</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -907,11 +907,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 13 08:32:07 UTC 2023</spirit:value>
+            <spirit:value>Thu Nov 16 05:00:13 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:cb3f5698</spirit:value>
+            <spirit:value>9:b6e32bee</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -927,11 +927,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 13 08:32:07 UTC 2023</spirit:value>
+            <spirit:value>Thu Nov 16 05:00:13 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:cb3f5698</spirit:value>
+            <spirit:value>9:b6e32bee</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1386,30 +1386,70 @@
         <spirit:fileType>tclSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>drivers/GameIP_v1_0/src/Makefile</spirit:name>
-        <spirit:userFileType>driver_src</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>drivers/GameIP_v1_0/src/GameIP.h</spirit:name>
+        <spirit:name>src/USB.h</spirit:name>
         <spirit:fileType>cSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>drivers/GameIP_v1_0/src/GameIP.c</spirit:name>
+        <spirit:name>src/lw_usb_main.c</spirit:name>
         <spirit:fileType>cSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>drivers/GameIP_v1_0/src/GameIP_selftest.c</spirit:name>
+        <spirit:name>src/transfer.h</spirit:name>
+        <spirit:fileType>cSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/GenericMacros.h</spirit:name>
+        <spirit:fileType>cSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/MAX3421E.h</spirit:name>
+        <spirit:fileType>cSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/transfer.c</spirit:name>
+        <spirit:fileType>cSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/GenericTypeDefs.h</spirit:name>
+        <spirit:fileType>cSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/MAX3421E.c</spirit:name>
+        <spirit:fileType>cSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/HID.c</spirit:name>
+        <spirit:fileType>cSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/project_config.h</spirit:name>
+        <spirit:fileType>cSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/HID.h</spirit:name>
+        <spirit:fileType>cSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/usb_ch9.h</spirit:name>
+        <spirit:fileType>cSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/hdmi_text_controller.c</spirit:name>
+        <spirit:fileType>cSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/hdmi_text_controller.h</spirit:name>
         <spirit:fileType>cSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/0484/src/VGA_controller.sv</spirit:name>
+        <spirit:name>../../ipshared/0702/src/VGA_controller.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/0484/src/GameIP_v1_0_AXI.sv</spirit:name>
+        <spirit:name>../../ipshared/0702/src/GameIP_v1_0_AXI.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1428,15 +1468,19 @@
         <spirit:userFileType>CELL_NAME_vga_to_hdmi</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/0484/src/Color_Mapper.sv</spirit:name>
+        <spirit:name>../../ipshared/0702/src/Color_Mapper.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/0484/src/font_rom.sv</spirit:name>
+        <spirit:name>../../ipshared/0702/src/font_rom.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/0484/src/GameIP_v1_0.sv</spirit:name>
+        <spirit:name>../../ipshared/0702/src/block_rom.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/0702/src/GameIP_v1_0.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1451,11 +1495,11 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogsynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/0484/src/VGA_controller.sv</spirit:name>
+        <spirit:name>../../ipshared/0702/src/VGA_controller.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/0484/src/GameIP_v1_0_AXI.sv</spirit:name>
+        <spirit:name>../../ipshared/0702/src/GameIP_v1_0_AXI.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1474,15 +1518,19 @@
         <spirit:userFileType>CELL_NAME_vga_to_hdmi</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/0484/src/Color_Mapper.sv</spirit:name>
+        <spirit:name>../../ipshared/0702/src/Color_Mapper.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/0484/src/font_rom.sv</spirit:name>
+        <spirit:name>../../ipshared/0702/src/font_rom.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/0484/src/GameIP_v1_0.sv</spirit:name>
+        <spirit:name>../../ipshared/0702/src/block_rom.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/0702/src/GameIP_v1_0.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1559,7 +1607,7 @@
         <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:coreRevision>12</xilinx:coreRevision>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.AXI.ADDR_WIDTH" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.AXI.ARUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
@@ -1621,7 +1669,7 @@
       <xilinx:xilinxVersion>2023.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="527fb6b1"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="60746b78"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="acb90bab"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="7c516c27"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="1ede2edb"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="30bf43bf"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="ac5b54da"/>

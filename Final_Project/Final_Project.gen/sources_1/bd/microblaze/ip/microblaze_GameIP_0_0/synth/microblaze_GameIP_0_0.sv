@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:GameIP:1.0
-// IP Revision: 5
+// IP Revision: 12
 
 (* X_CORE_INFO = "Game_Top_Level,Vivado 2023.1" *)
 (* CHECK_LICENSE_TYPE = "microblaze_GameIP_0_0,Game_Top_Level,{}" *)
-(* CORE_GENERATION_INFO = "microblaze_GameIP_0_0,Game_Top_Level,{x_ipProduct=Vivado 2023.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=GameIP,x_ipVersion=1.0,x_ipCoreRevision=5,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_AXI_DATA_WIDTH=32,C_AXI_ADDR_WIDTH=16}" *)
+(* CORE_GENERATION_INFO = "microblaze_GameIP_0_0,Game_Top_Level,{x_ipProduct=Vivado 2023.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=GameIP,x_ipVersion=1.0,x_ipCoreRevision=12,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_AXI_DATA_WIDTH=32,C_AXI_ADDR_WIDTH=16}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module microblaze_GameIP_0_0 (
   hdmi_clk_n,

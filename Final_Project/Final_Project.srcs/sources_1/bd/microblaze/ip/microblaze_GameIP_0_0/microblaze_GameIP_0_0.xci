@@ -4,7 +4,7 @@
     "xci_name": "microblaze_GameIP_0_0",
     "cell_name": "GameIP_0",
     "component_reference": "xilinx.com:user:GameIP:1.0",
-    "ip_revision": "5",
+    "ip_revision": "12",
     "gen_directory": "../../../../../../Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0",
     "parameters": {
       "component_parameters": {
@@ -33,7 +33,7 @@
       },
       "runtime_parameters": {
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
-        "IPREVISION": [ { "value": "5" } ],
+        "IPREVISION": [ { "value": "12" } ],
         "MANAGED": [ { "value": "TRUE" } ],
         "OUTPUTDIR": [ { "value": "../../../../../../Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;final_software/src/files&apos; to &apos;lw_usb&apos;" description="Rename resource &apos;files&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/files" name="lw_usb" stamp="1699952024824" updateReferences="true"/>
+</session>

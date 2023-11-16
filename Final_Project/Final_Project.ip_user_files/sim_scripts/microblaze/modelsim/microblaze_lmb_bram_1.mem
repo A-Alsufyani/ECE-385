@@ -3,12 +3,12 @@
 // SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 // Vivado v2023.1 (64-bit)
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-// Created on Monday November 13, 2023 - 02:32:16 am, from:
+// Created on Wednesday November 15, 2023 - 11:00:23 pm, from:
 //
 //     Map file     - c:\Users\Abdullah\Downloads\ECE385\Final_Project\Final_Project.gen\sources_1\bd\microblaze\microblaze.bmm
 //     Data file(s) - c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/data/mb_bootloop_le.elf
 //
-// Address space 'mb_block_i_microblaze_0.mb_block_i_microblaze_0_local_memory_lmb_bram_ADDR_SPACE', bit lane [31:0].
+// Address space 'mb_block_i_microblaze_0.mb_block_i_microblaze_0_local_memory_lmb_bram_128K_2_ADDR_SPACE', bit lane [31:0].
 //
 // Bus width = 32 bits, number of bus blocks = 1.
 

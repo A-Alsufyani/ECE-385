@@ -204,11 +204,12 @@ vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Final_Project.gen/s
 "../../../bd/microblaze/ip/microblaze_GameIP_0_0/src/hdmi_tx_0/sim/hdmi_tx_0.v" \
 
 vlog -work xil_defaultlib  -incr -mfcu  -sv "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/ec67/hdl" "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/30ef" "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0" \
-"../../../bd/microblaze/ipshared/0484/src/VGA_controller.sv" \
-"../../../bd/microblaze/ipshared/0484/src/GameIP_v1_0_AXI.sv" \
-"../../../bd/microblaze/ipshared/0484/src/Color_Mapper.sv" \
-"../../../bd/microblaze/ipshared/0484/src/font_rom.sv" \
-"../../../bd/microblaze/ipshared/0484/src/GameIP_v1_0.sv" \
+"../../../bd/microblaze/ipshared/0702/src/VGA_controller.sv" \
+"../../../bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv" \
+"../../../bd/microblaze/ipshared/0702/src/Color_Mapper.sv" \
+"../../../bd/microblaze/ipshared/0702/src/font_rom.sv" \
+"../../../bd/microblaze/ipshared/0702/src/block_rom.sv" \
+"../../../bd/microblaze/ipshared/0702/src/GameIP_v1_0.sv" \
 "../../../bd/microblaze/ip/microblaze_GameIP_0_0/sim/microblaze_GameIP_0_0.sv" \
 
 vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/ec67/hdl" "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/30ef" "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0" \

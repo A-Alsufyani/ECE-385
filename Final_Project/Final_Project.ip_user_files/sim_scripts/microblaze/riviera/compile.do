@@ -180,11 +180,12 @@ vlog -work xil_defaultlib  -incr -v2k5 "+incdir+../../../../Final_Project.gen/so
 "../../../bd/microblaze/ip/microblaze_GameIP_0_0/src/hdmi_tx_0/sim/hdmi_tx_0.v" \
 
 vlog -work xil_defaultlib  -incr "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/ec67/hdl" "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/30ef" "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0" -l xpm -l microblaze_v11_0_11 -l xil_defaultlib -l lmb_v10_v3_0_12 -l lmb_bram_if_cntlr_v4_0_22 -l blk_mem_gen_v8_4_6 -l generic_baseblocks_v2_1_0 -l axi_infrastructure_v1_1_0 -l axi_register_slice_v2_1_28 -l fifo_generator_v13_2_8 -l axi_data_fifo_v2_1_27 -l axi_crossbar_v2_1_29 -l axi_lite_ipif_v3_0_4 -l axi_intc_v4_1_17 -l xlconcat_v2_1_4 -l mdm_v3_2_24 -l lib_cdc_v1_0_2 -l proc_sys_reset_v5_0_13 -l lib_pkg_v1_0_2 -l lib_srl_fifo_v1_0_2 -l axi_uartlite_v2_0_32 -l axi_timer_v2_0_30 -l interrupt_control_v3_1_4 -l axi_gpio_v2_0_30 -l dist_mem_gen_v8_0_13 -l lib_fifo_v1_0_17 -l axi_quad_spi_v3_2_27 \
-"../../../bd/microblaze/ipshared/0484/src/VGA_controller.sv" \
-"../../../bd/microblaze/ipshared/0484/src/GameIP_v1_0_AXI.sv" \
-"../../../bd/microblaze/ipshared/0484/src/Color_Mapper.sv" \
-"../../../bd/microblaze/ipshared/0484/src/font_rom.sv" \
-"../../../bd/microblaze/ipshared/0484/src/GameIP_v1_0.sv" \
+"../../../bd/microblaze/ipshared/0702/src/VGA_controller.sv" \
+"../../../bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv" \
+"../../../bd/microblaze/ipshared/0702/src/Color_Mapper.sv" \
+"../../../bd/microblaze/ipshared/0702/src/font_rom.sv" \
+"../../../bd/microblaze/ipshared/0702/src/block_rom.sv" \
+"../../../bd/microblaze/ipshared/0702/src/GameIP_v1_0.sv" \
 "../../../bd/microblaze/ip/microblaze_GameIP_0_0/sim/microblaze_GameIP_0_0.sv" \
 
 vlog -work xil_defaultlib  -incr -v2k5 "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/ec67/hdl" "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/30ef" "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0" -l xpm -l microblaze_v11_0_11 -l xil_defaultlib -l lmb_v10_v3_0_12 -l lmb_bram_if_cntlr_v4_0_22 -l blk_mem_gen_v8_4_6 -l generic_baseblocks_v2_1_0 -l axi_infrastructure_v1_1_0 -l axi_register_slice_v2_1_28 -l fifo_generator_v13_2_8 -l axi_data_fifo_v2_1_27 -l axi_crossbar_v2_1_29 -l axi_lite_ipif_v3_0_4 -l axi_intc_v4_1_17 -l xlconcat_v2_1_4 -l mdm_v3_2_24 -l lib_cdc_v1_0_2 -l proc_sys_reset_v5_0_13 -l lib_pkg_v1_0_2 -l lib_srl_fifo_v1_0_2 -l axi_uartlite_v2_0_32 -l axi_timer_v2_0_30 -l interrupt_control_v3_1_4 -l axi_gpio_v2_0_30 -l dist_mem_gen_v8_0_13 -l lib_fifo_v1_0_17 -l axi_quad_spi_v3_2_27 \
