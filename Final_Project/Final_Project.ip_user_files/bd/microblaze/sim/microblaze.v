@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Wed Nov 15 23:00:13 2023
+//Date        : Thu Nov 16 03:21:19 2023
 //Host        : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
 //Command     : generate_target microblaze.bd
 //Design      : microblaze
@@ -1088,8 +1088,6 @@ module microblaze
     HDMI_0_tmds_data_p,
     clk_100MHz,
     gpio_usb_int_tri_i,
-    gpio_usb_keycode_0_tri_o,
-    gpio_usb_keycode_1_tri_o,
     gpio_usb_rst_tri_o,
     reset_rtl_0,
     uart_rtl_0_rxd,
@@ -1104,8 +1102,6 @@ module microblaze
   (* X_INTERFACE_INFO = "xilinx.com:interface:hdmi:2.0 HDMI_0 TMDS_DATA_P" *) output [2:0]HDMI_0_tmds_data_p;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_100MHZ CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_100MHZ, CLK_DOMAIN microblaze_clk_100MHz, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_100MHz;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio_usb_int TRI_I" *) input [0:0]gpio_usb_int_tri_i;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio_usb_keycode_0 TRI_O" *) output [31:0]gpio_usb_keycode_0_tri_o;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio_usb_keycode_1 TRI_O" *) output [31:0]gpio_usb_keycode_1_tri_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio_usb_rst TRI_O" *) output [0:0]gpio_usb_rst_tri_o;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET_RTL_0 RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET_RTL_0, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input reset_rtl_0;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 uart_rtl_0 RxD" *) input uart_rtl_0_rxd;
@@ -1119,14 +1115,13 @@ module microblaze
   wire GameIP_0_HDMI_TMDS_CLK_P;
   wire [2:0]GameIP_0_HDMI_TMDS_DATA_N;
   wire [2:0]GameIP_0_HDMI_TMDS_DATA_P;
-  wire [31:0]axi_gpio_0_GPIO2_TRI_O;
-  wire [31:0]axi_gpio_0_GPIO_TRI_O;
   wire axi_timer_0_interrupt;
   wire axi_uartlite_0_UART_RxD;
   wire axi_uartlite_0_UART_TxD;
   wire axi_uartlite_0_interrupt;
   wire clk_100MHz_1;
   wire clk_wiz_1_locked;
+  wire [31:0]gpio_player_pos_gpio_io_o;
   wire [0:0]gpio_usb_int_GPIO_TRI_I;
   wire gpio_usb_int_ip2intc_irpt;
   wire [0:0]gpio_usb_rst_GPIO_TRI_O;
@@ -1338,8 +1333,6 @@ module microblaze
   assign axi_uartlite_0_UART_RxD = uart_rtl_0_rxd;
   assign clk_100MHz_1 = clk_100MHz;
   assign gpio_usb_int_GPIO_TRI_I = gpio_usb_int_tri_i[0];
-  assign gpio_usb_keycode_0_tri_o[31:0] = axi_gpio_0_GPIO_TRI_O;
-  assign gpio_usb_keycode_1_tri_o[31:0] = axi_gpio_0_GPIO2_TRI_O;
   assign gpio_usb_rst_tri_o[0] = gpio_usb_rst_GPIO_TRI_O;
   assign reset_rtl_0_1 = reset_rtl_0;
   assign uart_rtl_0_txd = axi_uartlite_0_UART_TxD;
@@ -1372,7 +1365,8 @@ module microblaze
         .hdmi_clk_n(GameIP_0_HDMI_TMDS_CLK_N),
         .hdmi_clk_p(GameIP_0_HDMI_TMDS_CLK_P),
         .hdmi_tx_n(GameIP_0_HDMI_TMDS_DATA_N),
-        .hdmi_tx_p(GameIP_0_HDMI_TMDS_DATA_P));
+        .hdmi_tx_p(GameIP_0_HDMI_TMDS_DATA_P),
+        .player_pos(gpio_player_pos_gpio_io_o));
   microblaze_axi_uartlite_0_0 axi_uartlite_0
        (.interrupt(axi_uartlite_0_interrupt),
         .rx(axi_uartlite_0_UART_RxD),
@@ -1401,6 +1395,27 @@ module microblaze
         .clk_out1(microblaze_0_Clk),
         .locked(clk_wiz_1_locked),
         .reset(mdm_1_debug_sys_rst));
+  microblaze_axi_gpio_0_2 gpio_player_pos
+       (.gpio_io_o(gpio_player_pos_gpio_io_o),
+        .s_axi_aclk(microblaze_0_Clk),
+        .s_axi_araddr(microblaze_0_axi_periph_M05_AXI_ARADDR[8:0]),
+        .s_axi_aresetn(rst_clk_wiz_1_100M_peripheral_aresetn),
+        .s_axi_arready(microblaze_0_axi_periph_M05_AXI_ARREADY),
+        .s_axi_arvalid(microblaze_0_axi_periph_M05_AXI_ARVALID),
+        .s_axi_awaddr(microblaze_0_axi_periph_M05_AXI_AWADDR[8:0]),
+        .s_axi_awready(microblaze_0_axi_periph_M05_AXI_AWREADY),
+        .s_axi_awvalid(microblaze_0_axi_periph_M05_AXI_AWVALID),
+        .s_axi_bready(microblaze_0_axi_periph_M05_AXI_BREADY),
+        .s_axi_bresp(microblaze_0_axi_periph_M05_AXI_BRESP),
+        .s_axi_bvalid(microblaze_0_axi_periph_M05_AXI_BVALID),
+        .s_axi_rdata(microblaze_0_axi_periph_M05_AXI_RDATA),
+        .s_axi_rready(microblaze_0_axi_periph_M05_AXI_RREADY),
+        .s_axi_rresp(microblaze_0_axi_periph_M05_AXI_RRESP),
+        .s_axi_rvalid(microblaze_0_axi_periph_M05_AXI_RVALID),
+        .s_axi_wdata(microblaze_0_axi_periph_M05_AXI_WDATA),
+        .s_axi_wready(microblaze_0_axi_periph_M05_AXI_WREADY),
+        .s_axi_wstrb(microblaze_0_axi_periph_M05_AXI_WSTRB),
+        .s_axi_wvalid(microblaze_0_axi_periph_M05_AXI_WVALID));
   microblaze_axi_gpio_0_0 gpio_usb_int
        (.gpio_io_i(gpio_usb_int_GPIO_TRI_I),
         .ip2intc_irpt(gpio_usb_int_ip2intc_irpt),
@@ -1423,28 +1438,6 @@ module microblaze
         .s_axi_wready(microblaze_0_axi_periph_M03_AXI_WREADY),
         .s_axi_wstrb(microblaze_0_axi_periph_M03_AXI_WSTRB),
         .s_axi_wvalid(microblaze_0_axi_periph_M03_AXI_WVALID));
-  microblaze_axi_gpio_0_2 gpio_usb_keycode
-       (.gpio2_io_o(axi_gpio_0_GPIO2_TRI_O),
-        .gpio_io_o(axi_gpio_0_GPIO_TRI_O),
-        .s_axi_aclk(microblaze_0_Clk),
-        .s_axi_araddr(microblaze_0_axi_periph_M05_AXI_ARADDR[8:0]),
-        .s_axi_aresetn(rst_clk_wiz_1_100M_peripheral_aresetn),
-        .s_axi_arready(microblaze_0_axi_periph_M05_AXI_ARREADY),
-        .s_axi_arvalid(microblaze_0_axi_periph_M05_AXI_ARVALID),
-        .s_axi_awaddr(microblaze_0_axi_periph_M05_AXI_AWADDR[8:0]),
-        .s_axi_awready(microblaze_0_axi_periph_M05_AXI_AWREADY),
-        .s_axi_awvalid(microblaze_0_axi_periph_M05_AXI_AWVALID),
-        .s_axi_bready(microblaze_0_axi_periph_M05_AXI_BREADY),
-        .s_axi_bresp(microblaze_0_axi_periph_M05_AXI_BRESP),
-        .s_axi_bvalid(microblaze_0_axi_periph_M05_AXI_BVALID),
-        .s_axi_rdata(microblaze_0_axi_periph_M05_AXI_RDATA),
-        .s_axi_rready(microblaze_0_axi_periph_M05_AXI_RREADY),
-        .s_axi_rresp(microblaze_0_axi_periph_M05_AXI_RRESP),
-        .s_axi_rvalid(microblaze_0_axi_periph_M05_AXI_RVALID),
-        .s_axi_wdata(microblaze_0_axi_periph_M05_AXI_WDATA),
-        .s_axi_wready(microblaze_0_axi_periph_M05_AXI_WREADY),
-        .s_axi_wstrb(microblaze_0_axi_periph_M05_AXI_WSTRB),
-        .s_axi_wvalid(microblaze_0_axi_periph_M05_AXI_WVALID));
   microblaze_axi_gpio_0_1 gpio_usb_rst
        (.gpio_io_o(gpio_usb_rst_GPIO_TRI_O),
         .s_axi_aclk(microblaze_0_Clk),

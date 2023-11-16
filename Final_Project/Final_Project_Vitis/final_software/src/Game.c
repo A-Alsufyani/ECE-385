@@ -78,6 +78,8 @@ const uint32_t Map_layout[1000] = {
 
 void map_maker(){
     int i;
+  
+    
     textHDMIColorClr();
     setColorPalette(0, colors[15].red, colors[15].green, colors[15].blue);  // White
     setColorPalette(1, colors[2].red, colors[2].green, colors[2].blue);     // Block
@@ -100,8 +102,9 @@ void map_maker(){
 }
 
 void USB_initialize(){
-    // XGpio_Initialize(&Gpio_hex, XPAR_GPIO_USB_KEYCODE_DEVICE_ID);
-  	// XGpio_SetDataDirection(&Gpio_hex, 1, 0x00000000); //configure hex display GPIO
+    XGpio_Initialize(&Gpio_hex, XPAR_GPIO_PLAYER_POS_DEVICE_ID);
+  	XGpio_SetDataDirection(&Gpio_hex, 1, 0x00000000); //configure hex display GPIO
+    printHex(((0x2BC << 16)) + ((0x1F4)), 1);
     xil_printf("initializing MAX3421E...\n");
 	MAX3421E_init();
 	xil_printf("initializing USB...\n");
@@ -120,7 +123,8 @@ void USB_poll_loop(){
 	BYTE device;
 
 	while (1) {
-		xil_printf("."); //A tick here means one loop through the USB main handler
+		// xil_printf("."); //A tick here means one loop through the USB main handler
+        player_movement(&kbdbuf);
 		MAX3421E_Task();
 		USB_Task();
 		if (GetUsbTaskState() == USB_STATE_RUNNING) {
@@ -137,13 +141,13 @@ void USB_poll_loop(){
 					xil_printf("%x \n", rcode);
 					continue;
 				}
-				xil_printf("keycodes: ");
-				for (int i = 0; i < 6; i++) {
-					xil_printf("%x ", kbdbuf.keycode[i]);
-				}
+				// xil_printf("keycodes: ");
+				// for (int i = 0; i < 6; i++) {
+				// 	xil_printf("%x ", kbdbuf.keycode[i]);
+				// }
 				//Outputs the first 4 keycodes using the USB GPIO channel 1
 				// printHex (kbdbuf.keycode[0] + (kbdbuf.keycode[1]<<8) + (kbdbuf.keycode[2]<<16) + + (kbdbuf.keycode[3]<<24), 1);
-                player_movement(&kbdbuf);
+                // player_movement(&kbdbuf);
 
 				xil_printf("\n");
 			}
@@ -192,8 +196,9 @@ void USB_poll_loop(){
 int main()
 {
     init_platform();
-    map_maker();
     USB_initialize();
+    map_maker();
+
 
     USB_poll_loop();
 

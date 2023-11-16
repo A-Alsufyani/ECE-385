@@ -14,7 +14,7 @@ ECHO is off.
     ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source microblaze_GameIP_0_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 463.207 ; gain = 158.902
+create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 463.027 ; gain = 161.215
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Abdullah/Downloads/ECE385/ip_repo/GameIP_1_0'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Abdullah/Downloads/RD_hdmi_ip2020'.
@@ -27,17 +27,17 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Device 21-403] Loading part xc7s50csga324-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 21888
+INFO: [Synth 8-7075] Helper process launched with PID 3612
 WARNING: [Synth 8-11065] parameter 'CTRLTOKEN0' becomes localparam in 'encode' with formal parameter declaration list [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/hdmi_tx_0/hdl/encode.v:145]
 WARNING: [Synth 8-11065] parameter 'CTRLTOKEN1' becomes localparam in 'encode' with formal parameter declaration list [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/hdmi_tx_0/hdl/encode.v:146]
 WARNING: [Synth 8-11065] parameter 'CTRLTOKEN2' becomes localparam in 'encode' with formal parameter declaration list [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/hdmi_tx_0/hdl/encode.v:147]
 WARNING: [Synth 8-11065] parameter 'CTRLTOKEN3' becomes localparam in 'encode' with formal parameter declaration list [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/hdmi_tx_0/hdl/encode.v:148]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 1283.945 ; gain = 410.727
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1282.781 ; gain = 409.121
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'microblaze_GameIP_0_0' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/synth/microblaze_GameIP_0_0.sv:53]
-INFO: [Synth 8-6157] synthesizing module 'Game_Top_Level' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'HDMI_Controller' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:27]
+INFO: [Synth 8-6157] synthesizing module 'Game_Top_Level' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'HDMI_Controller' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:27]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:74]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -116,9 +116,9 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [c:/Users/Abdullah/Downl
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     5.9299 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_6' declared at 'c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/blk_mem_gen_0/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_6' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:245]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:74]
-WARNING: [Synth 8-689] width (11) of port connection 'addra' does not match port width (10) of module 'blk_mem_gen_0' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:462]
-WARNING: [Synth 8-689] width (14) of port connection 'addrb' does not match port width (10) of module 'blk_mem_gen_0' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:468]
-INFO: [Synth 8-6155] done synthesizing module 'HDMI_Controller' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:27]
+WARNING: [Synth 8-689] width (11) of port connection 'addra' does not match port width (10) of module 'blk_mem_gen_0' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:462]
+WARNING: [Synth 8-689] width (14) of port connection 'addrb' does not match port width (10) of module 'blk_mem_gen_0' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:468]
+INFO: [Synth 8-6155] done synthesizing module 'HDMI_Controller' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:27]
 INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0/clk_wiz_0.v:69]
 INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0_clk_wiz' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0/clk_wiz_0_clk_wiz.v:69]
 INFO: [Synth 8-6157] synthesizing module 'MMCME2_ADV' [C:/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:80311]
@@ -127,10 +127,10 @@ INFO: [Synth 8-6157] synthesizing module 'BUFG' [C:/Xilinx/Vivado/2023.1/scripts
 INFO: [Synth 8-6155] done synthesizing module 'BUFG' (0#1) [C:/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:1519]
 INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0_clk_wiz' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0/clk_wiz_0_clk_wiz.v:69]
 INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0/clk_wiz_0.v:69]
-INFO: [Synth 8-6157] synthesizing module 'vga_controller' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/VGA_controller.sv:26]
-INFO: [Synth 8-6155] done synthesizing module 'vga_controller' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/VGA_controller.sv:26]
-WARNING: [Synth 8-7071] port 'sync' of module 'vga_controller' is unconnected for instance 'vga' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0.sv:106]
-WARNING: [Synth 8-7023] instance 'vga' of module 'vga_controller' has 8 connections declared, but only 7 given [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0.sv:106]
+INFO: [Synth 8-6157] synthesizing module 'vga_controller' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/VGA_controller.sv:26]
+INFO: [Synth 8-6155] done synthesizing module 'vga_controller' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/VGA_controller.sv:26]
+WARNING: [Synth 8-7071] port 'sync' of module 'vga_controller' is unconnected for instance 'vga' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0.sv:106]
+WARNING: [Synth 8-7023] instance 'vga' of module 'vga_controller' has 8 connections declared, but only 7 given [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0.sv:106]
 INFO: [Synth 8-6157] synthesizing module 'hdmi_tx_0' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/hdmi_tx_0/synth/hdmi_tx_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'hdmi_tx_v1_0' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/hdmi_tx_0/hdl/hdmi_tx_v1_0.v:70]
 INFO: [Synth 8-6157] synthesizing module 'srldelay' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/hdmi_tx_0/hdl/srldelay.v:70]
@@ -153,44 +153,44 @@ INFO: [Synth 8-6157] synthesizing module 'OBUFDS' [C:/Xilinx/Vivado/2023.1/scrip
 INFO: [Synth 8-6155] done synthesizing module 'OBUFDS' (0#1) [C:/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:91135]
 INFO: [Synth 8-6155] done synthesizing module 'hdmi_tx_v1_0' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/hdmi_tx_0/hdl/hdmi_tx_v1_0.v:70]
 INFO: [Synth 8-6155] done synthesizing module 'hdmi_tx_0' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/hdmi_tx_0/synth/hdmi_tx_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'color_mapper' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/Color_Mapper.sv:17]
-INFO: [Synth 8-6157] synthesizing module 'font_rom' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/font_rom.sv:1]
-INFO: [Synth 8-6155] done synthesizing module 'font_rom' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/font_rom.sv:1]
-INFO: [Synth 8-6157] synthesizing module 'block_rom' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/block_rom.sv:1]
-INFO: [Synth 8-6155] done synthesizing module 'block_rom' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/block_rom.sv:1]
-INFO: [Synth 8-6155] done synthesizing module 'color_mapper' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/Color_Mapper.sv:17]
-INFO: [Synth 8-6155] done synthesizing module 'Game_Top_Level' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'color_mapper' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/Color_Mapper.sv:17]
+INFO: [Synth 8-6157] synthesizing module 'font_rom' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/font_rom.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'font_rom' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/font_rom.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'block_rom' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/block_rom.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'block_rom' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/block_rom.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'color_mapper' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/Color_Mapper.sv:17]
+INFO: [Synth 8-6155] done synthesizing module 'Game_Top_Level' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0.sv:3]
 INFO: [Synth 8-6155] done synthesizing module 'microblaze_GameIP_0_0' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/synth/microblaze_GameIP_0_0.sv:53]
-WARNING: [Synth 8-6014] Unused sequential element axi_araddr_reg was removed.  [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:336]
-WARNING: [Synth 8-87] always_comb on 'axi_write_data_reg' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:274]
-WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[7]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[6]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[5]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[4]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[3]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[2]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[1]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[0]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-6014] Unused sequential element axi_araddr_reg was removed.  [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:336]
+WARNING: [Synth 8-87] always_comb on 'axi_write_data_reg' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:274]
+WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[7]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[6]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[5]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[4]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[3]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[2]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[1]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-87] always_comb on 'pallette_reg_reg[0]' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
 WARNING: [Synth 8-6014] Unused sequential element hdmi_ctl1_reg was removed.  [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/hdmi_tx_0/hdl/hdmi_tx_v1_0.v:148]
-WARNING: [Synth 8-87] always_comb on 'Red_reg' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/Color_Mapper.sv:72]
-WARNING: [Synth 8-87] always_comb on 'Green_reg' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/Color_Mapper.sv:73]
-WARNING: [Synth 8-87] always_comb on 'Blue_reg' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/Color_Mapper.sv:74]
-WARNING: [Synth 8-3848] Net font_addr in module/entity color_mapper does not have driver. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/Color_Mapper.sv:23]
+WARNING: [Synth 8-87] always_comb on 'Red_reg' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/Color_Mapper.sv:63]
+WARNING: [Synth 8-87] always_comb on 'Green_reg' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/Color_Mapper.sv:64]
+WARNING: [Synth 8-87] always_comb on 'Blue_reg' did not result in combinational logic [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/Color_Mapper.sv:65]
+WARNING: [Synth 8-3848] Net font_addr in module/entity color_mapper does not have driver. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/Color_Mapper.sv:24]
 WARNING: [Synth 8-7129] Port addr[7] in module block_rom is either unconnected or has no load
 WARNING: [Synth 8-7129] Port addr[6] in module block_rom is either unconnected or has no load
 WARNING: [Synth 8-7129] Port addr[5] in module block_rom is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DrawX[9] in module color_mapper is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DrawX[8] in module color_mapper is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DrawX[7] in module color_mapper is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DrawX[6] in module color_mapper is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DrawX[5] in module color_mapper is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DrawX[4] in module color_mapper is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DrawY[9] in module color_mapper is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DrawY[8] in module color_mapper is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DrawY[7] in module color_mapper is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DrawY[6] in module color_mapper is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DrawY[5] in module color_mapper is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DrawY[4] in module color_mapper is either unconnected or has no load
+WARNING: [Synth 8-7129] Port player_pos[31] in module color_mapper is either unconnected or has no load
+WARNING: [Synth 8-7129] Port player_pos[30] in module color_mapper is either unconnected or has no load
+WARNING: [Synth 8-7129] Port player_pos[29] in module color_mapper is either unconnected or has no load
+WARNING: [Synth 8-7129] Port player_pos[28] in module color_mapper is either unconnected or has no load
+WARNING: [Synth 8-7129] Port player_pos[27] in module color_mapper is either unconnected or has no load
+WARNING: [Synth 8-7129] Port player_pos[26] in module color_mapper is either unconnected or has no load
+WARNING: [Synth 8-7129] Port player_pos[15] in module color_mapper is either unconnected or has no load
+WARNING: [Synth 8-7129] Port player_pos[14] in module color_mapper is either unconnected or has no load
+WARNING: [Synth 8-7129] Port player_pos[13] in module color_mapper is either unconnected or has no load
+WARNING: [Synth 8-7129] Port player_pos[12] in module color_mapper is either unconnected or has no load
+WARNING: [Synth 8-7129] Port player_pos[11] in module color_mapper is either unconnected or has no load
+WARNING: [Synth 8-7129] Port player_pos[10] in module color_mapper is either unconnected or has no load
 WARNING: [Synth 8-7129] Port CLKB in module blk_mem_output_block is either unconnected or has no load
 WARNING: [Synth 8-7129] Port SBITERR_I in module blk_mem_output_block is either unconnected or has no load
 WARNING: [Synth 8-7129] Port DBITERR_I in module blk_mem_output_block is either unconnected or has no load
@@ -278,18 +278,18 @@ WARNING: [Synth 8-7129] Port S_AXI_AWBURST[0] in module blk_mem_gen_v8_4_6_synth
 WARNING: [Synth 8-7129] Port S_AXI_AWVALID in module blk_mem_gen_v8_4_6_synth is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:18 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:19 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:19 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1624.527 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1625.027 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -306,21 +306,21 @@ Parsing XDC File [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project
 Finished Parsing XDC File [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0/clk_wiz_0_late.xdc] for cell 'inst/clk_wiz/inst'
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1624.527 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1625.027 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1624.527 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1625.027 ; gain = 0.000
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:26 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:25 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:26 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:25 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -330,30 +330,30 @@ Applied set_property KEEP_HIERARCHY = SOFT for inst/vga_to_hdmi. (constraint fil
 Applied set_property KEEP_HIERARCHY = SOFT for inst/clk_wiz. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for inst/HDMI_Controller_Instance/BRAM. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:26 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:25 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[0]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[1]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[2]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[3]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[4]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[5]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[6]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[7]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[7]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[6]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[5]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[4]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[3]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[2]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[1]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[0]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:434]
-WARNING: [Synth 8-327] inferring latch for variable 'axi_write_data_reg' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/GameIP_v1_0_AXI.sv:274]
-WARNING: [Synth 8-327] inferring latch for variable 'Red_reg' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/Color_Mapper.sv:72]
-WARNING: [Synth 8-327] inferring latch for variable 'Green_reg' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/Color_Mapper.sv:73]
-WARNING: [Synth 8-327] inferring latch for variable 'Blue_reg' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/0702/src/Color_Mapper.sv:74]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[0]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[1]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[2]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[3]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[4]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[5]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[6]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pallette_reg_reg[7]' and it is trimmed from '32' to '25' bits. [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[7]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[6]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[5]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[4]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[3]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[2]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[1]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-327] inferring latch for variable 'pallette_reg_reg[0]' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:434]
+WARNING: [Synth 8-327] inferring latch for variable 'axi_write_data_reg' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv:274]
+WARNING: [Synth 8-327] inferring latch for variable 'Red_reg' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/Color_Mapper.sv:63]
+WARNING: [Synth 8-327] inferring latch for variable 'Green_reg' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/Color_Mapper.sv:64]
+WARNING: [Synth 8-327] inferring latch for variable 'Blue_reg' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/023a/src/Color_Mapper.sv:65]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:26 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:26 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -361,6 +361,7 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input   11 Bit       Adders := 2     
+	   3 Input   11 Bit       Adders := 2     
 	   2 Input   10 Bit       Adders := 2     
 	   5 Input    5 Bit       Adders := 6     
 	   4 Input    5 Bit       Adders := 3     
@@ -413,7 +414,7 @@ INFO: [Synth 8-3332] Sequential element (inst/HDMI_Controller_Instance/pallette_
 INFO: [Synth 8-3332] Sequential element (inst/HDMI_Controller_Instance/pallette_reg_reg[1][0]) is unused and will be removed from module microblaze_GameIP_0_0.
 INFO: [Synth 8-3332] Sequential element (inst/HDMI_Controller_Instance/pallette_reg_reg[0][0]) is unused and will be removed from module microblaze_GameIP_0_0.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:31 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:31 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -435,31 +436,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:35 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:35 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:35 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:35 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3332] Sequential element (inst/color_instance/Red_reg[3]) is unused and will be removed from module microblaze_GameIP_0_0.
-INFO: [Synth 8-3332] Sequential element (inst/color_instance/Red_reg[2]) is unused and will be removed from module microblaze_GameIP_0_0.
-INFO: [Synth 8-3332] Sequential element (inst/color_instance/Red_reg[1]) is unused and will be removed from module microblaze_GameIP_0_0.
-INFO: [Synth 8-3332] Sequential element (inst/color_instance/Red_reg[0]) is unused and will be removed from module microblaze_GameIP_0_0.
-INFO: [Synth 8-3332] Sequential element (inst/color_instance/Green_reg[3]) is unused and will be removed from module microblaze_GameIP_0_0.
-INFO: [Synth 8-3332] Sequential element (inst/color_instance/Green_reg[2]) is unused and will be removed from module microblaze_GameIP_0_0.
-INFO: [Synth 8-3332] Sequential element (inst/color_instance/Green_reg[1]) is unused and will be removed from module microblaze_GameIP_0_0.
-INFO: [Synth 8-3332] Sequential element (inst/color_instance/Green_reg[0]) is unused and will be removed from module microblaze_GameIP_0_0.
-INFO: [Synth 8-3332] Sequential element (inst/color_instance/Blue_reg[3]) is unused and will be removed from module microblaze_GameIP_0_0.
-INFO: [Synth 8-3332] Sequential element (inst/color_instance/Blue_reg[2]) is unused and will be removed from module microblaze_GameIP_0_0.
-INFO: [Synth 8-3332] Sequential element (inst/color_instance/Blue_reg[1]) is unused and will be removed from module microblaze_GameIP_0_0.
-INFO: [Synth 8-3332] Sequential element (inst/color_instance/Blue_reg[0]) is unused and will be removed from module microblaze_GameIP_0_0.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:36 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:35 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -477,37 +466,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:39 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:39 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:39 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:39 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:39 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:39 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:39 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:39 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:39 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:39 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:39 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:39 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -538,13 +527,13 @@ Report Cell Usage:
 |      |Cell       |Count |
 +------+-----------+------+
 |1     |BUFG       |     3|
-|2     |CARRY4     |     4|
+|2     |CARRY4     |    10|
 |3     |LUT1       |     1|
-|4     |LUT2       |    20|
-|5     |LUT3       |    51|
-|6     |LUT4       |    38|
-|7     |LUT5       |   101|
-|8     |LUT6       |   286|
+|4     |LUT2       |    40|
+|5     |LUT3       |    52|
+|6     |LUT4       |    41|
+|7     |LUT5       |   102|
+|8     |LUT6       |   287|
 |9     |MMCME2_ADV |     1|
 |10    |MUXF7      |    12|
 |11    |OSERDESE2  |     8|
@@ -554,33 +543,37 @@ Report Cell Usage:
 |16    |FDRE       |   159|
 |17    |FDSE       |     1|
 |18    |LD         |   224|
-|19    |OBUFDS     |     4|
+|19    |LDC        |     8|
+|20    |LDP        |     4|
+|21    |OBUFDS     |     4|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:39 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:39 . Memory (MB): peak = 1625.027 ; gain = 751.367
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 189 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:37 . Memory (MB): peak = 1624.527 ; gain = 751.309
-Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:39 . Memory (MB): peak = 1624.527 ; gain = 751.309
+Synthesis finished with 0 errors, 0 critical warnings and 201 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:37 . Memory (MB): peak = 1625.027 ; gain = 751.367
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:39 . Memory (MB): peak = 1625.027 ; gain = 751.367
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1624.527 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 246 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1625.027 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 264 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1624.527 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1625.027 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 224 instances were transformed.
+  A total of 236 instances were transformed.
   LD => LDCE: 224 instances
+  LDC => LDCE: 8 instances
+  LDP => LDPE: 4 instances
 
-Synth Design complete | Checksum: 3b72adc3
+Synth Design complete | Checksum: 419082e3
 INFO: [Common 17-83] Releasing license: Synthesis
-91 Infos, 144 Warnings, 0 Critical Warnings and 0 Errors encountered.
+79 Infos, 144 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:44 . Memory (MB): peak = 1624.527 ; gain = 1129.484
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:43 . Memory (MB): peak = 1625.027 ; gain = 1129.164
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/microblaze_GameIP_0_0_synth_1/microblaze_GameIP_0_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP microblaze_GameIP_0_0, cache-ID = a9b42b8f3a1773ca
-INFO: [Coretcl 2-1174] Renamed 22 cell refs.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP microblaze_GameIP_0_0, cache-ID = dc2adaf721743f2d
+INFO: [Coretcl 2-1174] Renamed 23 cell refs.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/microblaze_GameIP_0_0_synth_1/microblaze_GameIP_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file microblaze_GameIP_0_0_utilization_synth.rpt -pb microblaze_GameIP_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Nov 15 23:01:16 2023...
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 16 03:22:22 2023...

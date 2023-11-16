@@ -44,3 +44,9 @@ platform generate -domains
 platform active {Final_Top_Level}
 platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
 platform generate -domains 
+platform active {Final_Top_Level}
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate -domains 
+platform active {Final_Top_Level}
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate -domains 

@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
--- Date        : Mon Nov 13 00:05:55 2023
+-- Date        : Thu Nov 16 02:41:46 2023
 -- Host        : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top microblaze_axi_timer_0_0 -prefix
---               microblaze_axi_timer_0_0_ microblaze_axi_timer_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_axi_timer_0_0/microblaze_axi_timer_0_0_sim_netlist.vhdl
 -- Design      : microblaze_axi_timer_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -39,6 +39,8 @@ entity microblaze_axi_timer_0_0_cdc_sync is
   attribute C_SINGLE_BIT of microblaze_axi_timer_0_0_cdc_sync : entity is 1;
   attribute C_VECTOR_WIDTH : integer;
   attribute C_VECTOR_WIDTH of microblaze_axi_timer_0_0_cdc_sync : entity is 32;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_timer_0_0_cdc_sync : entity is "cdc_sync";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of microblaze_axi_timer_0_0_cdc_sync : entity is "yes";
 end microblaze_axi_timer_0_0_cdc_sync;
@@ -520,6 +522,8 @@ entity microblaze_axi_timer_0_0_counter_f is
     \GEN.DATA_WIDTH_GEN[8].NUM_BUSES_GEN[1].MUXCY_GEN.MUXCY_I_0\ : in STD_LOGIC;
     \GEN.DATA_WIDTH_GEN[8].NUM_BUSES_GEN[1].MUXCY_GEN.MUXCY_I_1\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_timer_0_0_counter_f : entity is "counter_f";
 end microblaze_axi_timer_0_0_counter_f;
 
 architecture STRUCTURE of microblaze_axi_timer_0_0_counter_f is
@@ -3571,6 +3575,8 @@ entity microblaze_axi_timer_0_0_mux_onehot_f is
     \GEN.DATA_WIDTH_GEN[31].NUM_BUSES_GEN[0].MUXCY_GEN.MUXCY_I_0\ : in STD_LOGIC;
     \GEN.DATA_WIDTH_GEN[31].NUM_BUSES_GEN[1].MUXCY_GEN.MUXCY_I_0\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_timer_0_0_mux_onehot_f : entity is "mux_onehot_f";
 end microblaze_axi_timer_0_0_mux_onehot_f;
 
 architecture STRUCTURE of microblaze_axi_timer_0_0_mux_onehot_f is
@@ -4292,6 +4298,8 @@ entity microblaze_axi_timer_0_0_pselect_f is
     ce_expnd_i_7 : out STD_LOGIC;
     \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]\ : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_timer_0_0_pselect_f : entity is "pselect_f";
 end microblaze_axi_timer_0_0_pselect_f;
 
 architecture STRUCTURE of microblaze_axi_timer_0_0_pselect_f is
@@ -4579,6 +4587,8 @@ entity microblaze_axi_timer_0_0_address_decoder is
     bus2ip_rnw_i : in STD_LOGIC;
     \GEN_BKEND_CE_REGISTERS[7].ce_out_i_reg[7]_0\ : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_timer_0_0_address_decoder : entity is "address_decoder";
 end microblaze_axi_timer_0_0_address_decoder;
 
 architecture STRUCTURE of microblaze_axi_timer_0_0_address_decoder is
@@ -6131,6 +6141,8 @@ entity microblaze_axi_timer_0_0_count_module is
     s_axi_aresetn : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_timer_0_0_count_module : entity is "count_module";
 end microblaze_axi_timer_0_0_count_module;
 
 architecture STRUCTURE of microblaze_axi_timer_0_0_count_module is
@@ -7376,6 +7388,8 @@ entity microblaze_axi_timer_0_0_timer_control is
     counterReg_DBus_0 : in STD_LOGIC_VECTOR ( 0 to 0 );
     counterReg_DBus_32 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_timer_0_0_timer_control : entity is "timer_control";
 end microblaze_axi_timer_0_0_timer_control;
 
 architecture STRUCTURE of microblaze_axi_timer_0_0_timer_control is
@@ -8757,6 +8771,8 @@ entity microblaze_axi_timer_0_0_slave_attachment is
     read_done1 : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_timer_0_0_slave_attachment : entity is "slave_attachment";
 end microblaze_axi_timer_0_0_slave_attachment;
 
 architecture STRUCTURE of microblaze_axi_timer_0_0_slave_attachment is
@@ -9899,6 +9915,8 @@ entity microblaze_axi_timer_0_0_tc_core is
     \GEN.DATA_WIDTH_GEN[31].NUM_BUSES_GEN[0].MUXCY_GEN.MUXCY_I_0\ : in STD_LOGIC;
     \GEN.DATA_WIDTH_GEN[31].NUM_BUSES_GEN[0].MUXCY_GEN.MUXCY_I_1\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_timer_0_0_tc_core : entity is "tc_core";
 end microblaze_axi_timer_0_0_tc_core;
 
 architecture STRUCTURE of microblaze_axi_timer_0_0_tc_core is
@@ -10399,6 +10417,8 @@ entity microblaze_axi_timer_0_0_axi_lite_ipif is
     read_done1 : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_timer_0_0_axi_lite_ipif : entity is "axi_lite_ipif";
 end microblaze_axi_timer_0_0_axi_lite_ipif;
 
 architecture STRUCTURE of microblaze_axi_timer_0_0_axi_lite_ipif is
@@ -10646,6 +10666,8 @@ entity microblaze_axi_timer_0_0_axi_timer is
   attribute C_TRIG0_ASSERT of microblaze_axi_timer_0_0_axi_timer : entity is "1'b1";
   attribute C_TRIG1_ASSERT : string;
   attribute C_TRIG1_ASSERT of microblaze_axi_timer_0_0_axi_timer : entity is "1'b1";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_timer_0_0_axi_timer : entity is "axi_timer";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of microblaze_axi_timer_0_0_axi_timer : entity is "yes";
 end microblaze_axi_timer_0_0_axi_timer;

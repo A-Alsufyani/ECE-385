@@ -2330,3 +2330,1270 @@ con
 ----------------End of Script----------------
 
 02:09:54 INFO  : Disconnected from the channel tcfchan#21.
+03:06:53 DEBUG : Logs will be stored at 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/IDE.log'.
+03:06:54 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\Abdullah\Downloads\ECE385\Final_Project\Final_Project_Vitis\temp_xsdb_launch_script.tcl
+03:06:57 INFO  : XSCT server has started successfully.
+03:06:57 INFO  : plnx-install-location is set to ''
+03:06:57 INFO  : Successfully done setting XSCT server connection channel  
+03:06:57 INFO  : Successfully done setting workspace for the tool. 
+03:07:08 INFO  : Registering command handlers for Vitis TCF services
+03:07:08 INFO  : Successfully done query RDI_DATADIR 
+03:07:09 INFO  : Platform repository initialization has completed.
+03:07:11 INFO  : Hardware specification for platform project 'Final_Top_Level' is updated.
+03:08:31 INFO  : Result from executing command 'getProjects': Final_Top_Level
+03:08:31 INFO  : Result from executing command 'getPlatforms': Final_Top_Level|C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/Final_Top_Level.xpfm;xilinx_zcu102_base_202310_1|C:/Xilinx/Vitis/2023.1/base_platforms/xilinx_zcu102_base_202310_1/xilinx_zcu102_base_202310_1.xpfm;xilinx_zcu102_base_dfx_202310_1|C:/Xilinx/Vitis/2023.1/base_platforms/xilinx_zcu102_base_dfx_202310_1/xilinx_zcu102_base_dfx_202310_1.xpfm;xilinx_zcu104_base_202310_1|C:/Xilinx/Vitis/2023.1/base_platforms/xilinx_zcu104_base_202310_1/xilinx_zcu104_base_202310_1.xpfm
+03:08:32 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:08:32 INFO  : Updating application flags with new BSP settings...
+03:08:32 INFO  : Successfully updated application flags for project final_software.
+03:08:34 INFO  : The hardware specification used by project 'final_software' is out of sync with the platform. Resource files extracted from the hardware specification will be updated.
+03:08:34 INFO  : The file 'C:\Users\Abdullah\Downloads\ECE385\Final_Project\Final_Project_Vitis\final_software\_ide\bitstream\Final_Top_Level.bit' stored in project is removed.
+03:08:34 INFO  : The file 'C:\Users\Abdullah\Downloads\ECE385\Final_Project\Final_Project_Vitis\final_software\_ide\bitstream\Final_Top_Level.mmi' stored in project is removed.
+03:08:34 INFO  : The updated bitstream files are copied from platform to folder 'C:\Users\Abdullah\Downloads\ECE385\Final_Project\Final_Project_Vitis\final_software\_ide\bitstream' in project 'final_software'.
+03:15:06 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:17:31 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:18:06 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:18:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:18:14 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+03:18:14 INFO  : 'jtag frequency' command is executed.
+03:18:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+03:18:16 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+03:18:16 INFO  : Context for processor 'microblaze_0' is selected.
+03:18:16 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+03:18:16 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+03:18:16 INFO  : Context for processor 'microblaze_0' is selected.
+03:18:16 INFO  : System reset is completed.
+03:18:19 INFO  : 'after 3000' command is executed.
+03:18:20 INFO  : Context for processor 'microblaze_0' is selected.
+03:18:20 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+03:18:20 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+03:18:20 INFO  : Context for processor 'microblaze_0' is selected.
+03:18:20 INFO  : 'con' command is executed.
+03:18:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+03:18:20 INFO  : Disconnected from the channel tcfchan#2.
+03:19:25 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:19:26 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+03:19:26 INFO  : 'jtag frequency' command is executed.
+03:19:26 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+03:19:27 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+03:19:27 INFO  : Context for processor 'microblaze_0' is selected.
+03:19:27 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+03:19:27 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+03:19:27 INFO  : Context for processor 'microblaze_0' is selected.
+03:19:27 INFO  : System reset is completed.
+03:19:30 INFO  : 'after 3000' command is executed.
+03:19:30 INFO  : Context for processor 'microblaze_0' is selected.
+03:19:31 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+03:19:31 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+03:19:31 INFO  : Context for processor 'microblaze_0' is selected.
+03:19:31 INFO  : 'con' command is executed.
+03:19:31 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+03:19:31 INFO  : Disconnected from the channel tcfchan#3.
+03:26:02 DEBUG : Logs will be stored at 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/IDE.log'.
+03:26:02 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\Abdullah\Downloads\ECE385\Final_Project\Final_Project_Vitis\temp_xsdb_launch_script.tcl
+03:26:04 INFO  : XSCT server has started successfully.
+03:26:04 INFO  : Successfully done setting XSCT server connection channel  
+03:26:04 INFO  : plnx-install-location is set to ''
+03:26:04 INFO  : Successfully done setting workspace for the tool. 
+03:26:17 INFO  : Registering command handlers for Vitis TCF services
+03:26:17 INFO  : Successfully done query RDI_DATADIR 
+03:26:17 INFO  : Hardware specification for platform project 'Final_Top_Level' is updated.
+03:26:17 INFO  : Platform repository initialization has completed.
+03:26:35 INFO  : Result from executing command 'getProjects': Final_Top_Level
+03:26:35 INFO  : Result from executing command 'getPlatforms': Final_Top_Level|C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/Final_Top_Level.xpfm;xilinx_zcu102_base_202310_1|C:/Xilinx/Vitis/2023.1/base_platforms/xilinx_zcu102_base_202310_1/xilinx_zcu102_base_202310_1.xpfm;xilinx_zcu102_base_dfx_202310_1|C:/Xilinx/Vitis/2023.1/base_platforms/xilinx_zcu102_base_dfx_202310_1/xilinx_zcu102_base_dfx_202310_1.xpfm;xilinx_zcu104_base_202310_1|C:/Xilinx/Vitis/2023.1/base_platforms/xilinx_zcu104_base_202310_1/xilinx_zcu104_base_202310_1.xpfm
+03:26:36 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:26:38 INFO  : The hardware specification used by project 'final_software' is out of sync with the platform. Resource files extracted from the hardware specification will be updated.
+03:26:38 INFO  : The file 'C:\Users\Abdullah\Downloads\ECE385\Final_Project\Final_Project_Vitis\final_software\_ide\bitstream\Final_Top_Level.bit' stored in project is removed.
+03:26:38 INFO  : The file 'C:\Users\Abdullah\Downloads\ECE385\Final_Project\Final_Project_Vitis\final_software\_ide\bitstream\Final_Top_Level.mmi' stored in project is removed.
+03:26:38 INFO  : The updated bitstream files are copied from platform to folder 'C:\Users\Abdullah\Downloads\ECE385\Final_Project\Final_Project_Vitis\final_software\_ide\bitstream' in project 'final_software'.
+03:30:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:30:15 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+03:30:15 INFO  : 'jtag frequency' command is executed.
+03:30:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+03:30:17 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+03:30:17 INFO  : Context for processor 'microblaze_0' is selected.
+03:30:17 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+03:30:17 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+03:30:18 INFO  : Context for processor 'microblaze_0' is selected.
+03:30:18 INFO  : System reset is completed.
+03:30:21 INFO  : 'after 3000' command is executed.
+03:30:21 INFO  : Context for processor 'microblaze_0' is selected.
+03:30:21 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+03:30:21 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+03:30:21 INFO  : Context for processor 'microblaze_0' is selected.
+03:30:21 INFO  : 'con' command is executed.
+03:30:21 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+03:30:21 INFO  : Disconnected from the channel tcfchan#2.
+03:31:03 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:31:13 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:31:17 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:31:18 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+03:31:18 INFO  : 'jtag frequency' command is executed.
+03:31:18 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+03:31:20 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+03:31:20 INFO  : Context for processor 'microblaze_0' is selected.
+03:31:20 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+03:31:20 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+03:31:20 INFO  : Context for processor 'microblaze_0' is selected.
+03:31:20 INFO  : System reset is completed.
+03:31:23 INFO  : 'after 3000' command is executed.
+03:31:24 INFO  : Context for processor 'microblaze_0' is selected.
+03:31:24 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+03:31:24 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+03:31:24 INFO  : Context for processor 'microblaze_0' is selected.
+03:31:24 INFO  : 'con' command is executed.
+03:31:24 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+03:31:25 INFO  : Disconnected from the channel tcfchan#3.
+03:32:50 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:32:55 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:32:56 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+03:32:56 INFO  : 'jtag frequency' command is executed.
+03:32:56 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+03:32:58 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+03:32:58 INFO  : Context for processor 'microblaze_0' is selected.
+03:32:58 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+03:32:58 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+03:32:58 INFO  : Context for processor 'microblaze_0' is selected.
+03:32:58 INFO  : System reset is completed.
+03:33:01 INFO  : 'after 3000' command is executed.
+03:33:02 INFO  : Context for processor 'microblaze_0' is selected.
+03:33:02 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+03:33:02 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+03:33:02 INFO  : Context for processor 'microblaze_0' is selected.
+03:33:02 INFO  : 'con' command is executed.
+03:33:02 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+03:33:02 INFO  : Disconnected from the channel tcfchan#4.
+03:45:27 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:45:31 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:45:32 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+03:45:32 INFO  : 'jtag frequency' command is executed.
+03:45:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+03:45:34 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+03:45:34 INFO  : Context for processor 'microblaze_0' is selected.
+03:45:34 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+03:45:34 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+03:45:34 INFO  : Context for processor 'microblaze_0' is selected.
+03:45:34 INFO  : System reset is completed.
+03:45:37 INFO  : 'after 3000' command is executed.
+03:45:38 INFO  : Context for processor 'microblaze_0' is selected.
+03:45:38 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+03:45:38 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+03:45:38 INFO  : Context for processor 'microblaze_0' is selected.
+03:45:38 INFO  : 'con' command is executed.
+03:45:38 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+03:45:38 INFO  : Disconnected from the channel tcfchan#5.
+03:46:23 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:46:26 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:46:27 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+03:46:27 INFO  : 'jtag frequency' command is executed.
+03:46:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+03:46:28 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+03:46:28 INFO  : Context for processor 'microblaze_0' is selected.
+03:46:28 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+03:46:28 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+03:46:28 INFO  : Context for processor 'microblaze_0' is selected.
+03:46:28 INFO  : System reset is completed.
+03:46:31 INFO  : 'after 3000' command is executed.
+03:46:31 INFO  : Context for processor 'microblaze_0' is selected.
+03:46:31 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+03:46:31 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+03:46:31 INFO  : Context for processor 'microblaze_0' is selected.
+03:46:31 INFO  : 'con' command is executed.
+03:46:31 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+03:46:31 INFO  : Disconnected from the channel tcfchan#6.
+03:47:18 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:47:23 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:47:24 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+03:47:24 INFO  : 'jtag frequency' command is executed.
+03:47:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+03:47:25 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+03:47:25 INFO  : Context for processor 'microblaze_0' is selected.
+03:47:25 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+03:47:25 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+03:47:25 INFO  : Context for processor 'microblaze_0' is selected.
+03:47:25 INFO  : System reset is completed.
+03:47:28 INFO  : 'after 3000' command is executed.
+03:47:28 INFO  : Context for processor 'microblaze_0' is selected.
+03:47:29 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+03:47:29 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+03:47:29 INFO  : Context for processor 'microblaze_0' is selected.
+03:47:29 INFO  : 'con' command is executed.
+03:47:29 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+03:47:29 INFO  : Disconnected from the channel tcfchan#7.
+03:50:04 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:50:09 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:50:10 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+03:50:10 INFO  : 'jtag frequency' command is executed.
+03:50:10 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+03:50:11 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+03:50:11 INFO  : Context for processor 'microblaze_0' is selected.
+03:50:11 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+03:50:11 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+03:50:11 INFO  : Context for processor 'microblaze_0' is selected.
+03:50:11 INFO  : System reset is completed.
+03:50:14 INFO  : 'after 3000' command is executed.
+03:50:14 INFO  : Context for processor 'microblaze_0' is selected.
+03:50:14 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+03:50:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+03:50:14 INFO  : Context for processor 'microblaze_0' is selected.
+03:50:14 INFO  : 'con' command is executed.
+03:50:14 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+03:50:14 INFO  : Disconnected from the channel tcfchan#8.
+03:58:08 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:58:35 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:58:51 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+03:58:55 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:58:56 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+03:58:56 INFO  : 'jtag frequency' command is executed.
+03:58:56 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+03:58:57 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+03:58:57 INFO  : Context for processor 'microblaze_0' is selected.
+03:58:57 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+03:58:57 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+03:58:57 INFO  : Context for processor 'microblaze_0' is selected.
+03:58:57 INFO  : System reset is completed.
+03:59:00 INFO  : 'after 3000' command is executed.
+03:59:00 INFO  : Context for processor 'microblaze_0' is selected.
+03:59:00 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+03:59:00 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+03:59:00 INFO  : Context for processor 'microblaze_0' is selected.
+03:59:00 INFO  : 'con' command is executed.
+03:59:00 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+03:59:01 INFO  : Disconnected from the channel tcfchan#9.
+04:00:53 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+04:01:01 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+04:01:02 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+04:01:02 INFO  : 'jtag frequency' command is executed.
+04:01:02 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+04:01:03 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+04:01:03 INFO  : Context for processor 'microblaze_0' is selected.
+04:01:03 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+04:01:03 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+04:01:03 INFO  : Context for processor 'microblaze_0' is selected.
+04:01:03 INFO  : System reset is completed.
+04:01:06 INFO  : 'after 3000' command is executed.
+04:01:06 INFO  : Context for processor 'microblaze_0' is selected.
+04:01:07 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+04:01:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+04:01:07 INFO  : Context for processor 'microblaze_0' is selected.
+04:01:07 INFO  : 'con' command is executed.
+04:01:07 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+04:01:07 INFO  : Disconnected from the channel tcfchan#10.
+04:03:22 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+04:03:26 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+04:03:27 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+04:03:27 INFO  : 'jtag frequency' command is executed.
+04:03:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+04:03:28 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+04:03:28 INFO  : Context for processor 'microblaze_0' is selected.
+04:03:28 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+04:03:28 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+04:03:28 INFO  : Context for processor 'microblaze_0' is selected.
+04:03:28 INFO  : System reset is completed.
+04:03:31 INFO  : 'after 3000' command is executed.
+04:03:31 INFO  : Context for processor 'microblaze_0' is selected.
+04:03:31 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+04:03:31 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+04:03:32 INFO  : Context for processor 'microblaze_0' is selected.
+04:03:32 INFO  : 'con' command is executed.
+04:03:32 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+04:03:32 INFO  : Disconnected from the channel tcfchan#11.
+04:05:18 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+04:05:22 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+04:05:22 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+04:05:22 INFO  : 'jtag frequency' command is executed.
+04:05:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+04:05:24 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+04:05:24 INFO  : Context for processor 'microblaze_0' is selected.
+04:05:24 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+04:05:24 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+04:05:24 INFO  : Context for processor 'microblaze_0' is selected.
+04:05:24 INFO  : System reset is completed.
+04:05:27 INFO  : 'after 3000' command is executed.
+04:05:27 INFO  : Context for processor 'microblaze_0' is selected.
+04:05:27 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+04:05:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+04:05:27 INFO  : Context for processor 'microblaze_0' is selected.
+04:05:27 INFO  : 'con' command is executed.
+04:05:27 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+04:05:27 INFO  : Disconnected from the channel tcfchan#12.
+05:23:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:23:42 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:23:42 INFO  : 'jtag frequency' command is executed.
+05:23:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:23:43 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:23:43 INFO  : Context for processor 'microblaze_0' is selected.
+05:23:43 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:23:43 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:23:43 INFO  : Context for processor 'microblaze_0' is selected.
+05:23:43 INFO  : System reset is completed.
+05:23:46 INFO  : 'after 3000' command is executed.
+05:23:46 INFO  : Context for processor 'microblaze_0' is selected.
+05:23:46 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:23:46 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:23:46 INFO  : Context for processor 'microblaze_0' is selected.
+05:23:46 INFO  : 'con' command is executed.
+05:23:46 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:23:46 INFO  : Disconnected from the channel tcfchan#13.
+05:28:15 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:28:20 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:28:20 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:28:20 INFO  : 'jtag frequency' command is executed.
+05:28:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:28:22 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:28:22 INFO  : Context for processor 'microblaze_0' is selected.
+05:28:22 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:28:22 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:28:22 INFO  : Context for processor 'microblaze_0' is selected.
+05:28:22 INFO  : System reset is completed.
+05:28:25 INFO  : 'after 3000' command is executed.
+05:28:25 INFO  : Context for processor 'microblaze_0' is selected.
+05:28:25 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:28:25 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:28:25 INFO  : Context for processor 'microblaze_0' is selected.
+05:28:25 INFO  : 'con' command is executed.
+05:28:25 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:28:25 INFO  : Disconnected from the channel tcfchan#14.
+05:28:53 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:28:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:28:57 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:28:57 INFO  : 'jtag frequency' command is executed.
+05:28:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:28:59 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:28:59 INFO  : Context for processor 'microblaze_0' is selected.
+05:28:59 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:28:59 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:28:59 INFO  : Context for processor 'microblaze_0' is selected.
+05:28:59 INFO  : System reset is completed.
+05:29:02 INFO  : 'after 3000' command is executed.
+05:29:02 INFO  : Context for processor 'microblaze_0' is selected.
+05:29:02 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:29:02 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:29:02 INFO  : Context for processor 'microblaze_0' is selected.
+05:29:02 INFO  : 'con' command is executed.
+05:29:02 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:29:02 INFO  : Disconnected from the channel tcfchan#15.
+05:36:58 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:37:20 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:37:25 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:37:25 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:37:25 INFO  : 'jtag frequency' command is executed.
+05:37:25 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:37:27 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:37:27 INFO  : Context for processor 'microblaze_0' is selected.
+05:37:27 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:37:27 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:37:27 INFO  : Context for processor 'microblaze_0' is selected.
+05:37:27 INFO  : System reset is completed.
+05:37:30 INFO  : 'after 3000' command is executed.
+05:37:30 INFO  : Context for processor 'microblaze_0' is selected.
+05:37:30 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:37:30 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:37:30 INFO  : Context for processor 'microblaze_0' is selected.
+05:37:30 INFO  : 'con' command is executed.
+05:37:30 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:37:30 INFO  : Disconnected from the channel tcfchan#16.
+05:38:30 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:38:34 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:38:34 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:38:34 INFO  : 'jtag frequency' command is executed.
+05:38:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:38:36 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:38:36 INFO  : Context for processor 'microblaze_0' is selected.
+05:38:36 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:38:36 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:38:36 INFO  : Context for processor 'microblaze_0' is selected.
+05:38:36 INFO  : System reset is completed.
+05:38:39 INFO  : 'after 3000' command is executed.
+05:38:39 INFO  : Context for processor 'microblaze_0' is selected.
+05:38:39 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:38:39 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:38:39 INFO  : Context for processor 'microblaze_0' is selected.
+05:38:39 INFO  : 'con' command is executed.
+05:38:39 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:38:39 INFO  : Disconnected from the channel tcfchan#17.
+05:39:48 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:39:52 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:39:53 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:39:53 INFO  : 'jtag frequency' command is executed.
+05:39:53 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:39:54 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:39:54 INFO  : Context for processor 'microblaze_0' is selected.
+05:39:55 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:39:55 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:39:55 INFO  : Context for processor 'microblaze_0' is selected.
+05:39:55 INFO  : System reset is completed.
+05:39:58 INFO  : 'after 3000' command is executed.
+05:39:58 INFO  : Context for processor 'microblaze_0' is selected.
+05:39:58 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:39:58 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:39:58 INFO  : Context for processor 'microblaze_0' is selected.
+05:39:58 INFO  : 'con' command is executed.
+05:39:58 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:39:58 INFO  : Disconnected from the channel tcfchan#18.
+05:41:49 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:42:02 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:42:06 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:42:07 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:42:07 INFO  : 'jtag frequency' command is executed.
+05:42:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:42:09 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:42:09 INFO  : Context for processor 'microblaze_0' is selected.
+05:42:09 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:42:09 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:42:09 INFO  : Context for processor 'microblaze_0' is selected.
+05:42:09 INFO  : System reset is completed.
+05:42:12 INFO  : 'after 3000' command is executed.
+05:42:12 INFO  : Context for processor 'microblaze_0' is selected.
+05:42:12 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:42:12 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:42:12 INFO  : Context for processor 'microblaze_0' is selected.
+05:42:12 INFO  : 'con' command is executed.
+05:42:12 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:42:12 INFO  : Disconnected from the channel tcfchan#19.
+05:44:40 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:44:52 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:44:56 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:44:57 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:44:57 INFO  : 'jtag frequency' command is executed.
+05:44:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:44:58 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:44:58 INFO  : Context for processor 'microblaze_0' is selected.
+05:44:58 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:44:58 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:44:58 INFO  : Context for processor 'microblaze_0' is selected.
+05:44:58 INFO  : System reset is completed.
+05:45:01 INFO  : 'after 3000' command is executed.
+05:45:01 INFO  : Context for processor 'microblaze_0' is selected.
+05:45:01 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:45:01 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:45:01 INFO  : Context for processor 'microblaze_0' is selected.
+05:45:01 INFO  : 'con' command is executed.
+05:45:01 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:45:01 INFO  : Disconnected from the channel tcfchan#20.
+05:46:04 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:46:18 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:46:22 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:46:23 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:46:23 INFO  : 'jtag frequency' command is executed.
+05:46:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:46:24 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:46:24 INFO  : Context for processor 'microblaze_0' is selected.
+05:46:24 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:46:24 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:46:24 INFO  : Context for processor 'microblaze_0' is selected.
+05:46:24 INFO  : System reset is completed.
+05:46:27 INFO  : 'after 3000' command is executed.
+05:46:27 INFO  : Context for processor 'microblaze_0' is selected.
+05:46:27 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:46:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:46:27 INFO  : Context for processor 'microblaze_0' is selected.
+05:46:27 INFO  : 'con' command is executed.
+05:46:27 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:46:27 INFO  : Disconnected from the channel tcfchan#21.
+05:48:09 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:48:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:48:14 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:48:14 INFO  : 'jtag frequency' command is executed.
+05:48:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:48:15 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:48:15 INFO  : Context for processor 'microblaze_0' is selected.
+05:48:15 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:48:15 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:48:15 INFO  : Context for processor 'microblaze_0' is selected.
+05:48:15 INFO  : System reset is completed.
+05:48:18 INFO  : 'after 3000' command is executed.
+05:48:18 INFO  : Context for processor 'microblaze_0' is selected.
+05:48:18 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:48:18 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:48:18 INFO  : Context for processor 'microblaze_0' is selected.
+05:48:18 INFO  : 'con' command is executed.
+05:48:18 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:48:18 INFO  : Disconnected from the channel tcfchan#22.
+05:48:31 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:48:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:48:35 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:48:35 INFO  : 'jtag frequency' command is executed.
+05:48:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:48:37 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:48:37 INFO  : Context for processor 'microblaze_0' is selected.
+05:48:37 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:48:37 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:48:37 INFO  : Context for processor 'microblaze_0' is selected.
+05:48:37 INFO  : System reset is completed.
+05:48:40 INFO  : 'after 3000' command is executed.
+05:48:40 INFO  : Context for processor 'microblaze_0' is selected.
+05:48:40 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:48:40 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:48:40 INFO  : Context for processor 'microblaze_0' is selected.
+05:48:40 INFO  : 'con' command is executed.
+05:48:40 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:48:40 INFO  : Disconnected from the channel tcfchan#23.
+05:51:05 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:51:09 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:51:09 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:51:09 INFO  : 'jtag frequency' command is executed.
+05:51:09 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:51:11 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:51:11 INFO  : Context for processor 'microblaze_0' is selected.
+05:51:11 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:51:11 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:51:11 INFO  : Context for processor 'microblaze_0' is selected.
+05:51:11 INFO  : System reset is completed.
+05:51:14 INFO  : 'after 3000' command is executed.
+05:51:14 INFO  : Context for processor 'microblaze_0' is selected.
+05:51:14 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:51:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:51:14 INFO  : Context for processor 'microblaze_0' is selected.
+05:51:14 INFO  : 'con' command is executed.
+05:51:14 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:51:14 INFO  : Disconnected from the channel tcfchan#24.
+05:52:22 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:52:26 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:52:27 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:52:27 INFO  : 'jtag frequency' command is executed.
+05:52:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:52:28 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:52:28 INFO  : Context for processor 'microblaze_0' is selected.
+05:52:28 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:52:28 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:52:28 INFO  : Context for processor 'microblaze_0' is selected.
+05:52:28 INFO  : System reset is completed.
+05:52:31 INFO  : 'after 3000' command is executed.
+05:52:31 INFO  : Context for processor 'microblaze_0' is selected.
+05:52:31 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:52:31 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:52:31 INFO  : Context for processor 'microblaze_0' is selected.
+05:52:31 INFO  : 'con' command is executed.
+05:52:31 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:52:31 INFO  : Disconnected from the channel tcfchan#25.
+05:53:46 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:53:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:53:52 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:53:52 INFO  : 'jtag frequency' command is executed.
+05:53:52 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:53:53 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:53:53 INFO  : Context for processor 'microblaze_0' is selected.
+05:53:53 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:53:53 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:53:53 INFO  : Context for processor 'microblaze_0' is selected.
+05:53:53 INFO  : System reset is completed.
+05:53:56 INFO  : 'after 3000' command is executed.
+05:53:56 INFO  : Context for processor 'microblaze_0' is selected.
+05:53:56 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:53:56 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:53:56 INFO  : Context for processor 'microblaze_0' is selected.
+05:53:56 INFO  : 'con' command is executed.
+05:53:56 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:53:56 INFO  : Disconnected from the channel tcfchan#26.
+05:54:33 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:54:38 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:54:39 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:54:39 INFO  : 'jtag frequency' command is executed.
+05:54:39 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:54:40 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:54:40 INFO  : Context for processor 'microblaze_0' is selected.
+05:54:40 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:54:40 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:54:40 INFO  : Context for processor 'microblaze_0' is selected.
+05:54:40 INFO  : System reset is completed.
+05:54:43 INFO  : 'after 3000' command is executed.
+05:54:43 INFO  : Context for processor 'microblaze_0' is selected.
+05:54:43 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:54:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:54:43 INFO  : Context for processor 'microblaze_0' is selected.
+05:54:43 INFO  : 'con' command is executed.
+05:54:43 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:54:43 INFO  : Disconnected from the channel tcfchan#27.
+05:56:16 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:56:34 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+05:56:38 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:56:39 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+05:56:39 INFO  : 'jtag frequency' command is executed.
+05:56:39 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+05:56:40 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+05:56:40 INFO  : Context for processor 'microblaze_0' is selected.
+05:56:40 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+05:56:40 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+05:56:40 INFO  : Context for processor 'microblaze_0' is selected.
+05:56:40 INFO  : System reset is completed.
+05:56:43 INFO  : 'after 3000' command is executed.
+05:56:43 INFO  : Context for processor 'microblaze_0' is selected.
+05:56:43 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+05:56:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+05:56:43 INFO  : Context for processor 'microblaze_0' is selected.
+05:56:43 INFO  : 'con' command is executed.
+05:56:43 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+05:56:43 INFO  : Disconnected from the channel tcfchan#28.
+06:02:12 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+06:02:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+06:02:16 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+06:02:16 INFO  : 'jtag frequency' command is executed.
+06:02:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+06:02:17 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+06:02:18 INFO  : Context for processor 'microblaze_0' is selected.
+06:02:18 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+06:02:18 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+06:02:18 INFO  : Context for processor 'microblaze_0' is selected.
+06:02:18 INFO  : System reset is completed.
+06:02:21 INFO  : 'after 3000' command is executed.
+06:02:21 INFO  : Context for processor 'microblaze_0' is selected.
+06:02:21 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+06:02:21 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+06:02:21 INFO  : Context for processor 'microblaze_0' is selected.
+06:02:21 INFO  : 'con' command is executed.
+06:02:21 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+06:02:21 INFO  : Disconnected from the channel tcfchan#29.
+06:03:37 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+06:03:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+06:03:41 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+06:03:41 INFO  : 'jtag frequency' command is executed.
+06:03:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+06:03:43 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+06:03:43 INFO  : Context for processor 'microblaze_0' is selected.
+06:03:43 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+06:03:43 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+06:03:43 INFO  : Context for processor 'microblaze_0' is selected.
+06:03:43 INFO  : System reset is completed.
+06:03:46 INFO  : 'after 3000' command is executed.
+06:03:46 INFO  : Context for processor 'microblaze_0' is selected.
+06:03:46 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+06:03:46 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+06:03:46 INFO  : Context for processor 'microblaze_0' is selected.
+06:03:46 INFO  : 'con' command is executed.
+06:03:46 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+06:03:46 INFO  : Disconnected from the channel tcfchan#30.
+06:04:15 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+06:04:19 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+06:04:20 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+06:04:20 INFO  : 'jtag frequency' command is executed.
+06:04:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+06:04:21 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+06:04:21 INFO  : Context for processor 'microblaze_0' is selected.
+06:04:21 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+06:04:21 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+06:04:21 INFO  : Context for processor 'microblaze_0' is selected.
+06:04:21 INFO  : System reset is completed.
+06:04:24 INFO  : 'after 3000' command is executed.
+06:04:24 INFO  : Context for processor 'microblaze_0' is selected.
+06:04:24 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+06:04:24 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+06:04:24 INFO  : Context for processor 'microblaze_0' is selected.
+06:04:24 INFO  : 'con' command is executed.
+06:04:24 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+06:04:24 INFO  : Disconnected from the channel tcfchan#31.
+06:05:36 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+06:05:39 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+06:05:40 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+06:05:40 INFO  : 'jtag frequency' command is executed.
+06:05:40 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+06:05:41 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+06:05:41 INFO  : Context for processor 'microblaze_0' is selected.
+06:05:41 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+06:05:41 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+06:05:41 INFO  : Context for processor 'microblaze_0' is selected.
+06:05:41 INFO  : System reset is completed.
+06:05:44 INFO  : 'after 3000' command is executed.
+06:05:45 INFO  : Context for processor 'microblaze_0' is selected.
+06:05:45 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+06:05:45 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+06:05:45 INFO  : Context for processor 'microblaze_0' is selected.
+06:05:45 INFO  : 'con' command is executed.
+06:05:45 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+06:05:45 INFO  : Disconnected from the channel tcfchan#32.
+06:07:04 INFO  : Checking for BSP changes to sync application flags for project 'final_software'...
+06:07:10 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+06:07:11 INFO  : Jtag cable 'RealDigital Boo 887429230129A' is selected.
+06:07:11 INFO  : 'jtag frequency' command is executed.
+06:07:11 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+06:07:12 INFO  : Device configured successfully with "C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit"
+06:07:12 INFO  : Context for processor 'microblaze_0' is selected.
+06:07:12 INFO  : Hardware design and registers information is loaded from 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa'.
+06:07:12 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+06:07:12 INFO  : Context for processor 'microblaze_0' is selected.
+06:07:12 INFO  : System reset is completed.
+06:07:15 INFO  : 'after 3000' command is executed.
+06:07:15 INFO  : Context for processor 'microblaze_0' is selected.
+06:07:15 INFO  : The application 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf' is downloaded to processor 'microblaze_0'.
+06:07:15 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 887429230129A" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/_ide/bitstream/Final_Top_Level.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/Final_Top_Level/export/Final_Top_Level/hw/Final_Top_Level.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project_Vitis/final_software/Debug/final_software.elf
+----------------End of Script----------------
+
+06:07:15 INFO  : Context for processor 'microblaze_0' is selected.
+06:07:15 INFO  : 'con' command is executed.
+06:07:15 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+06:07:15 INFO  : Disconnected from the channel tcfchan#33.

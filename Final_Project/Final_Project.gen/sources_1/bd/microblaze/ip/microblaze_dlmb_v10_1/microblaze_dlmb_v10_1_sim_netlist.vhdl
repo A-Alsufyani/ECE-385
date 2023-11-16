@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
--- Date        : Mon Nov 13 00:05:52 2023
+-- Date        : Thu Nov 16 02:42:40 2023
 -- Host        : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top microblaze_dlmb_v10_1 -prefix
---               microblaze_dlmb_v10_1_ microblaze_dlmb_v10_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_dlmb_v10_1/microblaze_dlmb_v10_1_sim_netlist.vhdl
 -- Design      : microblaze_dlmb_v10_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -53,6 +53,8 @@ entity microblaze_dlmb_v10_1_lmb_v10 is
   attribute C_LMB_NUM_SLAVES of microblaze_dlmb_v10_1_lmb_v10 : entity is 1;
   attribute C_LMB_PROTOCOL : integer;
   attribute C_LMB_PROTOCOL of microblaze_dlmb_v10_1_lmb_v10 : entity is 0;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_dlmb_v10_1_lmb_v10 : entity is "lmb_v10";
 end microblaze_dlmb_v10_1_lmb_v10;
 
 architecture STRUCTURE of microblaze_dlmb_v10_1_lmb_v10 is

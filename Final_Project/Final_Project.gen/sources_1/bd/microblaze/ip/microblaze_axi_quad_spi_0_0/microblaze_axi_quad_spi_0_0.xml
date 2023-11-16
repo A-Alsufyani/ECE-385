@@ -4703,7 +4703,7 @@ This bit has no significance in dual or quad mode.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 13 06:06:08 UTC 2023</spirit:value>
+            <spirit:value>Thu Nov 16 08:42:06 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>

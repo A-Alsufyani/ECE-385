@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xF003CB667F1C4BBA",
+      "boundary_crc": "0x59D48D6F48BB73B6",
       "device": "xc7s50csga324-1",
       "gen_directory": "../../../../Final_Project.gen/sources_1/bd/microblaze",
       "name": "microblaze",
@@ -40,7 +40,7 @@
       "timer_usb_axi": "",
       "gpio_usb_int": "",
       "gpio_usb_rst": "",
-      "gpio_usb_keycode": "",
+      "gpio_player_pos": "",
       "spi_usb": "",
       "GameIP_0": ""
     },
@@ -82,32 +82,6 @@
             "physical_name": "gpio_usb_rst_tri_o",
             "direction": "O",
             "left": "0",
-            "right": "0"
-          }
-        }
-      },
-      "gpio_usb_keycode_0": {
-        "mode": "Master",
-        "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
-        "vlnv": "xilinx.com:interface:gpio_rtl:1.0",
-        "port_maps": {
-          "TRI_O": {
-            "physical_name": "gpio_usb_keycode_0_tri_o",
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          }
-        }
-      },
-      "gpio_usb_keycode_1": {
-        "mode": "Master",
-        "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
-        "vlnv": "xilinx.com:interface:gpio_rtl:1.0",
-        "port_maps": {
-          "TRI_O": {
-            "physical_name": "gpio_usb_keycode_1_tri_o",
-            "direction": "O",
-            "left": "31",
             "right": "0"
           }
         }
@@ -1444,20 +1418,17 @@
           }
         }
       },
-      "gpio_usb_keycode": {
+      "gpio_player_pos": {
         "vlnv": "xilinx.com:ip:axi_gpio:2.0",
         "xci_name": "microblaze_axi_gpio_0_2",
         "xci_path": "ip\\microblaze_axi_gpio_0_2\\microblaze_axi_gpio_0_2.xci",
-        "inst_hier_path": "gpio_usb_keycode",
+        "inst_hier_path": "gpio_player_pos",
         "parameters": {
           "C_ALL_OUTPUTS": {
             "value": "1"
           },
-          "C_ALL_OUTPUTS_2": {
-            "value": "1"
-          },
           "C_IS_DUAL": {
-            "value": "1"
+            "value": "0"
           }
         }
       },
@@ -1487,18 +1458,6 @@
         "interface_ports": [
           "HDMI_0",
           "GameIP_0/HDMI"
-        ]
-      },
-      "axi_gpio_0_GPIO": {
-        "interface_ports": [
-          "gpio_usb_keycode_0",
-          "gpio_usb_keycode/GPIO"
-        ]
-      },
-      "axi_gpio_0_GPIO2": {
-        "interface_ports": [
-          "gpio_usb_keycode_1",
-          "gpio_usb_keycode/GPIO2"
         ]
       },
       "axi_uartlite_0_UART": {
@@ -1552,7 +1511,7 @@
       "microblaze_0_axi_periph_M05_AXI": {
         "interface_ports": [
           "microblaze_0_axi_periph/M05_AXI",
-          "gpio_usb_keycode/S_AXI"
+          "gpio_player_pos/S_AXI"
         ]
       },
       "microblaze_0_axi_periph_M06_AXI": {
@@ -1623,6 +1582,12 @@
           "rst_clk_wiz_1_100M/dcm_locked"
         ]
       },
+      "gpio_player_pos_gpio_io_o": {
+        "ports": [
+          "gpio_player_pos/gpio_io_o",
+          "GameIP_0/player_pos"
+        ]
+      },
       "gpio_usb_int_ip2intc_irpt": {
         "ports": [
           "gpio_usb_int/ip2intc_irpt",
@@ -1655,7 +1620,7 @@
           "microblaze_0_axi_periph/M03_ACLK",
           "gpio_usb_rst/s_axi_aclk",
           "microblaze_0_axi_periph/M04_ACLK",
-          "gpio_usb_keycode/s_axi_aclk",
+          "gpio_player_pos/s_axi_aclk",
           "microblaze_0_axi_periph/M05_ACLK",
           "spi_usb/s_axi_aclk",
           "microblaze_0_axi_periph/M06_ACLK",
@@ -1704,7 +1669,7 @@
           "microblaze_0_axi_periph/M03_ARESETN",
           "gpio_usb_rst/s_axi_aresetn",
           "microblaze_0_axi_periph/M04_ARESETN",
-          "gpio_usb_keycode/s_axi_aresetn",
+          "gpio_player_pos/s_axi_aresetn",
           "microblaze_0_axi_periph/M05_ARESETN",
           "spi_usb/s_axi_aresetn",
           "microblaze_0_axi_periph/M06_ARESETN",
@@ -1756,7 +1721,7 @@
                 "offset_high_param": "C_AXI_HIGHADDR"
               },
               "SEG_axi_gpio_0_Reg": {
-                "address_block": "/gpio_usb_keycode/S_AXI/Reg",
+                "address_block": "/gpio_player_pos/S_AXI/Reg",
                 "offset": "0x40020000",
                 "range": "64K"
               },

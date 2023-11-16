@@ -46,8 +46,6 @@ module Final_Top_Level(
     microblaze mb_block_i(
         .clk_100MHz(clk_100MHz),
         .gpio_usb_int_tri_i(gpio_usb_int_tri_i),
-        .gpio_usb_keycode_0_tri_o(keycode0_gpio),
-        .gpio_usb_keycode_1_tri_o(keycode1_gpio),
         .gpio_usb_rst_tri_o(gpio_usb_rst_tri_o),
         .reset_rtl_0(~reset_rtl_0), //Block designs expect active low reset, all other modules are active high
         .uart_rtl_0_rxd(uart_rtl_0_rxd),

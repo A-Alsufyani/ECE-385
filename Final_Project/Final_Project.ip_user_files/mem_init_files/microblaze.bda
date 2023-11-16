@@ -271,7 +271,7 @@
                 "MI": "M_AXI_DP",
                 "MS": "SEG_axi_gpio_0_Reg",
                 "MV": "xilinx.com:ip:microblaze:11.0",
-                "SX": "/gpio_usb_keycode",
+                "SX": "/gpio_player_pos",
                 "SI": "S_AXI",
                 "SS": "Reg",
                 "SV": "xilinx.com:ip:axi_gpio:2.0",

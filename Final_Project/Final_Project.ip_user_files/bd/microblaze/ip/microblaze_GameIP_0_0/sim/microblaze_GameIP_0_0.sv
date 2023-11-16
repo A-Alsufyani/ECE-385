@@ -48,12 +48,13 @@
 
 
 // IP VLNV: xilinx.com:user:GameIP:1.0
-// IP Revision: 12
+// IP Revision: 15
 
 `timescale 1ns/1ps
 
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module microblaze_GameIP_0_0 (
+  player_pos,
   hdmi_clk_n,
   hdmi_clk_p,
   hdmi_tx_n,
@@ -81,6 +82,8 @@ module microblaze_GameIP_0_0 (
   axi_rready
 );
 
+(* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 player_pos TRI_I" *)
+input wire [31 : 0] player_pos;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME hdmi_clk_n, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 hdmi_clk_n CLK, xilinx.com:interface:hdmi:2.0 HDMI TMDS_CLK_N" *)
 output wire hdmi_clk_n;
@@ -142,6 +145,7 @@ input wire axi_rready;
     .C_AXI_DATA_WIDTH(32),  // Width of S_AXI data bus
     .C_AXI_ADDR_WIDTH(16)  // Width of S_AXI address bus
   ) inst (
+    .player_pos(player_pos),
     .hdmi_clk_n(hdmi_clk_n),
     .hdmi_clk_p(hdmi_clk_p),
     .hdmi_tx_n(hdmi_tx_n),

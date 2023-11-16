@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Mon Nov 13 00:05:50 2023
+| Date         : Thu Nov 16 02:41:40 2023
 | Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
 | Command      : report_utilization -file microblaze_axi_gpio_0_1_utilization_synth.rpt -pb microblaze_axi_gpio_0_1_utilization_synth.pb
 | Design       : microblaze_axi_gpio_0_1

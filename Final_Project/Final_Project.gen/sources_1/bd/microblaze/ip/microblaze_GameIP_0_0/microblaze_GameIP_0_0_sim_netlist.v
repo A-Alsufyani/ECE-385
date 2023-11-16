@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-// Date        : Wed Nov 15 23:01:16 2023
+// Date        : Thu Nov 16 03:22:21 2023
 // Host        : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/microblaze_GameIP_0_0_sim_netlist.v
@@ -16,7 +16,8 @@
 (* CHECK_LICENSE_TYPE = "microblaze_GameIP_0_0,Game_Top_Level,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "Game_Top_Level,Vivado 2023.1" *) 
 (* NotValidForBitStream *)
 module microblaze_GameIP_0_0
-   (hdmi_clk_n,
+   (player_pos,
+    hdmi_clk_n,
     hdmi_clk_p,
     hdmi_tx_n,
     hdmi_tx_p,
@@ -41,6 +42,7 @@ module microblaze_GameIP_0_0
     axi_rresp,
     axi_rvalid,
     axi_rready);
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 player_pos TRI_I" *) input [31:0]player_pos;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 hdmi_clk_n CLK, xilinx.com:interface:hdmi:2.0 HDMI TMDS_CLK_N" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME hdmi_clk_n, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) output hdmi_clk_n;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 hdmi_clk_p CLK, xilinx.com:interface:hdmi:2.0 HDMI TMDS_CLK_P" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME hdmi_clk_p, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) output hdmi_clk_p;
   (* X_INTERFACE_INFO = "xilinx.com:interface:hdmi:2.0 HDMI TMDS_DATA_N" *) output [2:0]hdmi_tx_n;
@@ -89,6 +91,7 @@ module microblaze_GameIP_0_0
   (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire hdmi_clk_p;
   (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire [2:0]hdmi_tx_n;
   (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire [2:0]hdmi_tx_p;
+  wire [31:0]player_pos;
 
   assign axi_bresp[1] = \<const0> ;
   assign axi_bresp[0] = \<const0> ;
@@ -117,7 +120,8 @@ module microblaze_GameIP_0_0
         .hdmi_clk_n(hdmi_clk_n),
         .hdmi_clk_p(hdmi_clk_p),
         .hdmi_tx_n(hdmi_tx_n),
-        .hdmi_tx_p(hdmi_tx_p));
+        .hdmi_tx_p(hdmi_tx_p),
+        .player_pos({player_pos[25:16],player_pos[9:0]}));
 endmodule
 
 (* ORIG_REF_NAME = "Game_Top_Level" *) 
@@ -134,6 +138,7 @@ module microblaze_GameIP_0_0_Game_Top_Level
     axi_bvalid,
     axi_awvalid,
     axi_wvalid,
+    player_pos,
     axi_aclk,
     axi_wdata,
     axi_awaddr,
@@ -155,6 +160,7 @@ module microblaze_GameIP_0_0_Game_Top_Level
   output axi_bvalid;
   input axi_awvalid;
   input axi_wvalid;
+  input [19:0]player_pos;
   input axi_aclk;
   input [31:0]axi_wdata;
   input [9:0]axi_awaddr;
@@ -202,23 +208,57 @@ module microblaze_GameIP_0_0_Game_Top_Level
   wire axi_wready;
   wire [3:0]axi_wstrb;
   wire axi_wvalid;
+  wire [3:0]blue;
   wire clk_125MHz;
   wire clk_25MHz;
-  wire [9:4]drawX;
-  wire [9:4]drawY;
+  wire color_instance_n_0;
+  wire color_instance_n_1;
+  wire color_instance_n_2;
+  wire color_instance_n_3;
+  wire color_instance_n_4;
+  wire color_instance_n_5;
+  wire [9:0]drawX;
+  wire [9:0]drawY;
+  wire [3:0]green;
   wire hdmi_clk_n;
   wire hdmi_clk_p;
   wire [2:0]hdmi_tx_n;
   wire [2:0]hdmi_tx_p;
   wire hsync;
   wire locked;
+  wire [19:0]player_pos;
+  wire [3:0]red;
   wire reset_ah;
   wire [9:2]temp2;
   wire vde;
+  wire vga_n_14;
+  wire vga_n_15;
+  wire vga_n_16;
+  wire vga_n_17;
+  wire vga_n_18;
+  wire vga_n_19;
+  wire vga_n_2;
+  wire vga_n_20;
+  wire vga_n_21;
+  wire vga_n_22;
+  wire vga_n_23;
+  wire vga_n_3;
+  wire vga_n_34;
+  wire vga_n_35;
+  wire vga_n_36;
+  wire vga_n_37;
+  wire vga_n_38;
+  wire vga_n_39;
+  wire vga_n_40;
+  wire vga_n_41;
+  wire vga_n_43;
   wire vsync;
 
   microblaze_GameIP_0_0_HDMI_Controller HDMI_Controller_Instance
-       (.BRAM_i_17(drawY),
+       (.BRAM_i_17(drawY[9:4]),
+        .D({HDMI_Controller_Instance_n_6,HDMI_Controller_Instance_n_7,HDMI_Controller_Instance_n_8,HDMI_Controller_Instance_n_9}),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ({HDMI_Controller_Instance_n_10,HDMI_Controller_Instance_n_11,HDMI_Controller_Instance_n_12,HDMI_Controller_Instance_n_13}),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ({HDMI_Controller_Instance_n_14,HDMI_Controller_Instance_n_15,HDMI_Controller_Instance_n_16,HDMI_Controller_Instance_n_17}),
         .O(addrb2),
         .Q({drawX[9:7],drawX[4]}),
         .S({HDMI_Controller_Instance_n_50,HDMI_Controller_Instance_n_51,HDMI_Controller_Instance_n_52}),
@@ -241,10 +281,7 @@ module microblaze_GameIP_0_0_Game_Top_Level
         .axi_wready_reg_0(axi_wready),
         .axi_wstrb(axi_wstrb),
         .axi_wvalid(axi_wvalid),
-        .blue({HDMI_Controller_Instance_n_14,HDMI_Controller_Instance_n_15,HDMI_Controller_Instance_n_16,HDMI_Controller_Instance_n_17}),
-        .green({HDMI_Controller_Instance_n_10,HDMI_Controller_Instance_n_11,HDMI_Controller_Instance_n_12,HDMI_Controller_Instance_n_13}),
         .\hc_reg[9] ({HDMI_Controller_Instance_n_54,HDMI_Controller_Instance_n_55,HDMI_Controller_Instance_n_56}),
-        .red({HDMI_Controller_Instance_n_6,HDMI_Controller_Instance_n_7,HDMI_Controller_Instance_n_8,HDMI_Controller_Instance_n_9}),
         .\vc_reg[9] (HDMI_Controller_Instance_n_53));
   microblaze_GameIP_0_0_clk_wiz_0 clk_wiz
        (.clk_in1(axi_aclk),
@@ -252,17 +289,49 @@ module microblaze_GameIP_0_0_Game_Top_Level
         .clk_out2(clk_125MHz),
         .locked(locked),
         .reset(reset_ah));
+  microblaze_GameIP_0_0_color_mapper color_instance
+       (.CO(color_instance_n_2),
+        .D({HDMI_Controller_Instance_n_6,HDMI_Controller_Instance_n_7,HDMI_Controller_Instance_n_8,HDMI_Controller_Instance_n_9}),
+        .O({color_instance_n_0,color_instance_n_1}),
+        .Q(drawY),
+        .\Red_reg[3]_i_10 ({vga_n_2,vga_n_3}),
+        .\Red_reg[3]_i_2_0 (red),
+        .\Red_reg[3]_i_2_1 (green),
+        .\Red_reg[3]_i_2_2 (blue),
+        .\Red_reg[3]_i_6_0 ({vga_n_34,vga_n_35,vga_n_36,vga_n_37}),
+        .\Red_reg[3]_i_7_0 ({vga_n_14,vga_n_15,vga_n_16,vga_n_17}),
+        .\Red_reg[3]_i_7_1 (drawX),
+        .\Red_reg[3]_i_7_2 ({vga_n_22,vga_n_23}),
+        .\Red_reg[3]_i_9_0 ({vga_n_38,vga_n_39,vga_n_40,vga_n_41}),
+        .S({vga_n_18,vga_n_19,vga_n_20,vga_n_21}),
+        .\hc_reg[9] (color_instance_n_5),
+        .\srl[31].srl16_i ({HDMI_Controller_Instance_n_10,HDMI_Controller_Instance_n_11,HDMI_Controller_Instance_n_12,HDMI_Controller_Instance_n_13}),
+        .\srl[36].srl16_i (vga_n_43),
+        .\srl[39].srl16_i ({HDMI_Controller_Instance_n_14,HDMI_Controller_Instance_n_15,HDMI_Controller_Instance_n_16,HDMI_Controller_Instance_n_17}),
+        .\vc_reg[9] ({color_instance_n_3,color_instance_n_4}));
   microblaze_GameIP_0_0_vga_controller vga
        (.AR(reset_ah),
         .CLK(clk_25MHz),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram (HDMI_Controller_Instance_n_53),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ({HDMI_Controller_Instance_n_54,HDMI_Controller_Instance_n_55,HDMI_Controller_Instance_n_56}),
-        .O(addrb2),
-        .Q(drawX),
-        .S({HDMI_Controller_Instance_n_50,HDMI_Controller_Instance_n_51,HDMI_Controller_Instance_n_52}),
+        .CO(color_instance_n_2),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ({HDMI_Controller_Instance_n_50,HDMI_Controller_Instance_n_51,HDMI_Controller_Instance_n_52}),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 (HDMI_Controller_Instance_n_53),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ({HDMI_Controller_Instance_n_54,HDMI_Controller_Instance_n_55,HDMI_Controller_Instance_n_56}),
+        .O({color_instance_n_0,color_instance_n_1}),
+        .Q(drawY),
+        .\Red_reg[3]_i_2 ({color_instance_n_3,color_instance_n_4}),
+        .\Red_reg[3]_i_2_0 (color_instance_n_5),
+        .S({vga_n_18,vga_n_19,vga_n_20,vga_n_21}),
         .addrb(temp2),
+        .\hc_reg[3]_0 ({vga_n_38,vga_n_39,vga_n_40,vga_n_41}),
+        .\hc_reg[7]_0 ({vga_n_34,vga_n_35,vga_n_36,vga_n_37}),
+        .\hc_reg[9]_0 ({vga_n_22,vga_n_23}),
+        .\hc_reg[9]_1 (drawX),
         .hsync(hsync),
-        .\vc_reg[9]_0 (drawY),
+        .player_pos(player_pos),
+        .\vc_reg[7]_0 ({vga_n_14,vga_n_15,vga_n_16,vga_n_17}),
+        .\vc_reg[7]_1 (vga_n_43),
+        .\vc_reg[8]_0 (addrb2),
+        .\vc_reg[9]_0 ({vga_n_2,vga_n_3}),
         .vde(vde),
         .vsync(vsync));
   (* CHECK_LICENSE_TYPE = "hdmi_tx_0,hdmi_tx_v1_0,{}" *) 
@@ -278,13 +347,13 @@ module microblaze_GameIP_0_0_Game_Top_Level
         .aux0_din({1'b0,1'b0,1'b0,1'b0}),
         .aux1_din({1'b0,1'b0,1'b0,1'b0}),
         .aux2_din({1'b0,1'b0,1'b0,1'b0}),
-        .blue({HDMI_Controller_Instance_n_14,HDMI_Controller_Instance_n_15,HDMI_Controller_Instance_n_16,HDMI_Controller_Instance_n_17}),
-        .green({HDMI_Controller_Instance_n_10,HDMI_Controller_Instance_n_11,HDMI_Controller_Instance_n_12,HDMI_Controller_Instance_n_13}),
+        .blue(blue),
+        .green(green),
         .hsync(hsync),
         .pix_clk(clk_25MHz),
         .pix_clk_locked(locked),
         .pix_clkx5(clk_125MHz),
-        .red({HDMI_Controller_Instance_n_6,HDMI_Controller_Instance_n_7,HDMI_Controller_Instance_n_8,HDMI_Controller_Instance_n_9}),
+        .red(red),
         .rst(reset_ah),
         .vde(vde),
         .vsync(vsync));
@@ -298,9 +367,9 @@ module microblaze_GameIP_0_0_HDMI_Controller
     axi_arready_reg_0,
     axi_bvalid,
     axi_rvalid,
-    red,
-    green,
-    blue,
+    D,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ,
     axi_rdata,
     S,
     \vc_reg[9] ,
@@ -326,9 +395,9 @@ module microblaze_GameIP_0_0_HDMI_Controller
   output axi_arready_reg_0;
   output axi_bvalid;
   output axi_rvalid;
-  output [3:0]red;
-  output [3:0]green;
-  output [3:0]blue;
+  output [3:0]D;
+  output [3:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
+  output [3:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
   output [31:0]axi_rdata;
   output [2:0]S;
   output [0:0]\vc_reg[9] ;
@@ -350,8 +419,113 @@ module microblaze_GameIP_0_0_HDMI_Controller
   input [9:0]axi_araddr;
 
   wire [5:0]BRAM_i_17;
+  wire \Blue_reg[0]_i_10_n_0 ;
+  wire \Blue_reg[0]_i_11_n_0 ;
+  wire \Blue_reg[0]_i_4_n_0 ;
+  wire \Blue_reg[0]_i_5_n_0 ;
+  wire \Blue_reg[0]_i_6_n_0 ;
+  wire \Blue_reg[0]_i_7_n_0 ;
+  wire \Blue_reg[0]_i_8_n_0 ;
+  wire \Blue_reg[0]_i_9_n_0 ;
+  wire \Blue_reg[1]_i_10_n_0 ;
+  wire \Blue_reg[1]_i_11_n_0 ;
+  wire \Blue_reg[1]_i_4_n_0 ;
+  wire \Blue_reg[1]_i_5_n_0 ;
+  wire \Blue_reg[1]_i_6_n_0 ;
+  wire \Blue_reg[1]_i_7_n_0 ;
+  wire \Blue_reg[1]_i_8_n_0 ;
+  wire \Blue_reg[1]_i_9_n_0 ;
+  wire \Blue_reg[2]_i_10_n_0 ;
+  wire \Blue_reg[2]_i_11_n_0 ;
+  wire \Blue_reg[2]_i_4_n_0 ;
+  wire \Blue_reg[2]_i_5_n_0 ;
+  wire \Blue_reg[2]_i_6_n_0 ;
+  wire \Blue_reg[2]_i_7_n_0 ;
+  wire \Blue_reg[2]_i_8_n_0 ;
+  wire \Blue_reg[2]_i_9_n_0 ;
+  wire \Blue_reg[3]_i_10_n_0 ;
+  wire \Blue_reg[3]_i_11_n_0 ;
+  wire \Blue_reg[3]_i_4_n_0 ;
+  wire \Blue_reg[3]_i_5_n_0 ;
+  wire \Blue_reg[3]_i_6_n_0 ;
+  wire \Blue_reg[3]_i_7_n_0 ;
+  wire \Blue_reg[3]_i_8_n_0 ;
+  wire \Blue_reg[3]_i_9_n_0 ;
+  wire [3:0]D;
+  wire [3:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
+  wire [3:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
+  wire \Green_reg[0]_i_10_n_0 ;
+  wire \Green_reg[0]_i_11_n_0 ;
+  wire \Green_reg[0]_i_4_n_0 ;
+  wire \Green_reg[0]_i_5_n_0 ;
+  wire \Green_reg[0]_i_6_n_0 ;
+  wire \Green_reg[0]_i_7_n_0 ;
+  wire \Green_reg[0]_i_8_n_0 ;
+  wire \Green_reg[0]_i_9_n_0 ;
+  wire \Green_reg[1]_i_10_n_0 ;
+  wire \Green_reg[1]_i_11_n_0 ;
+  wire \Green_reg[1]_i_4_n_0 ;
+  wire \Green_reg[1]_i_5_n_0 ;
+  wire \Green_reg[1]_i_6_n_0 ;
+  wire \Green_reg[1]_i_7_n_0 ;
+  wire \Green_reg[1]_i_8_n_0 ;
+  wire \Green_reg[1]_i_9_n_0 ;
+  wire \Green_reg[2]_i_10_n_0 ;
+  wire \Green_reg[2]_i_11_n_0 ;
+  wire \Green_reg[2]_i_4_n_0 ;
+  wire \Green_reg[2]_i_5_n_0 ;
+  wire \Green_reg[2]_i_6_n_0 ;
+  wire \Green_reg[2]_i_7_n_0 ;
+  wire \Green_reg[2]_i_8_n_0 ;
+  wire \Green_reg[2]_i_9_n_0 ;
+  wire \Green_reg[3]_i_10_n_0 ;
+  wire \Green_reg[3]_i_11_n_0 ;
+  wire \Green_reg[3]_i_4_n_0 ;
+  wire \Green_reg[3]_i_5_n_0 ;
+  wire \Green_reg[3]_i_6_n_0 ;
+  wire \Green_reg[3]_i_7_n_0 ;
+  wire \Green_reg[3]_i_8_n_0 ;
+  wire \Green_reg[3]_i_9_n_0 ;
   wire [1:0]O;
   wire [3:0]Q;
+  wire \Red_reg[0]_i_10_n_0 ;
+  wire \Red_reg[0]_i_11_n_0 ;
+  wire \Red_reg[0]_i_4_n_0 ;
+  wire \Red_reg[0]_i_5_n_0 ;
+  wire \Red_reg[0]_i_6_n_0 ;
+  wire \Red_reg[0]_i_7_n_0 ;
+  wire \Red_reg[0]_i_8_n_0 ;
+  wire \Red_reg[0]_i_9_n_0 ;
+  wire \Red_reg[1]_i_10_n_0 ;
+  wire \Red_reg[1]_i_11_n_0 ;
+  wire \Red_reg[1]_i_4_n_0 ;
+  wire \Red_reg[1]_i_5_n_0 ;
+  wire \Red_reg[1]_i_6_n_0 ;
+  wire \Red_reg[1]_i_7_n_0 ;
+  wire \Red_reg[1]_i_8_n_0 ;
+  wire \Red_reg[1]_i_9_n_0 ;
+  wire \Red_reg[2]_i_10_n_0 ;
+  wire \Red_reg[2]_i_11_n_0 ;
+  wire \Red_reg[2]_i_4_n_0 ;
+  wire \Red_reg[2]_i_5_n_0 ;
+  wire \Red_reg[2]_i_6_n_0 ;
+  wire \Red_reg[2]_i_7_n_0 ;
+  wire \Red_reg[2]_i_8_n_0 ;
+  wire \Red_reg[2]_i_9_n_0 ;
+  wire \Red_reg[3]_i_11_n_0 ;
+  wire \Red_reg[3]_i_12_n_0 ;
+  wire \Red_reg[3]_i_14_n_0 ;
+  wire \Red_reg[3]_i_15_n_0 ;
+  wire \Red_reg[3]_i_16_n_0 ;
+  wire \Red_reg[3]_i_17_n_0 ;
+  wire \Red_reg[3]_i_18_n_0 ;
+  wire \Red_reg[3]_i_19_n_0 ;
+  wire \Red_reg[3]_i_20_n_0 ;
+  wire \Red_reg[3]_i_21_n_0 ;
+  wire \Red_reg[3]_i_22_n_0 ;
+  wire \Red_reg[3]_i_25_n_0 ;
+  wire \Red_reg[3]_i_26_n_0 ;
+  wire \Red_reg[3]_i_3_n_0 ;
   wire [2:0]S;
   wire [0:0]SR;
   wire [9:0]addrb;
@@ -391,8 +565,6 @@ module microblaze_GameIP_0_0_HDMI_Controller
   wire [3:0]axi_write_enable;
   wire [3:0]axi_wstrb;
   wire axi_wvalid;
-  wire [3:0]blue;
-  wire [3:0]green;
   wire [2:0]\hc_reg[9] ;
   wire [2:0]p_0_in;
   wire \pallette_reg_reg[0][24]_i_1_n_0 ;
@@ -595,114 +767,11 @@ module microblaze_GameIP_0_0_HDMI_Controller
   wire \pallette_reg_reg_n_0_[7][7] ;
   wire \pallette_reg_reg_n_0_[7][8] ;
   wire \pallette_reg_reg_n_0_[7][9] ;
-  wire [3:0]red;
   wire [23:0]rgb_values;
   wire [2:0]sel0;
   wire slv_reg_rden__0;
   wire [31:0]user_dout;
   wire [0:0]\vc_reg[9] ;
-  wire vga_to_hdmi_i_100_n_0;
-  wire vga_to_hdmi_i_101_n_0;
-  wire vga_to_hdmi_i_102_n_0;
-  wire vga_to_hdmi_i_103_n_0;
-  wire vga_to_hdmi_i_104_n_0;
-  wire vga_to_hdmi_i_105_n_0;
-  wire vga_to_hdmi_i_106_n_0;
-  wire vga_to_hdmi_i_107_n_0;
-  wire vga_to_hdmi_i_108_n_0;
-  wire vga_to_hdmi_i_109_n_0;
-  wire vga_to_hdmi_i_110_n_0;
-  wire vga_to_hdmi_i_111_n_0;
-  wire vga_to_hdmi_i_112_n_0;
-  wire vga_to_hdmi_i_113_n_0;
-  wire vga_to_hdmi_i_114_n_0;
-  wire vga_to_hdmi_i_115_n_0;
-  wire vga_to_hdmi_i_116_n_0;
-  wire vga_to_hdmi_i_117_n_0;
-  wire vga_to_hdmi_i_118_n_0;
-  wire vga_to_hdmi_i_119_n_0;
-  wire vga_to_hdmi_i_120_n_0;
-  wire vga_to_hdmi_i_121_n_0;
-  wire vga_to_hdmi_i_122_n_0;
-  wire vga_to_hdmi_i_123_n_0;
-  wire vga_to_hdmi_i_124_n_0;
-  wire vga_to_hdmi_i_125_n_0;
-  wire vga_to_hdmi_i_126_n_0;
-  wire vga_to_hdmi_i_127_n_0;
-  wire vga_to_hdmi_i_128_n_0;
-  wire vga_to_hdmi_i_129_n_0;
-  wire vga_to_hdmi_i_130_n_0;
-  wire vga_to_hdmi_i_131_n_0;
-  wire vga_to_hdmi_i_132_n_0;
-  wire vga_to_hdmi_i_133_n_0;
-  wire vga_to_hdmi_i_134_n_0;
-  wire vga_to_hdmi_i_135_n_0;
-  wire vga_to_hdmi_i_136_n_0;
-  wire vga_to_hdmi_i_137_n_0;
-  wire vga_to_hdmi_i_138_n_0;
-  wire vga_to_hdmi_i_139_n_0;
-  wire vga_to_hdmi_i_140_n_0;
-  wire vga_to_hdmi_i_143_n_0;
-  wire vga_to_hdmi_i_144_n_0;
-  wire vga_to_hdmi_i_15_n_0;
-  wire vga_to_hdmi_i_41_n_0;
-  wire vga_to_hdmi_i_42_n_0;
-  wire vga_to_hdmi_i_44_n_0;
-  wire vga_to_hdmi_i_45_n_0;
-  wire vga_to_hdmi_i_46_n_0;
-  wire vga_to_hdmi_i_47_n_0;
-  wire vga_to_hdmi_i_48_n_0;
-  wire vga_to_hdmi_i_49_n_0;
-  wire vga_to_hdmi_i_50_n_0;
-  wire vga_to_hdmi_i_51_n_0;
-  wire vga_to_hdmi_i_52_n_0;
-  wire vga_to_hdmi_i_53_n_0;
-  wire vga_to_hdmi_i_54_n_0;
-  wire vga_to_hdmi_i_55_n_0;
-  wire vga_to_hdmi_i_56_n_0;
-  wire vga_to_hdmi_i_57_n_0;
-  wire vga_to_hdmi_i_58_n_0;
-  wire vga_to_hdmi_i_59_n_0;
-  wire vga_to_hdmi_i_60_n_0;
-  wire vga_to_hdmi_i_61_n_0;
-  wire vga_to_hdmi_i_62_n_0;
-  wire vga_to_hdmi_i_63_n_0;
-  wire vga_to_hdmi_i_64_n_0;
-  wire vga_to_hdmi_i_65_n_0;
-  wire vga_to_hdmi_i_66_n_0;
-  wire vga_to_hdmi_i_67_n_0;
-  wire vga_to_hdmi_i_68_n_0;
-  wire vga_to_hdmi_i_69_n_0;
-  wire vga_to_hdmi_i_70_n_0;
-  wire vga_to_hdmi_i_71_n_0;
-  wire vga_to_hdmi_i_72_n_0;
-  wire vga_to_hdmi_i_73_n_0;
-  wire vga_to_hdmi_i_74_n_0;
-  wire vga_to_hdmi_i_75_n_0;
-  wire vga_to_hdmi_i_76_n_0;
-  wire vga_to_hdmi_i_77_n_0;
-  wire vga_to_hdmi_i_78_n_0;
-  wire vga_to_hdmi_i_79_n_0;
-  wire vga_to_hdmi_i_80_n_0;
-  wire vga_to_hdmi_i_81_n_0;
-  wire vga_to_hdmi_i_82_n_0;
-  wire vga_to_hdmi_i_83_n_0;
-  wire vga_to_hdmi_i_84_n_0;
-  wire vga_to_hdmi_i_85_n_0;
-  wire vga_to_hdmi_i_86_n_0;
-  wire vga_to_hdmi_i_87_n_0;
-  wire vga_to_hdmi_i_88_n_0;
-  wire vga_to_hdmi_i_89_n_0;
-  wire vga_to_hdmi_i_90_n_0;
-  wire vga_to_hdmi_i_91_n_0;
-  wire vga_to_hdmi_i_92_n_0;
-  wire vga_to_hdmi_i_93_n_0;
-  wire vga_to_hdmi_i_94_n_0;
-  wire vga_to_hdmi_i_95_n_0;
-  wire vga_to_hdmi_i_96_n_0;
-  wire vga_to_hdmi_i_97_n_0;
-  wire vga_to_hdmi_i_98_n_0;
-  wire vga_to_hdmi_i_99_n_0;
   wire [30:9]NLW_BRAM_doutb_UNCONNECTED;
 
   (* CHECK_LICENSE_TYPE = "blk_mem_gen_0,blk_mem_gen_v8_4_6,{}" *) 
@@ -897,6 +966,1335 @@ module microblaze_GameIP_0_0_HDMI_Controller
         .I4(axi_wvalid),
         .I5(axi_araddr[5]),
         .O(axi_address[5]));
+  MUXF7 \Blue_reg[0]_i_1 
+       (.I0(rgb_values[0]),
+        .I1(rgb_values[12]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [0]),
+        .S(\Red_reg[3]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[0]_i_10 
+       (.I0(\pallette_reg_reg_n_0_[1][1] ),
+        .I1(\pallette_reg_reg_n_0_[3][1] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][1] ),
+        .I5(\pallette_reg_reg_n_0_[2][1] ),
+        .O(\Blue_reg[0]_i_10_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[0]_i_11 
+       (.I0(\pallette_reg_reg_n_0_[1][13] ),
+        .I1(\pallette_reg_reg_n_0_[3][13] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][13] ),
+        .I5(\pallette_reg_reg_n_0_[2][13] ),
+        .O(\Blue_reg[0]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[0]_i_2 
+       (.I0(\Blue_reg[0]_i_4_n_0 ),
+        .I1(\Blue_reg[0]_i_5_n_0 ),
+        .I2(sel0[2]),
+        .I3(\Red_reg[3]_i_14_n_0 ),
+        .I4(\Blue_reg[0]_i_6_n_0 ),
+        .I5(\Blue_reg[0]_i_7_n_0 ),
+        .O(rgb_values[0]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[0]_i_3 
+       (.I0(\Blue_reg[0]_i_8_n_0 ),
+        .I1(\Blue_reg[0]_i_9_n_0 ),
+        .I2(\Red_reg[3]_i_19_n_0 ),
+        .I3(\Red_reg[3]_i_20_n_0 ),
+        .I4(\Blue_reg[0]_i_10_n_0 ),
+        .I5(\Blue_reg[0]_i_11_n_0 ),
+        .O(rgb_values[12]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[0]_i_4 
+       (.I0(\pallette_reg_reg_n_0_[5][1] ),
+        .I1(\pallette_reg_reg_n_0_[7][1] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][1] ),
+        .I5(\pallette_reg_reg_n_0_[6][1] ),
+        .O(\Blue_reg[0]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[0]_i_5 
+       (.I0(\pallette_reg_reg_n_0_[5][13] ),
+        .I1(\pallette_reg_reg_n_0_[7][13] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][13] ),
+        .I5(\pallette_reg_reg_n_0_[6][13] ),
+        .O(\Blue_reg[0]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[0]_i_6 
+       (.I0(\pallette_reg_reg_n_0_[1][1] ),
+        .I1(\pallette_reg_reg_n_0_[3][1] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][1] ),
+        .I5(\pallette_reg_reg_n_0_[2][1] ),
+        .O(\Blue_reg[0]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[0]_i_7 
+       (.I0(\pallette_reg_reg_n_0_[1][13] ),
+        .I1(\pallette_reg_reg_n_0_[3][13] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][13] ),
+        .I5(\pallette_reg_reg_n_0_[2][13] ),
+        .O(\Blue_reg[0]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[0]_i_8 
+       (.I0(\pallette_reg_reg_n_0_[5][1] ),
+        .I1(\pallette_reg_reg_n_0_[7][1] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][1] ),
+        .I5(\pallette_reg_reg_n_0_[6][1] ),
+        .O(\Blue_reg[0]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[0]_i_9 
+       (.I0(\pallette_reg_reg_n_0_[5][13] ),
+        .I1(\pallette_reg_reg_n_0_[7][13] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][13] ),
+        .I5(\pallette_reg_reg_n_0_[6][13] ),
+        .O(\Blue_reg[0]_i_9_n_0 ));
+  MUXF7 \Blue_reg[1]_i_1 
+       (.I0(rgb_values[1]),
+        .I1(rgb_values[13]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [1]),
+        .S(\Red_reg[3]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[1]_i_10 
+       (.I0(\pallette_reg_reg_n_0_[1][2] ),
+        .I1(\pallette_reg_reg_n_0_[3][2] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][2] ),
+        .I5(\pallette_reg_reg_n_0_[2][2] ),
+        .O(\Blue_reg[1]_i_10_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[1]_i_11 
+       (.I0(\pallette_reg_reg_n_0_[1][14] ),
+        .I1(\pallette_reg_reg_n_0_[3][14] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][14] ),
+        .I5(\pallette_reg_reg_n_0_[2][14] ),
+        .O(\Blue_reg[1]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[1]_i_2 
+       (.I0(\Blue_reg[1]_i_4_n_0 ),
+        .I1(\Blue_reg[1]_i_5_n_0 ),
+        .I2(sel0[2]),
+        .I3(\Red_reg[3]_i_14_n_0 ),
+        .I4(\Blue_reg[1]_i_6_n_0 ),
+        .I5(\Blue_reg[1]_i_7_n_0 ),
+        .O(rgb_values[1]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[1]_i_3 
+       (.I0(\Blue_reg[1]_i_8_n_0 ),
+        .I1(\Blue_reg[1]_i_9_n_0 ),
+        .I2(\Red_reg[3]_i_19_n_0 ),
+        .I3(\Red_reg[3]_i_20_n_0 ),
+        .I4(\Blue_reg[1]_i_10_n_0 ),
+        .I5(\Blue_reg[1]_i_11_n_0 ),
+        .O(rgb_values[13]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[1]_i_4 
+       (.I0(\pallette_reg_reg_n_0_[5][2] ),
+        .I1(\pallette_reg_reg_n_0_[7][2] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][2] ),
+        .I5(\pallette_reg_reg_n_0_[6][2] ),
+        .O(\Blue_reg[1]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[1]_i_5 
+       (.I0(\pallette_reg_reg_n_0_[5][14] ),
+        .I1(\pallette_reg_reg_n_0_[7][14] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][14] ),
+        .I5(\pallette_reg_reg_n_0_[6][14] ),
+        .O(\Blue_reg[1]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[1]_i_6 
+       (.I0(\pallette_reg_reg_n_0_[1][2] ),
+        .I1(\pallette_reg_reg_n_0_[3][2] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][2] ),
+        .I5(\pallette_reg_reg_n_0_[2][2] ),
+        .O(\Blue_reg[1]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[1]_i_7 
+       (.I0(\pallette_reg_reg_n_0_[1][14] ),
+        .I1(\pallette_reg_reg_n_0_[3][14] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][14] ),
+        .I5(\pallette_reg_reg_n_0_[2][14] ),
+        .O(\Blue_reg[1]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[1]_i_8 
+       (.I0(\pallette_reg_reg_n_0_[5][2] ),
+        .I1(\pallette_reg_reg_n_0_[7][2] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][2] ),
+        .I5(\pallette_reg_reg_n_0_[6][2] ),
+        .O(\Blue_reg[1]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[1]_i_9 
+       (.I0(\pallette_reg_reg_n_0_[5][14] ),
+        .I1(\pallette_reg_reg_n_0_[7][14] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][14] ),
+        .I5(\pallette_reg_reg_n_0_[6][14] ),
+        .O(\Blue_reg[1]_i_9_n_0 ));
+  MUXF7 \Blue_reg[2]_i_1 
+       (.I0(rgb_values[2]),
+        .I1(rgb_values[14]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [2]),
+        .S(\Red_reg[3]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[2]_i_10 
+       (.I0(\pallette_reg_reg_n_0_[1][3] ),
+        .I1(\pallette_reg_reg_n_0_[3][3] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][3] ),
+        .I5(\pallette_reg_reg_n_0_[2][3] ),
+        .O(\Blue_reg[2]_i_10_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[2]_i_11 
+       (.I0(\pallette_reg_reg_n_0_[1][15] ),
+        .I1(\pallette_reg_reg_n_0_[3][15] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][15] ),
+        .I5(\pallette_reg_reg_n_0_[2][15] ),
+        .O(\Blue_reg[2]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[2]_i_2 
+       (.I0(\Blue_reg[2]_i_4_n_0 ),
+        .I1(\Blue_reg[2]_i_5_n_0 ),
+        .I2(sel0[2]),
+        .I3(\Red_reg[3]_i_14_n_0 ),
+        .I4(\Blue_reg[2]_i_6_n_0 ),
+        .I5(\Blue_reg[2]_i_7_n_0 ),
+        .O(rgb_values[2]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[2]_i_3 
+       (.I0(\Blue_reg[2]_i_8_n_0 ),
+        .I1(\Blue_reg[2]_i_9_n_0 ),
+        .I2(\Red_reg[3]_i_19_n_0 ),
+        .I3(\Red_reg[3]_i_20_n_0 ),
+        .I4(\Blue_reg[2]_i_10_n_0 ),
+        .I5(\Blue_reg[2]_i_11_n_0 ),
+        .O(rgb_values[14]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[2]_i_4 
+       (.I0(\pallette_reg_reg_n_0_[5][3] ),
+        .I1(\pallette_reg_reg_n_0_[7][3] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][3] ),
+        .I5(\pallette_reg_reg_n_0_[6][3] ),
+        .O(\Blue_reg[2]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[2]_i_5 
+       (.I0(\pallette_reg_reg_n_0_[5][15] ),
+        .I1(\pallette_reg_reg_n_0_[7][15] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][15] ),
+        .I5(\pallette_reg_reg_n_0_[6][15] ),
+        .O(\Blue_reg[2]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[2]_i_6 
+       (.I0(\pallette_reg_reg_n_0_[1][3] ),
+        .I1(\pallette_reg_reg_n_0_[3][3] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][3] ),
+        .I5(\pallette_reg_reg_n_0_[2][3] ),
+        .O(\Blue_reg[2]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[2]_i_7 
+       (.I0(\pallette_reg_reg_n_0_[1][15] ),
+        .I1(\pallette_reg_reg_n_0_[3][15] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][15] ),
+        .I5(\pallette_reg_reg_n_0_[2][15] ),
+        .O(\Blue_reg[2]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[2]_i_8 
+       (.I0(\pallette_reg_reg_n_0_[5][3] ),
+        .I1(\pallette_reg_reg_n_0_[7][3] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][3] ),
+        .I5(\pallette_reg_reg_n_0_[6][3] ),
+        .O(\Blue_reg[2]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[2]_i_9 
+       (.I0(\pallette_reg_reg_n_0_[5][15] ),
+        .I1(\pallette_reg_reg_n_0_[7][15] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][15] ),
+        .I5(\pallette_reg_reg_n_0_[6][15] ),
+        .O(\Blue_reg[2]_i_9_n_0 ));
+  MUXF7 \Blue_reg[3]_i_1 
+       (.I0(rgb_values[3]),
+        .I1(rgb_values[15]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [3]),
+        .S(\Red_reg[3]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[3]_i_10 
+       (.I0(\pallette_reg_reg_n_0_[1][4] ),
+        .I1(\pallette_reg_reg_n_0_[3][4] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][4] ),
+        .I5(\pallette_reg_reg_n_0_[2][4] ),
+        .O(\Blue_reg[3]_i_10_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[3]_i_11 
+       (.I0(\pallette_reg_reg_n_0_[1][16] ),
+        .I1(\pallette_reg_reg_n_0_[3][16] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][16] ),
+        .I5(\pallette_reg_reg_n_0_[2][16] ),
+        .O(\Blue_reg[3]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[3]_i_2 
+       (.I0(\Blue_reg[3]_i_4_n_0 ),
+        .I1(\Blue_reg[3]_i_5_n_0 ),
+        .I2(sel0[2]),
+        .I3(\Red_reg[3]_i_14_n_0 ),
+        .I4(\Blue_reg[3]_i_6_n_0 ),
+        .I5(\Blue_reg[3]_i_7_n_0 ),
+        .O(rgb_values[3]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[3]_i_3 
+       (.I0(\Blue_reg[3]_i_8_n_0 ),
+        .I1(\Blue_reg[3]_i_9_n_0 ),
+        .I2(\Red_reg[3]_i_19_n_0 ),
+        .I3(\Red_reg[3]_i_20_n_0 ),
+        .I4(\Blue_reg[3]_i_10_n_0 ),
+        .I5(\Blue_reg[3]_i_11_n_0 ),
+        .O(rgb_values[15]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[3]_i_4 
+       (.I0(\pallette_reg_reg_n_0_[5][4] ),
+        .I1(\pallette_reg_reg_n_0_[7][4] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][4] ),
+        .I5(\pallette_reg_reg_n_0_[6][4] ),
+        .O(\Blue_reg[3]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[3]_i_5 
+       (.I0(\pallette_reg_reg_n_0_[5][16] ),
+        .I1(\pallette_reg_reg_n_0_[7][16] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][16] ),
+        .I5(\pallette_reg_reg_n_0_[6][16] ),
+        .O(\Blue_reg[3]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[3]_i_6 
+       (.I0(\pallette_reg_reg_n_0_[1][4] ),
+        .I1(\pallette_reg_reg_n_0_[3][4] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][4] ),
+        .I5(\pallette_reg_reg_n_0_[2][4] ),
+        .O(\Blue_reg[3]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[3]_i_7 
+       (.I0(\pallette_reg_reg_n_0_[1][16] ),
+        .I1(\pallette_reg_reg_n_0_[3][16] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][16] ),
+        .I5(\pallette_reg_reg_n_0_[2][16] ),
+        .O(\Blue_reg[3]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[3]_i_8 
+       (.I0(\pallette_reg_reg_n_0_[5][4] ),
+        .I1(\pallette_reg_reg_n_0_[7][4] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][4] ),
+        .I5(\pallette_reg_reg_n_0_[6][4] ),
+        .O(\Blue_reg[3]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Blue_reg[3]_i_9 
+       (.I0(\pallette_reg_reg_n_0_[5][16] ),
+        .I1(\pallette_reg_reg_n_0_[7][16] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][16] ),
+        .I5(\pallette_reg_reg_n_0_[6][16] ),
+        .O(\Blue_reg[3]_i_9_n_0 ));
+  MUXF7 \Green_reg[0]_i_1 
+       (.I0(rgb_values[4]),
+        .I1(rgb_values[16]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram [0]),
+        .S(\Red_reg[3]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[0]_i_10 
+       (.I0(\pallette_reg_reg_n_0_[1][5] ),
+        .I1(\pallette_reg_reg_n_0_[3][5] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][5] ),
+        .I5(\pallette_reg_reg_n_0_[2][5] ),
+        .O(\Green_reg[0]_i_10_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[0]_i_11 
+       (.I0(\pallette_reg_reg_n_0_[1][17] ),
+        .I1(\pallette_reg_reg_n_0_[3][17] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][17] ),
+        .I5(\pallette_reg_reg_n_0_[2][17] ),
+        .O(\Green_reg[0]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[0]_i_2 
+       (.I0(\Green_reg[0]_i_4_n_0 ),
+        .I1(\Green_reg[0]_i_5_n_0 ),
+        .I2(sel0[2]),
+        .I3(\Red_reg[3]_i_14_n_0 ),
+        .I4(\Green_reg[0]_i_6_n_0 ),
+        .I5(\Green_reg[0]_i_7_n_0 ),
+        .O(rgb_values[4]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[0]_i_3 
+       (.I0(\Green_reg[0]_i_8_n_0 ),
+        .I1(\Green_reg[0]_i_9_n_0 ),
+        .I2(\Red_reg[3]_i_19_n_0 ),
+        .I3(\Red_reg[3]_i_20_n_0 ),
+        .I4(\Green_reg[0]_i_10_n_0 ),
+        .I5(\Green_reg[0]_i_11_n_0 ),
+        .O(rgb_values[16]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[0]_i_4 
+       (.I0(\pallette_reg_reg_n_0_[5][5] ),
+        .I1(\pallette_reg_reg_n_0_[7][5] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][5] ),
+        .I5(\pallette_reg_reg_n_0_[6][5] ),
+        .O(\Green_reg[0]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[0]_i_5 
+       (.I0(\pallette_reg_reg_n_0_[5][17] ),
+        .I1(\pallette_reg_reg_n_0_[7][17] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][17] ),
+        .I5(\pallette_reg_reg_n_0_[6][17] ),
+        .O(\Green_reg[0]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[0]_i_6 
+       (.I0(\pallette_reg_reg_n_0_[1][5] ),
+        .I1(\pallette_reg_reg_n_0_[3][5] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][5] ),
+        .I5(\pallette_reg_reg_n_0_[2][5] ),
+        .O(\Green_reg[0]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[0]_i_7 
+       (.I0(\pallette_reg_reg_n_0_[1][17] ),
+        .I1(\pallette_reg_reg_n_0_[3][17] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][17] ),
+        .I5(\pallette_reg_reg_n_0_[2][17] ),
+        .O(\Green_reg[0]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[0]_i_8 
+       (.I0(\pallette_reg_reg_n_0_[5][5] ),
+        .I1(\pallette_reg_reg_n_0_[7][5] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][5] ),
+        .I5(\pallette_reg_reg_n_0_[6][5] ),
+        .O(\Green_reg[0]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[0]_i_9 
+       (.I0(\pallette_reg_reg_n_0_[5][17] ),
+        .I1(\pallette_reg_reg_n_0_[7][17] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][17] ),
+        .I5(\pallette_reg_reg_n_0_[6][17] ),
+        .O(\Green_reg[0]_i_9_n_0 ));
+  MUXF7 \Green_reg[1]_i_1 
+       (.I0(rgb_values[5]),
+        .I1(rgb_values[17]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram [1]),
+        .S(\Red_reg[3]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[1]_i_10 
+       (.I0(\pallette_reg_reg_n_0_[1][6] ),
+        .I1(\pallette_reg_reg_n_0_[3][6] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][6] ),
+        .I5(\pallette_reg_reg_n_0_[2][6] ),
+        .O(\Green_reg[1]_i_10_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[1]_i_11 
+       (.I0(\pallette_reg_reg_n_0_[1][18] ),
+        .I1(\pallette_reg_reg_n_0_[3][18] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][18] ),
+        .I5(\pallette_reg_reg_n_0_[2][18] ),
+        .O(\Green_reg[1]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[1]_i_2 
+       (.I0(\Green_reg[1]_i_4_n_0 ),
+        .I1(\Green_reg[1]_i_5_n_0 ),
+        .I2(sel0[2]),
+        .I3(\Red_reg[3]_i_14_n_0 ),
+        .I4(\Green_reg[1]_i_6_n_0 ),
+        .I5(\Green_reg[1]_i_7_n_0 ),
+        .O(rgb_values[5]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[1]_i_3 
+       (.I0(\Green_reg[1]_i_8_n_0 ),
+        .I1(\Green_reg[1]_i_9_n_0 ),
+        .I2(\Red_reg[3]_i_19_n_0 ),
+        .I3(\Red_reg[3]_i_20_n_0 ),
+        .I4(\Green_reg[1]_i_10_n_0 ),
+        .I5(\Green_reg[1]_i_11_n_0 ),
+        .O(rgb_values[17]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[1]_i_4 
+       (.I0(\pallette_reg_reg_n_0_[5][6] ),
+        .I1(\pallette_reg_reg_n_0_[7][6] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][6] ),
+        .I5(\pallette_reg_reg_n_0_[6][6] ),
+        .O(\Green_reg[1]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[1]_i_5 
+       (.I0(\pallette_reg_reg_n_0_[5][18] ),
+        .I1(\pallette_reg_reg_n_0_[7][18] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][18] ),
+        .I5(\pallette_reg_reg_n_0_[6][18] ),
+        .O(\Green_reg[1]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[1]_i_6 
+       (.I0(\pallette_reg_reg_n_0_[1][6] ),
+        .I1(\pallette_reg_reg_n_0_[3][6] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][6] ),
+        .I5(\pallette_reg_reg_n_0_[2][6] ),
+        .O(\Green_reg[1]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[1]_i_7 
+       (.I0(\pallette_reg_reg_n_0_[1][18] ),
+        .I1(\pallette_reg_reg_n_0_[3][18] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][18] ),
+        .I5(\pallette_reg_reg_n_0_[2][18] ),
+        .O(\Green_reg[1]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[1]_i_8 
+       (.I0(\pallette_reg_reg_n_0_[5][6] ),
+        .I1(\pallette_reg_reg_n_0_[7][6] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][6] ),
+        .I5(\pallette_reg_reg_n_0_[6][6] ),
+        .O(\Green_reg[1]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[1]_i_9 
+       (.I0(\pallette_reg_reg_n_0_[5][18] ),
+        .I1(\pallette_reg_reg_n_0_[7][18] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][18] ),
+        .I5(\pallette_reg_reg_n_0_[6][18] ),
+        .O(\Green_reg[1]_i_9_n_0 ));
+  MUXF7 \Green_reg[2]_i_1 
+       (.I0(rgb_values[6]),
+        .I1(rgb_values[18]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram [2]),
+        .S(\Red_reg[3]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[2]_i_10 
+       (.I0(\pallette_reg_reg_n_0_[1][7] ),
+        .I1(\pallette_reg_reg_n_0_[3][7] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][7] ),
+        .I5(\pallette_reg_reg_n_0_[2][7] ),
+        .O(\Green_reg[2]_i_10_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[2]_i_11 
+       (.I0(\pallette_reg_reg_n_0_[1][19] ),
+        .I1(\pallette_reg_reg_n_0_[3][19] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][19] ),
+        .I5(\pallette_reg_reg_n_0_[2][19] ),
+        .O(\Green_reg[2]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[2]_i_2 
+       (.I0(\Green_reg[2]_i_4_n_0 ),
+        .I1(\Green_reg[2]_i_5_n_0 ),
+        .I2(sel0[2]),
+        .I3(\Red_reg[3]_i_14_n_0 ),
+        .I4(\Green_reg[2]_i_6_n_0 ),
+        .I5(\Green_reg[2]_i_7_n_0 ),
+        .O(rgb_values[6]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[2]_i_3 
+       (.I0(\Green_reg[2]_i_8_n_0 ),
+        .I1(\Green_reg[2]_i_9_n_0 ),
+        .I2(\Red_reg[3]_i_19_n_0 ),
+        .I3(\Red_reg[3]_i_20_n_0 ),
+        .I4(\Green_reg[2]_i_10_n_0 ),
+        .I5(\Green_reg[2]_i_11_n_0 ),
+        .O(rgb_values[18]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[2]_i_4 
+       (.I0(\pallette_reg_reg_n_0_[5][7] ),
+        .I1(\pallette_reg_reg_n_0_[7][7] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][7] ),
+        .I5(\pallette_reg_reg_n_0_[6][7] ),
+        .O(\Green_reg[2]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[2]_i_5 
+       (.I0(\pallette_reg_reg_n_0_[5][19] ),
+        .I1(\pallette_reg_reg_n_0_[7][19] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][19] ),
+        .I5(\pallette_reg_reg_n_0_[6][19] ),
+        .O(\Green_reg[2]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[2]_i_6 
+       (.I0(\pallette_reg_reg_n_0_[1][7] ),
+        .I1(\pallette_reg_reg_n_0_[3][7] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][7] ),
+        .I5(\pallette_reg_reg_n_0_[2][7] ),
+        .O(\Green_reg[2]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[2]_i_7 
+       (.I0(\pallette_reg_reg_n_0_[1][19] ),
+        .I1(\pallette_reg_reg_n_0_[3][19] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][19] ),
+        .I5(\pallette_reg_reg_n_0_[2][19] ),
+        .O(\Green_reg[2]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[2]_i_8 
+       (.I0(\pallette_reg_reg_n_0_[5][7] ),
+        .I1(\pallette_reg_reg_n_0_[7][7] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][7] ),
+        .I5(\pallette_reg_reg_n_0_[6][7] ),
+        .O(\Green_reg[2]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[2]_i_9 
+       (.I0(\pallette_reg_reg_n_0_[5][19] ),
+        .I1(\pallette_reg_reg_n_0_[7][19] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][19] ),
+        .I5(\pallette_reg_reg_n_0_[6][19] ),
+        .O(\Green_reg[2]_i_9_n_0 ));
+  MUXF7 \Green_reg[3]_i_1 
+       (.I0(rgb_values[7]),
+        .I1(rgb_values[19]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram [3]),
+        .S(\Red_reg[3]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[3]_i_10 
+       (.I0(\pallette_reg_reg_n_0_[1][8] ),
+        .I1(\pallette_reg_reg_n_0_[3][8] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][8] ),
+        .I5(\pallette_reg_reg_n_0_[2][8] ),
+        .O(\Green_reg[3]_i_10_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[3]_i_11 
+       (.I0(\pallette_reg_reg_n_0_[1][20] ),
+        .I1(\pallette_reg_reg_n_0_[3][20] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][20] ),
+        .I5(\pallette_reg_reg_n_0_[2][20] ),
+        .O(\Green_reg[3]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[3]_i_2 
+       (.I0(\Green_reg[3]_i_4_n_0 ),
+        .I1(\Green_reg[3]_i_5_n_0 ),
+        .I2(sel0[2]),
+        .I3(\Red_reg[3]_i_14_n_0 ),
+        .I4(\Green_reg[3]_i_6_n_0 ),
+        .I5(\Green_reg[3]_i_7_n_0 ),
+        .O(rgb_values[7]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[3]_i_3 
+       (.I0(\Green_reg[3]_i_8_n_0 ),
+        .I1(\Green_reg[3]_i_9_n_0 ),
+        .I2(\Red_reg[3]_i_19_n_0 ),
+        .I3(\Red_reg[3]_i_20_n_0 ),
+        .I4(\Green_reg[3]_i_10_n_0 ),
+        .I5(\Green_reg[3]_i_11_n_0 ),
+        .O(rgb_values[19]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[3]_i_4 
+       (.I0(\pallette_reg_reg_n_0_[5][8] ),
+        .I1(\pallette_reg_reg_n_0_[7][8] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][8] ),
+        .I5(\pallette_reg_reg_n_0_[6][8] ),
+        .O(\Green_reg[3]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[3]_i_5 
+       (.I0(\pallette_reg_reg_n_0_[5][20] ),
+        .I1(\pallette_reg_reg_n_0_[7][20] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][20] ),
+        .I5(\pallette_reg_reg_n_0_[6][20] ),
+        .O(\Green_reg[3]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[3]_i_6 
+       (.I0(\pallette_reg_reg_n_0_[1][8] ),
+        .I1(\pallette_reg_reg_n_0_[3][8] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][8] ),
+        .I5(\pallette_reg_reg_n_0_[2][8] ),
+        .O(\Green_reg[3]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[3]_i_7 
+       (.I0(\pallette_reg_reg_n_0_[1][20] ),
+        .I1(\pallette_reg_reg_n_0_[3][20] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][20] ),
+        .I5(\pallette_reg_reg_n_0_[2][20] ),
+        .O(\Green_reg[3]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[3]_i_8 
+       (.I0(\pallette_reg_reg_n_0_[5][8] ),
+        .I1(\pallette_reg_reg_n_0_[7][8] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][8] ),
+        .I5(\pallette_reg_reg_n_0_[6][8] ),
+        .O(\Green_reg[3]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Green_reg[3]_i_9 
+       (.I0(\pallette_reg_reg_n_0_[5][20] ),
+        .I1(\pallette_reg_reg_n_0_[7][20] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][20] ),
+        .I5(\pallette_reg_reg_n_0_[6][20] ),
+        .O(\Green_reg[3]_i_9_n_0 ));
+  MUXF7 \Red_reg[0]_i_1 
+       (.I0(rgb_values[8]),
+        .I1(rgb_values[20]),
+        .O(D[0]),
+        .S(\Red_reg[3]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[0]_i_10 
+       (.I0(\pallette_reg_reg_n_0_[1][9] ),
+        .I1(\pallette_reg_reg_n_0_[3][9] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][9] ),
+        .I5(\pallette_reg_reg_n_0_[2][9] ),
+        .O(\Red_reg[0]_i_10_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[0]_i_11 
+       (.I0(\pallette_reg_reg_n_0_[1][21] ),
+        .I1(\pallette_reg_reg_n_0_[3][21] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][21] ),
+        .I5(\pallette_reg_reg_n_0_[2][21] ),
+        .O(\Red_reg[0]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[0]_i_2 
+       (.I0(\Red_reg[0]_i_4_n_0 ),
+        .I1(\Red_reg[0]_i_5_n_0 ),
+        .I2(sel0[2]),
+        .I3(\Red_reg[3]_i_14_n_0 ),
+        .I4(\Red_reg[0]_i_6_n_0 ),
+        .I5(\Red_reg[0]_i_7_n_0 ),
+        .O(rgb_values[8]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[0]_i_3 
+       (.I0(\Red_reg[0]_i_8_n_0 ),
+        .I1(\Red_reg[0]_i_9_n_0 ),
+        .I2(\Red_reg[3]_i_19_n_0 ),
+        .I3(\Red_reg[3]_i_20_n_0 ),
+        .I4(\Red_reg[0]_i_10_n_0 ),
+        .I5(\Red_reg[0]_i_11_n_0 ),
+        .O(rgb_values[20]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[0]_i_4 
+       (.I0(\pallette_reg_reg_n_0_[5][9] ),
+        .I1(\pallette_reg_reg_n_0_[7][9] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][9] ),
+        .I5(\pallette_reg_reg_n_0_[6][9] ),
+        .O(\Red_reg[0]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[0]_i_5 
+       (.I0(\pallette_reg_reg_n_0_[5][21] ),
+        .I1(\pallette_reg_reg_n_0_[7][21] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][21] ),
+        .I5(\pallette_reg_reg_n_0_[6][21] ),
+        .O(\Red_reg[0]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[0]_i_6 
+       (.I0(\pallette_reg_reg_n_0_[1][9] ),
+        .I1(\pallette_reg_reg_n_0_[3][9] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][9] ),
+        .I5(\pallette_reg_reg_n_0_[2][9] ),
+        .O(\Red_reg[0]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[0]_i_7 
+       (.I0(\pallette_reg_reg_n_0_[1][21] ),
+        .I1(\pallette_reg_reg_n_0_[3][21] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][21] ),
+        .I5(\pallette_reg_reg_n_0_[2][21] ),
+        .O(\Red_reg[0]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[0]_i_8 
+       (.I0(\pallette_reg_reg_n_0_[5][9] ),
+        .I1(\pallette_reg_reg_n_0_[7][9] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][9] ),
+        .I5(\pallette_reg_reg_n_0_[6][9] ),
+        .O(\Red_reg[0]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[0]_i_9 
+       (.I0(\pallette_reg_reg_n_0_[5][21] ),
+        .I1(\pallette_reg_reg_n_0_[7][21] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][21] ),
+        .I5(\pallette_reg_reg_n_0_[6][21] ),
+        .O(\Red_reg[0]_i_9_n_0 ));
+  MUXF7 \Red_reg[1]_i_1 
+       (.I0(rgb_values[9]),
+        .I1(rgb_values[21]),
+        .O(D[1]),
+        .S(\Red_reg[3]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[1]_i_10 
+       (.I0(\pallette_reg_reg_n_0_[1][10] ),
+        .I1(\pallette_reg_reg_n_0_[3][10] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][10] ),
+        .I5(\pallette_reg_reg_n_0_[2][10] ),
+        .O(\Red_reg[1]_i_10_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[1]_i_11 
+       (.I0(\pallette_reg_reg_n_0_[1][22] ),
+        .I1(\pallette_reg_reg_n_0_[3][22] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][22] ),
+        .I5(\pallette_reg_reg_n_0_[2][22] ),
+        .O(\Red_reg[1]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[1]_i_2 
+       (.I0(\Red_reg[1]_i_4_n_0 ),
+        .I1(\Red_reg[1]_i_5_n_0 ),
+        .I2(sel0[2]),
+        .I3(\Red_reg[3]_i_14_n_0 ),
+        .I4(\Red_reg[1]_i_6_n_0 ),
+        .I5(\Red_reg[1]_i_7_n_0 ),
+        .O(rgb_values[9]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[1]_i_3 
+       (.I0(\Red_reg[1]_i_8_n_0 ),
+        .I1(\Red_reg[1]_i_9_n_0 ),
+        .I2(\Red_reg[3]_i_19_n_0 ),
+        .I3(\Red_reg[3]_i_20_n_0 ),
+        .I4(\Red_reg[1]_i_10_n_0 ),
+        .I5(\Red_reg[1]_i_11_n_0 ),
+        .O(rgb_values[21]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[1]_i_4 
+       (.I0(\pallette_reg_reg_n_0_[5][10] ),
+        .I1(\pallette_reg_reg_n_0_[7][10] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][10] ),
+        .I5(\pallette_reg_reg_n_0_[6][10] ),
+        .O(\Red_reg[1]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[1]_i_5 
+       (.I0(\pallette_reg_reg_n_0_[5][22] ),
+        .I1(\pallette_reg_reg_n_0_[7][22] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][22] ),
+        .I5(\pallette_reg_reg_n_0_[6][22] ),
+        .O(\Red_reg[1]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[1]_i_6 
+       (.I0(\pallette_reg_reg_n_0_[1][10] ),
+        .I1(\pallette_reg_reg_n_0_[3][10] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][10] ),
+        .I5(\pallette_reg_reg_n_0_[2][10] ),
+        .O(\Red_reg[1]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[1]_i_7 
+       (.I0(\pallette_reg_reg_n_0_[1][22] ),
+        .I1(\pallette_reg_reg_n_0_[3][22] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][22] ),
+        .I5(\pallette_reg_reg_n_0_[2][22] ),
+        .O(\Red_reg[1]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[1]_i_8 
+       (.I0(\pallette_reg_reg_n_0_[5][10] ),
+        .I1(\pallette_reg_reg_n_0_[7][10] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][10] ),
+        .I5(\pallette_reg_reg_n_0_[6][10] ),
+        .O(\Red_reg[1]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[1]_i_9 
+       (.I0(\pallette_reg_reg_n_0_[5][22] ),
+        .I1(\pallette_reg_reg_n_0_[7][22] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][22] ),
+        .I5(\pallette_reg_reg_n_0_[6][22] ),
+        .O(\Red_reg[1]_i_9_n_0 ));
+  MUXF7 \Red_reg[2]_i_1 
+       (.I0(rgb_values[10]),
+        .I1(rgb_values[22]),
+        .O(D[2]),
+        .S(\Red_reg[3]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[2]_i_10 
+       (.I0(\pallette_reg_reg_n_0_[1][11] ),
+        .I1(\pallette_reg_reg_n_0_[3][11] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][11] ),
+        .I5(\pallette_reg_reg_n_0_[2][11] ),
+        .O(\Red_reg[2]_i_10_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[2]_i_11 
+       (.I0(\pallette_reg_reg_n_0_[1][23] ),
+        .I1(\pallette_reg_reg_n_0_[3][23] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][23] ),
+        .I5(\pallette_reg_reg_n_0_[2][23] ),
+        .O(\Red_reg[2]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[2]_i_2 
+       (.I0(\Red_reg[2]_i_4_n_0 ),
+        .I1(\Red_reg[2]_i_5_n_0 ),
+        .I2(sel0[2]),
+        .I3(\Red_reg[3]_i_14_n_0 ),
+        .I4(\Red_reg[2]_i_6_n_0 ),
+        .I5(\Red_reg[2]_i_7_n_0 ),
+        .O(rgb_values[10]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[2]_i_3 
+       (.I0(\Red_reg[2]_i_8_n_0 ),
+        .I1(\Red_reg[2]_i_9_n_0 ),
+        .I2(\Red_reg[3]_i_19_n_0 ),
+        .I3(\Red_reg[3]_i_20_n_0 ),
+        .I4(\Red_reg[2]_i_10_n_0 ),
+        .I5(\Red_reg[2]_i_11_n_0 ),
+        .O(rgb_values[22]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[2]_i_4 
+       (.I0(\pallette_reg_reg_n_0_[5][11] ),
+        .I1(\pallette_reg_reg_n_0_[7][11] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][11] ),
+        .I5(\pallette_reg_reg_n_0_[6][11] ),
+        .O(\Red_reg[2]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[2]_i_5 
+       (.I0(\pallette_reg_reg_n_0_[5][23] ),
+        .I1(\pallette_reg_reg_n_0_[7][23] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][23] ),
+        .I5(\pallette_reg_reg_n_0_[6][23] ),
+        .O(\Red_reg[2]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[2]_i_6 
+       (.I0(\pallette_reg_reg_n_0_[1][11] ),
+        .I1(\pallette_reg_reg_n_0_[3][11] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][11] ),
+        .I5(\pallette_reg_reg_n_0_[2][11] ),
+        .O(\Red_reg[2]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[2]_i_7 
+       (.I0(\pallette_reg_reg_n_0_[1][23] ),
+        .I1(\pallette_reg_reg_n_0_[3][23] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][23] ),
+        .I5(\pallette_reg_reg_n_0_[2][23] ),
+        .O(\Red_reg[2]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[2]_i_8 
+       (.I0(\pallette_reg_reg_n_0_[5][11] ),
+        .I1(\pallette_reg_reg_n_0_[7][11] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][11] ),
+        .I5(\pallette_reg_reg_n_0_[6][11] ),
+        .O(\Red_reg[2]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[2]_i_9 
+       (.I0(\pallette_reg_reg_n_0_[5][23] ),
+        .I1(\pallette_reg_reg_n_0_[7][23] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][23] ),
+        .I5(\pallette_reg_reg_n_0_[6][23] ),
+        .O(\Red_reg[2]_i_9_n_0 ));
+  MUXF7 \Red_reg[3]_i_1 
+       (.I0(rgb_values[11]),
+        .I1(rgb_values[23]),
+        .O(D[3]),
+        .S(\Red_reg[3]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[3]_i_11 
+       (.I0(\pallette_reg_reg_n_0_[5][12] ),
+        .I1(\pallette_reg_reg_n_0_[7][12] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][12] ),
+        .I5(\pallette_reg_reg_n_0_[6][12] ),
+        .O(\Red_reg[3]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[3]_i_12 
+       (.I0(\pallette_reg_reg_n_0_[5][24] ),
+        .I1(\pallette_reg_reg_n_0_[7][24] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[4][24] ),
+        .I5(\pallette_reg_reg_n_0_[6][24] ),
+        .O(\Red_reg[3]_i_12_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \Red_reg[3]_i_13 
+       (.I0(user_dout[19]),
+        .I1(Q[0]),
+        .I2(user_dout[3]),
+        .O(sel0[2]));
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \Red_reg[3]_i_14 
+       (.I0(user_dout[16]),
+        .I1(Q[0]),
+        .I2(user_dout[0]),
+        .O(\Red_reg[3]_i_14_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[3]_i_15 
+       (.I0(\pallette_reg_reg_n_0_[1][12] ),
+        .I1(\pallette_reg_reg_n_0_[3][12] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][12] ),
+        .I5(\pallette_reg_reg_n_0_[2][12] ),
+        .O(\Red_reg[3]_i_15_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[3]_i_16 
+       (.I0(\pallette_reg_reg_n_0_[1][24] ),
+        .I1(\pallette_reg_reg_n_0_[3][24] ),
+        .I2(sel0[0]),
+        .I3(sel0[1]),
+        .I4(\pallette_reg_reg_n_0_[0][24] ),
+        .I5(\pallette_reg_reg_n_0_[2][24] ),
+        .O(\Red_reg[3]_i_16_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[3]_i_17 
+       (.I0(\pallette_reg_reg_n_0_[5][12] ),
+        .I1(\pallette_reg_reg_n_0_[7][12] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][12] ),
+        .I5(\pallette_reg_reg_n_0_[6][12] ),
+        .O(\Red_reg[3]_i_17_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[3]_i_18 
+       (.I0(\pallette_reg_reg_n_0_[5][24] ),
+        .I1(\pallette_reg_reg_n_0_[7][24] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[4][24] ),
+        .I5(\pallette_reg_reg_n_0_[6][24] ),
+        .O(\Red_reg[3]_i_18_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \Red_reg[3]_i_19 
+       (.I0(user_dout[23]),
+        .I1(Q[0]),
+        .I2(user_dout[7]),
+        .O(\Red_reg[3]_i_19_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \Red_reg[3]_i_20 
+       (.I0(user_dout[20]),
+        .I1(Q[0]),
+        .I2(user_dout[4]),
+        .O(\Red_reg[3]_i_20_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[3]_i_21 
+       (.I0(\pallette_reg_reg_n_0_[1][12] ),
+        .I1(\pallette_reg_reg_n_0_[3][12] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][12] ),
+        .I5(\pallette_reg_reg_n_0_[2][12] ),
+        .O(\Red_reg[3]_i_21_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[3]_i_22 
+       (.I0(\pallette_reg_reg_n_0_[1][24] ),
+        .I1(\pallette_reg_reg_n_0_[3][24] ),
+        .I2(\Red_reg[3]_i_25_n_0 ),
+        .I3(\Red_reg[3]_i_26_n_0 ),
+        .I4(\pallette_reg_reg_n_0_[0][24] ),
+        .I5(\pallette_reg_reg_n_0_[2][24] ),
+        .O(\Red_reg[3]_i_22_n_0 ));
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \Red_reg[3]_i_23 
+       (.I0(user_dout[17]),
+        .I1(Q[0]),
+        .I2(user_dout[1]),
+        .O(sel0[0]));
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \Red_reg[3]_i_24 
+       (.I0(user_dout[18]),
+        .I1(Q[0]),
+        .I2(user_dout[2]),
+        .O(sel0[1]));
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \Red_reg[3]_i_25 
+       (.I0(user_dout[21]),
+        .I1(Q[0]),
+        .I2(user_dout[5]),
+        .O(\Red_reg[3]_i_25_n_0 ));
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \Red_reg[3]_i_26 
+       (.I0(user_dout[22]),
+        .I1(Q[0]),
+        .I2(user_dout[6]),
+        .O(\Red_reg[3]_i_26_n_0 ));
+  LUT5 #(
+    .INIT(32'hCCA533A5)) 
+    \Red_reg[3]_i_3 
+       (.I0(user_dout[8]),
+        .I1(user_dout[24]),
+        .I2(user_dout[15]),
+        .I3(Q[0]),
+        .I4(user_dout[31]),
+        .O(\Red_reg[3]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[3]_i_4 
+       (.I0(\Red_reg[3]_i_11_n_0 ),
+        .I1(\Red_reg[3]_i_12_n_0 ),
+        .I2(sel0[2]),
+        .I3(\Red_reg[3]_i_14_n_0 ),
+        .I4(\Red_reg[3]_i_15_n_0 ),
+        .I5(\Red_reg[3]_i_16_n_0 ),
+        .O(rgb_values[11]));
+  LUT6 #(
+    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+    \Red_reg[3]_i_5 
+       (.I0(\Red_reg[3]_i_17_n_0 ),
+        .I1(\Red_reg[3]_i_18_n_0 ),
+        .I2(\Red_reg[3]_i_19_n_0 ),
+        .I3(\Red_reg[3]_i_20_n_0 ),
+        .I4(\Red_reg[3]_i_21_n_0 ),
+        .I5(\Red_reg[3]_i_22_n_0 ),
+        .O(rgb_values[23]));
   LUT6 #(
     .INIT(64'hF7FFF700F700F700)) 
     aw_en_i_1
@@ -3577,1335 +4975,6 @@ module microblaze_GameIP_0_0_HDMI_Controller
     vga_to_hdmi_i_1
        (.I0(axi_aresetn),
         .O(SR));
-  MUXF7 vga_to_hdmi_i_10
-       (.I0(rgb_values[3]),
-        .I1(rgb_values[15]),
-        .O(blue[3]),
-        .S(vga_to_hdmi_i_15_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_100
-       (.I0(\pallette_reg_reg_n_0_[1][18] ),
-        .I1(\pallette_reg_reg_n_0_[3][18] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][18] ),
-        .I5(\pallette_reg_reg_n_0_[2][18] ),
-        .O(vga_to_hdmi_i_100_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_101
-       (.I0(\pallette_reg_reg_n_0_[5][5] ),
-        .I1(\pallette_reg_reg_n_0_[7][5] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][5] ),
-        .I5(\pallette_reg_reg_n_0_[6][5] ),
-        .O(vga_to_hdmi_i_101_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_102
-       (.I0(\pallette_reg_reg_n_0_[5][17] ),
-        .I1(\pallette_reg_reg_n_0_[7][17] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][17] ),
-        .I5(\pallette_reg_reg_n_0_[6][17] ),
-        .O(vga_to_hdmi_i_102_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_103
-       (.I0(\pallette_reg_reg_n_0_[1][5] ),
-        .I1(\pallette_reg_reg_n_0_[3][5] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][5] ),
-        .I5(\pallette_reg_reg_n_0_[2][5] ),
-        .O(vga_to_hdmi_i_103_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_104
-       (.I0(\pallette_reg_reg_n_0_[1][17] ),
-        .I1(\pallette_reg_reg_n_0_[3][17] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][17] ),
-        .I5(\pallette_reg_reg_n_0_[2][17] ),
-        .O(vga_to_hdmi_i_104_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_105
-       (.I0(\pallette_reg_reg_n_0_[5][5] ),
-        .I1(\pallette_reg_reg_n_0_[7][5] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][5] ),
-        .I5(\pallette_reg_reg_n_0_[6][5] ),
-        .O(vga_to_hdmi_i_105_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_106
-       (.I0(\pallette_reg_reg_n_0_[5][17] ),
-        .I1(\pallette_reg_reg_n_0_[7][17] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][17] ),
-        .I5(\pallette_reg_reg_n_0_[6][17] ),
-        .O(vga_to_hdmi_i_106_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_107
-       (.I0(\pallette_reg_reg_n_0_[1][5] ),
-        .I1(\pallette_reg_reg_n_0_[3][5] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][5] ),
-        .I5(\pallette_reg_reg_n_0_[2][5] ),
-        .O(vga_to_hdmi_i_107_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_108
-       (.I0(\pallette_reg_reg_n_0_[1][17] ),
-        .I1(\pallette_reg_reg_n_0_[3][17] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][17] ),
-        .I5(\pallette_reg_reg_n_0_[2][17] ),
-        .O(vga_to_hdmi_i_108_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_109
-       (.I0(\pallette_reg_reg_n_0_[5][4] ),
-        .I1(\pallette_reg_reg_n_0_[7][4] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][4] ),
-        .I5(\pallette_reg_reg_n_0_[6][4] ),
-        .O(vga_to_hdmi_i_109_n_0));
-  MUXF7 vga_to_hdmi_i_11
-       (.I0(rgb_values[2]),
-        .I1(rgb_values[14]),
-        .O(blue[2]),
-        .S(vga_to_hdmi_i_15_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_110
-       (.I0(\pallette_reg_reg_n_0_[5][16] ),
-        .I1(\pallette_reg_reg_n_0_[7][16] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][16] ),
-        .I5(\pallette_reg_reg_n_0_[6][16] ),
-        .O(vga_to_hdmi_i_110_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_111
-       (.I0(\pallette_reg_reg_n_0_[1][4] ),
-        .I1(\pallette_reg_reg_n_0_[3][4] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][4] ),
-        .I5(\pallette_reg_reg_n_0_[2][4] ),
-        .O(vga_to_hdmi_i_111_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_112
-       (.I0(\pallette_reg_reg_n_0_[1][16] ),
-        .I1(\pallette_reg_reg_n_0_[3][16] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][16] ),
-        .I5(\pallette_reg_reg_n_0_[2][16] ),
-        .O(vga_to_hdmi_i_112_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_113
-       (.I0(\pallette_reg_reg_n_0_[5][4] ),
-        .I1(\pallette_reg_reg_n_0_[7][4] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][4] ),
-        .I5(\pallette_reg_reg_n_0_[6][4] ),
-        .O(vga_to_hdmi_i_113_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_114
-       (.I0(\pallette_reg_reg_n_0_[5][16] ),
-        .I1(\pallette_reg_reg_n_0_[7][16] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][16] ),
-        .I5(\pallette_reg_reg_n_0_[6][16] ),
-        .O(vga_to_hdmi_i_114_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_115
-       (.I0(\pallette_reg_reg_n_0_[1][4] ),
-        .I1(\pallette_reg_reg_n_0_[3][4] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][4] ),
-        .I5(\pallette_reg_reg_n_0_[2][4] ),
-        .O(vga_to_hdmi_i_115_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_116
-       (.I0(\pallette_reg_reg_n_0_[1][16] ),
-        .I1(\pallette_reg_reg_n_0_[3][16] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][16] ),
-        .I5(\pallette_reg_reg_n_0_[2][16] ),
-        .O(vga_to_hdmi_i_116_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_117
-       (.I0(\pallette_reg_reg_n_0_[5][3] ),
-        .I1(\pallette_reg_reg_n_0_[7][3] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][3] ),
-        .I5(\pallette_reg_reg_n_0_[6][3] ),
-        .O(vga_to_hdmi_i_117_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_118
-       (.I0(\pallette_reg_reg_n_0_[5][15] ),
-        .I1(\pallette_reg_reg_n_0_[7][15] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][15] ),
-        .I5(\pallette_reg_reg_n_0_[6][15] ),
-        .O(vga_to_hdmi_i_118_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_119
-       (.I0(\pallette_reg_reg_n_0_[1][3] ),
-        .I1(\pallette_reg_reg_n_0_[3][3] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][3] ),
-        .I5(\pallette_reg_reg_n_0_[2][3] ),
-        .O(vga_to_hdmi_i_119_n_0));
-  MUXF7 vga_to_hdmi_i_12
-       (.I0(rgb_values[1]),
-        .I1(rgb_values[13]),
-        .O(blue[1]),
-        .S(vga_to_hdmi_i_15_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_120
-       (.I0(\pallette_reg_reg_n_0_[1][15] ),
-        .I1(\pallette_reg_reg_n_0_[3][15] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][15] ),
-        .I5(\pallette_reg_reg_n_0_[2][15] ),
-        .O(vga_to_hdmi_i_120_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_121
-       (.I0(\pallette_reg_reg_n_0_[5][3] ),
-        .I1(\pallette_reg_reg_n_0_[7][3] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][3] ),
-        .I5(\pallette_reg_reg_n_0_[6][3] ),
-        .O(vga_to_hdmi_i_121_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_122
-       (.I0(\pallette_reg_reg_n_0_[5][15] ),
-        .I1(\pallette_reg_reg_n_0_[7][15] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][15] ),
-        .I5(\pallette_reg_reg_n_0_[6][15] ),
-        .O(vga_to_hdmi_i_122_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_123
-       (.I0(\pallette_reg_reg_n_0_[1][3] ),
-        .I1(\pallette_reg_reg_n_0_[3][3] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][3] ),
-        .I5(\pallette_reg_reg_n_0_[2][3] ),
-        .O(vga_to_hdmi_i_123_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_124
-       (.I0(\pallette_reg_reg_n_0_[1][15] ),
-        .I1(\pallette_reg_reg_n_0_[3][15] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][15] ),
-        .I5(\pallette_reg_reg_n_0_[2][15] ),
-        .O(vga_to_hdmi_i_124_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_125
-       (.I0(\pallette_reg_reg_n_0_[5][2] ),
-        .I1(\pallette_reg_reg_n_0_[7][2] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][2] ),
-        .I5(\pallette_reg_reg_n_0_[6][2] ),
-        .O(vga_to_hdmi_i_125_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_126
-       (.I0(\pallette_reg_reg_n_0_[5][14] ),
-        .I1(\pallette_reg_reg_n_0_[7][14] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][14] ),
-        .I5(\pallette_reg_reg_n_0_[6][14] ),
-        .O(vga_to_hdmi_i_126_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_127
-       (.I0(\pallette_reg_reg_n_0_[1][2] ),
-        .I1(\pallette_reg_reg_n_0_[3][2] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][2] ),
-        .I5(\pallette_reg_reg_n_0_[2][2] ),
-        .O(vga_to_hdmi_i_127_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_128
-       (.I0(\pallette_reg_reg_n_0_[1][14] ),
-        .I1(\pallette_reg_reg_n_0_[3][14] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][14] ),
-        .I5(\pallette_reg_reg_n_0_[2][14] ),
-        .O(vga_to_hdmi_i_128_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_129
-       (.I0(\pallette_reg_reg_n_0_[5][2] ),
-        .I1(\pallette_reg_reg_n_0_[7][2] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][2] ),
-        .I5(\pallette_reg_reg_n_0_[6][2] ),
-        .O(vga_to_hdmi_i_129_n_0));
-  MUXF7 vga_to_hdmi_i_13
-       (.I0(rgb_values[0]),
-        .I1(rgb_values[12]),
-        .O(blue[0]),
-        .S(vga_to_hdmi_i_15_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_130
-       (.I0(\pallette_reg_reg_n_0_[5][14] ),
-        .I1(\pallette_reg_reg_n_0_[7][14] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][14] ),
-        .I5(\pallette_reg_reg_n_0_[6][14] ),
-        .O(vga_to_hdmi_i_130_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_131
-       (.I0(\pallette_reg_reg_n_0_[1][2] ),
-        .I1(\pallette_reg_reg_n_0_[3][2] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][2] ),
-        .I5(\pallette_reg_reg_n_0_[2][2] ),
-        .O(vga_to_hdmi_i_131_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_132
-       (.I0(\pallette_reg_reg_n_0_[1][14] ),
-        .I1(\pallette_reg_reg_n_0_[3][14] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][14] ),
-        .I5(\pallette_reg_reg_n_0_[2][14] ),
-        .O(vga_to_hdmi_i_132_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_133
-       (.I0(\pallette_reg_reg_n_0_[5][1] ),
-        .I1(\pallette_reg_reg_n_0_[7][1] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][1] ),
-        .I5(\pallette_reg_reg_n_0_[6][1] ),
-        .O(vga_to_hdmi_i_133_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_134
-       (.I0(\pallette_reg_reg_n_0_[5][13] ),
-        .I1(\pallette_reg_reg_n_0_[7][13] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][13] ),
-        .I5(\pallette_reg_reg_n_0_[6][13] ),
-        .O(vga_to_hdmi_i_134_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_135
-       (.I0(\pallette_reg_reg_n_0_[1][1] ),
-        .I1(\pallette_reg_reg_n_0_[3][1] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][1] ),
-        .I5(\pallette_reg_reg_n_0_[2][1] ),
-        .O(vga_to_hdmi_i_135_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_136
-       (.I0(\pallette_reg_reg_n_0_[1][13] ),
-        .I1(\pallette_reg_reg_n_0_[3][13] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][13] ),
-        .I5(\pallette_reg_reg_n_0_[2][13] ),
-        .O(vga_to_hdmi_i_136_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_137
-       (.I0(\pallette_reg_reg_n_0_[5][1] ),
-        .I1(\pallette_reg_reg_n_0_[7][1] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][1] ),
-        .I5(\pallette_reg_reg_n_0_[6][1] ),
-        .O(vga_to_hdmi_i_137_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_138
-       (.I0(\pallette_reg_reg_n_0_[5][13] ),
-        .I1(\pallette_reg_reg_n_0_[7][13] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][13] ),
-        .I5(\pallette_reg_reg_n_0_[6][13] ),
-        .O(vga_to_hdmi_i_138_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_139
-       (.I0(\pallette_reg_reg_n_0_[1][1] ),
-        .I1(\pallette_reg_reg_n_0_[3][1] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][1] ),
-        .I5(\pallette_reg_reg_n_0_[2][1] ),
-        .O(vga_to_hdmi_i_139_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_140
-       (.I0(\pallette_reg_reg_n_0_[1][13] ),
-        .I1(\pallette_reg_reg_n_0_[3][13] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][13] ),
-        .I5(\pallette_reg_reg_n_0_[2][13] ),
-        .O(vga_to_hdmi_i_140_n_0));
-  LUT3 #(
-    .INIT(8'hB8)) 
-    vga_to_hdmi_i_141
-       (.I0(user_dout[17]),
-        .I1(Q[0]),
-        .I2(user_dout[1]),
-        .O(sel0[0]));
-  LUT3 #(
-    .INIT(8'hB8)) 
-    vga_to_hdmi_i_142
-       (.I0(user_dout[18]),
-        .I1(Q[0]),
-        .I2(user_dout[2]),
-        .O(sel0[1]));
-  LUT3 #(
-    .INIT(8'hB8)) 
-    vga_to_hdmi_i_143
-       (.I0(user_dout[21]),
-        .I1(Q[0]),
-        .I2(user_dout[5]),
-        .O(vga_to_hdmi_i_143_n_0));
-  LUT3 #(
-    .INIT(8'hB8)) 
-    vga_to_hdmi_i_144
-       (.I0(user_dout[22]),
-        .I1(Q[0]),
-        .I2(user_dout[6]),
-        .O(vga_to_hdmi_i_144_n_0));
-  LUT5 #(
-    .INIT(32'hCCA533A5)) 
-    vga_to_hdmi_i_15
-       (.I0(user_dout[8]),
-        .I1(user_dout[24]),
-        .I2(user_dout[15]),
-        .I3(Q[0]),
-        .I4(user_dout[31]),
-        .O(vga_to_hdmi_i_15_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_16
-       (.I0(vga_to_hdmi_i_41_n_0),
-        .I1(vga_to_hdmi_i_42_n_0),
-        .I2(sel0[2]),
-        .I3(vga_to_hdmi_i_44_n_0),
-        .I4(vga_to_hdmi_i_45_n_0),
-        .I5(vga_to_hdmi_i_46_n_0),
-        .O(rgb_values[11]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_17
-       (.I0(vga_to_hdmi_i_47_n_0),
-        .I1(vga_to_hdmi_i_48_n_0),
-        .I2(vga_to_hdmi_i_49_n_0),
-        .I3(vga_to_hdmi_i_50_n_0),
-        .I4(vga_to_hdmi_i_51_n_0),
-        .I5(vga_to_hdmi_i_52_n_0),
-        .O(rgb_values[23]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_18
-       (.I0(vga_to_hdmi_i_53_n_0),
-        .I1(vga_to_hdmi_i_54_n_0),
-        .I2(sel0[2]),
-        .I3(vga_to_hdmi_i_44_n_0),
-        .I4(vga_to_hdmi_i_55_n_0),
-        .I5(vga_to_hdmi_i_56_n_0),
-        .O(rgb_values[10]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_19
-       (.I0(vga_to_hdmi_i_57_n_0),
-        .I1(vga_to_hdmi_i_58_n_0),
-        .I2(vga_to_hdmi_i_49_n_0),
-        .I3(vga_to_hdmi_i_50_n_0),
-        .I4(vga_to_hdmi_i_59_n_0),
-        .I5(vga_to_hdmi_i_60_n_0),
-        .O(rgb_values[22]));
-  MUXF7 vga_to_hdmi_i_2
-       (.I0(rgb_values[11]),
-        .I1(rgb_values[23]),
-        .O(red[3]),
-        .S(vga_to_hdmi_i_15_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_20
-       (.I0(vga_to_hdmi_i_61_n_0),
-        .I1(vga_to_hdmi_i_62_n_0),
-        .I2(sel0[2]),
-        .I3(vga_to_hdmi_i_44_n_0),
-        .I4(vga_to_hdmi_i_63_n_0),
-        .I5(vga_to_hdmi_i_64_n_0),
-        .O(rgb_values[9]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_21
-       (.I0(vga_to_hdmi_i_65_n_0),
-        .I1(vga_to_hdmi_i_66_n_0),
-        .I2(vga_to_hdmi_i_49_n_0),
-        .I3(vga_to_hdmi_i_50_n_0),
-        .I4(vga_to_hdmi_i_67_n_0),
-        .I5(vga_to_hdmi_i_68_n_0),
-        .O(rgb_values[21]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_22
-       (.I0(vga_to_hdmi_i_69_n_0),
-        .I1(vga_to_hdmi_i_70_n_0),
-        .I2(sel0[2]),
-        .I3(vga_to_hdmi_i_44_n_0),
-        .I4(vga_to_hdmi_i_71_n_0),
-        .I5(vga_to_hdmi_i_72_n_0),
-        .O(rgb_values[8]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_23
-       (.I0(vga_to_hdmi_i_73_n_0),
-        .I1(vga_to_hdmi_i_74_n_0),
-        .I2(vga_to_hdmi_i_49_n_0),
-        .I3(vga_to_hdmi_i_50_n_0),
-        .I4(vga_to_hdmi_i_75_n_0),
-        .I5(vga_to_hdmi_i_76_n_0),
-        .O(rgb_values[20]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_24
-       (.I0(vga_to_hdmi_i_77_n_0),
-        .I1(vga_to_hdmi_i_78_n_0),
-        .I2(sel0[2]),
-        .I3(vga_to_hdmi_i_44_n_0),
-        .I4(vga_to_hdmi_i_79_n_0),
-        .I5(vga_to_hdmi_i_80_n_0),
-        .O(rgb_values[7]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_25
-       (.I0(vga_to_hdmi_i_81_n_0),
-        .I1(vga_to_hdmi_i_82_n_0),
-        .I2(vga_to_hdmi_i_49_n_0),
-        .I3(vga_to_hdmi_i_50_n_0),
-        .I4(vga_to_hdmi_i_83_n_0),
-        .I5(vga_to_hdmi_i_84_n_0),
-        .O(rgb_values[19]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_26
-       (.I0(vga_to_hdmi_i_85_n_0),
-        .I1(vga_to_hdmi_i_86_n_0),
-        .I2(sel0[2]),
-        .I3(vga_to_hdmi_i_44_n_0),
-        .I4(vga_to_hdmi_i_87_n_0),
-        .I5(vga_to_hdmi_i_88_n_0),
-        .O(rgb_values[6]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_27
-       (.I0(vga_to_hdmi_i_89_n_0),
-        .I1(vga_to_hdmi_i_90_n_0),
-        .I2(vga_to_hdmi_i_49_n_0),
-        .I3(vga_to_hdmi_i_50_n_0),
-        .I4(vga_to_hdmi_i_91_n_0),
-        .I5(vga_to_hdmi_i_92_n_0),
-        .O(rgb_values[18]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_28
-       (.I0(vga_to_hdmi_i_93_n_0),
-        .I1(vga_to_hdmi_i_94_n_0),
-        .I2(sel0[2]),
-        .I3(vga_to_hdmi_i_44_n_0),
-        .I4(vga_to_hdmi_i_95_n_0),
-        .I5(vga_to_hdmi_i_96_n_0),
-        .O(rgb_values[5]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_29
-       (.I0(vga_to_hdmi_i_97_n_0),
-        .I1(vga_to_hdmi_i_98_n_0),
-        .I2(vga_to_hdmi_i_49_n_0),
-        .I3(vga_to_hdmi_i_50_n_0),
-        .I4(vga_to_hdmi_i_99_n_0),
-        .I5(vga_to_hdmi_i_100_n_0),
-        .O(rgb_values[17]));
-  MUXF7 vga_to_hdmi_i_3
-       (.I0(rgb_values[10]),
-        .I1(rgb_values[22]),
-        .O(red[2]),
-        .S(vga_to_hdmi_i_15_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_30
-       (.I0(vga_to_hdmi_i_101_n_0),
-        .I1(vga_to_hdmi_i_102_n_0),
-        .I2(sel0[2]),
-        .I3(vga_to_hdmi_i_44_n_0),
-        .I4(vga_to_hdmi_i_103_n_0),
-        .I5(vga_to_hdmi_i_104_n_0),
-        .O(rgb_values[4]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_31
-       (.I0(vga_to_hdmi_i_105_n_0),
-        .I1(vga_to_hdmi_i_106_n_0),
-        .I2(vga_to_hdmi_i_49_n_0),
-        .I3(vga_to_hdmi_i_50_n_0),
-        .I4(vga_to_hdmi_i_107_n_0),
-        .I5(vga_to_hdmi_i_108_n_0),
-        .O(rgb_values[16]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_32
-       (.I0(vga_to_hdmi_i_109_n_0),
-        .I1(vga_to_hdmi_i_110_n_0),
-        .I2(sel0[2]),
-        .I3(vga_to_hdmi_i_44_n_0),
-        .I4(vga_to_hdmi_i_111_n_0),
-        .I5(vga_to_hdmi_i_112_n_0),
-        .O(rgb_values[3]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_33
-       (.I0(vga_to_hdmi_i_113_n_0),
-        .I1(vga_to_hdmi_i_114_n_0),
-        .I2(vga_to_hdmi_i_49_n_0),
-        .I3(vga_to_hdmi_i_50_n_0),
-        .I4(vga_to_hdmi_i_115_n_0),
-        .I5(vga_to_hdmi_i_116_n_0),
-        .O(rgb_values[15]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_34
-       (.I0(vga_to_hdmi_i_117_n_0),
-        .I1(vga_to_hdmi_i_118_n_0),
-        .I2(sel0[2]),
-        .I3(vga_to_hdmi_i_44_n_0),
-        .I4(vga_to_hdmi_i_119_n_0),
-        .I5(vga_to_hdmi_i_120_n_0),
-        .O(rgb_values[2]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_35
-       (.I0(vga_to_hdmi_i_121_n_0),
-        .I1(vga_to_hdmi_i_122_n_0),
-        .I2(vga_to_hdmi_i_49_n_0),
-        .I3(vga_to_hdmi_i_50_n_0),
-        .I4(vga_to_hdmi_i_123_n_0),
-        .I5(vga_to_hdmi_i_124_n_0),
-        .O(rgb_values[14]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_36
-       (.I0(vga_to_hdmi_i_125_n_0),
-        .I1(vga_to_hdmi_i_126_n_0),
-        .I2(sel0[2]),
-        .I3(vga_to_hdmi_i_44_n_0),
-        .I4(vga_to_hdmi_i_127_n_0),
-        .I5(vga_to_hdmi_i_128_n_0),
-        .O(rgb_values[1]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_37
-       (.I0(vga_to_hdmi_i_129_n_0),
-        .I1(vga_to_hdmi_i_130_n_0),
-        .I2(vga_to_hdmi_i_49_n_0),
-        .I3(vga_to_hdmi_i_50_n_0),
-        .I4(vga_to_hdmi_i_131_n_0),
-        .I5(vga_to_hdmi_i_132_n_0),
-        .O(rgb_values[13]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_38
-       (.I0(vga_to_hdmi_i_133_n_0),
-        .I1(vga_to_hdmi_i_134_n_0),
-        .I2(sel0[2]),
-        .I3(vga_to_hdmi_i_44_n_0),
-        .I4(vga_to_hdmi_i_135_n_0),
-        .I5(vga_to_hdmi_i_136_n_0),
-        .O(rgb_values[0]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_39
-       (.I0(vga_to_hdmi_i_137_n_0),
-        .I1(vga_to_hdmi_i_138_n_0),
-        .I2(vga_to_hdmi_i_49_n_0),
-        .I3(vga_to_hdmi_i_50_n_0),
-        .I4(vga_to_hdmi_i_139_n_0),
-        .I5(vga_to_hdmi_i_140_n_0),
-        .O(rgb_values[12]));
-  MUXF7 vga_to_hdmi_i_4
-       (.I0(rgb_values[9]),
-        .I1(rgb_values[21]),
-        .O(red[1]),
-        .S(vga_to_hdmi_i_15_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_41
-       (.I0(\pallette_reg_reg_n_0_[5][12] ),
-        .I1(\pallette_reg_reg_n_0_[7][12] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][12] ),
-        .I5(\pallette_reg_reg_n_0_[6][12] ),
-        .O(vga_to_hdmi_i_41_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_42
-       (.I0(\pallette_reg_reg_n_0_[5][24] ),
-        .I1(\pallette_reg_reg_n_0_[7][24] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][24] ),
-        .I5(\pallette_reg_reg_n_0_[6][24] ),
-        .O(vga_to_hdmi_i_42_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    vga_to_hdmi_i_43
-       (.I0(user_dout[19]),
-        .I1(Q[0]),
-        .I2(user_dout[3]),
-        .O(sel0[2]));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    vga_to_hdmi_i_44
-       (.I0(user_dout[16]),
-        .I1(Q[0]),
-        .I2(user_dout[0]),
-        .O(vga_to_hdmi_i_44_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_45
-       (.I0(\pallette_reg_reg_n_0_[1][12] ),
-        .I1(\pallette_reg_reg_n_0_[3][12] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][12] ),
-        .I5(\pallette_reg_reg_n_0_[2][12] ),
-        .O(vga_to_hdmi_i_45_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_46
-       (.I0(\pallette_reg_reg_n_0_[1][24] ),
-        .I1(\pallette_reg_reg_n_0_[3][24] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][24] ),
-        .I5(\pallette_reg_reg_n_0_[2][24] ),
-        .O(vga_to_hdmi_i_46_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_47
-       (.I0(\pallette_reg_reg_n_0_[5][12] ),
-        .I1(\pallette_reg_reg_n_0_[7][12] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][12] ),
-        .I5(\pallette_reg_reg_n_0_[6][12] ),
-        .O(vga_to_hdmi_i_47_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_48
-       (.I0(\pallette_reg_reg_n_0_[5][24] ),
-        .I1(\pallette_reg_reg_n_0_[7][24] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][24] ),
-        .I5(\pallette_reg_reg_n_0_[6][24] ),
-        .O(vga_to_hdmi_i_48_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    vga_to_hdmi_i_49
-       (.I0(user_dout[23]),
-        .I1(Q[0]),
-        .I2(user_dout[7]),
-        .O(vga_to_hdmi_i_49_n_0));
-  MUXF7 vga_to_hdmi_i_5
-       (.I0(rgb_values[8]),
-        .I1(rgb_values[20]),
-        .O(red[0]),
-        .S(vga_to_hdmi_i_15_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    vga_to_hdmi_i_50
-       (.I0(user_dout[20]),
-        .I1(Q[0]),
-        .I2(user_dout[4]),
-        .O(vga_to_hdmi_i_50_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_51
-       (.I0(\pallette_reg_reg_n_0_[1][12] ),
-        .I1(\pallette_reg_reg_n_0_[3][12] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][12] ),
-        .I5(\pallette_reg_reg_n_0_[2][12] ),
-        .O(vga_to_hdmi_i_51_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_52
-       (.I0(\pallette_reg_reg_n_0_[1][24] ),
-        .I1(\pallette_reg_reg_n_0_[3][24] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][24] ),
-        .I5(\pallette_reg_reg_n_0_[2][24] ),
-        .O(vga_to_hdmi_i_52_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_53
-       (.I0(\pallette_reg_reg_n_0_[5][11] ),
-        .I1(\pallette_reg_reg_n_0_[7][11] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][11] ),
-        .I5(\pallette_reg_reg_n_0_[6][11] ),
-        .O(vga_to_hdmi_i_53_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_54
-       (.I0(\pallette_reg_reg_n_0_[5][23] ),
-        .I1(\pallette_reg_reg_n_0_[7][23] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][23] ),
-        .I5(\pallette_reg_reg_n_0_[6][23] ),
-        .O(vga_to_hdmi_i_54_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_55
-       (.I0(\pallette_reg_reg_n_0_[1][11] ),
-        .I1(\pallette_reg_reg_n_0_[3][11] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][11] ),
-        .I5(\pallette_reg_reg_n_0_[2][11] ),
-        .O(vga_to_hdmi_i_55_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_56
-       (.I0(\pallette_reg_reg_n_0_[1][23] ),
-        .I1(\pallette_reg_reg_n_0_[3][23] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][23] ),
-        .I5(\pallette_reg_reg_n_0_[2][23] ),
-        .O(vga_to_hdmi_i_56_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_57
-       (.I0(\pallette_reg_reg_n_0_[5][11] ),
-        .I1(\pallette_reg_reg_n_0_[7][11] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][11] ),
-        .I5(\pallette_reg_reg_n_0_[6][11] ),
-        .O(vga_to_hdmi_i_57_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_58
-       (.I0(\pallette_reg_reg_n_0_[5][23] ),
-        .I1(\pallette_reg_reg_n_0_[7][23] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][23] ),
-        .I5(\pallette_reg_reg_n_0_[6][23] ),
-        .O(vga_to_hdmi_i_58_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_59
-       (.I0(\pallette_reg_reg_n_0_[1][11] ),
-        .I1(\pallette_reg_reg_n_0_[3][11] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][11] ),
-        .I5(\pallette_reg_reg_n_0_[2][11] ),
-        .O(vga_to_hdmi_i_59_n_0));
-  MUXF7 vga_to_hdmi_i_6
-       (.I0(rgb_values[7]),
-        .I1(rgb_values[19]),
-        .O(green[3]),
-        .S(vga_to_hdmi_i_15_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_60
-       (.I0(\pallette_reg_reg_n_0_[1][23] ),
-        .I1(\pallette_reg_reg_n_0_[3][23] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][23] ),
-        .I5(\pallette_reg_reg_n_0_[2][23] ),
-        .O(vga_to_hdmi_i_60_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_61
-       (.I0(\pallette_reg_reg_n_0_[5][10] ),
-        .I1(\pallette_reg_reg_n_0_[7][10] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][10] ),
-        .I5(\pallette_reg_reg_n_0_[6][10] ),
-        .O(vga_to_hdmi_i_61_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_62
-       (.I0(\pallette_reg_reg_n_0_[5][22] ),
-        .I1(\pallette_reg_reg_n_0_[7][22] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][22] ),
-        .I5(\pallette_reg_reg_n_0_[6][22] ),
-        .O(vga_to_hdmi_i_62_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_63
-       (.I0(\pallette_reg_reg_n_0_[1][10] ),
-        .I1(\pallette_reg_reg_n_0_[3][10] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][10] ),
-        .I5(\pallette_reg_reg_n_0_[2][10] ),
-        .O(vga_to_hdmi_i_63_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_64
-       (.I0(\pallette_reg_reg_n_0_[1][22] ),
-        .I1(\pallette_reg_reg_n_0_[3][22] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][22] ),
-        .I5(\pallette_reg_reg_n_0_[2][22] ),
-        .O(vga_to_hdmi_i_64_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_65
-       (.I0(\pallette_reg_reg_n_0_[5][10] ),
-        .I1(\pallette_reg_reg_n_0_[7][10] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][10] ),
-        .I5(\pallette_reg_reg_n_0_[6][10] ),
-        .O(vga_to_hdmi_i_65_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_66
-       (.I0(\pallette_reg_reg_n_0_[5][22] ),
-        .I1(\pallette_reg_reg_n_0_[7][22] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][22] ),
-        .I5(\pallette_reg_reg_n_0_[6][22] ),
-        .O(vga_to_hdmi_i_66_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_67
-       (.I0(\pallette_reg_reg_n_0_[1][10] ),
-        .I1(\pallette_reg_reg_n_0_[3][10] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][10] ),
-        .I5(\pallette_reg_reg_n_0_[2][10] ),
-        .O(vga_to_hdmi_i_67_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_68
-       (.I0(\pallette_reg_reg_n_0_[1][22] ),
-        .I1(\pallette_reg_reg_n_0_[3][22] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][22] ),
-        .I5(\pallette_reg_reg_n_0_[2][22] ),
-        .O(vga_to_hdmi_i_68_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_69
-       (.I0(\pallette_reg_reg_n_0_[5][9] ),
-        .I1(\pallette_reg_reg_n_0_[7][9] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][9] ),
-        .I5(\pallette_reg_reg_n_0_[6][9] ),
-        .O(vga_to_hdmi_i_69_n_0));
-  MUXF7 vga_to_hdmi_i_7
-       (.I0(rgb_values[6]),
-        .I1(rgb_values[18]),
-        .O(green[2]),
-        .S(vga_to_hdmi_i_15_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_70
-       (.I0(\pallette_reg_reg_n_0_[5][21] ),
-        .I1(\pallette_reg_reg_n_0_[7][21] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][21] ),
-        .I5(\pallette_reg_reg_n_0_[6][21] ),
-        .O(vga_to_hdmi_i_70_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_71
-       (.I0(\pallette_reg_reg_n_0_[1][9] ),
-        .I1(\pallette_reg_reg_n_0_[3][9] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][9] ),
-        .I5(\pallette_reg_reg_n_0_[2][9] ),
-        .O(vga_to_hdmi_i_71_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_72
-       (.I0(\pallette_reg_reg_n_0_[1][21] ),
-        .I1(\pallette_reg_reg_n_0_[3][21] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][21] ),
-        .I5(\pallette_reg_reg_n_0_[2][21] ),
-        .O(vga_to_hdmi_i_72_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_73
-       (.I0(\pallette_reg_reg_n_0_[5][9] ),
-        .I1(\pallette_reg_reg_n_0_[7][9] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][9] ),
-        .I5(\pallette_reg_reg_n_0_[6][9] ),
-        .O(vga_to_hdmi_i_73_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_74
-       (.I0(\pallette_reg_reg_n_0_[5][21] ),
-        .I1(\pallette_reg_reg_n_0_[7][21] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][21] ),
-        .I5(\pallette_reg_reg_n_0_[6][21] ),
-        .O(vga_to_hdmi_i_74_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_75
-       (.I0(\pallette_reg_reg_n_0_[1][9] ),
-        .I1(\pallette_reg_reg_n_0_[3][9] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][9] ),
-        .I5(\pallette_reg_reg_n_0_[2][9] ),
-        .O(vga_to_hdmi_i_75_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_76
-       (.I0(\pallette_reg_reg_n_0_[1][21] ),
-        .I1(\pallette_reg_reg_n_0_[3][21] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][21] ),
-        .I5(\pallette_reg_reg_n_0_[2][21] ),
-        .O(vga_to_hdmi_i_76_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_77
-       (.I0(\pallette_reg_reg_n_0_[5][8] ),
-        .I1(\pallette_reg_reg_n_0_[7][8] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][8] ),
-        .I5(\pallette_reg_reg_n_0_[6][8] ),
-        .O(vga_to_hdmi_i_77_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_78
-       (.I0(\pallette_reg_reg_n_0_[5][20] ),
-        .I1(\pallette_reg_reg_n_0_[7][20] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][20] ),
-        .I5(\pallette_reg_reg_n_0_[6][20] ),
-        .O(vga_to_hdmi_i_78_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_79
-       (.I0(\pallette_reg_reg_n_0_[1][8] ),
-        .I1(\pallette_reg_reg_n_0_[3][8] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][8] ),
-        .I5(\pallette_reg_reg_n_0_[2][8] ),
-        .O(vga_to_hdmi_i_79_n_0));
-  MUXF7 vga_to_hdmi_i_8
-       (.I0(rgb_values[5]),
-        .I1(rgb_values[17]),
-        .O(green[1]),
-        .S(vga_to_hdmi_i_15_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_80
-       (.I0(\pallette_reg_reg_n_0_[1][20] ),
-        .I1(\pallette_reg_reg_n_0_[3][20] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][20] ),
-        .I5(\pallette_reg_reg_n_0_[2][20] ),
-        .O(vga_to_hdmi_i_80_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_81
-       (.I0(\pallette_reg_reg_n_0_[5][8] ),
-        .I1(\pallette_reg_reg_n_0_[7][8] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][8] ),
-        .I5(\pallette_reg_reg_n_0_[6][8] ),
-        .O(vga_to_hdmi_i_81_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_82
-       (.I0(\pallette_reg_reg_n_0_[5][20] ),
-        .I1(\pallette_reg_reg_n_0_[7][20] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][20] ),
-        .I5(\pallette_reg_reg_n_0_[6][20] ),
-        .O(vga_to_hdmi_i_82_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_83
-       (.I0(\pallette_reg_reg_n_0_[1][8] ),
-        .I1(\pallette_reg_reg_n_0_[3][8] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][8] ),
-        .I5(\pallette_reg_reg_n_0_[2][8] ),
-        .O(vga_to_hdmi_i_83_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_84
-       (.I0(\pallette_reg_reg_n_0_[1][20] ),
-        .I1(\pallette_reg_reg_n_0_[3][20] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][20] ),
-        .I5(\pallette_reg_reg_n_0_[2][20] ),
-        .O(vga_to_hdmi_i_84_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_85
-       (.I0(\pallette_reg_reg_n_0_[5][7] ),
-        .I1(\pallette_reg_reg_n_0_[7][7] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][7] ),
-        .I5(\pallette_reg_reg_n_0_[6][7] ),
-        .O(vga_to_hdmi_i_85_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_86
-       (.I0(\pallette_reg_reg_n_0_[5][19] ),
-        .I1(\pallette_reg_reg_n_0_[7][19] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][19] ),
-        .I5(\pallette_reg_reg_n_0_[6][19] ),
-        .O(vga_to_hdmi_i_86_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_87
-       (.I0(\pallette_reg_reg_n_0_[1][7] ),
-        .I1(\pallette_reg_reg_n_0_[3][7] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][7] ),
-        .I5(\pallette_reg_reg_n_0_[2][7] ),
-        .O(vga_to_hdmi_i_87_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_88
-       (.I0(\pallette_reg_reg_n_0_[1][19] ),
-        .I1(\pallette_reg_reg_n_0_[3][19] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][19] ),
-        .I5(\pallette_reg_reg_n_0_[2][19] ),
-        .O(vga_to_hdmi_i_88_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_89
-       (.I0(\pallette_reg_reg_n_0_[5][7] ),
-        .I1(\pallette_reg_reg_n_0_[7][7] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][7] ),
-        .I5(\pallette_reg_reg_n_0_[6][7] ),
-        .O(vga_to_hdmi_i_89_n_0));
-  MUXF7 vga_to_hdmi_i_9
-       (.I0(rgb_values[4]),
-        .I1(rgb_values[16]),
-        .O(green[0]),
-        .S(vga_to_hdmi_i_15_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_90
-       (.I0(\pallette_reg_reg_n_0_[5][19] ),
-        .I1(\pallette_reg_reg_n_0_[7][19] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][19] ),
-        .I5(\pallette_reg_reg_n_0_[6][19] ),
-        .O(vga_to_hdmi_i_90_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_91
-       (.I0(\pallette_reg_reg_n_0_[1][7] ),
-        .I1(\pallette_reg_reg_n_0_[3][7] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][7] ),
-        .I5(\pallette_reg_reg_n_0_[2][7] ),
-        .O(vga_to_hdmi_i_91_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_92
-       (.I0(\pallette_reg_reg_n_0_[1][19] ),
-        .I1(\pallette_reg_reg_n_0_[3][19] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][19] ),
-        .I5(\pallette_reg_reg_n_0_[2][19] ),
-        .O(vga_to_hdmi_i_92_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_93
-       (.I0(\pallette_reg_reg_n_0_[5][6] ),
-        .I1(\pallette_reg_reg_n_0_[7][6] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][6] ),
-        .I5(\pallette_reg_reg_n_0_[6][6] ),
-        .O(vga_to_hdmi_i_93_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_94
-       (.I0(\pallette_reg_reg_n_0_[5][18] ),
-        .I1(\pallette_reg_reg_n_0_[7][18] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][18] ),
-        .I5(\pallette_reg_reg_n_0_[6][18] ),
-        .O(vga_to_hdmi_i_94_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_95
-       (.I0(\pallette_reg_reg_n_0_[1][6] ),
-        .I1(\pallette_reg_reg_n_0_[3][6] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][6] ),
-        .I5(\pallette_reg_reg_n_0_[2][6] ),
-        .O(vga_to_hdmi_i_95_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_96
-       (.I0(\pallette_reg_reg_n_0_[1][18] ),
-        .I1(\pallette_reg_reg_n_0_[3][18] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[0][18] ),
-        .I5(\pallette_reg_reg_n_0_[2][18] ),
-        .O(vga_to_hdmi_i_96_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_97
-       (.I0(\pallette_reg_reg_n_0_[5][6] ),
-        .I1(\pallette_reg_reg_n_0_[7][6] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][6] ),
-        .I5(\pallette_reg_reg_n_0_[6][6] ),
-        .O(vga_to_hdmi_i_97_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_98
-       (.I0(\pallette_reg_reg_n_0_[5][18] ),
-        .I1(\pallette_reg_reg_n_0_[7][18] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][18] ),
-        .I5(\pallette_reg_reg_n_0_[6][18] ),
-        .O(vga_to_hdmi_i_98_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_99
-       (.I0(\pallette_reg_reg_n_0_[1][6] ),
-        .I1(\pallette_reg_reg_n_0_[3][6] ),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_144_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][6] ),
-        .I5(\pallette_reg_reg_n_0_[2][6] ),
-        .O(vga_to_hdmi_i_99_n_0));
 endmodule
 
 (* CHECK_LICENSE_TYPE = "blk_mem_gen_0,blk_mem_gen_v8_4_6,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "blk_mem_gen_0" *) 
@@ -5282,6 +5351,314 @@ module microblaze_GameIP_0_0_clk_wiz_0_clk_wiz
         .PSINCDEC(1'b0),
         .PWRDWN(1'b0),
         .RST(reset));
+endmodule
+
+(* ORIG_REF_NAME = "color_mapper" *) 
+module microblaze_GameIP_0_0_color_mapper
+   (O,
+    CO,
+    \vc_reg[9] ,
+    \hc_reg[9] ,
+    \Red_reg[3]_i_2_0 ,
+    \Red_reg[3]_i_2_1 ,
+    \Red_reg[3]_i_2_2 ,
+    Q,
+    S,
+    \Red_reg[3]_i_7_0 ,
+    \Red_reg[3]_i_10 ,
+    \Red_reg[3]_i_7_1 ,
+    \Red_reg[3]_i_9_0 ,
+    \Red_reg[3]_i_6_0 ,
+    \Red_reg[3]_i_7_2 ,
+    \srl[36].srl16_i ,
+    D,
+    \srl[31].srl16_i ,
+    \srl[39].srl16_i );
+  output [1:0]O;
+  output [0:0]CO;
+  output [1:0]\vc_reg[9] ;
+  output [0:0]\hc_reg[9] ;
+  output [3:0]\Red_reg[3]_i_2_0 ;
+  output [3:0]\Red_reg[3]_i_2_1 ;
+  output [3:0]\Red_reg[3]_i_2_2 ;
+  input [9:0]Q;
+  input [3:0]S;
+  input [3:0]\Red_reg[3]_i_7_0 ;
+  input [1:0]\Red_reg[3]_i_10 ;
+  input [9:0]\Red_reg[3]_i_7_1 ;
+  input [3:0]\Red_reg[3]_i_9_0 ;
+  input [3:0]\Red_reg[3]_i_6_0 ;
+  input [1:0]\Red_reg[3]_i_7_2 ;
+  input \srl[36].srl16_i ;
+  input [3:0]D;
+  input [3:0]\srl[31].srl16_i ;
+  input [3:0]\srl[39].srl16_i ;
+
+  wire [0:0]CO;
+  wire [3:0]D;
+  wire [1:0]O;
+  wire [9:0]Q;
+  wire Red2_carry__0_n_0;
+  wire Red2_carry__0_n_1;
+  wire Red2_carry__0_n_2;
+  wire Red2_carry__0_n_3;
+  wire Red2_carry__0_n_6;
+  wire Red2_carry__0_n_7;
+  wire Red2_carry__1_n_3;
+  wire Red2_carry_n_0;
+  wire Red2_carry_n_1;
+  wire Red2_carry_n_2;
+  wire Red2_carry_n_3;
+  wire Red2_carry_n_4;
+  wire Red2_carry_n_5;
+  wire Red2_carry_n_6;
+  wire Red2_carry_n_7;
+  wire \Red2_inferred__0/i__carry__0_n_0 ;
+  wire \Red2_inferred__0/i__carry__0_n_1 ;
+  wire \Red2_inferred__0/i__carry__0_n_2 ;
+  wire \Red2_inferred__0/i__carry__0_n_3 ;
+  wire \Red2_inferred__0/i__carry__0_n_4 ;
+  wire \Red2_inferred__0/i__carry__0_n_5 ;
+  wire \Red2_inferred__0/i__carry__0_n_6 ;
+  wire \Red2_inferred__0/i__carry__0_n_7 ;
+  wire \Red2_inferred__0/i__carry__1_n_3 ;
+  wire \Red2_inferred__0/i__carry__1_n_6 ;
+  wire \Red2_inferred__0/i__carry__1_n_7 ;
+  wire \Red2_inferred__0/i__carry_n_0 ;
+  wire \Red2_inferred__0/i__carry_n_1 ;
+  wire \Red2_inferred__0/i__carry_n_2 ;
+  wire \Red2_inferred__0/i__carry_n_3 ;
+  wire \Red2_inferred__0/i__carry_n_4 ;
+  wire \Red2_inferred__0/i__carry_n_5 ;
+  wire \Red2_inferred__0/i__carry_n_6 ;
+  wire [1:0]\Red_reg[3]_i_10 ;
+  wire [3:0]\Red_reg[3]_i_2_0 ;
+  wire [3:0]\Red_reg[3]_i_2_1 ;
+  wire [3:0]\Red_reg[3]_i_2_2 ;
+  wire \Red_reg[3]_i_2_n_0 ;
+  wire [3:0]\Red_reg[3]_i_6_0 ;
+  wire \Red_reg[3]_i_6_n_0 ;
+  wire [3:0]\Red_reg[3]_i_7_0 ;
+  wire [9:0]\Red_reg[3]_i_7_1 ;
+  wire [1:0]\Red_reg[3]_i_7_2 ;
+  wire \Red_reg[3]_i_7_n_0 ;
+  wire \Red_reg[3]_i_8_n_0 ;
+  wire [3:0]\Red_reg[3]_i_9_0 ;
+  wire \Red_reg[3]_i_9_n_0 ;
+  wire [3:0]S;
+  wire [0:0]\hc_reg[9] ;
+  wire [3:0]\srl[31].srl16_i ;
+  wire \srl[36].srl16_i ;
+  wire [3:0]\srl[39].srl16_i ;
+  wire [1:0]\vc_reg[9] ;
+  wire [3:1]NLW_Red2_carry__1_CO_UNCONNECTED;
+  wire [3:2]NLW_Red2_carry__1_O_UNCONNECTED;
+  wire [0:0]\NLW_Red2_inferred__0/i__carry_O_UNCONNECTED ;
+  wire [3:1]\NLW_Red2_inferred__0/i__carry__1_CO_UNCONNECTED ;
+  wire [3:2]\NLW_Red2_inferred__0/i__carry__1_O_UNCONNECTED ;
+
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \Blue_reg[0] 
+       (.CLR(\Red_reg[3]_i_2_n_0 ),
+        .D(\srl[39].srl16_i [0]),
+        .G(1'b1),
+        .GE(1'b1),
+        .Q(\Red_reg[3]_i_2_2 [0]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \Blue_reg[1] 
+       (.CLR(\Red_reg[3]_i_2_n_0 ),
+        .D(\srl[39].srl16_i [1]),
+        .G(1'b1),
+        .GE(1'b1),
+        .Q(\Red_reg[3]_i_2_2 [1]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \Blue_reg[2] 
+       (.CLR(\Red_reg[3]_i_2_n_0 ),
+        .D(\srl[39].srl16_i [2]),
+        .G(1'b1),
+        .GE(1'b1),
+        .Q(\Red_reg[3]_i_2_2 [2]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \Blue_reg[3] 
+       (.CLR(\Red_reg[3]_i_2_n_0 ),
+        .D(\srl[39].srl16_i [3]),
+        .G(1'b1),
+        .GE(1'b1),
+        .Q(\Red_reg[3]_i_2_2 [3]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \Green_reg[0] 
+       (.CLR(\Red_reg[3]_i_2_n_0 ),
+        .D(\srl[31].srl16_i [0]),
+        .G(1'b1),
+        .GE(1'b1),
+        .Q(\Red_reg[3]_i_2_1 [0]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \Green_reg[1] 
+       (.CLR(\Red_reg[3]_i_2_n_0 ),
+        .D(\srl[31].srl16_i [1]),
+        .G(1'b1),
+        .GE(1'b1),
+        .Q(\Red_reg[3]_i_2_1 [1]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \Green_reg[2] 
+       (.CLR(\Red_reg[3]_i_2_n_0 ),
+        .D(\srl[31].srl16_i [2]),
+        .G(1'b1),
+        .GE(1'b1),
+        .Q(\Red_reg[3]_i_2_1 [2]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \Green_reg[3] 
+       (.CLR(\Red_reg[3]_i_2_n_0 ),
+        .D(\srl[31].srl16_i [3]),
+        .G(1'b1),
+        .GE(1'b1),
+        .Q(\Red_reg[3]_i_2_1 [3]));
+  CARRY4 Red2_carry
+       (.CI(1'b0),
+        .CO({Red2_carry_n_0,Red2_carry_n_1,Red2_carry_n_2,Red2_carry_n_3}),
+        .CYINIT(1'b1),
+        .DI(Q[3:0]),
+        .O({Red2_carry_n_4,Red2_carry_n_5,Red2_carry_n_6,Red2_carry_n_7}),
+        .S(S));
+  CARRY4 Red2_carry__0
+       (.CI(Red2_carry_n_0),
+        .CO({Red2_carry__0_n_0,Red2_carry__0_n_1,Red2_carry__0_n_2,Red2_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI(Q[7:4]),
+        .O({O,Red2_carry__0_n_6,Red2_carry__0_n_7}),
+        .S(\Red_reg[3]_i_7_0 ));
+  CARRY4 Red2_carry__1
+       (.CI(Red2_carry__0_n_0),
+        .CO({NLW_Red2_carry__1_CO_UNCONNECTED[3],CO,NLW_Red2_carry__1_CO_UNCONNECTED[1],Red2_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,Q[9:8]}),
+        .O({NLW_Red2_carry__1_O_UNCONNECTED[3:2],\vc_reg[9] }),
+        .S({1'b0,1'b1,\Red_reg[3]_i_10 }));
+  CARRY4 \Red2_inferred__0/i__carry 
+       (.CI(1'b0),
+        .CO({\Red2_inferred__0/i__carry_n_0 ,\Red2_inferred__0/i__carry_n_1 ,\Red2_inferred__0/i__carry_n_2 ,\Red2_inferred__0/i__carry_n_3 }),
+        .CYINIT(1'b1),
+        .DI(\Red_reg[3]_i_7_1 [3:0]),
+        .O({\Red2_inferred__0/i__carry_n_4 ,\Red2_inferred__0/i__carry_n_5 ,\Red2_inferred__0/i__carry_n_6 ,\NLW_Red2_inferred__0/i__carry_O_UNCONNECTED [0]}),
+        .S(\Red_reg[3]_i_9_0 ));
+  CARRY4 \Red2_inferred__0/i__carry__0 
+       (.CI(\Red2_inferred__0/i__carry_n_0 ),
+        .CO({\Red2_inferred__0/i__carry__0_n_0 ,\Red2_inferred__0/i__carry__0_n_1 ,\Red2_inferred__0/i__carry__0_n_2 ,\Red2_inferred__0/i__carry__0_n_3 }),
+        .CYINIT(1'b0),
+        .DI(\Red_reg[3]_i_7_1 [7:4]),
+        .O({\Red2_inferred__0/i__carry__0_n_4 ,\Red2_inferred__0/i__carry__0_n_5 ,\Red2_inferred__0/i__carry__0_n_6 ,\Red2_inferred__0/i__carry__0_n_7 }),
+        .S(\Red_reg[3]_i_6_0 ));
+  CARRY4 \Red2_inferred__0/i__carry__1 
+       (.CI(\Red2_inferred__0/i__carry__0_n_0 ),
+        .CO({\NLW_Red2_inferred__0/i__carry__1_CO_UNCONNECTED [3],\hc_reg[9] ,\NLW_Red2_inferred__0/i__carry__1_CO_UNCONNECTED [1],\Red2_inferred__0/i__carry__1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,\Red_reg[3]_i_7_1 [9:8]}),
+        .O({\NLW_Red2_inferred__0/i__carry__1_O_UNCONNECTED [3:2],\Red2_inferred__0/i__carry__1_n_6 ,\Red2_inferred__0/i__carry__1_n_7 }),
+        .S({1'b0,1'b1,\Red_reg[3]_i_7_2 }));
+  (* XILINX_LEGACY_PRIM = "LDP" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE" *) 
+  LDPE #(
+    .INIT(1'b1)) 
+    \Red_reg[0] 
+       (.D(D[0]),
+        .G(1'b1),
+        .GE(1'b1),
+        .PRE(\Red_reg[3]_i_2_n_0 ),
+        .Q(\Red_reg[3]_i_2_0 [0]));
+  (* XILINX_LEGACY_PRIM = "LDP" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE" *) 
+  LDPE #(
+    .INIT(1'b1)) 
+    \Red_reg[1] 
+       (.D(D[1]),
+        .G(1'b1),
+        .GE(1'b1),
+        .PRE(\Red_reg[3]_i_2_n_0 ),
+        .Q(\Red_reg[3]_i_2_0 [1]));
+  (* XILINX_LEGACY_PRIM = "LDP" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE" *) 
+  LDPE #(
+    .INIT(1'b1)) 
+    \Red_reg[2] 
+       (.D(D[2]),
+        .G(1'b1),
+        .GE(1'b1),
+        .PRE(\Red_reg[3]_i_2_n_0 ),
+        .Q(\Red_reg[3]_i_2_0 [2]));
+  (* XILINX_LEGACY_PRIM = "LDP" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE" *) 
+  LDPE #(
+    .INIT(1'b1)) 
+    \Red_reg[3] 
+       (.D(D[3]),
+        .G(1'b1),
+        .GE(1'b1),
+        .PRE(\Red_reg[3]_i_2_n_0 ),
+        .Q(\Red_reg[3]_i_2_0 [3]));
+  LUT5 #(
+    .INIT(32'h80000000)) 
+    \Red_reg[3]_i_2 
+       (.I0(\Red_reg[3]_i_6_n_0 ),
+        .I1(\Red_reg[3]_i_7_n_0 ),
+        .I2(\Red_reg[3]_i_8_n_0 ),
+        .I3(\Red_reg[3]_i_9_n_0 ),
+        .I4(\srl[36].srl16_i ),
+        .O(\Red_reg[3]_i_2_n_0 ));
+  LUT4 #(
+    .INIT(16'h0001)) 
+    \Red_reg[3]_i_6 
+       (.I0(\Red2_inferred__0/i__carry__0_n_6 ),
+        .I1(\Red2_inferred__0/i__carry__0_n_7 ),
+        .I2(\Red2_inferred__0/i__carry__0_n_4 ),
+        .I3(\Red2_inferred__0/i__carry__0_n_5 ),
+        .O(\Red_reg[3]_i_6_n_0 ));
+  LUT4 #(
+    .INIT(16'h0001)) 
+    \Red_reg[3]_i_7 
+       (.I0(Red2_carry__0_n_6),
+        .I1(Red2_carry__0_n_7),
+        .I2(\Red2_inferred__0/i__carry__1_n_6 ),
+        .I3(\Red2_inferred__0/i__carry__1_n_7 ),
+        .O(\Red_reg[3]_i_7_n_0 ));
+  LUT4 #(
+    .INIT(16'h777F)) 
+    \Red_reg[3]_i_8 
+       (.I0(Red2_carry_n_4),
+        .I1(Red2_carry_n_5),
+        .I2(Red2_carry_n_7),
+        .I3(Red2_carry_n_6),
+        .O(\Red_reg[3]_i_8_n_0 ));
+  LUT3 #(
+    .INIT(8'h7F)) 
+    \Red_reg[3]_i_9 
+       (.I0(\Red2_inferred__0/i__carry_n_4 ),
+        .I1(\Red2_inferred__0/i__carry_n_5 ),
+        .I2(\Red2_inferred__0/i__carry_n_6 ),
+        .O(\Red_reg[3]_i_9_n_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "encode" *) 
@@ -10676,28 +11053,52 @@ endmodule
 module microblaze_GameIP_0_0_vga_controller
    (hsync,
     vsync,
-    vde,
-    Q,
     \vc_reg[9]_0 ,
-    O,
+    Q,
+    \vc_reg[7]_0 ,
+    S,
+    \hc_reg[9]_0 ,
+    \hc_reg[9]_1 ,
+    \hc_reg[7]_0 ,
+    \hc_reg[3]_0 ,
+    vde,
+    \vc_reg[7]_1 ,
+    \vc_reg[8]_0 ,
     addrb,
     CLK,
     AR,
-    S,
+    player_pos,
+    O,
+    \Red_reg[3]_i_2 ,
+    CO,
+    \Red_reg[3]_i_2_0 ,
     \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 );
   output hsync;
   output vsync;
+  output [1:0]\vc_reg[9]_0 ;
+  output [9:0]Q;
+  output [3:0]\vc_reg[7]_0 ;
+  output [3:0]S;
+  output [1:0]\hc_reg[9]_0 ;
+  output [9:0]\hc_reg[9]_1 ;
+  output [3:0]\hc_reg[7]_0 ;
+  output [3:0]\hc_reg[3]_0 ;
   output vde;
-  output [5:0]Q;
-  output [5:0]\vc_reg[9]_0 ;
-  output [1:0]O;
+  output \vc_reg[7]_1 ;
+  output [1:0]\vc_reg[8]_0 ;
   output [7:0]addrb;
   input CLK;
   input [0:0]AR;
-  input [2:0]S;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
-  input [2:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
+  input [19:0]player_pos;
+  input [1:0]O;
+  input [1:0]\Red_reg[3]_i_2 ;
+  input [0:0]CO;
+  input [0:0]\Red_reg[3]_i_2_0 ;
+  input [2:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
+  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
+  input [2:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ;
 
   wire [0:0]AR;
   wire BRAM_i_15_n_1;
@@ -10714,26 +11115,33 @@ module microblaze_GameIP_0_0_vga_controller
   wire BRAM_i_18_n_2;
   wire BRAM_i_18_n_3;
   wire CLK;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
-  wire [2:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
+  wire [0:0]CO;
+  wire [2:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
+  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
+  wire [2:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ;
   wire [1:0]O;
-  wire [5:0]Q;
-  wire [2:0]S;
+  wire [9:0]Q;
+  wire [1:0]\Red_reg[3]_i_2 ;
+  wire [0:0]\Red_reg[3]_i_2_0 ;
+  wire [3:0]S;
   wire [7:0]addrb;
   wire [10:6]addrb2;
   wire [9:3]data0;
   wire display2;
-  wire [3:0]drawX;
-  wire [3:0]drawY;
   wire [9:0]hc;
   wire \hc[2]_i_2_n_0 ;
   wire \hc[6]_i_3_n_0 ;
   wire \hc[9]_i_2_n_0 ;
   wire \hc[9]_i_3_n_0 ;
   wire \hc[9]_i_5_n_0 ;
+  wire [3:0]\hc_reg[3]_0 ;
+  wire [3:0]\hc_reg[7]_0 ;
+  wire [1:0]\hc_reg[9]_0 ;
+  wire [9:0]\hc_reg[9]_1 ;
+  wire hs_i_1_n_0;
   wire hs_i_2_n_0;
   wire hsync;
-  wire p_0_in__0;
+  wire [19:0]player_pos;
   wire vc;
   wire \vc[0]_i_1_n_0 ;
   wire \vc[1]_i_1_n_0 ;
@@ -10756,7 +11164,10 @@ module microblaze_GameIP_0_0_vga_controller
   wire \vc[9]_i_4_n_0 ;
   wire \vc[9]_i_5_n_0 ;
   wire \vc[9]_i_6_n_0 ;
-  wire [5:0]\vc_reg[9]_0 ;
+  wire [3:0]\vc_reg[7]_0 ;
+  wire \vc_reg[7]_1 ;
+  wire [1:0]\vc_reg[8]_0 ;
+  wire [1:0]\vc_reg[9]_0 ;
   wire vde;
   wire vs_i_1_n_0;
   wire vs_i_2_n_0;
@@ -10782,32 +11193,102 @@ module microblaze_GameIP_0_0_vga_controller
        (.CI(1'b0),
         .CO({BRAM_i_16_n_0,BRAM_i_16_n_1,BRAM_i_16_n_2,BRAM_i_16_n_3}),
         .CYINIT(1'b0),
-        .DI({1'b0,O,\vc_reg[9]_0 [0]}),
+        .DI({1'b0,\vc_reg[8]_0 ,Q[4]}),
         .O(addrb[3:0]),
-        .S({addrb2[6],\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 }));
+        .S({addrb2[6],\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 }));
   CARRY4 BRAM_i_17
        (.CI(BRAM_i_18_n_0),
         .CO({NLW_BRAM_i_17_CO_UNCONNECTED[3:2],BRAM_i_17_n_2,BRAM_i_17_n_3}),
         .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,\vc_reg[9]_0 [5]}),
+        .DI({1'b0,1'b0,1'b0,Q[9]}),
         .O({NLW_BRAM_i_17_O_UNCONNECTED[3],addrb2[10:8]}),
-        .S({1'b0,\vc_reg[9]_0 [5:4],\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram }));
+        .S({1'b0,Q[9:8],\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 }));
   CARRY4 BRAM_i_18
        (.CI(1'b0),
         .CO({BRAM_i_18_n_0,BRAM_i_18_n_1,BRAM_i_18_n_2,BRAM_i_18_n_3}),
         .CYINIT(1'b0),
-        .DI({\vc_reg[9]_0 [4:2],1'b0}),
-        .O({addrb2[7:6],O}),
-        .S({S,\vc_reg[9]_0 [1]}));
+        .DI({Q[8:6],1'b0}),
+        .O({addrb2[7:6],\vc_reg[8]_0 }),
+        .S({\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ,Q[5]}));
+  LUT2 #(
+    .INIT(4'h9)) 
+    Red2_carry__0_i_1
+       (.I0(Q[7]),
+        .I1(player_pos[7]),
+        .O(\vc_reg[7]_0 [3]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    Red2_carry__0_i_2
+       (.I0(Q[6]),
+        .I1(player_pos[6]),
+        .O(\vc_reg[7]_0 [2]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    Red2_carry__0_i_3
+       (.I0(Q[5]),
+        .I1(player_pos[5]),
+        .O(\vc_reg[7]_0 [1]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    Red2_carry__0_i_4
+       (.I0(Q[4]),
+        .I1(player_pos[4]),
+        .O(\vc_reg[7]_0 [0]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    Red2_carry__1_i_1
+       (.I0(Q[9]),
+        .I1(player_pos[9]),
+        .O(\vc_reg[9]_0 [1]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    Red2_carry__1_i_2
+       (.I0(Q[8]),
+        .I1(player_pos[8]),
+        .O(\vc_reg[9]_0 [0]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    Red2_carry_i_1
+       (.I0(Q[3]),
+        .I1(player_pos[3]),
+        .O(S[3]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    Red2_carry_i_2
+       (.I0(Q[2]),
+        .I1(player_pos[2]),
+        .O(S[2]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    Red2_carry_i_3
+       (.I0(Q[1]),
+        .I1(player_pos[1]),
+        .O(S[1]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    Red2_carry_i_4
+       (.I0(Q[0]),
+        .I1(player_pos[0]),
+        .O(S[0]));
+  LUT6 #(
+    .INIT(64'h0001000000000000)) 
+    \Red_reg[3]_i_10 
+       (.I0(O[0]),
+        .I1(O[1]),
+        .I2(\Red_reg[3]_i_2 [0]),
+        .I3(\Red_reg[3]_i_2 [1]),
+        .I4(CO),
+        .I5(\Red_reg[3]_i_2_0 ),
+        .O(\vc_reg[7]_1 ));
   LUT6 #(
     .INIT(64'h00000000FFFFFFDF)) 
     \hc[0]_i_1 
-       (.I0(Q[4]),
-        .I1(Q[3]),
-        .I2(Q[5]),
+       (.I0(\hc_reg[9]_1 [8]),
+        .I1(\hc_reg[9]_1 [7]),
+        .I2(\hc_reg[9]_1 [9]),
         .I3(\hc[9]_i_2_n_0 ),
         .I4(\hc[9]_i_3_n_0 ),
-        .I5(drawX[0]),
+        .I5(\hc_reg[9]_1 [0]),
         .O(hc[0]));
   (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT5 #(
@@ -10816,8 +11297,8 @@ module microblaze_GameIP_0_0_vga_controller
        (.I0(\hc[2]_i_2_n_0 ),
         .I1(\hc[9]_i_2_n_0 ),
         .I2(\hc[9]_i_3_n_0 ),
-        .I3(drawX[1]),
-        .I4(drawX[0]),
+        .I3(\hc_reg[9]_1 [1]),
+        .I4(\hc_reg[9]_1 [0]),
         .O(hc[1]));
   LUT6 #(
     .INIT(64'h00FEFE00FE00FE00)) 
@@ -10825,24 +11306,24 @@ module microblaze_GameIP_0_0_vga_controller
        (.I0(\hc[2]_i_2_n_0 ),
         .I1(\hc[9]_i_2_n_0 ),
         .I2(\hc[9]_i_3_n_0 ),
-        .I3(drawX[2]),
-        .I4(drawX[1]),
-        .I5(drawX[0]),
+        .I3(\hc_reg[9]_1 [2]),
+        .I4(\hc_reg[9]_1 [1]),
+        .I5(\hc_reg[9]_1 [0]),
         .O(hc[2]));
   (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT3 #(
     .INIT(8'hDF)) 
     \hc[2]_i_2 
-       (.I0(Q[4]),
-        .I1(Q[3]),
-        .I2(Q[5]),
+       (.I0(\hc_reg[9]_1 [8]),
+        .I1(\hc_reg[9]_1 [7]),
+        .I2(\hc_reg[9]_1 [9]),
         .O(\hc[2]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFDF00000000)) 
     \hc[3]_i_1 
-       (.I0(Q[4]),
-        .I1(Q[3]),
-        .I2(Q[5]),
+       (.I0(\hc_reg[9]_1 [8]),
+        .I1(\hc_reg[9]_1 [7]),
+        .I2(\hc_reg[9]_1 [9]),
         .I3(\hc[9]_i_2_n_0 ),
         .I4(\hc[9]_i_3_n_0 ),
         .I5(data0[3]),
@@ -10851,17 +11332,17 @@ module microblaze_GameIP_0_0_vga_controller
   LUT4 #(
     .INIT(16'h7F80)) 
     \hc[3]_i_2 
-       (.I0(drawX[1]),
-        .I1(drawX[0]),
-        .I2(drawX[2]),
-        .I3(drawX[3]),
+       (.I0(\hc_reg[9]_1 [1]),
+        .I1(\hc_reg[9]_1 [0]),
+        .I2(\hc_reg[9]_1 [2]),
+        .I3(\hc_reg[9]_1 [3]),
         .O(data0[3]));
   LUT6 #(
     .INIT(64'hFFFFFFDF00000000)) 
     \hc[4]_i_1 
-       (.I0(Q[4]),
-        .I1(Q[3]),
-        .I2(Q[5]),
+       (.I0(\hc_reg[9]_1 [8]),
+        .I1(\hc_reg[9]_1 [7]),
+        .I2(\hc_reg[9]_1 [9]),
         .I3(\hc[9]_i_2_n_0 ),
         .I4(\hc[9]_i_3_n_0 ),
         .I5(data0[4]),
@@ -10870,18 +11351,18 @@ module microblaze_GameIP_0_0_vga_controller
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \hc[4]_i_2 
-       (.I0(drawX[2]),
-        .I1(drawX[0]),
-        .I2(drawX[1]),
-        .I3(drawX[3]),
-        .I4(Q[0]),
+       (.I0(\hc_reg[9]_1 [2]),
+        .I1(\hc_reg[9]_1 [0]),
+        .I2(\hc_reg[9]_1 [1]),
+        .I3(\hc_reg[9]_1 [3]),
+        .I4(\hc_reg[9]_1 [4]),
         .O(data0[4]));
   LUT6 #(
     .INIT(64'hFFFFFFDF00000000)) 
     \hc[5]_i_1 
-       (.I0(Q[4]),
-        .I1(Q[3]),
-        .I2(Q[5]),
+       (.I0(\hc_reg[9]_1 [8]),
+        .I1(\hc_reg[9]_1 [7]),
+        .I2(\hc_reg[9]_1 [9]),
         .I3(\hc[9]_i_2_n_0 ),
         .I4(\hc[9]_i_3_n_0 ),
         .I5(data0[5]),
@@ -10889,19 +11370,19 @@ module microblaze_GameIP_0_0_vga_controller
   LUT6 #(
     .INIT(64'h7FFFFFFF80000000)) 
     \hc[5]_i_2 
-       (.I0(drawX[3]),
-        .I1(drawX[1]),
-        .I2(drawX[0]),
-        .I3(drawX[2]),
-        .I4(Q[0]),
-        .I5(Q[1]),
+       (.I0(\hc_reg[9]_1 [3]),
+        .I1(\hc_reg[9]_1 [1]),
+        .I2(\hc_reg[9]_1 [0]),
+        .I3(\hc_reg[9]_1 [2]),
+        .I4(\hc_reg[9]_1 [4]),
+        .I5(\hc_reg[9]_1 [5]),
         .O(data0[5]));
   LUT6 #(
     .INIT(64'hFFFFFFDF00000000)) 
     \hc[6]_i_1 
-       (.I0(Q[4]),
-        .I1(Q[3]),
-        .I2(Q[5]),
+       (.I0(\hc_reg[9]_1 [8]),
+        .I1(\hc_reg[9]_1 [7]),
+        .I2(\hc_reg[9]_1 [9]),
         .I3(\hc[9]_i_2_n_0 ),
         .I4(\hc[9]_i_3_n_0 ),
         .I5(data0[6]),
@@ -10909,26 +11390,26 @@ module microblaze_GameIP_0_0_vga_controller
   LUT6 #(
     .INIT(64'h7FFFFFFF80000000)) 
     \hc[6]_i_2 
-       (.I0(Q[0]),
-        .I1(drawX[2]),
+       (.I0(\hc_reg[9]_1 [4]),
+        .I1(\hc_reg[9]_1 [2]),
         .I2(\hc[6]_i_3_n_0 ),
-        .I3(drawX[3]),
-        .I4(Q[1]),
-        .I5(Q[2]),
+        .I3(\hc_reg[9]_1 [3]),
+        .I4(\hc_reg[9]_1 [5]),
+        .I5(\hc_reg[9]_1 [6]),
         .O(data0[6]));
   (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \hc[6]_i_3 
-       (.I0(drawX[1]),
-        .I1(drawX[0]),
+       (.I0(\hc_reg[9]_1 [1]),
+        .I1(\hc_reg[9]_1 [0]),
         .O(\hc[6]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFDF00000000)) 
     \hc[7]_i_1 
-       (.I0(Q[4]),
-        .I1(Q[3]),
-        .I2(Q[5]),
+       (.I0(\hc_reg[9]_1 [8]),
+        .I1(\hc_reg[9]_1 [7]),
+        .I2(\hc_reg[9]_1 [9]),
         .I3(\hc[9]_i_2_n_0 ),
         .I4(\hc[9]_i_3_n_0 ),
         .I5(data0[7]),
@@ -10938,15 +11419,15 @@ module microblaze_GameIP_0_0_vga_controller
     .INIT(8'h78)) 
     \hc[7]_i_2 
        (.I0(\hc[9]_i_5_n_0 ),
-        .I1(Q[2]),
-        .I2(Q[3]),
+        .I1(\hc_reg[9]_1 [6]),
+        .I2(\hc_reg[9]_1 [7]),
         .O(data0[7]));
   LUT6 #(
     .INIT(64'hFFFFFFDF00000000)) 
     \hc[8]_i_1 
-       (.I0(Q[4]),
-        .I1(Q[3]),
-        .I2(Q[5]),
+       (.I0(\hc_reg[9]_1 [8]),
+        .I1(\hc_reg[9]_1 [7]),
+        .I2(\hc_reg[9]_1 [9]),
         .I3(\hc[9]_i_2_n_0 ),
         .I4(\hc[9]_i_3_n_0 ),
         .I5(data0[8]),
@@ -10955,17 +11436,17 @@ module microblaze_GameIP_0_0_vga_controller
   LUT4 #(
     .INIT(16'h7F80)) 
     \hc[8]_i_2 
-       (.I0(Q[2]),
+       (.I0(\hc_reg[9]_1 [6]),
         .I1(\hc[9]_i_5_n_0 ),
-        .I2(Q[3]),
-        .I3(Q[4]),
+        .I2(\hc_reg[9]_1 [7]),
+        .I3(\hc_reg[9]_1 [8]),
         .O(data0[8]));
   LUT6 #(
     .INIT(64'hFFFFFFDF00000000)) 
     \hc[9]_i_1 
-       (.I0(Q[4]),
-        .I1(Q[3]),
-        .I2(Q[5]),
+       (.I0(\hc_reg[9]_1 [8]),
+        .I1(\hc_reg[9]_1 [7]),
+        .I2(\hc_reg[9]_1 [9]),
         .I3(\hc[9]_i_2_n_0 ),
         .I4(\hc[9]_i_3_n_0 ),
         .I5(data0[9]),
@@ -10973,102 +11454,102 @@ module microblaze_GameIP_0_0_vga_controller
   LUT5 #(
     .INIT(32'hFFFF5DFF)) 
     \hc[9]_i_2 
-       (.I0(Q[4]),
-        .I1(Q[2]),
-        .I2(Q[3]),
-        .I3(Q[0]),
-        .I4(Q[1]),
+       (.I0(\hc_reg[9]_1 [8]),
+        .I1(\hc_reg[9]_1 [6]),
+        .I2(\hc_reg[9]_1 [7]),
+        .I3(\hc_reg[9]_1 [4]),
+        .I4(\hc_reg[9]_1 [5]),
         .O(\hc[9]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'h7F7F7FFF7FFF7FFF)) 
     \hc[9]_i_3 
-       (.I0(drawX[0]),
-        .I1(drawX[1]),
-        .I2(drawX[2]),
-        .I3(Q[1]),
-        .I4(drawX[3]),
-        .I5(Q[0]),
+       (.I0(\hc_reg[9]_1 [0]),
+        .I1(\hc_reg[9]_1 [1]),
+        .I2(\hc_reg[9]_1 [2]),
+        .I3(\hc_reg[9]_1 [5]),
+        .I4(\hc_reg[9]_1 [3]),
+        .I5(\hc_reg[9]_1 [4]),
         .O(\hc[9]_i_3_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \hc[9]_i_4 
-       (.I0(Q[3]),
+       (.I0(\hc_reg[9]_1 [7]),
         .I1(\hc[9]_i_5_n_0 ),
-        .I2(Q[2]),
-        .I3(Q[4]),
-        .I4(Q[5]),
+        .I2(\hc_reg[9]_1 [6]),
+        .I3(\hc_reg[9]_1 [8]),
+        .I4(\hc_reg[9]_1 [9]),
         .O(data0[9]));
   LUT6 #(
     .INIT(64'h8000000000000000)) 
     \hc[9]_i_5 
-       (.I0(Q[1]),
-        .I1(drawX[3]),
-        .I2(drawX[1]),
-        .I3(drawX[0]),
-        .I4(drawX[2]),
-        .I5(Q[0]),
+       (.I0(\hc_reg[9]_1 [5]),
+        .I1(\hc_reg[9]_1 [3]),
+        .I2(\hc_reg[9]_1 [1]),
+        .I3(\hc_reg[9]_1 [0]),
+        .I4(\hc_reg[9]_1 [2]),
+        .I5(\hc_reg[9]_1 [4]),
         .O(\hc[9]_i_5_n_0 ));
   FDCE \hc_reg[0] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(AR),
         .D(hc[0]),
-        .Q(drawX[0]));
+        .Q(\hc_reg[9]_1 [0]));
   FDCE \hc_reg[1] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(AR),
         .D(hc[1]),
-        .Q(drawX[1]));
+        .Q(\hc_reg[9]_1 [1]));
   FDCE \hc_reg[2] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(AR),
         .D(hc[2]),
-        .Q(drawX[2]));
+        .Q(\hc_reg[9]_1 [2]));
   FDCE \hc_reg[3] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(AR),
         .D(hc[3]),
-        .Q(drawX[3]));
+        .Q(\hc_reg[9]_1 [3]));
   FDCE \hc_reg[4] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(AR),
         .D(hc[4]),
-        .Q(Q[0]));
+        .Q(\hc_reg[9]_1 [4]));
   FDCE \hc_reg[5] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(AR),
         .D(hc[5]),
-        .Q(Q[1]));
+        .Q(\hc_reg[9]_1 [5]));
   FDCE \hc_reg[6] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(AR),
         .D(hc[6]),
-        .Q(Q[2]));
+        .Q(\hc_reg[9]_1 [6]));
   FDCE \hc_reg[7] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(AR),
         .D(hc[7]),
-        .Q(Q[3]));
+        .Q(\hc_reg[9]_1 [7]));
   FDCE \hc_reg[8] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(AR),
         .D(hc[8]),
-        .Q(Q[4]));
+        .Q(\hc_reg[9]_1 [8]));
   FDCE \hc_reg[9] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(AR),
         .D(hc[9]),
-        .Q(Q[5]));
+        .Q(\hc_reg[9]_1 [9]));
   LUT6 #(
     .INIT(64'hFBBBBBBFFFFFFFFF)) 
     hs_i_1
@@ -11078,32 +11559,92 @@ module microblaze_GameIP_0_0_vga_controller
         .I3(data0[5]),
         .I4(data0[4]),
         .I5(data0[7]),
-        .O(p_0_in__0));
+        .O(hs_i_1_n_0));
   (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT5 #(
     .INIT(32'hA8888888)) 
     hs_i_2
-       (.I0(Q[5]),
-        .I1(Q[4]),
-        .I2(Q[2]),
+       (.I0(\hc_reg[9]_1 [9]),
+        .I1(\hc_reg[9]_1 [8]),
+        .I2(\hc_reg[9]_1 [6]),
         .I3(\hc[9]_i_5_n_0 ),
-        .I4(Q[3]),
+        .I4(\hc_reg[9]_1 [7]),
         .O(hs_i_2_n_0));
   FDCE hs_reg
        (.C(CLK),
         .CE(1'b1),
         .CLR(AR),
-        .D(p_0_in__0),
+        .D(hs_i_1_n_0),
         .Q(hsync));
+  LUT2 #(
+    .INIT(4'h9)) 
+    i__carry__0_i_1
+       (.I0(\hc_reg[9]_1 [7]),
+        .I1(player_pos[17]),
+        .O(\hc_reg[7]_0 [3]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    i__carry__0_i_2
+       (.I0(\hc_reg[9]_1 [6]),
+        .I1(player_pos[16]),
+        .O(\hc_reg[7]_0 [2]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    i__carry__0_i_3
+       (.I0(\hc_reg[9]_1 [5]),
+        .I1(player_pos[15]),
+        .O(\hc_reg[7]_0 [1]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    i__carry__0_i_4
+       (.I0(\hc_reg[9]_1 [4]),
+        .I1(player_pos[14]),
+        .O(\hc_reg[7]_0 [0]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    i__carry__1_i_1
+       (.I0(\hc_reg[9]_1 [9]),
+        .I1(player_pos[19]),
+        .O(\hc_reg[9]_0 [1]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    i__carry__1_i_2
+       (.I0(\hc_reg[9]_1 [8]),
+        .I1(player_pos[18]),
+        .O(\hc_reg[9]_0 [0]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    i__carry_i_1
+       (.I0(\hc_reg[9]_1 [3]),
+        .I1(player_pos[13]),
+        .O(\hc_reg[3]_0 [3]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    i__carry_i_2
+       (.I0(\hc_reg[9]_1 [2]),
+        .I1(player_pos[12]),
+        .O(\hc_reg[3]_0 [2]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    i__carry_i_3
+       (.I0(\hc_reg[9]_1 [1]),
+        .I1(player_pos[11]),
+        .O(\hc_reg[3]_0 [1]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    i__carry_i_4
+       (.I0(\hc_reg[9]_1 [0]),
+        .I1(player_pos[10]),
+        .O(\hc_reg[3]_0 [0]));
   LUT6 #(
     .INIT(64'h00000000FFFFFFEF)) 
     \vc[0]_i_1 
-       (.I0(\vc_reg[9]_0 [4]),
-        .I1(\vc_reg[9]_0 [3]),
-        .I2(\vc_reg[9]_0 [5]),
+       (.I0(Q[8]),
+        .I1(Q[7]),
+        .I2(Q[9]),
         .I3(\vc[9]_i_3_n_0 ),
         .I4(\vc[9]_i_4_n_0 ),
-        .I5(drawY[0]),
+        .I5(Q[0]),
         .O(\vc[0]_i_1_n_0 ));
   LUT5 #(
     .INIT(32'h00FEFE00)) 
@@ -11111,8 +11652,8 @@ module microblaze_GameIP_0_0_vga_controller
        (.I0(\vc[2]_i_2_n_0 ),
         .I1(\vc[9]_i_3_n_0 ),
         .I2(\vc[9]_i_4_n_0 ),
-        .I3(drawY[1]),
-        .I4(drawY[0]),
+        .I3(Q[1]),
+        .I4(Q[0]),
         .O(\vc[1]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h00FEFE00FE00FE00)) 
@@ -11120,24 +11661,24 @@ module microblaze_GameIP_0_0_vga_controller
        (.I0(\vc[2]_i_2_n_0 ),
         .I1(\vc[9]_i_3_n_0 ),
         .I2(\vc[9]_i_4_n_0 ),
-        .I3(drawY[2]),
-        .I4(drawY[1]),
-        .I5(drawY[0]),
+        .I3(Q[2]),
+        .I4(Q[1]),
+        .I5(Q[0]),
         .O(\vc[2]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT3 #(
     .INIT(8'hEF)) 
     \vc[2]_i_2 
-       (.I0(\vc_reg[9]_0 [4]),
-        .I1(\vc_reg[9]_0 [3]),
-        .I2(\vc_reg[9]_0 [5]),
+       (.I0(Q[8]),
+        .I1(Q[7]),
+        .I2(Q[9]),
         .O(\vc[2]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFEF00000000)) 
     \vc[3]_i_1 
-       (.I0(\vc_reg[9]_0 [4]),
-        .I1(\vc_reg[9]_0 [3]),
-        .I2(\vc_reg[9]_0 [5]),
+       (.I0(Q[8]),
+        .I1(Q[7]),
+        .I2(Q[9]),
         .I3(\vc[9]_i_3_n_0 ),
         .I4(\vc[9]_i_4_n_0 ),
         .I5(\vc[3]_i_2_n_0 ),
@@ -11145,17 +11686,17 @@ module microblaze_GameIP_0_0_vga_controller
   LUT4 #(
     .INIT(16'h7F80)) 
     \vc[3]_i_2 
-       (.I0(drawY[1]),
-        .I1(drawY[0]),
-        .I2(drawY[2]),
-        .I3(drawY[3]),
+       (.I0(Q[1]),
+        .I1(Q[0]),
+        .I2(Q[2]),
+        .I3(Q[3]),
         .O(\vc[3]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFEF00000000)) 
     \vc[4]_i_1 
-       (.I0(\vc_reg[9]_0 [4]),
-        .I1(\vc_reg[9]_0 [3]),
-        .I2(\vc_reg[9]_0 [5]),
+       (.I0(Q[8]),
+        .I1(Q[7]),
+        .I2(Q[9]),
         .I3(\vc[9]_i_3_n_0 ),
         .I4(\vc[9]_i_4_n_0 ),
         .I5(\vc[4]_i_2_n_0 ),
@@ -11164,18 +11705,18 @@ module microblaze_GameIP_0_0_vga_controller
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \vc[4]_i_2 
-       (.I0(drawY[2]),
-        .I1(drawY[0]),
-        .I2(drawY[1]),
-        .I3(drawY[3]),
-        .I4(\vc_reg[9]_0 [0]),
+       (.I0(Q[2]),
+        .I1(Q[0]),
+        .I2(Q[1]),
+        .I3(Q[3]),
+        .I4(Q[4]),
         .O(\vc[4]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFEF00000000)) 
     \vc[5]_i_1 
-       (.I0(\vc_reg[9]_0 [4]),
-        .I1(\vc_reg[9]_0 [3]),
-        .I2(\vc_reg[9]_0 [5]),
+       (.I0(Q[8]),
+        .I1(Q[7]),
+        .I2(Q[9]),
         .I3(\vc[9]_i_3_n_0 ),
         .I4(\vc[9]_i_4_n_0 ),
         .I5(\vc[5]_i_2_n_0 ),
@@ -11183,19 +11724,19 @@ module microblaze_GameIP_0_0_vga_controller
   LUT6 #(
     .INIT(64'h7FFFFFFF80000000)) 
     \vc[5]_i_2 
-       (.I0(drawY[3]),
-        .I1(drawY[1]),
-        .I2(drawY[0]),
-        .I3(drawY[2]),
-        .I4(\vc_reg[9]_0 [0]),
-        .I5(\vc_reg[9]_0 [1]),
+       (.I0(Q[3]),
+        .I1(Q[1]),
+        .I2(Q[0]),
+        .I3(Q[2]),
+        .I4(Q[4]),
+        .I5(Q[5]),
         .O(\vc[5]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFEF00000000)) 
     \vc[6]_i_1 
-       (.I0(\vc_reg[9]_0 [4]),
-        .I1(\vc_reg[9]_0 [3]),
-        .I2(\vc_reg[9]_0 [5]),
+       (.I0(Q[8]),
+        .I1(Q[7]),
+        .I2(Q[9]),
         .I3(\vc[9]_i_3_n_0 ),
         .I4(\vc[9]_i_4_n_0 ),
         .I5(\vc[6]_i_2_n_0 ),
@@ -11204,14 +11745,14 @@ module microblaze_GameIP_0_0_vga_controller
     .INIT(4'h6)) 
     \vc[6]_i_2 
        (.I0(\vc[9]_i_6_n_0 ),
-        .I1(\vc_reg[9]_0 [2]),
+        .I1(Q[6]),
         .O(\vc[6]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFEF00000000)) 
     \vc[7]_i_1 
-       (.I0(\vc_reg[9]_0 [4]),
-        .I1(\vc_reg[9]_0 [3]),
-        .I2(\vc_reg[9]_0 [5]),
+       (.I0(Q[8]),
+        .I1(Q[7]),
+        .I2(Q[9]),
         .I3(\vc[9]_i_3_n_0 ),
         .I4(\vc[9]_i_4_n_0 ),
         .I5(\vc[7]_i_2_n_0 ),
@@ -11221,15 +11762,15 @@ module microblaze_GameIP_0_0_vga_controller
     .INIT(8'h78)) 
     \vc[7]_i_2 
        (.I0(\vc[9]_i_6_n_0 ),
-        .I1(\vc_reg[9]_0 [2]),
-        .I2(\vc_reg[9]_0 [3]),
+        .I1(Q[6]),
+        .I2(Q[7]),
         .O(\vc[7]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFEF00000000)) 
     \vc[8]_i_1 
-       (.I0(\vc_reg[9]_0 [4]),
-        .I1(\vc_reg[9]_0 [3]),
-        .I2(\vc_reg[9]_0 [5]),
+       (.I0(Q[8]),
+        .I1(Q[7]),
+        .I2(Q[9]),
         .I3(\vc[9]_i_3_n_0 ),
         .I4(\vc[9]_i_4_n_0 ),
         .I5(\vc[8]_i_2_n_0 ),
@@ -11238,26 +11779,26 @@ module microblaze_GameIP_0_0_vga_controller
   LUT4 #(
     .INIT(16'h7F80)) 
     \vc[8]_i_2 
-       (.I0(\vc_reg[9]_0 [2]),
+       (.I0(Q[6]),
         .I1(\vc[9]_i_6_n_0 ),
-        .I2(\vc_reg[9]_0 [3]),
-        .I3(\vc_reg[9]_0 [4]),
+        .I2(Q[7]),
+        .I3(Q[8]),
         .O(\vc[8]_i_2_n_0 ));
   LUT5 #(
     .INIT(32'h00000400)) 
     \vc[9]_i_1 
        (.I0(\hc[9]_i_2_n_0 ),
-        .I1(Q[4]),
-        .I2(Q[3]),
-        .I3(Q[5]),
+        .I1(\hc_reg[9]_1 [8]),
+        .I2(\hc_reg[9]_1 [7]),
+        .I3(\hc_reg[9]_1 [9]),
         .I4(\hc[9]_i_3_n_0 ),
         .O(vc));
   LUT6 #(
     .INIT(64'hFFFFFFEF00000000)) 
     \vc[9]_i_2 
-       (.I0(\vc_reg[9]_0 [4]),
-        .I1(\vc_reg[9]_0 [3]),
-        .I2(\vc_reg[9]_0 [5]),
+       (.I0(Q[8]),
+        .I1(Q[7]),
+        .I2(Q[9]),
         .I3(\vc[9]_i_3_n_0 ),
         .I4(\vc[9]_i_4_n_0 ),
         .I5(\vc[9]_i_5_n_0 ),
@@ -11265,120 +11806,120 @@ module microblaze_GameIP_0_0_vga_controller
   LUT5 #(
     .INIT(32'hFFFFFFAE)) 
     \vc[9]_i_3 
-       (.I0(\vc_reg[9]_0 [4]),
-        .I1(\vc_reg[9]_0 [2]),
-        .I2(\vc_reg[9]_0 [3]),
-        .I3(\vc_reg[9]_0 [1]),
-        .I4(\vc_reg[9]_0 [0]),
+       (.I0(Q[8]),
+        .I1(Q[6]),
+        .I2(Q[7]),
+        .I3(Q[5]),
+        .I4(Q[4]),
         .O(\vc[9]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hEFFFEFFFEFEFEFFF)) 
     \vc[9]_i_4 
-       (.I0(drawY[1]),
-        .I1(drawY[0]),
-        .I2(drawY[2]),
-        .I3(\vc_reg[9]_0 [1]),
-        .I4(drawY[3]),
-        .I5(\vc_reg[9]_0 [0]),
+       (.I0(Q[1]),
+        .I1(Q[0]),
+        .I2(Q[2]),
+        .I3(Q[5]),
+        .I4(Q[3]),
+        .I5(Q[4]),
         .O(\vc[9]_i_4_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \vc[9]_i_5 
-       (.I0(\vc_reg[9]_0 [3]),
+       (.I0(Q[7]),
         .I1(\vc[9]_i_6_n_0 ),
-        .I2(\vc_reg[9]_0 [2]),
-        .I3(\vc_reg[9]_0 [4]),
-        .I4(\vc_reg[9]_0 [5]),
+        .I2(Q[6]),
+        .I3(Q[8]),
+        .I4(Q[9]),
         .O(\vc[9]_i_5_n_0 ));
   LUT6 #(
     .INIT(64'h8000000000000000)) 
     \vc[9]_i_6 
-       (.I0(\vc_reg[9]_0 [1]),
-        .I1(drawY[3]),
-        .I2(drawY[1]),
-        .I3(drawY[0]),
-        .I4(drawY[2]),
-        .I5(\vc_reg[9]_0 [0]),
+       (.I0(Q[5]),
+        .I1(Q[3]),
+        .I2(Q[1]),
+        .I3(Q[0]),
+        .I4(Q[2]),
+        .I5(Q[4]),
         .O(\vc[9]_i_6_n_0 ));
   FDCE \vc_reg[0] 
        (.C(CLK),
         .CE(vc),
         .CLR(AR),
         .D(\vc[0]_i_1_n_0 ),
-        .Q(drawY[0]));
+        .Q(Q[0]));
   FDCE \vc_reg[1] 
        (.C(CLK),
         .CE(vc),
         .CLR(AR),
         .D(\vc[1]_i_1_n_0 ),
-        .Q(drawY[1]));
+        .Q(Q[1]));
   FDCE \vc_reg[2] 
        (.C(CLK),
         .CE(vc),
         .CLR(AR),
         .D(\vc[2]_i_1_n_0 ),
-        .Q(drawY[2]));
+        .Q(Q[2]));
   FDCE \vc_reg[3] 
        (.C(CLK),
         .CE(vc),
         .CLR(AR),
         .D(\vc[3]_i_1_n_0 ),
-        .Q(drawY[3]));
+        .Q(Q[3]));
   FDCE \vc_reg[4] 
        (.C(CLK),
         .CE(vc),
         .CLR(AR),
         .D(\vc[4]_i_1_n_0 ),
-        .Q(\vc_reg[9]_0 [0]));
+        .Q(Q[4]));
   FDCE \vc_reg[5] 
        (.C(CLK),
         .CE(vc),
         .CLR(AR),
         .D(\vc[5]_i_1_n_0 ),
-        .Q(\vc_reg[9]_0 [1]));
+        .Q(Q[5]));
   FDCE \vc_reg[6] 
        (.C(CLK),
         .CE(vc),
         .CLR(AR),
         .D(\vc[6]_i_1_n_0 ),
-        .Q(\vc_reg[9]_0 [2]));
+        .Q(Q[6]));
   FDCE \vc_reg[7] 
        (.C(CLK),
         .CE(vc),
         .CLR(AR),
         .D(\vc[7]_i_1_n_0 ),
-        .Q(\vc_reg[9]_0 [3]));
+        .Q(Q[7]));
   FDCE \vc_reg[8] 
        (.C(CLK),
         .CE(vc),
         .CLR(AR),
         .D(\vc[8]_i_1_n_0 ),
-        .Q(\vc_reg[9]_0 [4]));
+        .Q(Q[8]));
   FDCE \vc_reg[9] 
        (.C(CLK),
         .CE(vc),
         .CLR(AR),
         .D(\vc[9]_i_2_n_0 ),
-        .Q(\vc_reg[9]_0 [5]));
+        .Q(Q[9]));
   (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT4 #(
     .INIT(16'h001F)) 
-    vga_to_hdmi_i_14
-       (.I0(Q[3]),
-        .I1(Q[4]),
-        .I2(Q[5]),
+    vga_to_hdmi_i_2
+       (.I0(\hc_reg[9]_1 [7]),
+        .I1(\hc_reg[9]_1 [8]),
+        .I2(\hc_reg[9]_1 [9]),
         .I3(display2),
         .O(vde));
   (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT5 #(
     .INIT(32'hFFFF8000)) 
-    vga_to_hdmi_i_40
-       (.I0(\vc_reg[9]_0 [3]),
-        .I1(\vc_reg[9]_0 [4]),
-        .I2(\vc_reg[9]_0 [1]),
-        .I3(\vc_reg[9]_0 [2]),
-        .I4(\vc_reg[9]_0 [5]),
+    vga_to_hdmi_i_3
+       (.I0(Q[7]),
+        .I1(Q[8]),
+        .I2(Q[5]),
+        .I3(Q[6]),
+        .I4(Q[9]),
         .O(display2));
   LUT6 #(
     .INIT(64'hFFFFFFFFBBB0FFFF)) 
@@ -11386,25 +11927,25 @@ module microblaze_GameIP_0_0_vga_controller
        (.I0(vs_i_2_n_0),
         .I1(\vc[3]_i_2_n_0 ),
         .I2(vs_i_3_n_0),
-        .I3(drawY[0]),
+        .I3(Q[0]),
         .I4(\vc[7]_i_2_n_0 ),
         .I5(\vc[9]_i_5_n_0 ),
         .O(vs_i_1_n_0));
   LUT5 #(
     .INIT(32'hFFFFFBFF)) 
     vs_i_2
-       (.I0(drawY[1]),
+       (.I0(Q[1]),
         .I1(\vc[6]_i_2_n_0 ),
         .I2(vs_i_4_n_0),
-        .I3(drawY[0]),
+        .I3(Q[0]),
         .I4(vs_i_5_n_0),
         .O(vs_i_2_n_0));
   LUT6 #(
     .INIT(64'hFFFFFFFFEBFFFFFF)) 
     vs_i_3
        (.I0(vs_i_5_n_0),
-        .I1(drawY[1]),
-        .I2(drawY[0]),
+        .I1(Q[1]),
+        .I2(Q[0]),
         .I3(\vc[5]_i_2_n_0 ),
         .I4(\vc[6]_i_2_n_0 ),
         .I5(vs_i_6_n_0),
@@ -11412,31 +11953,31 @@ module microblaze_GameIP_0_0_vga_controller
   LUT6 #(
     .INIT(64'hBDFFFFFFFFDDDDDD)) 
     vs_i_4
-       (.I0(\vc_reg[9]_0 [1]),
-        .I1(\vc_reg[9]_0 [0]),
-        .I2(drawY[3]),
-        .I3(drawY[1]),
-        .I4(drawY[0]),
-        .I5(drawY[2]),
+       (.I0(Q[5]),
+        .I1(Q[4]),
+        .I2(Q[3]),
+        .I3(Q[1]),
+        .I4(Q[0]),
+        .I5(Q[2]),
         .O(vs_i_4_n_0));
   (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT4 #(
     .INIT(16'h9555)) 
     vs_i_5
-       (.I0(\vc_reg[9]_0 [4]),
-        .I1(\vc_reg[9]_0 [3]),
+       (.I0(Q[8]),
+        .I1(Q[7]),
         .I2(\vc[9]_i_6_n_0 ),
-        .I3(\vc_reg[9]_0 [2]),
+        .I3(Q[6]),
         .O(vs_i_5_n_0));
   (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT5 #(
     .INIT(32'hEFFFFBBB)) 
     vs_i_6
-       (.I0(\vc_reg[9]_0 [0]),
-        .I1(drawY[3]),
-        .I2(drawY[1]),
-        .I3(drawY[0]),
-        .I4(drawY[2]),
+       (.I0(Q[4]),
+        .I1(Q[3]),
+        .I2(Q[1]),
+        .I3(Q[0]),
+        .I4(Q[2]),
         .O(vs_i_6_n_0));
   FDCE vs_reg
        (.C(CLK),
@@ -11549,530 +12090,530 @@ XOrKFNYRfMXMrnGsBM7acIelY4LdAMgsKgDH/A==
 `pragma protect data_method = "AES128-CBC"
 `pragma protect encoding = (enctype = "BASE64", line_length = 76, bytes = 29840)
 `pragma protect data_block
-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
-JY50vLUbJcShTs739NQTOZqQG0IqzLyFJ/rlWJM=
+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
 `pragma protect end_protected
 `ifndef GLBL
 `define GLBL

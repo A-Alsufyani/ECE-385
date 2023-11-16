@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
--- Date        : Mon Nov 13 00:05:51 2023
+-- Date        : Thu Nov 16 02:42:42 2023
 -- Host        : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top microblaze_ilmb_bram_if_cntlr_1 -prefix
---               microblaze_ilmb_bram_if_cntlr_1_ microblaze_ilmb_bram_if_cntlr_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_ilmb_bram_if_cntlr_1/microblaze_ilmb_bram_if_cntlr_1_sim_netlist.vhdl
 -- Design      : microblaze_ilmb_bram_if_cntlr_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -199,6 +199,8 @@ entity microblaze_ilmb_bram_if_cntlr_1_lmb_bram_if_cntlr is
   attribute C_UE_FAILING_REGISTERS of microblaze_ilmb_bram_if_cntlr_1_lmb_bram_if_cntlr : entity is 0;
   attribute C_WRITE_ACCESS : integer;
   attribute C_WRITE_ACCESS of microblaze_ilmb_bram_if_cntlr_1_lmb_bram_if_cntlr : entity is 2;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_ilmb_bram_if_cntlr_1_lmb_bram_if_cntlr : entity is "lmb_bram_if_cntlr";
 end microblaze_ilmb_bram_if_cntlr_1_lmb_bram_if_cntlr;
 
 architecture STRUCTURE of microblaze_ilmb_bram_if_cntlr_1_lmb_bram_if_cntlr is

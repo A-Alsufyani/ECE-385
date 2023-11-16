@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.runs/microblaze_dlmb_v10_1_synth_1'
+HD_PWD='C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/microblaze_dlmb_v10_1_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

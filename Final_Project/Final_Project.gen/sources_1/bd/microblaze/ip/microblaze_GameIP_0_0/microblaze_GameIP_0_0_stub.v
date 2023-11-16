@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-// Date        : Wed Nov 15 23:01:16 2023
+// Date        : Thu Nov 16 03:22:21 2023
 // Host        : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/microblaze_GameIP_0_0_stub.v
@@ -15,12 +15,13 @@
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "Game_Top_Level,Vivado 2023.1" *)
-module microblaze_GameIP_0_0(hdmi_clk_n, hdmi_clk_p, hdmi_tx_n, hdmi_tx_p, 
-  axi_aclk, axi_aresetn, axi_awaddr, axi_awprot, axi_awvalid, axi_awready, axi_wdata, axi_wstrb, 
-  axi_wvalid, axi_wready, axi_bresp, axi_bvalid, axi_bready, axi_araddr, axi_arprot, axi_arvalid, 
-  axi_arready, axi_rdata, axi_rresp, axi_rvalid, axi_rready)
-/* synthesis syn_black_box black_box_pad_pin="hdmi_clk_n,hdmi_clk_p,hdmi_tx_n[2:0],hdmi_tx_p[2:0],axi_aresetn,axi_awaddr[15:0],axi_awprot[2:0],axi_awvalid,axi_awready,axi_wdata[31:0],axi_wstrb[3:0],axi_wvalid,axi_wready,axi_bresp[1:0],axi_bvalid,axi_bready,axi_araddr[15:0],axi_arprot[2:0],axi_arvalid,axi_arready,axi_rdata[31:0],axi_rresp[1:0],axi_rvalid,axi_rready" */
+module microblaze_GameIP_0_0(player_pos, hdmi_clk_n, hdmi_clk_p, hdmi_tx_n, 
+  hdmi_tx_p, axi_aclk, axi_aresetn, axi_awaddr, axi_awprot, axi_awvalid, axi_awready, axi_wdata, 
+  axi_wstrb, axi_wvalid, axi_wready, axi_bresp, axi_bvalid, axi_bready, axi_araddr, axi_arprot, 
+  axi_arvalid, axi_arready, axi_rdata, axi_rresp, axi_rvalid, axi_rready)
+/* synthesis syn_black_box black_box_pad_pin="player_pos[31:0],hdmi_clk_n,hdmi_clk_p,hdmi_tx_n[2:0],hdmi_tx_p[2:0],axi_aresetn,axi_awaddr[15:0],axi_awprot[2:0],axi_awvalid,axi_awready,axi_wdata[31:0],axi_wstrb[3:0],axi_wvalid,axi_wready,axi_bresp[1:0],axi_bvalid,axi_bready,axi_araddr[15:0],axi_arprot[2:0],axi_arvalid,axi_arready,axi_rdata[31:0],axi_rresp[1:0],axi_rvalid,axi_rready" */
 /* synthesis syn_force_seq_prim="axi_aclk" */;
+  input [31:0]player_pos;
   output hdmi_clk_n;
   output hdmi_clk_p;
   output [2:0]hdmi_tx_n;

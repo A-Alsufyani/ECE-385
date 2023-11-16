@@ -53,7 +53,7 @@
 						"WVALID": { "actual": "s_axi_wvalid"}
 					}
 				},
-				"/gpio_usb_int/S_AXI": {
+				"/gpio_player_pos/S_AXI": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axi_aclk"},
@@ -77,7 +77,7 @@
 						"WVALID": { "actual": "s_axi_wvalid"}
 					}
 				},
-				"/gpio_usb_keycode/S_AXI": {
+				"/gpio_usb_int/S_AXI": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axi_aclk"},

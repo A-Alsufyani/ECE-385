@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
--- Date        : Mon Nov 13 00:05:50 2023
+-- Date        : Thu Nov 16 02:41:41 2023
 -- Host        : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top microblaze_axi_gpio_0_0 -prefix
---               microblaze_axi_gpio_0_0_ microblaze_axi_gpio_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_axi_gpio_0_0/microblaze_axi_gpio_0_0_sim_netlist.vhdl
 -- Design      : microblaze_axi_gpio_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -59,6 +59,8 @@ entity microblaze_axi_gpio_0_0_address_decoder is
     ip2bus_wrack_i_D1 : in STD_LOGIC;
     s_axi_awready : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_gpio_0_0_address_decoder : entity is "address_decoder";
 end microblaze_axi_gpio_0_0_address_decoder;
 
 architecture STRUCTURE of microblaze_axi_gpio_0_0_address_decoder is
@@ -892,6 +894,8 @@ entity microblaze_axi_gpio_0_0_cdc_sync is
     gpio_io_i : in STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_aclk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_gpio_0_0_cdc_sync : entity is "cdc_sync";
 end microblaze_axi_gpio_0_0_cdc_sync;
 
 architecture STRUCTURE of microblaze_axi_gpio_0_0_cdc_sync is
@@ -1006,6 +1010,8 @@ entity microblaze_axi_gpio_0_0_interrupt_control is
     GPIO_xferAck_i : in STD_LOGIC;
     ip2Bus_RdAck_intr_reg_hole : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_gpio_0_0_interrupt_control : entity is "interrupt_control";
 end microblaze_axi_gpio_0_0_interrupt_control;
 
 architecture STRUCTURE of microblaze_axi_gpio_0_0_interrupt_control is
@@ -1158,6 +1164,8 @@ entity microblaze_axi_gpio_0_0_GPIO_Core is
     bus2ip_cs : in STD_LOGIC_VECTOR ( 0 to 0 );
     gpio_io_i : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_gpio_0_0_GPIO_Core : entity is "GPIO_Core";
 end microblaze_axi_gpio_0_0_GPIO_Core;
 
 architecture STRUCTURE of microblaze_axi_gpio_0_0_GPIO_Core is
@@ -1305,6 +1313,8 @@ entity microblaze_axi_gpio_0_0_slave_attachment is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 6 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 6 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_gpio_0_0_slave_attachment : entity is "slave_attachment";
 end microblaze_axi_gpio_0_0_slave_attachment;
 
 architecture STRUCTURE of microblaze_axi_gpio_0_0_slave_attachment is
@@ -2069,6 +2079,8 @@ entity microblaze_axi_gpio_0_0_axi_lite_ipif is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 6 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 6 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_gpio_0_0_axi_lite_ipif : entity is "axi_lite_ipif";
 end microblaze_axi_gpio_0_0_axi_lite_ipif;
 
 architecture STRUCTURE of microblaze_axi_gpio_0_0_axi_lite_ipif is
@@ -2190,6 +2202,8 @@ entity microblaze_axi_gpio_0_0_axi_gpio is
   attribute C_TRI_DEFAULT of microblaze_axi_gpio_0_0_axi_gpio : entity is "32'b11111111111111111111111111111111";
   attribute C_TRI_DEFAULT_2 : string;
   attribute C_TRI_DEFAULT_2 of microblaze_axi_gpio_0_0_axi_gpio : entity is "32'b11111111111111111111111111111111";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of microblaze_axi_gpio_0_0_axi_gpio : entity is "axi_gpio";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of microblaze_axi_gpio_0_0_axi_gpio : entity is "yes";
   attribute ip_group : string;

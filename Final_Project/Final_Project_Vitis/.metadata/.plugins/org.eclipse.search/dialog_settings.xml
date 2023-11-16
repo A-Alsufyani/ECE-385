@@ -45,14 +45,14 @@
 			<item key="textPattern" value=""/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="xgpio.h"/>
+				<item value="xparameters.h"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="EXTENSIONS">
-			<item key="0" value="xgpio.h"/>
-			<item key="1" value="xparameters.h"/>
+			<item key="0" value="xparameters.h"/>
+			<item key="1" value="xgpio.h"/>
 		</section>
 	</section>
 	<section name="">

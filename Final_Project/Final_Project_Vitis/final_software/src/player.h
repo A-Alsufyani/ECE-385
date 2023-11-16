@@ -11,8 +11,8 @@
 
 // Player structure declaration (assuming its definition)
 typedef struct {
-    int x;
-    int y;
+    uint16_t x;
+    uint16_t y;
     // Other fields if necessary
 } Player;
 
@@ -21,7 +21,7 @@ extern Player player;
 
 // Function prototypes
 int checkCollision(int x, int y);
-void updatePlayerPosition(Player *player, BYTE keyPress);
+void updatePlayerPosition(Player *player_, BOOT_KBD_REPORT* kbd_buf);
 void player_movement();
 
 #endif // PLAYER_H

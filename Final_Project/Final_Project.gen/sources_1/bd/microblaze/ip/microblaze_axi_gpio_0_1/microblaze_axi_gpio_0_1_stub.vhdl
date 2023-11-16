@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
--- Date        : Mon Nov 13 00:05:50 2023
+-- Date        : Thu Nov 16 02:41:40 2023
 -- Host        : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub -rename_top microblaze_axi_gpio_0_1 -prefix
---               microblaze_axi_gpio_0_1_ microblaze_axi_gpio_0_1_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub
+--               c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_axi_gpio_0_1/microblaze_axi_gpio_0_1_stub.vhdl
 -- Design      : microblaze_axi_gpio_0_1
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7s50csga324-1

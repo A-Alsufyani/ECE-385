@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date             : Wed Nov 15 23:03:34 2023
+| Date             : Thu Nov 16 03:24:47 2023
 | Host             : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
 | Command          : report_power -file Final_Top_Level_power_routed.rpt -pb Final_Top_Level_power_summary_routed.pb -rpx Final_Top_Level_power_routed.rpx
 | Design           : Final_Top_Level
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.461        |
+| Total On-Chip Power (W)  | 0.460        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.386        |
@@ -52,23 +52,23 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.014 |       10 |       --- |             --- |
-| Slice Logic              |     0.007 |     7495 |       --- |             --- |
-|   LUT as Logic           |     0.005 |     2652 |     32600 |            8.13 |
+| Clocks                   |     0.013 |       10 |       --- |             --- |
+| Slice Logic              |     0.007 |     7474 |       --- |             --- |
+|   LUT as Logic           |     0.005 |     2675 |     32600 |            8.21 |
 |   LUT as Distributed RAM |     0.001 |      172 |      9600 |            1.79 |
-|   Register               |    <0.001 |     2901 |     65200 |            4.45 |
-|   CARRY4                 |    <0.001 |       88 |      8150 |            1.08 |
+|   Register               |    <0.001 |     2849 |     65200 |            4.37 |
+|   CARRY4                 |    <0.001 |       94 |      8150 |            1.15 |
 |   F7/F8 Muxes            |    <0.001 |       47 |     32600 |            0.14 |
 |   LUT as Shift Register  |    <0.001 |      112 |      9600 |            1.17 |
-|   Others                 |     0.000 |      849 |       --- |             --- |
+|   Others                 |     0.000 |      852 |       --- |             --- |
 |   BUFG                   |     0.000 |        1 |        32 |            3.13 |
-| Signals                  |     0.012 |     5243 |       --- |             --- |
+| Signals                  |     0.012 |     5206 |       --- |             --- |
 | Block RAM                |     0.004 |       33 |        75 |           44.00 |
 | MMCM                     |     0.212 |        2 |         5 |           40.00 |
 | DSPs                     |     0.002 |        3 |       120 |            2.50 |
-| I/O                      |     0.136 |       18 |       210 |            8.57 |
+| I/O                      |     0.135 |       18 |       210 |            8.57 |
 | Static Power             |     0.074 |          |           |                 |
-| Total                    |     0.461 |          |           |                 |
+| Total                    |     0.460 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -153,13 +153,11 @@ Table of Contents
 | Name                        | Power (W) |
 +-----------------------------+-----------+
 | Final_Top_Level             |     0.386 |
-|   mb_block_i                |     0.384 |
+|   mb_block_i                |     0.383 |
 |     GameIP_0                |     0.246 |
 |       inst                  |     0.246 |
 |     clk_wiz_1               |     0.106 |
 |       inst                  |     0.106 |
-|     gpio_usb_keycode        |     0.001 |
-|       U0                    |     0.001 |
 |     microblaze_0            |     0.017 |
 |       U0                    |     0.017 |
 |     microblaze_0_axi_intc   |     0.001 |
@@ -168,8 +166,8 @@ Table of Contents
 |       xbar                  |     0.001 |
 |     spi_usb                 |     0.004 |
 |       U0                    |     0.004 |
-|     timer_usb_axi           |     0.004 |
-|       U0                    |     0.004 |
+|     timer_usb_axi           |     0.003 |
+|       U0                    |     0.003 |
 +-----------------------------+-----------+
 
 

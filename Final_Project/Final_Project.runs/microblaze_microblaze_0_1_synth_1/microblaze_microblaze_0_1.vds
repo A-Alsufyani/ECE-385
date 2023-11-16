@@ -3,16 +3,16 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Mon Nov 13 00:04:53 2023
-# Process ID: 24860
-# Current directory: C:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.runs/microblaze_microblaze_0_1_synth_1
+# Start of session at: Thu Nov 16 02:41:55 2023
+# Process ID: 11444
+# Current directory: C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/microblaze_microblaze_0_1_synth_1
 # Command line: vivado.exe -log microblaze_microblaze_0_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source microblaze_microblaze_0_1.tcl
-# Log file: C:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.runs/microblaze_microblaze_0_1_synth_1/microblaze_microblaze_0_1.vds
-# Journal file: C:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.runs/microblaze_microblaze_0_1_synth_1\vivado.jou
+# Log file: C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/microblaze_microblaze_0_1_synth_1/microblaze_microblaze_0_1.vds
+# Journal file: C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/microblaze_microblaze_0_1_synth_1\vivado.jou
 # Running On: Abdullah-Champaign-PC, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 17102 MB
 #-----------------------------------------------------------
 source microblaze_microblaze_0_1.tcl -notrace
-create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 461.293 ; gain = 158.711
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 464.934 ; gain = 163.043
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Abdullah/Downloads/ECE385/ip_repo/GameIP_1_0'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Abdullah/Downloads/RD_hdmi_ip2020'.
@@ -25,11 +25,11 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Device 21-403] Loading part xc7s50csga324-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 25284
+INFO: [Synth 8-7075] Helper process launched with PID 5296
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:14 . Memory (MB): peak = 1284.660 ; gain = 410.086
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:10 . Memory (MB): peak = 1286.262 ; gain = 411.000
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'microblaze_microblaze_0_1' [c:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/synth/microblaze_microblaze_0_1.vhd:116]
+INFO: [Synth 8-638] synthesizing module 'microblaze_microblaze_0_1' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/synth/microblaze_microblaze_0_1.vhd:116]
 	Parameter C_SCO bound to: 0 - type: integer 
 	Parameter C_FREQ bound to: 100000000 - type: integer 
 	Parameter C_USE_CONFIG_RESET bound to: 0 - type: integer 
@@ -200,8 +200,8 @@ INFO: [Synth 8-638] synthesizing module 'microblaze_microblaze_0_1' [c:/Users/Ab
 	Parameter C_M_AXI_DC_WUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_DC_RUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_DC_BUSER_WIDTH bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'MicroBlaze' declared at 'c:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.gen/sources_1/bd/microblaze/ipshared/e224/hdl/microblaze_v11_0_vh_rfs.vhd:164874' bound to instance 'U0' of component 'MicroBlaze' [c:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/synth/microblaze_microblaze_0_1.vhd:820]
-INFO: [Synth 8-256] done synthesizing module 'microblaze_microblaze_0_1' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/synth/microblaze_microblaze_0_1.vhd:116]
+INFO: [Synth 8-3491] module 'MicroBlaze' declared at 'c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/e224/hdl/microblaze_v11_0_vh_rfs.vhd:164874' bound to instance 'U0' of component 'MicroBlaze' [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/synth/microblaze_microblaze_0_1.vhd:820]
+INFO: [Synth 8-256] done synthesizing module 'microblaze_microblaze_0_1' (0#1) [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/synth/microblaze_microblaze_0_1.vhd:116]
 WARNING: [Synth 8-7129] Port ILMB_data_strobe in module instr_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ILMB_data_sel in module instr_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port IEXT_data[0] in module instr_mux is either unconnected or has no load
@@ -304,37 +304,37 @@ WARNING: [Synth 8-7129] Port RAM_Debug_Trace_To[239] in module Debug is either u
 WARNING: [Synth 8-7129] Port RAM_Debug_Trace_To[238] in module Debug is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:30 . Memory (MB): peak = 1573.988 ; gain = 699.414
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:24 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:30 . Memory (MB): peak = 1573.988 ; gain = 699.414
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:24 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:30 . Memory (MB): peak = 1573.988 ; gain = 699.414
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:24 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.288 . Memory (MB): peak = 1573.988 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.293 . Memory (MB): peak = 1575.402 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 512 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/microblaze_microblaze_0_1_ooc_debug.xdc] for cell 'U0'
-Finished Parsing XDC File [c:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/microblaze_microblaze_0_1_ooc_debug.xdc] for cell 'U0'
-Parsing XDC File [c:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/microblaze_microblaze_0_1_ooc.xdc] for cell 'U0'
-Finished Parsing XDC File [c:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/microblaze_microblaze_0_1_ooc.xdc] for cell 'U0'
-Parsing XDC File [c:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/microblaze_microblaze_0_1.xdc] for cell 'U0'
-Finished Parsing XDC File [c:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/microblaze_microblaze_0_1.xdc] for cell 'U0'
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [c:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/microblaze_microblaze_0_1.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/microblaze_microblaze_0_1_propImpl.xdc].
+Parsing XDC File [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/microblaze_microblaze_0_1_ooc_debug.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/microblaze_microblaze_0_1_ooc_debug.xdc] for cell 'U0'
+Parsing XDC File [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/microblaze_microblaze_0_1_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/microblaze_microblaze_0_1_ooc.xdc] for cell 'U0'
+Parsing XDC File [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/microblaze_microblaze_0_1.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/microblaze_microblaze_0_1.xdc] for cell 'U0'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/microblaze_microblaze_0_1.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/microblaze_microblaze_0_1_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/microblaze_microblaze_0_1_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [C:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.runs/microblaze_microblaze_0_1_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.runs/microblaze_microblaze_0_1_synth_1/dont_touch.xdc]
+Parsing XDC File [C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/microblaze_microblaze_0_1_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/microblaze_microblaze_0_1_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1577.734 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1575.402 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 409 instances were transformed.
   FD => FDRE: 32 instances
@@ -347,27 +347,27 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   MUXCY_L => MUXCY: 121 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 64 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.142 . Memory (MB): peak = 1581.062 ; gain = 3.328
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.117 . Memory (MB): peak = 1575.402 ; gain = 0.000
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:43 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:35 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:43 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:35 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  {C:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.runs/microblaze_microblaze_0_1_synth_1/dont_touch.xdc}, line 9).
+Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/microblaze_microblaze_0_1_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:43 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:35 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:46 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:38 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -393,25 +393,25 @@ INFO: [Synth 8-3332] Sequential element (MicroBlaze_Core_I/Area.Core/Decode_I/Us
 INFO: [Synth 8-3332] Sequential element (MicroBlaze_Core_I/Area.Core/Decode_I/Using_FPGA.ALU_long_ALU_Op_FDRE/Using_FPGA.Native) is unused and will be removed from module MicroBlaze.
 INFO: [Synth 8-3332] Sequential element (MicroBlaze_Core_I/Area.Core/Decode_I/Using_FPGA.Reg_Test_Long_FDRE/Using_FPGA.Native) is unused and will be removed from module MicroBlaze.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:53 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:45 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:01:00 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:52 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:01:04 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:55 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:01:05 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:55 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -429,37 +429,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:01:09 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:59 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:01:09 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:59 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:01:10 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:59 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:01:10 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:59 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:01:10 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:59 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:01:10 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:59 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -508,18 +508,18 @@ Report Cell Usage:
 |24    |FDSE     |    66|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:01:10 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:59 . Memory (MB): peak = 1575.402 ; gain = 700.141
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 10615 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:01:04 . Memory (MB): peak = 1581.062 ; gain = 699.414
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:01:10 . Memory (MB): peak = 1581.062 ; gain = 706.488
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:54 . Memory (MB): peak = 1575.402 ; gain = 700.141
+Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:01:00 . Memory (MB): peak = 1575.402 ; gain = 700.141
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.176 . Memory (MB): peak = 1581.062 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.106 . Memory (MB): peak = 1575.402 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 502 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1581.062 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1575.402 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 315 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 36 instances
@@ -535,10 +535,10 @@ Synth Design complete | Checksum: 61caf036
 INFO: [Common 17-83] Releasing license: Synthesis
 31 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:01:17 . Memory (MB): peak = 1581.062 ; gain = 1083.902
-INFO: [Common 17-1381] The checkpoint 'C:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.runs/microblaze_microblaze_0_1_synth_1/microblaze_microblaze_0_1.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:01:06 . Memory (MB): peak = 1575.402 ; gain = 1076.812
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/microblaze_microblaze_0_1_synth_1/microblaze_microblaze_0_1.dcp' has been generated.
 INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP microblaze_microblaze_0_1, cache-ID = e533d909516137cd
 INFO: [Coretcl 2-1174] Renamed 1144 cell refs.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/Abdullah/Downloads/ECE385/Final Project/Final Project.runs/microblaze_microblaze_0_1_synth_1/microblaze_microblaze_0_1.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/microblaze_microblaze_0_1_synth_1/microblaze_microblaze_0_1.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file microblaze_microblaze_0_1_utilization_synth.rpt -pb microblaze_microblaze_0_1_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 13 00:06:28 2023...
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 16 02:43:18 2023...

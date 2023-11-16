@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Wed Nov 15 23:00:13 2023
+//Date        : Thu Nov 16 03:21:19 2023
 //Host        : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
 //Command     : generate_target microblaze_wrapper.bd
 //Design      : microblaze_wrapper
@@ -17,8 +17,6 @@ module microblaze_wrapper
     HDMI_0_tmds_data_p,
     clk_100MHz,
     gpio_usb_int_tri_i,
-    gpio_usb_keycode_0_tri_o,
-    gpio_usb_keycode_1_tri_o,
     gpio_usb_rst_tri_o,
     reset_rtl_0,
     uart_rtl_0_rxd,
@@ -33,8 +31,6 @@ module microblaze_wrapper
   output [2:0]HDMI_0_tmds_data_p;
   input clk_100MHz;
   input [0:0]gpio_usb_int_tri_i;
-  output [31:0]gpio_usb_keycode_0_tri_o;
-  output [31:0]gpio_usb_keycode_1_tri_o;
   output [0:0]gpio_usb_rst_tri_o;
   input reset_rtl_0;
   input uart_rtl_0_rxd;
@@ -50,8 +46,6 @@ module microblaze_wrapper
   wire [2:0]HDMI_0_tmds_data_p;
   wire clk_100MHz;
   wire [0:0]gpio_usb_int_tri_i;
-  wire [31:0]gpio_usb_keycode_0_tri_o;
-  wire [31:0]gpio_usb_keycode_1_tri_o;
   wire [0:0]gpio_usb_rst_tri_o;
   wire reset_rtl_0;
   wire uart_rtl_0_rxd;
@@ -68,8 +62,6 @@ module microblaze_wrapper
         .HDMI_0_tmds_data_p(HDMI_0_tmds_data_p),
         .clk_100MHz(clk_100MHz),
         .gpio_usb_int_tri_i(gpio_usb_int_tri_i),
-        .gpio_usb_keycode_0_tri_o(gpio_usb_keycode_0_tri_o),
-        .gpio_usb_keycode_1_tri_o(gpio_usb_keycode_1_tri_o),
         .gpio_usb_rst_tri_o(gpio_usb_rst_tri_o),
         .reset_rtl_0(reset_rtl_0),
         .uart_rtl_0_rxd(uart_rtl_0_rxd),
