@@ -204,13 +204,21 @@ vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Final_Project.gen/s
 "../../../bd/microblaze/ip/microblaze_GameIP_0_0/src/hdmi_tx_0/sim/hdmi_tx_0.v" \
 
 vlog -work xil_defaultlib  -incr -mfcu  -sv "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/ec67/hdl" "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/30ef" "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0" \
-"../../../bd/microblaze/ipshared/023a/src/VGA_controller.sv" \
-"../../../bd/microblaze/ipshared/023a/src/GameIP_v1_0_AXI.sv" \
-"../../../bd/microblaze/ipshared/023a/src/Color_Mapper.sv" \
-"../../../bd/microblaze/ipshared/023a/src/font_rom.sv" \
-"../../../bd/microblaze/ipshared/023a/src/block_rom.sv" \
-"../../../bd/microblaze/ipshared/023a/src/GameIP_v1_0.sv" \
+"../../../bd/microblaze/ipshared/70dc/src/VGA_controller.sv" \
+"../../../bd/microblaze/ipshared/70dc/src/GameIP_v1_0_AXI.sv" \
+"../../../bd/microblaze/ipshared/70dc/src/Color_Mapper.sv" \
+"../../../bd/microblaze/ipshared/70dc/src/font_rom.sv" \
+"../../../bd/microblaze/ipshared/70dc/src/block_rom.sv" \
+"../../../bd/microblaze/ipshared/70dc/src/player_sprite.sv" \
+"../../../bd/microblaze/ipshared/70dc/src/Clock.sv" \
+"../../../bd/microblaze/ipshared/70dc/src/Game_FSM_Logic.sv" \
+"../../../bd/microblaze/ipshared/70dc/src/bottom_drawing.sv" \
+"../../../bd/microblaze/ipshared/70dc/src/sync_reset.sv" \
+"../../../bd/microblaze/ipshared/70dc/src/GameIP_v1_0.sv" \
 "../../../bd/microblaze/ip/microblaze_GameIP_0_0/sim/microblaze_GameIP_0_0.sv" \
+
+vcom -work xil_defaultlib  -93  \
+"../../../bd/microblaze/ip/microblaze_axi_gpio_0_3/sim/microblaze_axi_gpio_0_3.vhd" \
 
 vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/ec67/hdl" "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/30ef" "+incdir+../../../../Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0" \
 "../../../bd/microblaze/sim/microblaze.v" \

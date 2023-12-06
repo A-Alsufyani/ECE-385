@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Thu Nov 16 03:23:02 2023
+| Date         : Wed Dec  6 08:33:42 2023
 | Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
 | Command      : report_utilization -file Final_Top_Level_utilization_synth.rpt -pb Final_Top_Level_utilization_synth.pb
 | Design       : Final_Top_Level
@@ -92,7 +92,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +-----------------------------+------+-------+------------+-----------+-------+
 |          Site Type          | Used | Fixed | Prohibited | Available | Util% |
 +-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |    9 |     0 |          0 |       210 |  4.29 |
+| Bonded IOB                  |   25 |     0 |          0 |       210 | 11.90 |
 | Bonded IPADs                |    0 |     0 |          0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |         5 |  0.00 |
 | PHASER_REF                  |    0 |     0 |          0 |         5 |  0.00 |
@@ -147,7 +147,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| OBUF     |    5 |                  IO |
+| OBUF     |   21 |                  IO |
 | IBUF     |    4 |                  IO |
 | LUT1     |    1 |                 LUT |
 +----------+------+---------------------+
@@ -173,6 +173,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | microblaze_axi_uartlite_0_0        |    1 |
 | microblaze_axi_timer_0_0           |    1 |
 | microblaze_axi_quad_spi_0_0        |    1 |
+| microblaze_axi_gpio_0_3            |    1 |
 | microblaze_axi_gpio_0_2            |    1 |
 | microblaze_axi_gpio_0_1            |    1 |
 | microblaze_axi_gpio_0_0            |    1 |

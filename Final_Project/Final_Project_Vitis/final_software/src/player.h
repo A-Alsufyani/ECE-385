@@ -14,15 +14,15 @@ typedef struct {
     uint16_t x;
     uint16_t y;
     // Other fields if necessary
-} Player;
+} Player_struct;
 
 // Extern declaration of the player variable
-extern Player player;
-
+extern Player_struct player;
+extern uint8_t die_sig;
 // Function prototypes
 int checkCollision(int x, int y);
-void updatePlayerPosition(Player *player_, BOOT_KBD_REPORT* kbd_buf);
-void player_movement();
+void updatePlayerPosition(Player_struct *player_, BOOT_KBD_REPORT* kbd_buf);
+uint8_t player_movement();
 
 #endif // PLAYER_H
 

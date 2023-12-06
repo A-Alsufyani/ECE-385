@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7s50csga324-1" LaunchTime="1700126498">
+<GenRun Id="impl_1" LaunchPart="xc7s50csga324-1" LaunchTime="1701873142">
   <File Type="ROUTE-PWR" Name="Final_Top_Level_power_routed.rpt"/>
   <File Type="PA-TCL" Name="Final_Top_Level.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="Final_Top_Level_power_summary_routed.pb"/>
@@ -162,6 +162,7 @@
   <BlockFileSet Type="BlockSrcs" Name="microblaze_ilmb_bram_if_cntlr_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_quad_spi_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_lmb_bram_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_gpio_0_3"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_microblaze_0_axi_intc_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_microblaze_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_dlmb_v10_1"/>
@@ -169,4 +170,5 @@
   <BlockFileSet Type="BlockSrcs" Name="microblaze_rst_clk_wiz_1_100M_1"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_axi_uartlite_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="microblaze_ilmb_v10_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="microblaze_xbar_0"/>
 </GenRun>

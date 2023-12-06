@@ -50,3 +50,136 @@ platform generate -domains
 platform active {Final_Top_Level}
 platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
 platform generate -domains 
+platform active {Final_Top_Level}
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate -domains 
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform active {Final_Top_Level}
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform active {Final_Top_Level}
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform active {Final_Top_Level}
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform generate
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate -domains 
+platform active {Final_Top_Level}
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform generate
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform active {Final_Top_Level}
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Top_Level.xsa}
+platform generate

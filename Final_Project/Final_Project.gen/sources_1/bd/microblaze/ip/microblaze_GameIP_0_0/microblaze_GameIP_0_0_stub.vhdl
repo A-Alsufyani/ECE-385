@@ -2,7 +2,7 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
--- Date        : Thu Nov 16 03:22:21 2023
+-- Date        : Wed Dec  6 08:33:04 2023
 -- Host        : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/microblaze_GameIP_0_0_stub.vhdl
@@ -16,6 +16,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity microblaze_GameIP_0_0 is
   Port ( 
     player_pos : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    seconds : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    debugging : out STD_LOGIC_VECTOR ( 31 downto 0 );
     hdmi_clk_n : out STD_LOGIC;
     hdmi_clk_p : out STD_LOGIC;
     hdmi_tx_n : out STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -49,7 +51,7 @@ architecture stub of microblaze_GameIP_0_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "player_pos[31:0],hdmi_clk_n,hdmi_clk_p,hdmi_tx_n[2:0],hdmi_tx_p[2:0],axi_aclk,axi_aresetn,axi_awaddr[15:0],axi_awprot[2:0],axi_awvalid,axi_awready,axi_wdata[31:0],axi_wstrb[3:0],axi_wvalid,axi_wready,axi_bresp[1:0],axi_bvalid,axi_bready,axi_araddr[15:0],axi_arprot[2:0],axi_arvalid,axi_arready,axi_rdata[31:0],axi_rresp[1:0],axi_rvalid,axi_rready";
+attribute black_box_pad_pin of stub : architecture is "player_pos[31:0],seconds[15:0],debugging[31:0],hdmi_clk_n,hdmi_clk_p,hdmi_tx_n[2:0],hdmi_tx_p[2:0],axi_aclk,axi_aresetn,axi_awaddr[15:0],axi_awprot[2:0],axi_awvalid,axi_awready,axi_wdata[31:0],axi_wstrb[3:0],axi_wvalid,axi_wready,axi_bresp[1:0],axi_bvalid,axi_bready,axi_araddr[15:0],axi_arprot[2:0],axi_arvalid,axi_arready,axi_rdata[31:0],axi_rresp[1:0],axi_rvalid,axi_rready";
 attribute X_CORE_INFO : string;
 attribute X_CORE_INFO of stub : architecture is "Game_Top_Level,Vivado 2023.1";
 begin

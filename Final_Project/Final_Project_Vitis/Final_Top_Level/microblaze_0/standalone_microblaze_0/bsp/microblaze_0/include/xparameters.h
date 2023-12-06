@@ -580,7 +580,7 @@
 /******************************************************************/
 
 /* Definitions for driver GPIO */
-#define XPAR_XGPIO_NUM_INSTANCES 3
+#define XPAR_XGPIO_NUM_INSTANCES 4
 
 /* Definitions for peripheral GPIO_USB_INT */
 #define XPAR_GPIO_USB_INT_BASEADDR 0x40000000
@@ -606,6 +606,14 @@
 #define XPAR_GPIO_PLAYER_POS_IS_DUAL 0
 
 
+/* Definitions for peripheral GPIO_DEUGGING */
+#define XPAR_GPIO_DEUGGING_BASEADDR 0x40030000
+#define XPAR_GPIO_DEUGGING_HIGHADDR 0x4003FFFF
+#define XPAR_GPIO_DEUGGING_DEVICE_ID 3
+#define XPAR_GPIO_DEUGGING_INTERRUPT_PRESENT 0
+#define XPAR_GPIO_DEUGGING_IS_DUAL 0
+
+
 /******************************************************************/
 
 /* Canonical definitions for peripheral GPIO_USB_INT */
@@ -628,6 +636,13 @@
 #define XPAR_GPIO_2_DEVICE_ID XPAR_GPIO_PLAYER_POS_DEVICE_ID
 #define XPAR_GPIO_2_INTERRUPT_PRESENT 0
 #define XPAR_GPIO_2_IS_DUAL 0
+
+/* Canonical definitions for peripheral GPIO_DEUGGING */
+#define XPAR_GPIO_3_BASEADDR 0x40030000
+#define XPAR_GPIO_3_HIGHADDR 0x4003FFFF
+#define XPAR_GPIO_3_DEVICE_ID XPAR_GPIO_DEUGGING_DEVICE_ID
+#define XPAR_GPIO_3_INTERRUPT_PRESENT 0
+#define XPAR_GPIO_3_IS_DUAL 0
 
 
 /******************************************************************/

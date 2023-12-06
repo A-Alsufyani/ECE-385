@@ -26,6 +26,7 @@ module Final_Top_Level(
     input logic reset_rtl_0,
     input logic uart_rtl_0_rxd,
     output logic uart_rtl_0_txd,
+    output logic [15:0] led,
     
     
     output logic HDMI_tmds_clk_n,
@@ -57,6 +58,7 @@ module Final_Top_Level(
         .HDMI_0_tmds_clk_n(HDMI_tmds_clk_n),
         .HDMI_0_tmds_clk_p(HDMI_tmds_clk_p),
         .HDMI_0_tmds_data_n(HDMI_tmds_data_n),
-        .HDMI_0_tmds_data_p(HDMI_tmds_data_p)
+        .HDMI_0_tmds_data_p(HDMI_tmds_data_p),
+        .LEDs_0_tri_o(led)
     );
 endmodule

@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Thu Nov 16 03:21:19 2023
+//Date        : Wed Dec  6 08:31:57 2023
 //Host        : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
 //Command     : generate_target microblaze_wrapper.bd
 //Design      : microblaze_wrapper
@@ -15,6 +15,7 @@ module microblaze_wrapper
     HDMI_0_tmds_clk_p,
     HDMI_0_tmds_data_n,
     HDMI_0_tmds_data_p,
+    LEDs_0_tri_o,
     clk_100MHz,
     gpio_usb_int_tri_i,
     gpio_usb_rst_tri_o,
@@ -29,6 +30,7 @@ module microblaze_wrapper
   output HDMI_0_tmds_clk_p;
   output [2:0]HDMI_0_tmds_data_n;
   output [2:0]HDMI_0_tmds_data_p;
+  output [15:0]LEDs_0_tri_o;
   input clk_100MHz;
   input [0:0]gpio_usb_int_tri_i;
   output [0:0]gpio_usb_rst_tri_o;
@@ -44,6 +46,7 @@ module microblaze_wrapper
   wire HDMI_0_tmds_clk_p;
   wire [2:0]HDMI_0_tmds_data_n;
   wire [2:0]HDMI_0_tmds_data_p;
+  wire [15:0]LEDs_0_tri_o;
   wire clk_100MHz;
   wire [0:0]gpio_usb_int_tri_i;
   wire [0:0]gpio_usb_rst_tri_o;
@@ -60,6 +63,7 @@ module microblaze_wrapper
         .HDMI_0_tmds_clk_p(HDMI_0_tmds_clk_p),
         .HDMI_0_tmds_data_n(HDMI_0_tmds_data_n),
         .HDMI_0_tmds_data_p(HDMI_0_tmds_data_p),
+        .LEDs_0_tri_o(LEDs_0_tri_o),
         .clk_100MHz(clk_100MHz),
         .gpio_usb_int_tri_i(gpio_usb_int_tri_i),
         .gpio_usb_rst_tri_o(gpio_usb_rst_tri_o),
