@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-// Date        : Wed Dec  6 08:33:04 2023
+// Date        : Sat Dec  9 13:32:21 2023
 // Host        : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/microblaze_GameIP_0_0_sim_netlist.v
@@ -17,8 +17,9 @@
 (* NotValidForBitStream *)
 module microblaze_GameIP_0_0
    (player_pos,
+    player_pos_2,
     seconds,
-    debugging,
+    Hardware_to_software,
     hdmi_clk_n,
     hdmi_clk_p,
     hdmi_tx_n,
@@ -45,8 +46,9 @@ module microblaze_GameIP_0_0
     axi_rvalid,
     axi_rready);
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 player_pos TRI_I" *) input [31:0]player_pos;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 player_pos_2 TRI_I" *) input [31:0]player_pos_2;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 LEDs TRI_O" *) output [15:0]seconds;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 debugging TRI_O" *) output [31:0]debugging;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 debugging TRI_O" *) output [31:0]Hardware_to_software;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 hdmi_clk_n CLK, xilinx.com:interface:hdmi:2.0 HDMI TMDS_CLK_N" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME hdmi_clk_n, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) output hdmi_clk_n;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 hdmi_clk_p CLK, xilinx.com:interface:hdmi:2.0 HDMI TMDS_CLK_P" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME hdmi_clk_p, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) output hdmi_clk_p;
   (* X_INTERFACE_INFO = "xilinx.com:interface:hdmi:2.0 HDMI TMDS_DATA_N" *) output [2:0]hdmi_tx_n;
@@ -74,6 +76,7 @@ module microblaze_GameIP_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI RREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME AXI, WIZ_DATA_WIDTH 32, WIZ_NUM_REG 4, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 16, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input axi_rready;
 
   wire \<const0> ;
+  wire [23:0]\^Hardware_to_software ;
   wire axi_aclk;
   wire [15:0]axi_araddr;
   wire axi_aresetn;
@@ -91,46 +94,33 @@ module microblaze_GameIP_0_0
   wire axi_wready;
   wire [3:0]axi_wstrb;
   wire axi_wvalid;
-  wire [16:0]\^debugging ;
   (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire hdmi_clk_n;
   (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire hdmi_clk_p;
   (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire [2:0]hdmi_tx_n;
   (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire [2:0]hdmi_tx_p;
   wire [31:0]player_pos;
+  wire [31:0]player_pos_2;
   wire [15:0]seconds;
 
+  assign Hardware_to_software[31] = \<const0> ;
+  assign Hardware_to_software[30] = \<const0> ;
+  assign Hardware_to_software[29] = \<const0> ;
+  assign Hardware_to_software[28] = \<const0> ;
+  assign Hardware_to_software[27] = \<const0> ;
+  assign Hardware_to_software[26] = \<const0> ;
+  assign Hardware_to_software[25] = \<const0> ;
+  assign Hardware_to_software[24] = \<const0> ;
+  assign Hardware_to_software[23:0] = \^Hardware_to_software [23:0];
   assign axi_bresp[1] = \<const0> ;
   assign axi_bresp[0] = \<const0> ;
   assign axi_rresp[1] = \<const0> ;
   assign axi_rresp[0] = \<const0> ;
-  assign debugging[31] = \<const0> ;
-  assign debugging[30] = \<const0> ;
-  assign debugging[29] = \<const0> ;
-  assign debugging[28] = \<const0> ;
-  assign debugging[27] = \<const0> ;
-  assign debugging[26] = \<const0> ;
-  assign debugging[25] = \<const0> ;
-  assign debugging[24] = \<const0> ;
-  assign debugging[23] = \<const0> ;
-  assign debugging[22] = \<const0> ;
-  assign debugging[21] = \<const0> ;
-  assign debugging[20] = \<const0> ;
-  assign debugging[19] = \<const0> ;
-  assign debugging[18] = \<const0> ;
-  assign debugging[17] = \<const0> ;
-  assign debugging[16] = \^debugging [16];
-  assign debugging[15:8] = player_pos[31:24];
-  assign debugging[7] = \<const0> ;
-  assign debugging[6] = \<const0> ;
-  assign debugging[5:4] = \^debugging [5:4];
-  assign debugging[3] = \<const0> ;
-  assign debugging[2] = \<const0> ;
-  assign debugging[1:0] = \^debugging [1:0];
   GND GND
        (.G(\<const0> ));
   microblaze_GameIP_0_0_Game_Top_Level inst
-       (.\FSM_sequential_state_reg[0] (\^debugging [16]),
-        .Q(seconds),
+       (.\Dout_reg[11] (\^Hardware_to_software [23:12]),
+        .Hardware_to_software(\^Hardware_to_software [11:4]),
+        .Q(\^Hardware_to_software [3:0]),
         .axi_aclk(axi_aclk),
         .axi_araddr(axi_araddr[10:2]),
         .axi_aresetn(axi_aresetn),
@@ -148,310 +138,696 @@ module microblaze_GameIP_0_0
         .axi_wready(axi_wready),
         .axi_wstrb(axi_wstrb),
         .axi_wvalid(axi_wvalid),
-        .debugging({\^debugging [5:4],\^debugging [1:0]}),
         .hdmi_clk_n(hdmi_clk_n),
         .hdmi_clk_p(hdmi_clk_p),
         .hdmi_tx_n(hdmi_tx_n),
         .hdmi_tx_p(hdmi_tx_p),
-        .player_pos({player_pos[31:24],player_pos[21:0]}));
+        .player_pos({player_pos[31:24],player_pos[22:0]}),
+        .player_pos_2(player_pos_2[1:0]),
+        .seconds(seconds));
 endmodule
 
 (* ORIG_REF_NAME = "Game_FSM_Logic" *) 
 module microblaze_GameIP_0_0_Game_FSM_Logic
-   (green,
-    \FSM_sequential_state_reg[1]_0 ,
-    \FSM_sequential_state_reg[0]_0 ,
-    \FSM_sequential_state_reg[0]_1 ,
-    state,
-    red,
-    debugging,
-    \srl[31].srl16_i ,
-    \srl[31].srl16_i_0 ,
-    \srl[31].srl16_i_1 ,
-    Red10_out,
-    button_press017_out,
+   (\state_reg[0]_0 ,
+    Q,
+    \Dout_reg[11] ,
+    \state_reg[3]_0 ,
+    \state_reg[3]_1 ,
+    \state_reg[3]_2 ,
+    \state_reg[3]_3 ,
+    \hc_reg[6] ,
+    \vc_reg[6] ,
+    \vc_reg[6]_0 ,
+    Hardware_to_software,
+    menu_sig,
+    next_state2,
+    mouse_sig,
+    out,
+    axi_aclk,
+    g0_b0__4_i_6,
+    \BOTTOM_NUM1_inferred__2/i__carry__0 ,
+    \BOTTOM_NUM1_inferred__2/i__carry__0_0 ,
+    \BOTTOM_NUM1_inferred__2/i__carry__0_1 ,
+    \srl[28].srl16_i ,
     \srl[23].srl16_i ,
-    \srl[23].srl16_i_0 ,
-    \srl[23].srl16_i_1 ,
-    Red144_out,
-    button_press,
+    vga_to_hdmi_i_135,
+    vga_to_hdmi_i_263,
+    vga_to_hdmi_i_263_0,
+    g0_b0__4,
+    g0_b0__4_0,
+    g0_b0__4_1,
+    g0_b0__5,
+    g0_b0__6,
+    g0_b0__6_0,
+    g0_b0__6_1,
+    DI,
     player_pos,
-    reset_s,
-    axi_aclk);
-  output [0:0]green;
-  output \FSM_sequential_state_reg[1]_0 ;
-  output \FSM_sequential_state_reg[0]_0 ;
-  output \FSM_sequential_state_reg[0]_1 ;
-  output [1:0]state;
-  output [0:0]red;
-  output [3:0]debugging;
-  input \srl[31].srl16_i ;
-  input [2:0]\srl[31].srl16_i_0 ;
-  input \srl[31].srl16_i_1 ;
-  input Red10_out;
-  input button_press017_out;
-  input \srl[23].srl16_i ;
-  input \srl[23].srl16_i_0 ;
-  input \srl[23].srl16_i_1 ;
-  input Red144_out;
-  input button_press;
-  input [7:0]player_pos;
-  input reset_s;
+    player_pos_2,
+    button_press,
+    SR,
+    sel,
+    vga_to_hdmi_i_297,
+    vga_to_hdmi_i_298);
+  output [3:0]\state_reg[0]_0 ;
+  output [3:0]Q;
+  output [11:0]\Dout_reg[11] ;
+  output [1:0]\state_reg[3]_0 ;
+  output [0:0]\state_reg[3]_1 ;
+  output \state_reg[3]_2 ;
+  output \state_reg[3]_3 ;
+  output \hc_reg[6] ;
+  output \vc_reg[6] ;
+  output \vc_reg[6]_0 ;
+  output [7:0]Hardware_to_software;
+  output menu_sig;
+  output next_state2;
+  output mouse_sig;
+  output [2:0]out;
   input axi_aclk;
+  input [5:0]g0_b0__4_i_6;
+  input \BOTTOM_NUM1_inferred__2/i__carry__0 ;
+  input \BOTTOM_NUM1_inferred__2/i__carry__0_0 ;
+  input \BOTTOM_NUM1_inferred__2/i__carry__0_1 ;
+  input \srl[28].srl16_i ;
+  input \srl[23].srl16_i ;
+  input vga_to_hdmi_i_135;
+  input [1:0]vga_to_hdmi_i_263;
+  input vga_to_hdmi_i_263_0;
+  input g0_b0__4;
+  input g0_b0__4_0;
+  input g0_b0__4_1;
+  input g0_b0__5;
+  input g0_b0__6;
+  input g0_b0__6_0;
+  input g0_b0__6_1;
+  input [0:0]DI;
+  input [24:0]player_pos;
+  input [1:0]player_pos_2;
+  input button_press;
+  input [0:0]SR;
+  input [0:0]sel;
+  input [0:0]vga_to_hdmi_i_297;
+  input [0:0]vga_to_hdmi_i_298;
 
-  wire \FSM_sequential_state[0]_i_1_n_0 ;
-  wire \FSM_sequential_state[0]_i_2_n_0 ;
-  wire \FSM_sequential_state[0]_i_3_n_0 ;
-  wire \FSM_sequential_state[1]_i_1_n_0 ;
-  wire \FSM_sequential_state_reg[0]_0 ;
-  wire \FSM_sequential_state_reg[0]_1 ;
-  wire \FSM_sequential_state_reg[1]_0 ;
-  wire Red10_out;
-  wire Red144_out;
+  wire \BOTTOM_NUM1_inferred__2/i__carry__0 ;
+  wire \BOTTOM_NUM1_inferred__2/i__carry__0_0 ;
+  wire \BOTTOM_NUM1_inferred__2/i__carry__0_1 ;
+  wire [0:0]DI;
+  wire [11:0]\Dout_reg[11] ;
+  wire [7:0]Hardware_to_software;
+  wire \Hardware_to_software[4]_INST_0_i_2_n_0 ;
+  wire \Hardware_to_software[5]_INST_0_i_1_n_0 ;
+  wire \Hardware_to_software[5]_INST_0_i_2_n_0 ;
+  wire \Hardware_to_software[5]_INST_0_i_4_n_0 ;
+  wire \Hardware_to_software[5]_INST_0_i_6_n_0 ;
+  wire \Hardware_to_software[5]_INST_0_i_7_n_0 ;
+  wire \Hardware_to_software[6]_INST_0_i_2_n_0 ;
+  wire \Hardware_to_software[6]_INST_0_i_3_n_0 ;
+  wire \Hardware_to_software[6]_INST_0_i_4_n_0 ;
+  wire \Hardware_to_software[7]_INST_0_i_1_n_0 ;
+  wire \Hardware_to_software[7]_INST_0_i_2_n_0 ;
+  wire \Hardware_to_software[7]_INST_0_i_4_n_0 ;
+  wire \Hardware_to_software[7]_INST_0_i_5_n_0 ;
+  wire \Hardware_to_software[7]_INST_0_i_6_n_0 ;
+  wire \Hardware_to_software[7]_INST_0_i_7_n_0 ;
+  wire \Hardware_to_software[7]_INST_0_i_8_n_0 ;
+  wire [3:0]Q;
+  wire [0:0]SR;
   wire axi_aclk;
   wire button_press;
-  wire button_press017_out;
-  wire [3:0]debugging;
-  wire \debugging[4]_INST_0_i_1_n_0 ;
-  wire [0:0]green;
-  wire [7:0]player_pos;
-  wire [0:0]red;
-  wire reset_s;
+  wire code_ld;
+  wire code_ld__0;
+  wire [1:0]code_pointer;
+  wire \code_pointer_reg[0]_i_1_n_0 ;
+  wire \code_pointer_reg[1]_i_1_n_0 ;
+  wire \code_pointer_reg[1]_i_2_n_0 ;
+  wire \code_pointer_reg[1]_i_3_n_0 ;
+  wire g0_b0__4;
+  wire g0_b0__4_0;
+  wire g0_b0__4_1;
+  wire [5:0]g0_b0__4_i_6;
+  wire g0_b0__5;
+  wire g0_b0__6;
+  wire g0_b0__6_0;
+  wire g0_b0__6_1;
+  wire \hc_reg[6] ;
+  wire menu_sig;
+  wire mouse_sig;
+  wire next_state2;
+  wire next_write_state_reg_i_2_n_0;
+  wire next_write_state_reg_i_3_n_0;
+  wire next_write_state_reg_i_4_n_0;
+  wire [2:0]out;
+  wire [24:0]player_pos;
+  wire [1:0]player_pos_2;
+  wire save_sig;
+  wire [0:0]sel;
   wire \srl[23].srl16_i ;
-  wire \srl[23].srl16_i_0 ;
-  wire \srl[23].srl16_i_1 ;
-  wire \srl[31].srl16_i ;
-  wire [2:0]\srl[31].srl16_i_0 ;
-  wire \srl[31].srl16_i_1 ;
-  wire [1:0]state;
-  wire vga_to_hdmi_i_32_n_0;
+  wire \srl[28].srl16_i ;
+  wire [3:0]\state_reg[0]_0 ;
+  wire [1:0]\state_reg[3]_0 ;
+  wire [0:0]\state_reg[3]_1 ;
+  wire \state_reg[3]_2 ;
+  wire \state_reg[3]_3 ;
+  wire \vc_reg[6] ;
+  wire \vc_reg[6]_0 ;
+  wire vga_to_hdmi_i_135;
+  wire [1:0]vga_to_hdmi_i_263;
+  wire vga_to_hdmi_i_263_0;
+  wire [0:0]vga_to_hdmi_i_297;
+  wire [0:0]vga_to_hdmi_i_298;
+  wire write_state;
 
+  (* SOFT_HLUTNM = "soft_lutpair71" *) 
+  LUT2 #(
+    .INIT(4'hE)) 
+    \Hardware_to_software[4]_INST_0_i_2 
+       (.I0(player_pos[16]),
+        .I1(\Hardware_to_software[7]_INST_0_i_4_n_0 ),
+        .O(\Hardware_to_software[4]_INST_0_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h00000000FF8F8888)) 
-    \FSM_sequential_state[0]_i_1 
-       (.I0(\FSM_sequential_state[0]_i_2_n_0 ),
-        .I1(\FSM_sequential_state[0]_i_3_n_0 ),
+    .INIT(64'hF5FDF5F5D7DFF5D7)) 
+    \Hardware_to_software[5]_INST_0_i_1 
+       (.I0(Q[3]),
+        .I1(Q[2]),
+        .I2(Q[1]),
+        .I3(Q[0]),
+        .I4(player_pos[16]),
+        .I5(\Hardware_to_software[7]_INST_0_i_1_n_0 ),
+        .O(\Hardware_to_software[5]_INST_0_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair69" *) 
+  LUT3 #(
+    .INIT(8'hCE)) 
+    \Hardware_to_software[5]_INST_0_i_2 
+       (.I0(Q[0]),
+        .I1(Q[1]),
         .I2(button_press),
-        .I3(state[1]),
-        .I4(state[0]),
-        .I5(reset_s),
-        .O(\FSM_sequential_state[0]_i_1_n_0 ));
+        .O(\Hardware_to_software[5]_INST_0_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000000000020)) 
-    \FSM_sequential_state[0]_i_2 
-       (.I0(player_pos[3]),
-        .I1(player_pos[4]),
-        .I2(player_pos[5]),
-        .I3(player_pos[6]),
-        .I4(state[1]),
-        .I5(player_pos[7]),
-        .O(\FSM_sequential_state[0]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair79" *) 
-  LUT4 #(
-    .INIT(16'h0001)) 
-    \FSM_sequential_state[0]_i_3 
-       (.I0(player_pos[0]),
-        .I1(state[0]),
-        .I2(player_pos[2]),
-        .I3(player_pos[1]),
-        .O(\FSM_sequential_state[0]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair80" *) 
-  LUT4 #(
-    .INIT(16'h00EA)) 
-    \FSM_sequential_state[1]_i_1 
-       (.I0(state[1]),
-        .I1(state[0]),
-        .I2(button_press),
-        .I3(reset_s),
-        .O(\FSM_sequential_state[1]_i_1_n_0 ));
-  (* FSM_ENCODED_STATES = "Menu:00,lvl1:01,iSTATE:10" *) 
-  FDRE \FSM_sequential_state_reg[0] 
-       (.C(axi_aclk),
-        .CE(1'b1),
-        .D(\FSM_sequential_state[0]_i_1_n_0 ),
-        .Q(state[0]),
-        .R(1'b0));
-  (* FSM_ENCODED_STATES = "Menu:00,lvl1:01,iSTATE:10" *) 
-  FDRE \FSM_sequential_state_reg[1] 
-       (.C(axi_aclk),
-        .CE(1'b1),
-        .D(\FSM_sequential_state[1]_i_1_n_0 ),
-        .Q(state[1]),
-        .R(1'b0));
+    .INIT(64'hFFFFFFFF00007500)) 
+    \Hardware_to_software[5]_INST_0_i_4 
+       (.I0(button_press),
+        .I1(player_pos_2[0]),
+        .I2(Q[0]),
+        .I3(Q[1]),
+        .I4(Q[2]),
+        .I5(\Hardware_to_software[5]_INST_0_i_7_n_0 ),
+        .O(\Hardware_to_software[5]_INST_0_i_4_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Hardware_to_software[5]_INST_0_i_6 
+       (.I0(player_pos_2[0]),
+        .I1(player_pos_2[1]),
+        .O(\Hardware_to_software[5]_INST_0_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF4F007000)) 
+    \Hardware_to_software[5]_INST_0_i_7 
+       (.I0(player_pos[16]),
+        .I1(Q[0]),
+        .I2(Q[1]),
+        .I3(Q[2]),
+        .I4(button_press),
+        .I5(Q[3]),
+        .O(\Hardware_to_software[5]_INST_0_i_7_n_0 ));
+  LUT2 #(
+    .INIT(4'hE)) 
+    \Hardware_to_software[6]_INST_0_i_2 
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .O(\Hardware_to_software[6]_INST_0_i_2_n_0 ));
+  LUT5 #(
+    .INIT(32'hAAAABAAA)) 
+    \Hardware_to_software[6]_INST_0_i_3 
+       (.I0(save_sig),
+        .I1(Q[1]),
+        .I2(Q[2]),
+        .I3(button_press),
+        .I4(Q[3]),
+        .O(\Hardware_to_software[6]_INST_0_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  LUT5 #(
+    .INIT(32'h0044F000)) 
+    \Hardware_to_software[6]_INST_0_i_4 
+       (.I0(Q[2]),
+        .I1(player_pos[16]),
+        .I2(Q[0]),
+        .I3(Q[1]),
+        .I4(Q[3]),
+        .O(\Hardware_to_software[6]_INST_0_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair71" *) 
   LUT2 #(
     .INIT(4'h2)) 
-    \debugging[0]_INST_0 
-       (.I0(state[0]),
-        .I1(state[1]),
-        .O(debugging[0]));
-  (* SOFT_HLUTNM = "soft_lutpair79" *) 
+    \Hardware_to_software[7]_INST_0_i_1 
+       (.I0(\Hardware_to_software[7]_INST_0_i_4_n_0 ),
+        .I1(player_pos[16]),
+        .O(\Hardware_to_software[7]_INST_0_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  LUT4 #(
+    .INIT(16'h0040)) 
+    \Hardware_to_software[7]_INST_0_i_2 
+       (.I0(Q[1]),
+        .I1(Q[2]),
+        .I2(player_pos[16]),
+        .I3(Q[0]),
+        .O(\Hardware_to_software[7]_INST_0_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFEFFFFFFFFFFFF)) 
+    \Hardware_to_software[7]_INST_0_i_4 
+       (.I0(\Hardware_to_software[7]_INST_0_i_7_n_0 ),
+        .I1(\Hardware_to_software[7]_INST_0_i_8_n_0 ),
+        .I2(player_pos[13]),
+        .I3(player_pos[14]),
+        .I4(player_pos[15]),
+        .I5(player_pos[6]),
+        .O(\Hardware_to_software[7]_INST_0_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFEFFFFFFFFFFF)) 
+    \Hardware_to_software[7]_INST_0_i_5 
+       (.I0(player_pos[23]),
+        .I1(player_pos[24]),
+        .I2(player_pos[22]),
+        .I3(player_pos[20]),
+        .I4(player_pos_2[0]),
+        .I5(\code_pointer_reg[1]_i_3_n_0 ),
+        .O(\Hardware_to_software[7]_INST_0_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hBBAAFFAAFBAAAAAA)) 
+    \Hardware_to_software[7]_INST_0_i_6 
+       (.I0(Q[3]),
+        .I1(Q[0]),
+        .I2(player_pos_2[0]),
+        .I3(button_press),
+        .I4(Q[1]),
+        .I5(Q[2]),
+        .O(\Hardware_to_software[7]_INST_0_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hAAAAAAAAAAAAAAA8)) 
+    \Hardware_to_software[7]_INST_0_i_7 
+       (.I0(player_pos[5]),
+        .I1(player_pos[2]),
+        .I2(player_pos[0]),
+        .I3(player_pos[4]),
+        .I4(player_pos[3]),
+        .I5(player_pos[1]),
+        .O(\Hardware_to_software[7]_INST_0_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFBFFFBFFFFFF)) 
+    \Hardware_to_software[7]_INST_0_i_8 
+       (.I0(player_pos[9]),
+        .I1(player_pos[8]),
+        .I2(player_pos[7]),
+        .I3(player_pos[12]),
+        .I4(player_pos[10]),
+        .I5(player_pos[11]),
+        .O(\Hardware_to_software[7]_INST_0_i_8_n_0 ));
+  microblaze_GameIP_0_0_reg12we code_buf_reg
+       (.\Dout_reg[3]_0 (code_pointer),
+        .Hardware_to_software(Hardware_to_software[2:1]),
+        .\Hardware_to_software[6]_INST_0_i_1_0 (Hardware_to_software[6:5]),
+        .Q(\Dout_reg[11] ),
+        .SR(SR),
+        .axi_aclk(axi_aclk),
+        .button_press(button_press),
+        .code_ld(code_ld),
+        .g0_b0__4_0(g0_b0__4),
+        .g0_b0__4_1(g0_b0__4_0),
+        .g0_b0__4_2(g0_b0__4_1),
+        .g0_b0__4_i_6_0(g0_b0__4_i_6),
+        .g0_b0__5_0(g0_b0__5),
+        .g0_b0__6_0(g0_b0__6),
+        .g0_b0__6_1(g0_b0__6_0),
+        .g0_b0__6_2(g0_b0__6_1),
+        .\hc_reg[6] (\hc_reg[6] ),
+        .out(out),
+        .player_pos(player_pos[20:17]),
+        .player_pos_2(player_pos_2),
+        .save_sig(save_sig),
+        .sel(sel),
+        .\state_reg[1] (\Hardware_to_software[5]_INST_0_i_1_n_0 ),
+        .\state_reg[1]_0 (\Hardware_to_software[5]_INST_0_i_2_n_0 ),
+        .\state_reg[1]_1 (\Hardware_to_software[5]_INST_0_i_4_n_0 ),
+        .\state_reg[1]_2 (\Hardware_to_software[5]_INST_0_i_6_n_0 ),
+        .\state_reg[1]_3 (\Hardware_to_software[7]_INST_0_i_5_n_0 ),
+        .\state_reg[2] (Q),
+        .\state_reg[2]_0 (\Hardware_to_software[6]_INST_0_i_2_n_0 ),
+        .\state_reg[2]_1 (\Hardware_to_software[6]_INST_0_i_3_n_0 ),
+        .\state_reg[2]_2 (\Hardware_to_software[6]_INST_0_i_4_n_0 ),
+        .\state_reg[2]_3 (\Hardware_to_software[7]_INST_0_i_1_n_0 ),
+        .\vc_reg[6] (\vc_reg[6] ),
+        .\vc_reg[6]_0 (\vc_reg[6]_0 ),
+        .vga_to_hdmi_i_135(vga_to_hdmi_i_135),
+        .vga_to_hdmi_i_263_0(vga_to_hdmi_i_263),
+        .vga_to_hdmi_i_263_1(vga_to_hdmi_i_263_0),
+        .vga_to_hdmi_i_297_0(vga_to_hdmi_i_297),
+        .vga_to_hdmi_i_298_0(vga_to_hdmi_i_298));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE GND:CLR" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \code_pointer_reg[0] 
+       (.CLR(1'b0),
+        .D(\code_pointer_reg[0]_i_1_n_0 ),
+        .G(\code_pointer_reg[1]_i_2_n_0 ),
+        .GE(1'b1),
+        .Q(code_pointer[0]));
+  (* SOFT_HLUTNM = "soft_lutpair70" *) 
   LUT2 #(
     .INIT(4'h1)) 
-    \debugging[16]_INST_0 
-       (.I0(state[0]),
-        .I1(state[1]),
-        .O(\FSM_sequential_state_reg[0]_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair81" *) 
+    \code_pointer_reg[0]_i_1 
+       (.I0(code_pointer[1]),
+        .I1(code_pointer[0]),
+        .O(\code_pointer_reg[0]_i_1_n_0 ));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE GND:CLR" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \code_pointer_reg[1] 
+       (.CLR(1'b0),
+        .D(\code_pointer_reg[1]_i_1_n_0 ),
+        .G(\code_pointer_reg[1]_i_2_n_0 ),
+        .GE(1'b1),
+        .Q(code_pointer[1]));
+  (* SOFT_HLUTNM = "soft_lutpair70" *) 
   LUT2 #(
     .INIT(4'h2)) 
-    \debugging[1]_INST_0 
-       (.I0(state[1]),
-        .I1(state[0]),
-        .O(debugging[1]));
+    \code_pointer_reg[1]_i_1 
+       (.I0(code_pointer[0]),
+        .I1(code_pointer[1]),
+        .O(\code_pointer_reg[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h1010101310101010)) 
-    \debugging[4]_INST_0 
-       (.I0(button_press),
-        .I1(state[1]),
-        .I2(state[0]),
-        .I3(player_pos[1]),
-        .I4(player_pos[0]),
-        .I5(\debugging[4]_INST_0_i_1_n_0 ),
-        .O(debugging[2]));
+    .INIT(64'h0000000000000008)) 
+    \code_pointer_reg[1]_i_2 
+       (.I0(\code_pointer_reg[1]_i_3_n_0 ),
+        .I1(write_state),
+        .I2(player_pos[22]),
+        .I3(player_pos[20]),
+        .I4(player_pos[24]),
+        .I5(player_pos[23]),
+        .O(\code_pointer_reg[1]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair68" *) 
+  LUT4 #(
+    .INIT(16'h0001)) 
+    \code_pointer_reg[1]_i_3 
+       (.I0(player_pos[17]),
+        .I1(player_pos[18]),
+        .I2(player_pos[19]),
+        .I3(player_pos[21]),
+        .O(\code_pointer_reg[1]_i_3_n_0 ));
+  LUT5 #(
+    .INIT(32'hD7FDFD7D)) 
+    i__carry__0_i_1
+       (.I0(\BOTTOM_NUM1_inferred__2/i__carry__0_1 ),
+        .I1(Q[3]),
+        .I2(Q[1]),
+        .I3(Q[2]),
+        .I4(Q[0]),
+        .O(\state_reg[3]_1 ));
   LUT6 #(
-    .INIT(64'h0000000000000020)) 
-    \debugging[4]_INST_0_i_1 
-       (.I0(player_pos[3]),
-        .I1(player_pos[2]),
-        .I2(player_pos[5]),
-        .I3(player_pos[4]),
-        .I4(player_pos[7]),
-        .I5(player_pos[6]),
-        .O(\debugging[4]_INST_0_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair80" *) 
-  LUT3 #(
-    .INIT(8'h38)) 
-    \debugging[5]_INST_0 
-       (.I0(button_press),
-        .I1(state[0]),
-        .I2(state[1]),
-        .O(debugging[3]));
-  (* SOFT_HLUTNM = "soft_lutpair81" *) 
-  LUT3 #(
-    .INIT(8'h01)) 
-    vga_to_hdmi_i_18
-       (.I0(state[1]),
-        .I1(state[0]),
-        .I2(Red144_out),
-        .O(\FSM_sequential_state_reg[1]_0 ));
+    .INIT(64'h67EA7FEA98158015)) 
+    i__carry__0_i_2
+       (.I0(\BOTTOM_NUM1_inferred__2/i__carry__0 ),
+        .I1(Q[3]),
+        .I2(Q[1]),
+        .I3(Q[2]),
+        .I4(Q[0]),
+        .I5(\BOTTOM_NUM1_inferred__2/i__carry__0_0 ),
+        .O(\state_reg[3]_0 [1]));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFCA8A8A8)) 
-    vga_to_hdmi_i_2
-       (.I0(\srl[23].srl16_i_0 ),
-        .I1(state[1]),
-        .I2(state[0]),
-        .I3(\srl[23].srl16_i ),
-        .I4(\srl[23].srl16_i_1 ),
-        .I5(\FSM_sequential_state_reg[1]_0 ),
-        .O(red));
+    .INIT(64'hD43DC2BD2BC23D42)) 
+    i__carry__0_i_3__0
+       (.I0(\BOTTOM_NUM1_inferred__2/i__carry__0_1 ),
+        .I1(Q[3]),
+        .I2(Q[1]),
+        .I3(Q[2]),
+        .I4(Q[0]),
+        .I5(\BOTTOM_NUM1_inferred__2/i__carry__0 ),
+        .O(\state_reg[3]_0 [0]));
   LUT6 #(
-    .INIT(64'h000E000000000000)) 
-    vga_to_hdmi_i_32
-       (.I0(state[0]),
-        .I1(state[1]),
-        .I2(Red10_out),
-        .I3(button_press017_out),
+    .INIT(64'h1887E778E7781887)) 
+    i__carry_i_2__1
+       (.I0(Q[0]),
+        .I1(Q[2]),
+        .I2(Q[1]),
+        .I3(Q[3]),
+        .I4(\BOTTOM_NUM1_inferred__2/i__carry__0_1 ),
+        .I5(DI),
+        .O(\state_reg[0]_0 [3]));
+  LUT5 #(
+    .INIT(32'h69965696)) 
+    i__carry_i_3__0
+       (.I0(DI),
+        .I1(Q[0]),
+        .I2(Q[2]),
+        .I3(Q[1]),
+        .I4(Q[3]),
+        .O(\state_reg[0]_0 [2]));
+  LUT5 #(
+    .INIT(32'h0F70F08F)) 
+    i__carry_i_4
+       (.I0(Q[0]),
+        .I1(Q[2]),
+        .I2(Q[1]),
+        .I3(Q[3]),
+        .I4(g0_b0__4_i_6[1]),
+        .O(\state_reg[0]_0 [1]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    i__carry_i_5
+       (.I0(Q[0]),
+        .I1(g0_b0__4_i_6[0]),
+        .O(\state_reg[0]_0 [0]));
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \internal_clk[0]_i_2 
+       (.I0(Q[3]),
+        .I1(Q[1]),
+        .I2(Q[0]),
+        .I3(Q[2]),
+        .O(next_state2));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  (* XILINX_TRANSFORM_PINMAP = "VCC:GE GND:CLR" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    next_write_state_reg
+       (.CLR(1'b0),
+        .D(code_ld__0),
+        .G(next_write_state_reg_i_2_n_0),
+        .GE(1'b1),
+        .Q(code_ld));
+  LUT6 #(
+    .INIT(64'h0000000000000380)) 
+    next_write_state_reg_i_1
+       (.I0(next_write_state_reg_i_3_n_0),
+        .I1(player_pos[20]),
+        .I2(player_pos[21]),
+        .I3(player_pos[22]),
+        .I4(next_write_state_reg_i_4_n_0),
+        .I5(write_state),
+        .O(code_ld__0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    next_write_state_reg_i_2
+       (.I0(\code_pointer_reg[1]_i_2_n_0 ),
+        .I1(code_ld__0),
+        .O(next_write_state_reg_i_2_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair68" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    next_write_state_reg_i_3
+       (.I0(player_pos[18]),
+        .I1(player_pos[19]),
+        .O(next_write_state_reg_i_3_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    next_write_state_reg_i_4
+       (.I0(player_pos[24]),
+        .I1(player_pos[23]),
+        .O(next_write_state_reg_i_4_n_0));
+  microblaze_GameIP_0_0_reg4 save_reg
+       (.Hardware_to_software({Hardware_to_software[7:3],Hardware_to_software[0]}),
+        .Q(Q),
+        .SR(SR),
+        .axi_aclk(axi_aclk),
+        .menu_sig(menu_sig),
+        .player_pos(player_pos[24:17]),
+        .player_pos_2(player_pos_2),
+        .save_sig(save_sig),
+        .\state_reg[0] (\Hardware_to_software[4]_INST_0_i_2_n_0 ),
+        .\state_reg[3] (\Hardware_to_software[7]_INST_0_i_5_n_0 ),
+        .\state_reg[3]_0 (\Hardware_to_software[7]_INST_0_i_1_n_0 ),
+        .\state_reg[3]_1 (\Hardware_to_software[7]_INST_0_i_2_n_0 ),
+        .\state_reg[3]_2 (\Hardware_to_software[7]_INST_0_i_6_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  LUT4 #(
+    .INIT(16'h0001)) 
+    \seconds[15]_i_7 
+       (.I0(Q[2]),
+        .I1(Q[0]),
+        .I2(Q[1]),
+        .I3(Q[3]),
+        .O(menu_sig));
+  FDRE \state_reg[0] 
+       (.C(axi_aclk),
+        .CE(1'b1),
+        .D(Hardware_to_software[0]),
+        .Q(Q[0]),
+        .R(SR));
+  FDRE \state_reg[1] 
+       (.C(axi_aclk),
+        .CE(1'b1),
+        .D(Hardware_to_software[1]),
+        .Q(Q[1]),
+        .R(SR));
+  FDRE \state_reg[2] 
+       (.C(axi_aclk),
+        .CE(1'b1),
+        .D(Hardware_to_software[2]),
+        .Q(Q[2]),
+        .R(SR));
+  FDRE \state_reg[3] 
+       (.C(axi_aclk),
+        .CE(1'b1),
+        .D(Hardware_to_software[3]),
+        .Q(Q[3]),
+        .R(SR));
+  (* SOFT_HLUTNM = "soft_lutpair69" *) 
+  LUT4 #(
+    .INIT(16'h0008)) 
+    vga_to_hdmi_i_118
+       (.I0(Q[0]),
+        .I1(Q[3]),
+        .I2(Q[1]),
+        .I3(Q[2]),
+        .O(mouse_sig));
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  LUT5 #(
+    .INIT(32'h00000001)) 
+    vga_to_hdmi_i_15
+       (.I0(Q[3]),
+        .I1(Q[1]),
+        .I2(Q[0]),
+        .I3(Q[2]),
         .I4(\srl[23].srl16_i ),
-        .I5(\srl[31].srl16_i_0 [1]),
-        .O(vga_to_hdmi_i_32_n_0));
-  LUT6 #(
-    .INIT(64'h000E000000000000)) 
-    vga_to_hdmi_i_45
-       (.I0(state[0]),
-        .I1(state[1]),
-        .I2(Red10_out),
-        .I3(button_press017_out),
-        .I4(\srl[23].srl16_i ),
-        .I5(\srl[31].srl16_i_0 [0]),
-        .O(\FSM_sequential_state_reg[0]_1 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFF0F0FFF8)) 
-    vga_to_hdmi_i_6
-       (.I0(\srl[31].srl16_i ),
-        .I1(\srl[31].srl16_i_0 [2]),
-        .I2(\FSM_sequential_state_reg[1]_0 ),
-        .I3(\srl[31].srl16_i_1 ),
-        .I4(\FSM_sequential_state_reg[0]_0 ),
-        .I5(vga_to_hdmi_i_32_n_0),
-        .O(green));
+        .O(\state_reg[3]_3 ));
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  LUT5 #(
+    .INIT(32'hAAAAAAA8)) 
+    vga_to_hdmi_i_19
+       (.I0(\srl[28].srl16_i ),
+        .I1(Q[3]),
+        .I2(Q[1]),
+        .I3(Q[0]),
+        .I4(Q[2]),
+        .O(\state_reg[3]_2 ));
+  FDRE write_state_reg
+       (.C(axi_aclk),
+        .CE(1'b1),
+        .D(code_ld),
+        .Q(write_state),
+        .R(1'b0));
 endmodule
 
 (* ORIG_REF_NAME = "Game_Top_Level" *) 
 module microblaze_GameIP_0_0_Game_Top_Level
-   (axi_wready,
+   (Q,
+    seconds,
+    \Dout_reg[11] ,
+    axi_wready,
     axi_awready,
-    Q,
     hdmi_clk_p,
     hdmi_clk_n,
     hdmi_tx_p,
     hdmi_tx_n,
     axi_arready,
     axi_rdata,
+    Hardware_to_software,
     axi_rvalid,
-    \FSM_sequential_state_reg[0] ,
-    debugging,
     axi_bvalid,
+    player_pos,
     axi_awvalid,
     axi_wvalid,
-    player_pos,
+    axi_aresetn,
     axi_aclk,
     axi_wdata,
     axi_awaddr,
     axi_wstrb,
     axi_araddr,
     axi_arvalid,
-    axi_aresetn,
+    player_pos_2,
     axi_bready,
     axi_rready);
+  output [3:0]Q;
+  output [15:0]seconds;
+  output [11:0]\Dout_reg[11] ;
   output axi_wready;
   output axi_awready;
-  output [15:0]Q;
   output hdmi_clk_p;
   output hdmi_clk_n;
   output [2:0]hdmi_tx_p;
   output [2:0]hdmi_tx_n;
   output axi_arready;
   output [31:0]axi_rdata;
+  output [7:0]Hardware_to_software;
   output axi_rvalid;
-  output \FSM_sequential_state_reg[0] ;
-  output [3:0]debugging;
   output axi_bvalid;
+  input [30:0]player_pos;
   input axi_awvalid;
   input axi_wvalid;
-  input [29:0]player_pos;
+  input axi_aresetn;
   input axi_aclk;
   input [31:0]axi_wdata;
   input [9:0]axi_awaddr;
   input [3:0]axi_wstrb;
   input [8:0]axi_araddr;
   input axi_arvalid;
-  input axi_aresetn;
+  input [1:0]player_pos_2;
   input axi_bready;
   input axi_rready;
 
-  wire \FSM_sequential_state_reg[0] ;
+  wire [11:0]\Dout_reg[11] ;
+  wire HDMI_Controller_Instance_n_10;
+  wire HDMI_Controller_Instance_n_11;
+  wire HDMI_Controller_Instance_n_12;
+  wire HDMI_Controller_Instance_n_13;
+  wire HDMI_Controller_Instance_n_14;
+  wire HDMI_Controller_Instance_n_15;
+  wire HDMI_Controller_Instance_n_16;
   wire HDMI_Controller_Instance_n_17;
-  wire HDMI_Controller_Instance_n_66;
-  wire HDMI_Controller_Instance_n_67;
-  wire HDMI_Controller_Instance_n_68;
-  wire HDMI_Controller_Instance_n_69;
-  wire HDMI_Controller_Instance_n_70;
-  wire HDMI_Controller_Instance_n_71;
-  wire HDMI_Controller_Instance_n_72;
-  wire [15:0]Q;
-  wire Red10_out;
-  wire Red144_out;
-  wire Timer_n_0;
-  wire Timer_n_1;
-  wire Timer_n_10;
-  wire Timer_n_11;
-  wire Timer_n_12;
-  wire Timer_n_13;
-  wire Timer_n_14;
-  wire Timer_n_15;
+  wire HDMI_Controller_Instance_n_18;
+  wire HDMI_Controller_Instance_n_19;
+  wire HDMI_Controller_Instance_n_20;
+  wire HDMI_Controller_Instance_n_53;
+  wire HDMI_Controller_Instance_n_54;
+  wire HDMI_Controller_Instance_n_55;
+  wire HDMI_Controller_Instance_n_56;
+  wire HDMI_Controller_Instance_n_57;
+  wire HDMI_Controller_Instance_n_58;
+  wire HDMI_Controller_Instance_n_59;
+  wire HDMI_Controller_Instance_n_6;
+  wire HDMI_Controller_Instance_n_7;
+  wire HDMI_Controller_Instance_n_8;
+  wire HDMI_Controller_Instance_n_9;
+  wire [7:0]Hardware_to_software;
+  wire [3:0]Q;
   wire Timer_n_16;
-  wire Timer_n_2;
-  wire Timer_n_3;
+  wire Timer_n_17;
+  wire Timer_n_18;
+  wire Timer_n_19;
+  wire Timer_n_20;
+  wire Timer_n_21;
+  wire Timer_n_22;
+  wire Timer_n_23;
+  wire Timer_n_24;
+  wire Timer_n_25;
+  wire Timer_n_26;
+  wire Timer_n_27;
+  wire Timer_n_28;
+  wire Timer_n_29;
+  wire Timer_n_30;
+  wire Timer_n_31;
+  wire Timer_n_32;
   wire Timer_n_33;
   wire Timer_n_34;
   wire Timer_n_35;
@@ -469,7 +845,6 @@ module microblaze_GameIP_0_0_Game_Top_Level
   wire Timer_n_47;
   wire Timer_n_48;
   wire Timer_n_49;
-  wire Timer_n_5;
   wire Timer_n_50;
   wire Timer_n_51;
   wire Timer_n_52;
@@ -480,7 +855,6 @@ module microblaze_GameIP_0_0_Game_Top_Level
   wire Timer_n_57;
   wire Timer_n_58;
   wire Timer_n_59;
-  wire Timer_n_6;
   wire Timer_n_60;
   wire Timer_n_61;
   wire Timer_n_62;
@@ -491,7 +865,6 @@ module microblaze_GameIP_0_0_Game_Top_Level
   wire Timer_n_67;
   wire Timer_n_68;
   wire Timer_n_69;
-  wire Timer_n_7;
   wire Timer_n_70;
   wire Timer_n_71;
   wire Timer_n_72;
@@ -508,13 +881,9 @@ module microblaze_GameIP_0_0_Game_Top_Level
   wire Timer_n_83;
   wire Timer_n_84;
   wire Timer_n_85;
-  wire Timer_n_86;
-  wire Timer_n_87;
-  wire Timer_n_88;
-  wire Timer_n_89;
-  wire Timer_n_9;
   wire [5:4]addrb2;
   wire anim_sig;
+  wire anim_sig_i_1_n_0;
   wire axi_aclk;
   wire [8:0]axi_araddr;
   wire axi_aresetn;
@@ -533,18 +902,9 @@ module microblaze_GameIP_0_0_Game_Top_Level
   wire [3:0]axi_wstrb;
   wire axi_wvalid;
   wire ball_on;
-  wire block_addr1;
   wire [3:0]blue;
-  wire [1:1]\bot_draw/A ;
-  wire [1:1]\bot_draw/B ;
-  wire \bot_draw/bot_red21_in ;
-  wire \bot_draw/bot_red25_in ;
-  wire \bot_draw/bot_red29_in ;
-  wire bot_red318_in;
   wire button_press;
   wire button_press0;
-  wire button_press017_out;
-  wire button_press121_out;
   wire clk_10MHz;
   wire clk_125MHz;
   wire clk_25MHz;
@@ -564,7 +924,6 @@ module microblaze_GameIP_0_0_Game_Top_Level
   wire color_instance_n_23;
   wire color_instance_n_24;
   wire color_instance_n_25;
-  wire color_instance_n_26;
   wire color_instance_n_27;
   wire color_instance_n_28;
   wire color_instance_n_29;
@@ -577,38 +936,36 @@ module microblaze_GameIP_0_0_Game_Top_Level
   wire color_instance_n_35;
   wire color_instance_n_36;
   wire color_instance_n_37;
+  wire color_instance_n_38;
+  wire color_instance_n_39;
   wire color_instance_n_4;
   wire color_instance_n_40;
   wire color_instance_n_41;
   wire color_instance_n_42;
   wire color_instance_n_43;
   wire color_instance_n_44;
-  wire color_instance_n_45;
-  wire color_instance_n_46;
-  wire color_instance_n_47;
-  wire color_instance_n_48;
-  wire color_instance_n_49;
   wire color_instance_n_5;
-  wire color_instance_n_50;
-  wire color_instance_n_51;
-  wire color_instance_n_52;
-  wire color_instance_n_53;
-  wire color_instance_n_54;
-  wire color_instance_n_57;
-  wire color_instance_n_58;
-  wire color_instance_n_59;
   wire color_instance_n_6;
-  wire color_instance_n_61;
-  wire color_instance_n_62;
-  wire color_instance_n_63;
   wire color_instance_n_7;
   wire color_instance_n_8;
   wire color_instance_n_9;
-  wire [3:0]debugging;
-  wire [9:0]drawX;
-  wire [9:0]drawY;
+  wire [9:3]drawX;
+  wire [9:3]drawY;
+  wire game_n_0;
   wire game_n_1;
+  wire game_n_2;
+  wire game_n_20;
+  wire game_n_21;
+  wire game_n_22;
+  wire game_n_23;
+  wire game_n_24;
+  wire game_n_25;
+  wire game_n_26;
+  wire game_n_27;
   wire game_n_3;
+  wire game_n_39;
+  wire game_n_40;
+  wire game_n_41;
   wire [3:0]green;
   wire hdmi_clk_n;
   wire hdmi_clk_p;
@@ -616,35 +973,23 @@ module microblaze_GameIP_0_0_Game_Top_Level
   wire [2:0]hdmi_tx_p;
   wire hsync;
   wire locked;
-  wire [29:0]player_pos;
+  wire menu_sig;
+  wire mouse_sig;
+  wire next_state2;
+  wire [30:0]player_pos;
+  wire [1:0]player_pos_2;
+  wire q;
   wire [3:0]red;
   wire reset_ah;
-  wire reset_s;
-  wire [19:0]rgb_values;
-  wire [6:4]sel;
-  wire [1:0]state;
+  wire [15:0]seconds;
   wire [8:2]temp2;
-  wire [31:10]user_dout;
+  wire temp_i_2_n_0;
   wire vde;
-  wire vga_n_100;
-  wire vga_n_101;
-  wire vga_n_102;
-  wire vga_n_103;
-  wire vga_n_104;
-  wire vga_n_105;
-  wire vga_n_106;
-  wire vga_n_109;
-  wire vga_n_110;
-  wire vga_n_111;
+  wire vga_n_10;
+  wire vga_n_11;
+  wire vga_n_12;
   wire vga_n_13;
-  wire vga_n_14;
-  wire vga_n_15;
-  wire vga_n_16;
-  wire vga_n_17;
-  wire vga_n_18;
-  wire vga_n_19;
   wire vga_n_2;
-  wire vga_n_20;
   wire vga_n_21;
   wire vga_n_22;
   wire vga_n_23;
@@ -653,11 +998,9 @@ module microblaze_GameIP_0_0_Game_Top_Level
   wire vga_n_26;
   wire vga_n_27;
   wire vga_n_28;
-  wire vga_n_29;
-  wire vga_n_30;
-  wire vga_n_31;
-  wire vga_n_32;
-  wire vga_n_43;
+  wire vga_n_37;
+  wire vga_n_38;
+  wire vga_n_39;
   wire vga_n_44;
   wire vga_n_45;
   wire vga_n_46;
@@ -666,6 +1009,7 @@ module microblaze_GameIP_0_0_Game_Top_Level
   wire vga_n_49;
   wire vga_n_50;
   wire vga_n_51;
+  wire vga_n_52;
   wire vga_n_53;
   wire vga_n_54;
   wire vga_n_55;
@@ -676,44 +1020,26 @@ module microblaze_GameIP_0_0_Game_Top_Level
   wire vga_n_60;
   wire vga_n_61;
   wire vga_n_62;
-  wire vga_n_63;
-  wire vga_n_64;
-  wire vga_n_65;
-  wire vga_n_66;
-  wire vga_n_67;
-  wire vga_n_68;
-  wire vga_n_69;
-  wire vga_n_70;
-  wire vga_n_71;
-  wire vga_n_72;
-  wire vga_n_73;
-  wire vga_n_74;
-  wire vga_n_75;
-  wire vga_n_76;
-  wire vga_n_77;
-  wire vga_n_84;
-  wire vga_n_88;
-  wire vga_n_89;
-  wire vga_n_90;
-  wire vga_n_91;
-  wire vga_n_92;
-  wire vga_n_93;
-  wire vga_n_94;
-  wire vga_n_95;
-  wire vga_n_96;
-  wire vga_n_97;
-  wire vga_n_98;
-  wire vga_n_99;
   wire vsync;
 
   microblaze_GameIP_0_0_HDMI_Controller HDMI_Controller_Instance
        (.BRAM_i_16(drawY[9:4]),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram (HDMI_Controller_Instance_n_17),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ({rgb_values[19:12],rgb_values[7:0]}),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram (HDMI_Controller_Instance_n_7),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 (HDMI_Controller_Instance_n_8),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 (HDMI_Controller_Instance_n_9),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_10 (HDMI_Controller_Instance_n_19),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_11 (HDMI_Controller_Instance_n_20),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 (HDMI_Controller_Instance_n_11),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 (HDMI_Controller_Instance_n_12),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 (HDMI_Controller_Instance_n_13),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 (HDMI_Controller_Instance_n_14),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 (HDMI_Controller_Instance_n_15),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 (HDMI_Controller_Instance_n_16),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 (HDMI_Controller_Instance_n_17),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_9 (HDMI_Controller_Instance_n_18),
         .O(addrb2),
         .Q({drawX[9:7],drawX[4]}),
-        .Red10_out(Red10_out),
-        .S({HDMI_Controller_Instance_n_66,HDMI_Controller_Instance_n_67,HDMI_Controller_Instance_n_68}),
+        .S({HDMI_Controller_Instance_n_53,HDMI_Controller_Instance_n_54,HDMI_Controller_Instance_n_55}),
         .addrb({temp2,drawX[6:5]}),
         .axi_aclk(axi_aclk),
         .axi_araddr(axi_araddr),
@@ -733,73 +1059,80 @@ module microblaze_GameIP_0_0_Game_Top_Level
         .axi_wstrb(axi_wstrb),
         .axi_wvalid(axi_wvalid),
         .ball_on(ball_on),
-        .block_addr1(block_addr1),
-        .button_press017_out(button_press017_out),
-        .doutb({user_dout[31],user_dout[26],user_dout[15],user_dout[10]}),
-        .\hc_reg[9] ({HDMI_Controller_Instance_n_70,HDMI_Controller_Instance_n_71,HDMI_Controller_Instance_n_72}),
-        .red(red[2:0]),
+        .ball_on_reg_i_15(vga_n_23),
+        .\hc_reg[2] (HDMI_Controller_Instance_n_6),
+        .\hc_reg[2]_0 (HDMI_Controller_Instance_n_10),
+        .\hc_reg[9] ({HDMI_Controller_Instance_n_57,HDMI_Controller_Instance_n_58,HDMI_Controller_Instance_n_59}),
         .reset_ah(reset_ah),
-        .sel(sel),
-        .\srl[20].srl16_i (vga_n_89),
-        .\srl[20].srl16_i_0 (vga_n_88),
-        .\vc_reg[9] (HDMI_Controller_Instance_n_69));
+        .\srl[38].srl16_i (vga_n_39),
+        .\srl[39].srl16_i (vga_n_46),
+        .\vc_reg[9] (HDMI_Controller_Instance_n_56));
   microblaze_GameIP_0_0_Timer Timer
-       (.B(\bot_draw/B ),
-        .\BOTTOM_NUM1_inferred__1/i__carry (vga_n_13),
-        .\BOTTOM_NUM1_inferred__1/i__carry__0 (vga_n_101),
-        .\BOTTOM_NUM1_inferred__2/i__carry__0 (vga_n_104),
-        .\BOTTOM_NUM1_inferred__2/i__carry__0_0 (vga_n_102),
-        .\BOTTOM_NUM1_inferred__2/i__carry__0_1 (vga_n_103),
-        .BOTTOM_NUM5__70_carry({color_instance_n_19,color_instance_n_20,color_instance_n_21,color_instance_n_22}),
-        .BOTTOM_NUM5__70_carry__0({color_instance_n_23,color_instance_n_24,color_instance_n_25,color_instance_n_26}),
-        .CLK(clk_10MHz),
-        .CO(color_instance_n_15),
-        .DI(Timer_n_34),
-        .O({color_instance_n_16,color_instance_n_17,color_instance_n_18}),
-        .Q({drawY[8:7],drawY[4:3]}),
-        .S({Timer_n_0,Timer_n_1,Timer_n_2,Timer_n_3}),
+       (.BOTTOM_NUM1_carry(vga_n_12),
+        .\BOTTOM_NUM1_inferred__0/i__carry ({color_instance_n_20,color_instance_n_21,color_instance_n_22,color_instance_n_23}),
+        .\BOTTOM_NUM1_inferred__0/i__carry_0 (color_instance_n_3),
+        .\BOTTOM_NUM1_inferred__4/i__carry__0 (vga_n_21),
+        .\BOTTOM_NUM1_inferred__4/i__carry__0_0 (vga_n_22),
+        .\BOTTOM_NUM1_inferred__4/i__carry__0_1 (vga_n_37),
+        .BOTTOM_NUM5__70_carry({color_instance_n_12,color_instance_n_13,color_instance_n_14,color_instance_n_15}),
+        .BOTTOM_NUM5__70_carry__0({color_instance_n_16,color_instance_n_17,color_instance_n_18,color_instance_n_19}),
+        .CO(color_instance_n_24),
+        .DI(Timer_n_16),
+        .O({color_instance_n_4,color_instance_n_5,color_instance_n_6,color_instance_n_7}),
+        .Q(drawY[4:3]),
+        .S({Timer_n_17,Timer_n_18,Timer_n_19,Timer_n_20}),
         .axi_aresetn(axi_aresetn),
-        .i__carry__0_i_2_0({color_instance_n_27,color_instance_n_28,color_instance_n_29,color_instance_n_30}),
-        .i__carry__0_i_2_1(color_instance_n_31),
-        .i__carry__0_i_2_2(color_instance_n_13),
-        .i__carry__0_i_2__2_0(color_instance_n_46),
-        .i__carry_i_11__0(Timer_n_12),
-        .i__carry_i_11__0_0(color_instance_n_47),
-        .i__carry_i_11__0_1(color_instance_n_50),
-        .i__carry_i_2_0(color_instance_n_49),
-        .i__carry_i_2_1(color_instance_n_14),
-        .i__carry_i_7_0(color_instance_n_48),
-        .i__carry_i_8__1_0(Timer_n_38),
-        .i__carry_i_9__0_0(color_instance_n_51),
-        .\seconds_reg[11]_0 ({Timer_n_46,Timer_n_47,Timer_n_48}),
-        .\seconds_reg[11]_1 ({Timer_n_81,Timer_n_82,Timer_n_83,Timer_n_84}),
-        .\seconds_reg[12]_0 ({Timer_n_60,Timer_n_61,Timer_n_62,Timer_n_63}),
-        .\seconds_reg[14]_0 ({Timer_n_52,Timer_n_53,Timer_n_54}),
-        .\seconds_reg[14]_1 ({Timer_n_85,Timer_n_86,Timer_n_87}),
-        .\seconds_reg[15]_0 (\bot_draw/A ),
-        .\seconds_reg[15]_1 (Q),
-        .\seconds_reg[15]_2 (Timer_n_39),
-        .\seconds_reg[15]_3 (Timer_n_40),
-        .\seconds_reg[15]_4 ({Timer_n_42,Timer_n_43,Timer_n_44,Timer_n_45}),
-        .\seconds_reg[15]_5 ({Timer_n_49,Timer_n_50,Timer_n_51}),
-        .\seconds_reg[15]_6 (Timer_n_55),
-        .\seconds_reg[15]_7 (Timer_n_56),
-        .\seconds_reg[15]_8 (Timer_n_57),
-        .\seconds_reg[15]_9 ({Timer_n_73,Timer_n_74,Timer_n_75,Timer_n_76}),
-        .\seconds_reg[2]_0 ({Timer_n_15,Timer_n_16}),
-        .\seconds_reg[2]_1 (Timer_n_41),
-        .\seconds_reg[2]_2 ({Timer_n_88,Timer_n_89}),
-        .\seconds_reg[3]_0 ({Timer_n_67,Timer_n_68}),
-        .\seconds_reg[4]_0 (Timer_n_33),
-        .\seconds_reg[7]_0 (Timer_n_35),
-        .\seconds_reg[7]_1 ({Timer_n_69,Timer_n_70,Timer_n_71,Timer_n_72}),
-        .\seconds_reg[7]_2 ({Timer_n_77,Timer_n_78,Timer_n_79,Timer_n_80}),
-        .\seconds_reg[8]_0 ({Timer_n_64,Timer_n_65,Timer_n_66}),
-        .\vc_reg[4] ({Timer_n_5,Timer_n_6,Timer_n_7}),
-        .\vc_reg[4]_0 ({Timer_n_9,Timer_n_10,Timer_n_11}),
-        .\vc_reg[6] ({Timer_n_36,Timer_n_37}),
-        .\vc_reg[6]_0 ({Timer_n_58,Timer_n_59}),
-        .\vc_reg[7] ({Timer_n_13,Timer_n_14}));
+        .clk_out3(clk_10MHz),
+        .i__carry__0_i_3__1(color_instance_n_34),
+        .i__carry__0_i_3__1_0(color_instance_n_27),
+        .i__carry_i_11_0({color_instance_n_9,color_instance_n_10,color_instance_n_11}),
+        .i__carry_i_11_1(color_instance_n_8),
+        .i__carry_i_11_2(color_instance_n_30),
+        .i__carry_i_11_3(color_instance_n_29),
+        .i__carry_i_12__0(Timer_n_23),
+        .i__carry_i_14__0(color_instance_n_31),
+        .i__carry_i_19__0_0(Timer_n_26),
+        .i__carry_i_6(color_instance_n_28),
+        .i__carry_i_6_0(color_instance_n_37),
+        .menu_sig(menu_sig),
+        .next_state2(next_state2),
+        .reset_ah(reset_ah),
+        .seconds(seconds),
+        .\seconds_reg[11]_0 ({Timer_n_34,Timer_n_35,Timer_n_36,Timer_n_37}),
+        .\seconds_reg[11]_1 ({Timer_n_38,Timer_n_39,Timer_n_40,Timer_n_41}),
+        .\seconds_reg[11]_2 ({Timer_n_78,Timer_n_79,Timer_n_80,Timer_n_81}),
+        .\seconds_reg[12]_0 ({Timer_n_57,Timer_n_58,Timer_n_59,Timer_n_60}),
+        .\seconds_reg[14]_0 ({Timer_n_45,Timer_n_46,Timer_n_47}),
+        .\seconds_reg[14]_1 ({Timer_n_82,Timer_n_83,Timer_n_84}),
+        .\seconds_reg[15]_0 (Timer_n_21),
+        .\seconds_reg[15]_1 (Timer_n_24),
+        .\seconds_reg[15]_10 (Timer_n_53),
+        .\seconds_reg[15]_11 ({Timer_n_70,Timer_n_71,Timer_n_72,Timer_n_73}),
+        .\seconds_reg[15]_12 (Timer_n_85),
+        .\seconds_reg[15]_2 (Timer_n_25),
+        .\seconds_reg[15]_3 (Timer_n_27),
+        .\seconds_reg[15]_4 ({Timer_n_42,Timer_n_43,Timer_n_44}),
+        .\seconds_reg[15]_5 (Timer_n_48),
+        .\seconds_reg[15]_6 (Timer_n_49),
+        .\seconds_reg[15]_7 (Timer_n_50),
+        .\seconds_reg[15]_8 (Timer_n_51),
+        .\seconds_reg[15]_9 (Timer_n_52),
+        .\seconds_reg[2]_0 ({Timer_n_28,Timer_n_29,Timer_n_30}),
+        .\seconds_reg[2]_1 ({Timer_n_32,Timer_n_33}),
+        .\seconds_reg[2]_2 (Timer_n_54),
+        .\seconds_reg[3]_0 ({Timer_n_64,Timer_n_65}),
+        .\seconds_reg[4]_0 (Timer_n_31),
+        .\seconds_reg[7]_0 ({Timer_n_66,Timer_n_67,Timer_n_68,Timer_n_69}),
+        .\seconds_reg[7]_1 ({Timer_n_74,Timer_n_75,Timer_n_76,Timer_n_77}),
+        .\seconds_reg[8]_0 ({Timer_n_61,Timer_n_62,Timer_n_63}),
+        .\vc_reg[4] (Timer_n_22),
+        .\vc_reg[7] ({Timer_n_55,Timer_n_56}));
+  LUT2 #(
+    .INIT(4'h6)) 
+    anim_sig_i_1
+       (.I0(player_pos[21]),
+        .I1(anim_sig),
+        .O(anim_sig_i_1_n_0));
   microblaze_GameIP_0_0_clk_wiz_0 clk_wiz
        (.clk_in1(axi_aclk),
         .clk_out1(clk_25MHz),
@@ -808,276 +1141,236 @@ module microblaze_GameIP_0_0_Game_Top_Level
         .locked(locked),
         .reset(reset_ah));
   microblaze_GameIP_0_0_color_mapper color_instance
-       (.BOTTOM_NUM5__4_carry__0({Timer_n_64,Timer_n_65,Timer_n_66}),
-        .BOTTOM_NUM5__4_carry__1({color_instance_n_19,color_instance_n_20,color_instance_n_21,color_instance_n_22}),
-        .BOTTOM_NUM5__4_carry__1_0({Timer_n_67,Timer_n_68}),
-        .BOTTOM_NUM5__4_carry__1_1({Timer_n_60,Timer_n_61,Timer_n_62,Timer_n_63}),
-        .BOTTOM_NUM5__70_carry__0({Timer_n_77,Timer_n_78,Timer_n_79,Timer_n_80}),
-        .BOTTOM_NUM5__70_carry__1({Timer_n_81,Timer_n_82,Timer_n_83,Timer_n_84}),
-        .BOTTOM_NUM5__70_carry__1_i_3({Timer_n_49,Timer_n_50,Timer_n_51}),
-        .CO(color_instance_n_15),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram (color_instance_n_3),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 (color_instance_n_4),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 (color_instance_n_5),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 (color_instance_n_6),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 (color_instance_n_7),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 (color_instance_n_8),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 (color_instance_n_9),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 (color_instance_n_10),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 (color_instance_n_11),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 (color_instance_n_12),
-        .DI({Timer_n_35,vga_n_13,\bot_draw/B ,drawY[3]}),
-        .\FSM_sequential_state_reg[1] (vga_n_77),
-        .O({color_instance_n_16,color_instance_n_17,color_instance_n_18}),
-        .Q(drawX),
-        .S({Timer_n_0,Timer_n_1,Timer_n_2,Timer_n_3}),
+       (.\BOTTOM_NUM1_inferred__0/i__carry (vga_n_21),
+        .\BOTTOM_NUM1_inferred__0/i__carry_0 (Timer_n_27),
+        .\BOTTOM_NUM1_inferred__0/i__carry__0 (vga_n_22),
+        .\BOTTOM_NUM1_inferred__0/i__carry__0_0 (vga_n_37),
+        .\BOTTOM_NUM1_inferred__1/i__carry__0 (Timer_n_23),
+        .BOTTOM_NUM5__42_carry__0_i_4({color_instance_n_16,color_instance_n_17,color_instance_n_18,color_instance_n_19}),
+        .BOTTOM_NUM5__4_carry__0({Timer_n_61,Timer_n_62,Timer_n_63}),
+        .BOTTOM_NUM5__4_carry__1({color_instance_n_12,color_instance_n_13,color_instance_n_14,color_instance_n_15}),
+        .BOTTOM_NUM5__4_carry__1_0({Timer_n_64,Timer_n_65}),
+        .BOTTOM_NUM5__4_carry__1_1({Timer_n_57,Timer_n_58,Timer_n_59,Timer_n_60}),
+        .BOTTOM_NUM5__70_carry__0({Timer_n_74,Timer_n_75,Timer_n_76,Timer_n_77}),
+        .BOTTOM_NUM5__70_carry__1({Timer_n_78,Timer_n_79,Timer_n_80,Timer_n_81}),
+        .BOTTOM_NUM5__70_carry__1_i_3({Timer_n_42,Timer_n_43,Timer_n_44}),
+        .CO(color_instance_n_24),
+        .DI({vga_n_11,vga_n_12,vga_n_13,drawY[3]}),
+        .\Hardware_to_software[5]_INST_0_i_2 (vga_n_28),
+        .O({color_instance_n_4,color_instance_n_5,color_instance_n_6,color_instance_n_7}),
+        .Q(drawY[5:4]),
+        .S({Timer_n_17,Timer_n_18,Timer_n_19,Timer_n_20}),
         .anim_sig(anim_sig),
+        .anim_sig_reg_0(anim_sig_i_1_n_0),
+        .axi_aclk(axi_aclk),
         .ball_on(ball_on),
-        .ball_on_reg_i_1(vga_n_64),
-        .ball_on_reg_i_12(vga_n_63),
-        .ball_on_reg_i_12_0(vga_n_73),
-        .ball_on_reg_i_15(vga_n_58),
-        .ball_on_reg_i_15_0(vga_n_68),
-        .ball_on_reg_i_15_1(vga_n_59),
-        .ball_on_reg_i_15_2(vga_n_69),
-        .ball_on_reg_i_15_3(vga_n_60),
-        .ball_on_reg_i_15_4(vga_n_70),
-        .ball_on_reg_i_15_5(vga_n_71),
-        .ball_on_reg_i_15_6(vga_n_61),
-        .ball_on_reg_i_1_0(vga_n_74),
-        .ball_on_reg_i_1_1(vga_n_76),
-        .ball_on_reg_i_1_2(vga_n_66),
-        .ball_on_reg_i_7(vga_n_65),
-        .ball_on_reg_i_7_0(vga_n_75),
-        .ball_on_reg_i_8(vga_n_57),
-        .ball_on_reg_i_8_0(vga_n_67),
-        .ball_on_reg_i_8_1(vga_n_62),
-        .ball_on_reg_i_8_2(vga_n_72),
-        .block_addr1(block_addr1),
-        .bot_red21_in(\bot_draw/bot_red21_in ),
-        .bot_red25_in(\bot_draw/bot_red25_in ),
-        .bot_red29_in(\bot_draw/bot_red29_in ),
-        .bot_red318_in(bot_red318_in),
         .button_press(button_press),
         .button_press0(button_press0),
-        .button_press121_out(button_press121_out),
-        .button_press4_carry__0_0({vga_n_27,vga_n_28,vga_n_29,vga_n_30}),
-        .doutb({user_dout[26],user_dout[10]}),
-        .g0_b0(Timer_n_34),
-        .g0_b0_0({Timer_n_58,Timer_n_59}),
-        .g0_b0__0({vga_n_96,\bot_draw/A }),
-        .g0_b0__0_0({vga_n_2,Timer_n_5,Timer_n_6,Timer_n_7}),
-        .g0_b0__0_1(vga_n_95),
-        .g0_b0__0_2({Timer_n_36,Timer_n_37}),
-        .g0_b0__1({vga_n_98,Timer_n_12}),
-        .g0_b0__1_0({vga_n_14,Timer_n_9,Timer_n_10,Timer_n_11}),
-        .g0_b0__1_1(vga_n_97),
-        .g0_b0__1_2({Timer_n_13,Timer_n_14}),
-        .g0_b0__2({vga_n_100,Timer_n_33}),
-        .g0_b0__2_0({vga_n_15,Timer_n_88,vga_n_16,Timer_n_89}),
-        .g0_b0__2_1(vga_n_99),
-        .g0_b0__2_2({Timer_n_15,Timer_n_16}),
-        .\hc_reg[0] (color_instance_n_43),
-        .\hc_reg[0]_0 (color_instance_n_44),
-        .\hc_reg[4] (color_instance_n_54),
-        .\hc_reg[7] (color_instance_n_40),
-        .\hc_reg[9] (color_instance_n_37),
-        .i__carry__0_i_5__0({Timer_n_42,Timer_n_43,Timer_n_44,Timer_n_45}),
-        .i__carry__0_i_5__0_0({Timer_n_69,Timer_n_70,Timer_n_71,Timer_n_72}),
-        .i__carry__0_i_5__0_1({Timer_n_52,Timer_n_53,Timer_n_54}),
-        .i__carry__0_i_5__0_2({Timer_n_85,Timer_n_86,Timer_n_87}),
-        .i__carry_i_12({Q[15:4],Q[0]}),
-        .i__carry_i_13(Timer_n_40),
-        .i__carry_i_13_0(Timer_n_39),
-        .i__carry_i_13_1(Timer_n_56),
-        .i__carry_i_13__0({Timer_n_46,Timer_n_47,Timer_n_48}),
-        .i__carry_i_13__0_0({Timer_n_73,Timer_n_74,Timer_n_75,Timer_n_76}),
-        .i__carry_i_16__0(Timer_n_55),
-        .out({color_instance_n_57,color_instance_n_58,color_instance_n_59}),
-        .player_pos({player_pos[21],player_pos[19:14],player_pos[10:0]}),
-        .\player_pos[20] (color_instance_n_45),
-        .player_pos_0_sp_1(color_instance_n_52),
-        .player_pos_10_sp_1(color_instance_n_42),
-        .player_pos_2_sp_1(color_instance_n_53),
-        .\seconds_reg[10] (color_instance_n_13),
-        .\seconds_reg[12] (color_instance_n_14),
-        .\seconds_reg[12]_0 ({color_instance_n_23,color_instance_n_24,color_instance_n_25,color_instance_n_26}),
-        .\seconds_reg[12]_1 (color_instance_n_47),
-        .\seconds_reg[12]_2 (color_instance_n_49),
-        .\seconds_reg[12]_3 (color_instance_n_51),
-        .\seconds_reg[14] (color_instance_n_31),
-        .\seconds_reg[15] ({color_instance_n_27,color_instance_n_28,color_instance_n_29,color_instance_n_30}),
-        .\seconds_reg[15]_0 (color_instance_n_46),
-        .\seconds_reg[15]_1 (color_instance_n_48),
-        .\seconds_reg[15]_2 (color_instance_n_50),
-        .sel(sel[6]),
-        .\vc_reg[0] (color_instance_n_41),
-        .\vc_reg[3] ({color_instance_n_61,color_instance_n_62,color_instance_n_63}),
-        .\vc_reg[7] ({color_instance_n_32,color_instance_n_33}),
-        .\vc_reg[9] (color_instance_n_34),
-        .\vc_reg[9]_0 ({color_instance_n_35,color_instance_n_36}),
-        .vga_to_hdmi_i_153_0(vga_n_51),
-        .vga_to_hdmi_i_159({drawY[9:4],drawY[2:0]}),
-        .vga_to_hdmi_i_159_0({vga_n_25,vga_n_26}),
-        .vga_to_hdmi_i_16(vga_n_91),
-        .vga_to_hdmi_i_160_0({vga_n_21,vga_n_22,vga_n_23,vga_n_24}),
-        .vga_to_hdmi_i_160_1({vga_n_31,vga_n_32}),
-        .vga_to_hdmi_i_161_0({vga_n_47,vga_n_48,vga_n_49,vga_n_50}),
-        .vga_to_hdmi_i_161_1({vga_n_43,vga_n_44,vga_n_45,vga_n_46}),
-        .vga_to_hdmi_i_16_0(vga_n_92),
-        .vga_to_hdmi_i_16_1(vga_n_110),
-        .vga_to_hdmi_i_277_0({vga_n_17,vga_n_18,vga_n_19}),
-        .vga_to_hdmi_i_277_1({vga_n_53,vga_n_54,vga_n_55,vga_n_56}),
-        .vga_to_hdmi_i_277_2(vga_n_20),
-        .vga_to_hdmi_i_277_3({vga_n_105,vga_n_106}),
-        .vga_to_hdmi_i_44(vga_n_93),
-        .vga_to_hdmi_i_60_0(vga_n_109),
-        .vga_to_hdmi_i_72(vga_n_94));
+        .button_press_reg_i_31(vga_n_45),
+        .button_press_reg_i_31_0(vga_n_24),
+        .choice_reg_0(color_instance_n_25),
+        .g0_b0(vga_n_57),
+        .g0_b0_0(Timer_n_16),
+        .g0_b0_1({Timer_n_55,Timer_n_56}),
+        .g0_b0__0(vga_n_58),
+        .g0_b0__0_0({vga_n_61,Timer_n_85}),
+        .g0_b0__0_1(vga_n_10),
+        .g0_b0__1(vga_n_59),
+        .g0_b0__1_0({vga_n_62,Timer_n_22}),
+        .g0_b0__1_1(vga_n_2),
+        .g0_b0__2({vga_n_60,Q[0]}),
+        .g0_b0__2_0({game_n_0,game_n_1,game_n_2,game_n_3}),
+        .g0_b0__2_1(game_n_22),
+        .g0_b0__2_2({game_n_20,game_n_21}),
+        .g0_b0__3({Timer_n_28,Timer_n_29,vga_n_38,Timer_n_30}),
+        .g0_b0__3_0(Timer_n_54),
+        .g0_b0__3_1({Timer_n_32,Timer_n_33}),
+        .\hc_reg[3] (color_instance_n_42),
+        .\hc_reg[3]_0 (color_instance_n_43),
+        .\hc_reg[3]_1 (color_instance_n_44),
+        .\hc_reg[4] (color_instance_n_32),
+        .\hc_reg[4]_0 (color_instance_n_41),
+        .i__carry__0_i_1__2(Timer_n_21),
+        .i__carry__0_i_3__1(Timer_n_24),
+        .i__carry__0_i_3__1_0(Timer_n_25),
+        .i__carry_i_11(Timer_n_49),
+        .i__carry_i_11_0(Timer_n_52),
+        .i__carry_i_18__0(Timer_n_51),
+        .i__carry_i_19(color_instance_n_28),
+        .i__carry_i_19_0(color_instance_n_37),
+        .i__carry_i_19__0(Timer_n_53),
+        .i__carry_i_21({Timer_n_34,Timer_n_35,Timer_n_36,Timer_n_37}),
+        .i__carry_i_21_0({Timer_n_70,Timer_n_71,Timer_n_72,Timer_n_73}),
+        .i__carry_i_2__0(Timer_n_26),
+        .i__carry_i_2__0_0(Timer_n_48),
+        .i__carry_i_5__1({Timer_n_38,Timer_n_39,Timer_n_40,Timer_n_41}),
+        .i__carry_i_5__1_0({Timer_n_66,Timer_n_67,Timer_n_68,Timer_n_69}),
+        .i__carry_i_5__1_1({Timer_n_45,Timer_n_46,Timer_n_47}),
+        .i__carry_i_5__1_2({Timer_n_82,Timer_n_83,Timer_n_84}),
+        .i__carry_i_6(Timer_n_50),
+        .i__carry_i_7__0(color_instance_n_33),
+        .player_pos({player_pos[26:25],player_pos[19:14],player_pos[9:0]}),
+        .\player_pos[4] ({color_instance_n_38,color_instance_n_39}),
+        .player_pos_2_sp_1(color_instance_n_40),
+        .seconds({seconds[15:13],seconds[11:4],seconds[0]}),
+        .\seconds_reg[10] (color_instance_n_3),
+        .\seconds_reg[15] (color_instance_n_8),
+        .\seconds_reg[15]_0 ({color_instance_n_9,color_instance_n_10,color_instance_n_11}),
+        .\seconds_reg[15]_1 ({color_instance_n_20,color_instance_n_21,color_instance_n_22,color_instance_n_23}),
+        .\seconds_reg[15]_2 (color_instance_n_27),
+        .\seconds_reg[15]_3 (color_instance_n_29),
+        .\seconds_reg[15]_4 (color_instance_n_30),
+        .\seconds_reg[15]_5 (color_instance_n_31),
+        .\seconds_reg[15]_6 (color_instance_n_34),
+        .\seconds_reg[15]_7 (color_instance_n_35),
+        .\seconds_reg[15]_8 (color_instance_n_36),
+        .temp_reg_0(temp_i_2_n_0),
+        .vga_to_hdmi_i_50(vga_n_44),
+        .vga_to_hdmi_i_50_0(vga_n_23),
+        .vga_to_hdmi_i_91({drawX[6],drawX[4:3]}));
   microblaze_GameIP_0_0_Game_FSM_Logic game
-       (.\FSM_sequential_state_reg[0]_0 (\FSM_sequential_state_reg[0] ),
-        .\FSM_sequential_state_reg[0]_1 (game_n_3),
-        .\FSM_sequential_state_reg[1]_0 (game_n_1),
-        .Red10_out(Red10_out),
-        .Red144_out(Red144_out),
+       (.\BOTTOM_NUM1_inferred__2/i__carry__0 (vga_n_22),
+        .\BOTTOM_NUM1_inferred__2/i__carry__0_0 (vga_n_37),
+        .\BOTTOM_NUM1_inferred__2/i__carry__0_1 (vga_n_21),
+        .DI(vga_n_12),
+        .\Dout_reg[11] (\Dout_reg[11] ),
+        .Hardware_to_software(Hardware_to_software),
+        .Q(Q),
+        .SR(q),
         .axi_aclk(axi_aclk),
         .button_press(button_press),
-        .button_press017_out(button_press017_out),
-        .debugging(debugging),
-        .green(green[3]),
-        .player_pos(player_pos[29:22]),
-        .red(red[3]),
-        .reset_s(reset_s),
-        .\srl[23].srl16_i (vga_n_89),
-        .\srl[23].srl16_i_0 (vga_n_111),
-        .\srl[23].srl16_i_1 (HDMI_Controller_Instance_n_17),
-        .\srl[31].srl16_i (vga_n_84),
-        .\srl[31].srl16_i_0 ({rgb_values[19],rgb_values[7],rgb_values[3]}),
-        .\srl[31].srl16_i_1 (vga_n_90),
-        .state(state));
+        .g0_b0__4(vga_n_50),
+        .g0_b0__4_0(vga_n_51),
+        .g0_b0__4_1(vga_n_52),
+        .g0_b0__4_i_6(drawY[8:3]),
+        .g0_b0__5(vga_n_53),
+        .g0_b0__6(vga_n_54),
+        .g0_b0__6_0(vga_n_55),
+        .g0_b0__6_1(vga_n_56),
+        .\hc_reg[6] (game_n_25),
+        .menu_sig(menu_sig),
+        .mouse_sig(mouse_sig),
+        .next_state2(next_state2),
+        .out({game_n_39,game_n_40,game_n_41}),
+        .player_pos({player_pos[30:22],player_pos[19:14],player_pos[9:0]}),
+        .player_pos_2(player_pos_2),
+        .sel(vga_n_25),
+        .\srl[23].srl16_i (vga_n_47),
+        .\srl[28].srl16_i (vga_n_23),
+        .\state_reg[0]_0 ({game_n_0,game_n_1,game_n_2,game_n_3}),
+        .\state_reg[3]_0 ({game_n_20,game_n_21}),
+        .\state_reg[3]_1 (game_n_22),
+        .\state_reg[3]_2 (game_n_23),
+        .\state_reg[3]_3 (game_n_24),
+        .\vc_reg[6] (game_n_26),
+        .\vc_reg[6]_0 (game_n_27),
+        .vga_to_hdmi_i_135(vga_n_48),
+        .vga_to_hdmi_i_263(drawX[4:3]),
+        .vga_to_hdmi_i_263_0(vga_n_49),
+        .vga_to_hdmi_i_297(vga_n_26),
+        .vga_to_hdmi_i_298(vga_n_27));
   microblaze_GameIP_0_0_sync r_sync
-       (.axi_aclk(axi_aclk),
-        .reset_ah(reset_ah),
-        .reset_s(reset_s));
+       (.SR(q),
+        .axi_aclk(axi_aclk),
+        .reset_ah(reset_ah));
+  LUT6 #(
+    .INIT(64'h0000002000200000)) 
+    temp_i_2
+       (.I0(player_pos[27]),
+        .I1(player_pos[28]),
+        .I2(player_pos[29]),
+        .I3(player_pos[30]),
+        .I4(player_pos[24]),
+        .I5(player_pos[23]),
+        .O(temp_i_2_n_0));
   microblaze_GameIP_0_0_vga_controller vga
-       (.\BOTTOM_NUM1_inferred__0/i__carry (Timer_n_57),
-        .\BOTTOM_NUM1_inferred__1/i__carry (Timer_n_38),
-        .\BOTTOM_NUM1_inferred__2/i__carry (Timer_n_41),
-        .\BOTTOM_NUM1_inferred__2/i__carry_0 (Timer_n_33),
+       (.\BOTTOM_NUM1_inferred__0/i__carry__0 (color_instance_n_36),
+        .\BOTTOM_NUM1_inferred__0/i__carry__0_0 (Timer_n_27),
+        .\BOTTOM_NUM1_inferred__0/i__carry__0_1 (color_instance_n_35),
+        .\BOTTOM_NUM1_inferred__1/i__carry (color_instance_n_33),
+        .\BOTTOM_NUM1_inferred__4/i__carry (Timer_n_31),
         .CLK(clk_25MHz),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram (vga_n_84),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 (HDMI_Controller_Instance_n_69),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ({HDMI_Controller_Instance_n_70,HDMI_Controller_Instance_n_71,HDMI_Controller_Instance_n_72}),
-        .DI(vga_n_13),
-        .\FSM_sequential_state_reg[0] (vga_n_77),
-        .\FSM_sequential_state_reg[1] (vga_n_88),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram (HDMI_Controller_Instance_n_56),
+        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ({HDMI_Controller_Instance_n_57,HDMI_Controller_Instance_n_58,HDMI_Controller_Instance_n_59}),
+        .DI({vga_n_11,vga_n_12,vga_n_13}),
         .O(addrb2),
         .Q(drawY),
-        .Red10_out(Red10_out),
-        .Red144_out(Red144_out),
-        .S({HDMI_Controller_Instance_n_66,HDMI_Controller_Instance_n_67,HDMI_Controller_Instance_n_68}),
-        .\addr0_inferred__0/i__carry (color_instance_n_53),
-        .\addr0_inferred__0/i__carry__0 (color_instance_n_52),
+        .S({HDMI_Controller_Instance_n_53,HDMI_Controller_Instance_n_54,HDMI_Controller_Instance_n_55}),
         .addrb(temp2),
         .anim_sig(anim_sig),
-        .ball_on(ball_on),
-        .ball_on_reg(color_instance_n_12),
-        .ball_on_reg_0(color_instance_n_10),
-        .ball_on_reg_i_3_0(sel),
-        .ball_on_reg_i_3_1(color_instance_n_9),
-        .ball_on_reg_i_3_2(color_instance_n_8),
-        .ball_on_reg_i_3_3(color_instance_n_3),
-        .ball_on_reg_i_3_4(color_instance_n_11),
-        .ball_on_reg_i_7_0(color_instance_n_7),
-        .ball_on_reg_i_7_1(color_instance_n_5),
-        .ball_on_reg_i_7_2(color_instance_n_6),
-        .ball_on_reg_i_7_3(color_instance_n_4),
-        .block_addr1(block_addr1),
+        .ball_on_reg_i_12_0(HDMI_Controller_Instance_n_11),
+        .ball_on_reg_i_12_1(HDMI_Controller_Instance_n_12),
+        .ball_on_reg_i_6_0(HDMI_Controller_Instance_n_13),
         .blue(blue),
-        .bot_red21_in(\bot_draw/bot_red21_in ),
-        .bot_red25_in(\bot_draw/bot_red25_in ),
-        .bot_red29_in(\bot_draw/bot_red29_in ),
-        .bot_red318_in(bot_red318_in),
         .button_press0(button_press0),
-        .button_press017_out(button_press017_out),
-        .button_press121_out(button_press121_out),
-        .doutb({user_dout[31],user_dout[15]}),
-        .green(green[2:0]),
-        .\hc_reg[0]_0 (vga_n_51),
-        .\hc_reg[0]_1 (vga_n_94),
-        .\hc_reg[3]_0 ({vga_n_47,vga_n_48,vga_n_49,vga_n_50}),
-        .\hc_reg[7]_0 ({vga_n_43,vga_n_44,vga_n_45,vga_n_46}),
-        .\hc_reg[9]_0 ({vga_n_31,vga_n_32}),
-        .\hc_reg[9]_1 (drawX),
+        .button_press_reg_i_30_0(color_instance_n_40),
+        .button_press_reg_i_41_0({color_instance_n_38,color_instance_n_39}),
+        .g0_b0__4_i_6(game_n_26),
+        .g0_b0__6_i_6({\Dout_reg[11] [10:8],\Dout_reg[11] [6:4],\Dout_reg[11] [2:0]}),
+        .g0_b0__6_i_6_0(game_n_27),
+        .green(green),
+        .\hc_reg[2]_0 (vga_n_39),
+        .\hc_reg[3]_0 (vga_n_44),
+        .\hc_reg[6]_0 (vga_n_28),
+        .\hc_reg[6]_1 (vga_n_48),
+        .\hc_reg[8]_0 (vga_n_49),
+        .\hc_reg[9]_0 (drawX),
         .hsync(hsync),
-        .out({color_instance_n_57,color_instance_n_58,color_instance_n_59}),
+        .menu_sig(menu_sig),
+        .mouse_sig(mouse_sig),
+        .out({game_n_39,game_n_40,game_n_41}),
         .player_pos(player_pos[20:0]),
-        .\player_pos[20]_0 (vga_n_92),
-        .\player_pos[20]_1 (vga_n_93),
-        .\player_pos[20]_2 (vga_n_109),
-        .player_pos_20_sp_1(vga_n_91),
+        .red(red),
         .reset_ah(reset_ah),
-        .\srl[23].srl16_i (color_instance_n_41),
-        .\srl[23].srl16_i_0 (color_instance_n_40),
-        .\srl[30].srl16_i ({rgb_values[18:12],rgb_values[6:4],rgb_values[2:0]}),
-        .\srl[39].srl16_i (\FSM_sequential_state_reg[0] ),
-        .\srl[39].srl16_i_0 (game_n_3),
-        .\srl[39].srl16_i_1 (game_n_1),
-        .state(state),
-        .\vc_reg[0]_0 (vga_n_20),
-        .\vc_reg[0]_1 (vga_n_57),
-        .\vc_reg[0]_10 (vga_n_66),
-        .\vc_reg[0]_11 (vga_n_67),
-        .\vc_reg[0]_12 (vga_n_68),
-        .\vc_reg[0]_13 (vga_n_69),
-        .\vc_reg[0]_14 (vga_n_70),
-        .\vc_reg[0]_15 (vga_n_71),
-        .\vc_reg[0]_16 (vga_n_72),
-        .\vc_reg[0]_17 (vga_n_73),
-        .\vc_reg[0]_18 (vga_n_74),
-        .\vc_reg[0]_19 (vga_n_75),
-        .\vc_reg[0]_2 (vga_n_58),
-        .\vc_reg[0]_20 (vga_n_76),
-        .\vc_reg[0]_3 (vga_n_59),
-        .\vc_reg[0]_4 (vga_n_60),
-        .\vc_reg[0]_5 (vga_n_61),
-        .\vc_reg[0]_6 (vga_n_62),
-        .\vc_reg[0]_7 (vga_n_63),
-        .\vc_reg[0]_8 (vga_n_64),
-        .\vc_reg[0]_9 (vga_n_65),
-        .\vc_reg[2]_0 ({vga_n_17,vga_n_18,vga_n_19}),
-        .\vc_reg[3]_0 ({vga_n_27,vga_n_28,vga_n_29,vga_n_30}),
-        .\vc_reg[3]_1 ({vga_n_53,vga_n_54,vga_n_55,vga_n_56}),
-        .\vc_reg[3]_2 (vga_n_90),
-        .\vc_reg[5]_0 (vga_n_2),
-        .\vc_reg[5]_1 (vga_n_14),
-        .\vc_reg[5]_2 ({vga_n_15,vga_n_16}),
-        .\vc_reg[5]_3 (vga_n_89),
-        .\vc_reg[5]_4 (vga_n_101),
-        .\vc_reg[5]_5 (vga_n_104),
-        .\vc_reg[5]_6 ({vga_n_105,vga_n_106}),
-        .\vc_reg[5]_7 (vga_n_111),
-        .\vc_reg[6]_0 (vga_n_95),
-        .\vc_reg[6]_1 (vga_n_96),
-        .\vc_reg[6]_2 (vga_n_97),
-        .\vc_reg[6]_3 (vga_n_98),
-        .\vc_reg[6]_4 (vga_n_99),
-        .\vc_reg[6]_5 (vga_n_100),
-        .\vc_reg[6]_6 (vga_n_102),
-        .\vc_reg[7]_0 ({vga_n_21,vga_n_22,vga_n_23,vga_n_24}),
-        .\vc_reg[7]_1 (vga_n_103),
-        .\vc_reg[7]_2 (vga_n_110),
-        .\vc_reg[9]_0 ({vga_n_25,vga_n_26}),
+        .sel(vga_n_25),
+        .\srl[20].srl16_i (HDMI_Controller_Instance_n_18),
+        .\srl[21].srl16_i (HDMI_Controller_Instance_n_19),
+        .\srl[22].srl16_i (HDMI_Controller_Instance_n_20),
+        .\srl[23].srl16_i (game_n_24),
+        .\srl[23].srl16_i_0 (HDMI_Controller_Instance_n_10),
+        .\srl[28].srl16_i (game_n_23),
+        .\srl[28].srl16_i_0 (HDMI_Controller_Instance_n_16),
+        .\srl[29].srl16_i (HDMI_Controller_Instance_n_17),
+        .\srl[30].srl16_i (HDMI_Controller_Instance_n_8),
+        .\srl[31].srl16_i (HDMI_Controller_Instance_n_9),
+        .\srl[36].srl16_i (HDMI_Controller_Instance_n_14),
+        .\srl[37].srl16_i (HDMI_Controller_Instance_n_15),
+        .\srl[38].srl16_i (HDMI_Controller_Instance_n_6),
+        .\srl[39].srl16_i (HDMI_Controller_Instance_n_7),
+        .\state_reg[0] (vga_n_46),
+        .\vc_reg[0]_0 (vga_n_45),
+        .\vc_reg[2]_0 (vga_n_24),
+        .\vc_reg[3]_0 (vga_n_26),
+        .\vc_reg[3]_1 (vga_n_27),
+        .\vc_reg[3]_2 (vga_n_51),
+        .\vc_reg[3]_3 (vga_n_55),
+        .\vc_reg[4]_0 (vga_n_2),
+        .\vc_reg[4]_1 (vga_n_10),
+        .\vc_reg[4]_2 (vga_n_38),
+        .\vc_reg[4]_3 (vga_n_57),
+        .\vc_reg[4]_4 (vga_n_58),
+        .\vc_reg[4]_5 (vga_n_59),
+        .\vc_reg[4]_6 (vga_n_60),
+        .\vc_reg[4]_7 (vga_n_61),
+        .\vc_reg[5]_0 (vga_n_50),
+        .\vc_reg[5]_1 (vga_n_52),
+        .\vc_reg[5]_2 (vga_n_53),
+        .\vc_reg[5]_3 (vga_n_54),
+        .\vc_reg[5]_4 (vga_n_56),
+        .\vc_reg[6]_0 (vga_n_21),
+        .\vc_reg[6]_1 (vga_n_62),
+        .\vc_reg[7]_0 (vga_n_22),
+        .\vc_reg[8]_0 (vga_n_37),
+        .\vc_reg[9]_0 (vga_n_23),
+        .\vc_reg[9]_1 (vga_n_47),
         .vde(vde),
-        .vga_to_hdmi_i_124_0(color_instance_n_54),
-        .vga_to_hdmi_i_148_0({color_instance_n_61,color_instance_n_62,color_instance_n_63}),
-        .vga_to_hdmi_i_16_0(color_instance_n_43),
-        .vga_to_hdmi_i_16_1(color_instance_n_42),
-        .vga_to_hdmi_i_16_2(color_instance_n_44),
-        .vga_to_hdmi_i_16_3(color_instance_n_45),
-        .vga_to_hdmi_i_63({color_instance_n_32,color_instance_n_33}),
-        .vga_to_hdmi_i_63_0({color_instance_n_35,color_instance_n_36}),
-        .vga_to_hdmi_i_63_1(color_instance_n_34),
-        .vga_to_hdmi_i_63_2(color_instance_n_37),
+        .vga_to_hdmi_i_42_0(color_instance_n_44),
+        .vga_to_hdmi_i_42_1(color_instance_n_43),
+        .vga_to_hdmi_i_42_2(color_instance_n_41),
+        .vga_to_hdmi_i_43_0(color_instance_n_32),
+        .vga_to_hdmi_i_43_1(color_instance_n_42),
+        .vga_to_hdmi_i_85_0(game_n_25),
+        .vga_to_hdmi_i_85_1(color_instance_n_25),
         .vsync(vsync));
   (* CHECK_LICENSE_TYPE = "hdmi_tx_0,hdmi_tx_v1_0,{}" *) 
   (* IP_DEFINITION_SOURCE = "package_project" *) 
@@ -1106,18 +1399,27 @@ endmodule
 
 (* ORIG_REF_NAME = "HDMI_Controller" *) 
 module microblaze_GameIP_0_0_HDMI_Controller
-   (doutb,
-    axi_wready_reg_0,
+   (axi_wready_reg_0,
     reset_ah,
     axi_awready_reg_0,
     axi_arready_reg_0,
     axi_bvalid,
     axi_rvalid,
-    red,
-    sel,
-    Red10_out,
+    \hc_reg[2] ,
     \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ,
     \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ,
+    \hc_reg[2]_0 ,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 ,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 ,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 ,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 ,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 ,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 ,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 ,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_9 ,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_10 ,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_11 ,
     axi_rdata,
     S,
     \vc_reg[9] ,
@@ -1126,13 +1428,12 @@ module microblaze_GameIP_0_0_HDMI_Controller
     addrb,
     axi_awvalid,
     axi_wvalid,
-    \srl[20].srl16_i ,
-    \srl[20].srl16_i_0 ,
-    block_addr1,
+    \srl[38].srl16_i ,
+    \srl[39].srl16_i ,
     Q,
-    axi_aresetn,
-    button_press017_out,
+    ball_on_reg_i_15,
     ball_on,
+    axi_aresetn,
     axi_bready,
     axi_arvalid,
     axi_rready,
@@ -1142,18 +1443,27 @@ module microblaze_GameIP_0_0_HDMI_Controller
     O,
     axi_wstrb,
     axi_araddr);
-  output [3:0]doutb;
   output axi_wready_reg_0;
   output reset_ah;
   output axi_awready_reg_0;
   output axi_arready_reg_0;
   output axi_bvalid;
   output axi_rvalid;
-  output [2:0]red;
-  output [2:0]sel;
-  output Red10_out;
+  output \hc_reg[2] ;
   output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
-  output [15:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ;
+  output \hc_reg[2]_0 ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_9 ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_10 ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_11 ;
   output [31:0]axi_rdata;
   output [2:0]S;
   output [0:0]\vc_reg[9] ;
@@ -1162,13 +1472,12 @@ module microblaze_GameIP_0_0_HDMI_Controller
   input [8:0]addrb;
   input axi_awvalid;
   input axi_wvalid;
-  input \srl[20].srl16_i ;
-  input \srl[20].srl16_i_0 ;
-  input block_addr1;
+  input \srl[38].srl16_i ;
+  input \srl[39].srl16_i ;
   input [3:0]Q;
-  input axi_aresetn;
-  input button_press017_out;
+  input ball_on_reg_i_15;
   input ball_on;
+  input axi_aresetn;
   input axi_bready;
   input axi_arvalid;
   input axi_rready;
@@ -1181,10 +1490,20 @@ module microblaze_GameIP_0_0_HDMI_Controller
 
   wire [5:0]BRAM_i_16;
   wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
-  wire [15:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_10 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_11 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_9 ;
   wire [1:0]O;
   wire [3:0]Q;
-  wire Red10_out;
   wire [2:0]S;
   wire [8:0]addrb;
   wire aw_en_i_1_n_0;
@@ -1224,9 +1543,9 @@ module microblaze_GameIP_0_0_HDMI_Controller
   wire [3:0]axi_wstrb;
   wire axi_wvalid;
   wire ball_on;
-  wire block_addr1;
-  wire button_press017_out;
-  wire [3:0]doutb;
+  wire ball_on_reg_i_15;
+  wire \hc_reg[2] ;
+  wire \hc_reg[2]_0 ;
   wire [2:0]\hc_reg[9] ;
   wire [2:0]p_0_in;
   wire \pallette_reg_reg[0][24]_i_1_n_0 ;
@@ -1429,22 +1748,17 @@ module microblaze_GameIP_0_0_HDMI_Controller
   wire \pallette_reg_reg_n_0_[7][7] ;
   wire \pallette_reg_reg_n_0_[7][8] ;
   wire \pallette_reg_reg_n_0_[7][9] ;
-  wire [2:0]red;
   wire reset_ah;
-  wire [10:8]rgb_values;
-  wire [2:0]sel;
-  wire [1:0]sel0;
+  wire [23:0]rgb_values;
   wire slv_reg_rden__0;
-  wire \srl[20].srl16_i ;
-  wire \srl[20].srl16_i_0 ;
-  wire [25:0]user_dout;
+  wire \srl[38].srl16_i ;
+  wire \srl[39].srl16_i ;
+  wire [31:0]user_dout;
   wire [0:0]\vc_reg[9] ;
-  wire vga_to_hdmi_i_100_n_0;
-  wire vga_to_hdmi_i_101_n_0;
-  wire vga_to_hdmi_i_102_n_0;
-  wire vga_to_hdmi_i_103_n_0;
-  wire vga_to_hdmi_i_104_n_0;
   wire vga_to_hdmi_i_105_n_0;
+  wire vga_to_hdmi_i_106_n_0;
+  wire vga_to_hdmi_i_107_n_0;
+  wire vga_to_hdmi_i_108_n_0;
   wire vga_to_hdmi_i_109_n_0;
   wire vga_to_hdmi_i_110_n_0;
   wire vga_to_hdmi_i_111_n_0;
@@ -1453,40 +1767,42 @@ module microblaze_GameIP_0_0_HDMI_Controller
   wire vga_to_hdmi_i_114_n_0;
   wire vga_to_hdmi_i_115_n_0;
   wire vga_to_hdmi_i_116_n_0;
-  wire vga_to_hdmi_i_117_n_0;
-  wire vga_to_hdmi_i_118_n_0;
-  wire vga_to_hdmi_i_119_n_0;
-  wire vga_to_hdmi_i_120_n_0;
-  wire vga_to_hdmi_i_121_n_0;
-  wire vga_to_hdmi_i_122_n_0;
-  wire vga_to_hdmi_i_123_n_0;
   wire vga_to_hdmi_i_127_n_0;
   wire vga_to_hdmi_i_128_n_0;
   wire vga_to_hdmi_i_129_n_0;
+  wire vga_to_hdmi_i_130_n_0;
   wire vga_to_hdmi_i_131_n_0;
   wire vga_to_hdmi_i_132_n_0;
   wire vga_to_hdmi_i_133_n_0;
   wire vga_to_hdmi_i_134_n_0;
-  wire vga_to_hdmi_i_135_n_0;
-  wire vga_to_hdmi_i_136_n_0;
-  wire vga_to_hdmi_i_137_n_0;
-  wire vga_to_hdmi_i_138_n_0;
-  wire vga_to_hdmi_i_139_n_0;
+  wire vga_to_hdmi_i_140_n_0;
   wire vga_to_hdmi_i_141_n_0;
   wire vga_to_hdmi_i_142_n_0;
   wire vga_to_hdmi_i_143_n_0;
   wire vga_to_hdmi_i_144_n_0;
   wire vga_to_hdmi_i_145_n_0;
   wire vga_to_hdmi_i_146_n_0;
+  wire vga_to_hdmi_i_147_n_0;
+  wire vga_to_hdmi_i_148_n_0;
+  wire vga_to_hdmi_i_149_n_0;
+  wire vga_to_hdmi_i_150_n_0;
+  wire vga_to_hdmi_i_151_n_0;
+  wire vga_to_hdmi_i_152_n_0;
+  wire vga_to_hdmi_i_153_n_0;
+  wire vga_to_hdmi_i_154_n_0;
+  wire vga_to_hdmi_i_155_n_0;
+  wire vga_to_hdmi_i_156_n_0;
+  wire vga_to_hdmi_i_157_n_0;
+  wire vga_to_hdmi_i_158_n_0;
+  wire vga_to_hdmi_i_159_n_0;
+  wire vga_to_hdmi_i_160_n_0;
+  wire vga_to_hdmi_i_161_n_0;
   wire vga_to_hdmi_i_162_n_0;
   wire vga_to_hdmi_i_163_n_0;
-  wire vga_to_hdmi_i_164_n_0;
-  wire vga_to_hdmi_i_165_n_0;
-  wire vga_to_hdmi_i_166_n_0;
-  wire vga_to_hdmi_i_167_n_0;
-  wire vga_to_hdmi_i_168_n_0;
-  wire vga_to_hdmi_i_169_n_0;
-  wire vga_to_hdmi_i_170_n_0;
+  wire vga_to_hdmi_i_171_n_0;
+  wire vga_to_hdmi_i_172_n_0;
+  wire vga_to_hdmi_i_173_n_0;
+  wire vga_to_hdmi_i_174_n_0;
   wire vga_to_hdmi_i_175_n_0;
   wire vga_to_hdmi_i_176_n_0;
   wire vga_to_hdmi_i_177_n_0;
@@ -1507,8 +1823,11 @@ module microblaze_GameIP_0_0_HDMI_Controller
   wire vga_to_hdmi_i_192_n_0;
   wire vga_to_hdmi_i_193_n_0;
   wire vga_to_hdmi_i_194_n_0;
+  wire vga_to_hdmi_i_195_n_0;
+  wire vga_to_hdmi_i_196_n_0;
+  wire vga_to_hdmi_i_197_n_0;
+  wire vga_to_hdmi_i_198_n_0;
   wire vga_to_hdmi_i_199_n_0;
-  wire vga_to_hdmi_i_19_n_0;
   wire vga_to_hdmi_i_200_n_0;
   wire vga_to_hdmi_i_201_n_0;
   wire vga_to_hdmi_i_202_n_0;
@@ -1519,15 +1838,15 @@ module microblaze_GameIP_0_0_HDMI_Controller
   wire vga_to_hdmi_i_207_n_0;
   wire vga_to_hdmi_i_208_n_0;
   wire vga_to_hdmi_i_209_n_0;
-  wire vga_to_hdmi_i_20_n_0;
   wire vga_to_hdmi_i_210_n_0;
   wire vga_to_hdmi_i_211_n_0;
   wire vga_to_hdmi_i_212_n_0;
   wire vga_to_hdmi_i_213_n_0;
   wire vga_to_hdmi_i_214_n_0;
+  wire vga_to_hdmi_i_215_n_0;
+  wire vga_to_hdmi_i_216_n_0;
+  wire vga_to_hdmi_i_217_n_0;
   wire vga_to_hdmi_i_218_n_0;
-  wire vga_to_hdmi_i_219_n_0;
-  wire vga_to_hdmi_i_21_n_0;
   wire vga_to_hdmi_i_220_n_0;
   wire vga_to_hdmi_i_221_n_0;
   wire vga_to_hdmi_i_222_n_0;
@@ -1536,118 +1855,11 @@ module microblaze_GameIP_0_0_HDMI_Controller
   wire vga_to_hdmi_i_225_n_0;
   wire vga_to_hdmi_i_226_n_0;
   wire vga_to_hdmi_i_227_n_0;
-  wire vga_to_hdmi_i_228_n_0;
-  wire vga_to_hdmi_i_229_n_0;
-  wire vga_to_hdmi_i_230_n_0;
-  wire vga_to_hdmi_i_231_n_0;
-  wire vga_to_hdmi_i_232_n_0;
-  wire vga_to_hdmi_i_233_n_0;
-  wire vga_to_hdmi_i_234_n_0;
-  wire vga_to_hdmi_i_235_n_0;
-  wire vga_to_hdmi_i_236_n_0;
-  wire vga_to_hdmi_i_237_n_0;
-  wire vga_to_hdmi_i_238_n_0;
-  wire vga_to_hdmi_i_23_n_0;
-  wire vga_to_hdmi_i_241_n_0;
-  wire vga_to_hdmi_i_242_n_0;
-  wire vga_to_hdmi_i_243_n_0;
-  wire vga_to_hdmi_i_244_n_0;
-  wire vga_to_hdmi_i_245_n_0;
-  wire vga_to_hdmi_i_246_n_0;
   wire vga_to_hdmi_i_247_n_0;
   wire vga_to_hdmi_i_248_n_0;
   wire vga_to_hdmi_i_249_n_0;
-  wire vga_to_hdmi_i_24_n_0;
-  wire vga_to_hdmi_i_251_n_0;
-  wire vga_to_hdmi_i_252_n_0;
-  wire vga_to_hdmi_i_253_n_0;
-  wire vga_to_hdmi_i_254_n_0;
-  wire vga_to_hdmi_i_255_n_0;
-  wire vga_to_hdmi_i_256_n_0;
-  wire vga_to_hdmi_i_25_n_0;
-  wire vga_to_hdmi_i_26_n_0;
-  wire vga_to_hdmi_i_27_n_0;
-  wire vga_to_hdmi_i_285_n_0;
-  wire vga_to_hdmi_i_286_n_0;
-  wire vga_to_hdmi_i_287_n_0;
-  wire vga_to_hdmi_i_28_n_0;
-  wire vga_to_hdmi_i_291_n_0;
-  wire vga_to_hdmi_i_292_n_0;
-  wire vga_to_hdmi_i_293_n_0;
-  wire vga_to_hdmi_i_294_n_0;
-  wire vga_to_hdmi_i_295_n_0;
-  wire vga_to_hdmi_i_296_n_0;
-  wire vga_to_hdmi_i_297_n_0;
-  wire vga_to_hdmi_i_298_n_0;
-  wire vga_to_hdmi_i_299_n_0;
-  wire vga_to_hdmi_i_300_n_0;
-  wire vga_to_hdmi_i_301_n_0;
-  wire vga_to_hdmi_i_302_n_0;
-  wire vga_to_hdmi_i_303_n_0;
-  wire vga_to_hdmi_i_304_n_0;
-  wire vga_to_hdmi_i_305_n_0;
-  wire vga_to_hdmi_i_309_n_0;
-  wire vga_to_hdmi_i_310_n_0;
-  wire vga_to_hdmi_i_311_n_0;
-  wire vga_to_hdmi_i_312_n_0;
-  wire vga_to_hdmi_i_313_n_0;
-  wire vga_to_hdmi_i_314_n_0;
-  wire vga_to_hdmi_i_315_n_0;
-  wire vga_to_hdmi_i_316_n_0;
-  wire vga_to_hdmi_i_317_n_0;
-  wire vga_to_hdmi_i_318_n_0;
-  wire vga_to_hdmi_i_319_n_0;
-  wire vga_to_hdmi_i_320_n_0;
-  wire vga_to_hdmi_i_321_n_0;
-  wire vga_to_hdmi_i_322_n_0;
-  wire vga_to_hdmi_i_323_n_0;
-  wire vga_to_hdmi_i_324_n_0;
-  wire vga_to_hdmi_i_325_n_0;
-  wire vga_to_hdmi_i_326_n_0;
-  wire vga_to_hdmi_i_327_n_0;
-  wire vga_to_hdmi_i_328_n_0;
-  wire vga_to_hdmi_i_329_n_0;
-  wire vga_to_hdmi_i_330_n_0;
-  wire vga_to_hdmi_i_331_n_0;
-  wire vga_to_hdmi_i_332_n_0;
-  wire vga_to_hdmi_i_333_n_0;
-  wire vga_to_hdmi_i_334_n_0;
-  wire vga_to_hdmi_i_335_n_0;
-  wire vga_to_hdmi_i_336_n_0;
-  wire vga_to_hdmi_i_357_n_0;
-  wire vga_to_hdmi_i_360_n_0;
-  wire vga_to_hdmi_i_361_n_0;
-  wire vga_to_hdmi_i_362_n_0;
-  wire vga_to_hdmi_i_363_n_0;
-  wire vga_to_hdmi_i_366_n_0;
-  wire vga_to_hdmi_i_64_n_0;
-  wire vga_to_hdmi_i_65_n_0;
-  wire vga_to_hdmi_i_66_n_0;
-  wire vga_to_hdmi_i_67_n_0;
-  wire vga_to_hdmi_i_68_n_0;
-  wire vga_to_hdmi_i_70_n_0;
-  wire vga_to_hdmi_i_71_n_0;
-  wire vga_to_hdmi_i_73_n_0;
-  wire vga_to_hdmi_i_74_n_0;
-  wire vga_to_hdmi_i_75_n_0;
-  wire vga_to_hdmi_i_76_n_0;
-  wire vga_to_hdmi_i_77_n_0;
-  wire vga_to_hdmi_i_78_n_0;
-  wire vga_to_hdmi_i_79_n_0;
-  wire vga_to_hdmi_i_81_n_0;
-  wire vga_to_hdmi_i_82_n_0;
-  wire vga_to_hdmi_i_83_n_0;
-  wire vga_to_hdmi_i_84_n_0;
-  wire vga_to_hdmi_i_85_n_0;
-  wire vga_to_hdmi_i_87_n_0;
-  wire vga_to_hdmi_i_88_n_0;
-  wire vga_to_hdmi_i_89_n_0;
-  wire vga_to_hdmi_i_90_n_0;
-  wire vga_to_hdmi_i_92_n_0;
-  wire vga_to_hdmi_i_93_n_0;
-  wire vga_to_hdmi_i_94_n_0;
-  wire vga_to_hdmi_i_95_n_0;
-  wire vga_to_hdmi_i_99_n_0;
+  wire vga_to_hdmi_i_250_n_0;
+  wire vga_to_hdmi_i_50_n_0;
   wire [30:11]NLW_BRAM_doutb_UNCONNECTED;
 
   (* CHECK_LICENSE_TYPE = "blk_mem_gen_0,blk_mem_gen_v8_4_6,{}" *) 
@@ -1661,7 +1873,7 @@ module microblaze_GameIP_0_0_HDMI_Controller
         .dina(axi_write_data),
         .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .douta(axi_read_data),
-        .doutb({doutb[3],NLW_BRAM_doutb_UNCONNECTED[30:27],doutb[2],user_dout[25:16],doutb[1],NLW_BRAM_doutb_UNCONNECTED[14:11],doutb[0],user_dout[9:0]}),
+        .doutb(user_dout),
         .wea(axi_write_enable),
         .web({1'b0,1'b0,1'b0,1'b0}));
   LUT5 #(
@@ -1848,7 +2060,7 @@ module microblaze_GameIP_0_0_HDMI_Controller
         .D(aw_en_i_1_n_0),
         .Q(aw_en_reg_n_0),
         .S(reset_ah));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT2 #(
     .INIT(4'h2)) 
     axi_arready_i_1
@@ -2143,7 +2355,7 @@ module microblaze_GameIP_0_0_HDMI_Controller
         .D(axi_read_data[9]),
         .Q(axi_rdata[9]),
         .R(reset_ah));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT4 #(
     .INIT(16'h08F8)) 
     axi_rvalid_i_1
@@ -2501,29 +2713,29 @@ module microblaze_GameIP_0_0_HDMI_Controller
         .GE(1'b1),
         .Q(axi_write_data[9]));
   LUT4 #(
-    .INIT(16'h88C0)) 
-    ball_on_reg_i_13
-       (.I0(doutb[2]),
-        .I1(block_addr1),
-        .I2(doutb[0]),
-        .I3(Q[0]),
-        .O(sel[2]));
+    .INIT(16'hE200)) 
+    ball_on_reg_i_18
+       (.I0(user_dout[10]),
+        .I1(Q[0]),
+        .I2(user_dout[26]),
+        .I3(ball_on_reg_i_15),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 ));
   LUT4 #(
-    .INIT(16'h88C0)) 
-    g0_b0__3_i_5
-       (.I0(user_dout[24]),
-        .I1(block_addr1),
-        .I2(user_dout[8]),
-        .I3(Q[0]),
-        .O(sel[0]));
+    .INIT(16'hE200)) 
+    g0_b0__7_i_5
+       (.I0(user_dout[8]),
+        .I1(Q[0]),
+        .I2(user_dout[24]),
+        .I3(ball_on_reg_i_15),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 ));
   LUT4 #(
-    .INIT(16'h88C0)) 
-    g0_b0__3_i_6
-       (.I0(user_dout[25]),
-        .I1(block_addr1),
-        .I2(user_dout[9]),
-        .I3(Q[0]),
-        .O(sel[1]));
+    .INIT(16'hE200)) 
+    g0_b0__7_i_6
+       (.I0(user_dout[9]),
+        .I1(Q[0]),
+        .I2(user_dout[25]),
+        .I3(ball_on_reg_i_15),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   (* XILINX_TRANSFORM_PINMAP = "VCC:GE GND:CLR" *) 
   LDCE #(
@@ -4524,6 +4736,11 @@ module microblaze_GameIP_0_0_HDMI_Controller
         .G(\pallette_reg_reg[7][24]_i_1_n_0 ),
         .GE(1'b1),
         .Q(\pallette_reg_reg_n_0_[7][9] ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \seconds[15]_i_1 
+       (.I0(axi_aresetn),
+        .O(reset_ah));
   LUT3 #(
     .INIT(8'h08)) 
     slv_reg_rden
@@ -4531,2269 +4748,1502 @@ module microblaze_GameIP_0_0_HDMI_Controller
         .I1(axi_arvalid),
         .I2(axi_rvalid),
         .O(slv_reg_rden__0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    vga_to_hdmi_i_1
-       (.I0(axi_aresetn),
-        .O(reset_ah));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_100
-       (.I0(vga_to_hdmi_i_204_n_0),
-        .I1(\pallette_reg_reg_n_0_[0][19] ),
-        .I2(vga_to_hdmi_i_205_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][7] ),
-        .I4(vga_to_hdmi_i_206_n_0),
-        .I5(vga_to_hdmi_i_207_n_0),
-        .O(vga_to_hdmi_i_100_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_101
-       (.I0(vga_to_hdmi_i_208_n_0),
-        .I1(\pallette_reg_reg_n_0_[2][19] ),
-        .I2(vga_to_hdmi_i_209_n_0),
-        .I3(\pallette_reg_reg_n_0_[1][19] ),
-        .I4(vga_to_hdmi_i_210_n_0),
-        .O(vga_to_hdmi_i_101_n_0));
-  LUT6 #(
-    .INIT(64'h8A800A0080800000)) 
-    vga_to_hdmi_i_102
-       (.I0(vga_to_hdmi_i_211_n_0),
-        .I1(user_dout[19]),
-        .I2(Q[0]),
-        .I3(user_dout[3]),
-        .I4(user_dout[16]),
-        .I5(user_dout[0]),
-        .O(vga_to_hdmi_i_102_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_103
-       (.I0(\pallette_reg_reg_n_0_[3][19] ),
-        .I1(vga_to_hdmi_i_186_n_0),
-        .I2(\pallette_reg_reg_n_0_[1][19] ),
-        .I3(vga_to_hdmi_i_187_n_0),
-        .O(vga_to_hdmi_i_103_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_104
-       (.I0(vga_to_hdmi_i_212_n_0),
-        .I1(\pallette_reg_reg_n_0_[1][7] ),
-        .I2(vga_to_hdmi_i_189_n_0),
-        .I3(\pallette_reg_reg_n_0_[6][19] ),
-        .I4(vga_to_hdmi_i_190_n_0),
-        .I5(vga_to_hdmi_i_213_n_0),
-        .O(vga_to_hdmi_i_104_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     vga_to_hdmi_i_105
-       (.I0(vga_to_hdmi_i_192_n_0),
-        .I1(\pallette_reg_reg_n_0_[5][19] ),
-        .I2(vga_to_hdmi_i_193_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][7] ),
-        .I4(vga_to_hdmi_i_214_n_0),
-        .O(vga_to_hdmi_i_105_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_109
-       (.I0(\pallette_reg_reg_n_0_[7][18] ),
-        .I1(vga_to_hdmi_i_202_n_0),
-        .I2(\pallette_reg_reg_n_0_[5][18] ),
-        .I3(vga_to_hdmi_i_203_n_0),
-        .O(vga_to_hdmi_i_109_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_110
-       (.I0(vga_to_hdmi_i_218_n_0),
-        .I1(\pallette_reg_reg_n_0_[0][18] ),
-        .I2(vga_to_hdmi_i_205_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][6] ),
-        .I4(vga_to_hdmi_i_206_n_0),
-        .I5(vga_to_hdmi_i_219_n_0),
-        .O(vga_to_hdmi_i_110_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_111
-       (.I0(vga_to_hdmi_i_208_n_0),
-        .I1(\pallette_reg_reg_n_0_[2][18] ),
-        .I2(vga_to_hdmi_i_209_n_0),
-        .I3(\pallette_reg_reg_n_0_[1][18] ),
-        .I4(vga_to_hdmi_i_220_n_0),
-        .O(vga_to_hdmi_i_111_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_112
-       (.I0(\pallette_reg_reg_n_0_[3][18] ),
-        .I1(vga_to_hdmi_i_186_n_0),
-        .I2(\pallette_reg_reg_n_0_[1][18] ),
-        .I3(vga_to_hdmi_i_187_n_0),
-        .O(vga_to_hdmi_i_112_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_113
-       (.I0(vga_to_hdmi_i_221_n_0),
-        .I1(\pallette_reg_reg_n_0_[1][6] ),
-        .I2(vga_to_hdmi_i_189_n_0),
-        .I3(\pallette_reg_reg_n_0_[6][18] ),
-        .I4(vga_to_hdmi_i_190_n_0),
-        .I5(vga_to_hdmi_i_222_n_0),
-        .O(vga_to_hdmi_i_113_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_114
-       (.I0(vga_to_hdmi_i_192_n_0),
-        .I1(\pallette_reg_reg_n_0_[5][18] ),
-        .I2(vga_to_hdmi_i_193_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][6] ),
-        .I4(vga_to_hdmi_i_223_n_0),
-        .O(vga_to_hdmi_i_114_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_115
-       (.I0(\pallette_reg_reg_n_0_[7][17] ),
-        .I1(vga_to_hdmi_i_202_n_0),
-        .I2(\pallette_reg_reg_n_0_[5][17] ),
-        .I3(vga_to_hdmi_i_203_n_0),
-        .O(vga_to_hdmi_i_115_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_116
-       (.I0(vga_to_hdmi_i_224_n_0),
-        .I1(\pallette_reg_reg_n_0_[0][17] ),
-        .I2(vga_to_hdmi_i_205_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][5] ),
-        .I4(vga_to_hdmi_i_206_n_0),
-        .I5(vga_to_hdmi_i_225_n_0),
-        .O(vga_to_hdmi_i_116_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_117
-       (.I0(vga_to_hdmi_i_208_n_0),
-        .I1(\pallette_reg_reg_n_0_[2][17] ),
-        .I2(vga_to_hdmi_i_209_n_0),
-        .I3(\pallette_reg_reg_n_0_[1][17] ),
-        .I4(vga_to_hdmi_i_226_n_0),
-        .O(vga_to_hdmi_i_117_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_118
-       (.I0(\pallette_reg_reg_n_0_[3][17] ),
-        .I1(vga_to_hdmi_i_186_n_0),
-        .I2(\pallette_reg_reg_n_0_[1][17] ),
-        .I3(vga_to_hdmi_i_187_n_0),
-        .O(vga_to_hdmi_i_118_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_119
-       (.I0(vga_to_hdmi_i_227_n_0),
-        .I1(\pallette_reg_reg_n_0_[1][5] ),
-        .I2(vga_to_hdmi_i_189_n_0),
-        .I3(\pallette_reg_reg_n_0_[6][17] ),
-        .I4(vga_to_hdmi_i_190_n_0),
-        .I5(vga_to_hdmi_i_228_n_0),
-        .O(vga_to_hdmi_i_119_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_120
-       (.I0(vga_to_hdmi_i_192_n_0),
-        .I1(\pallette_reg_reg_n_0_[5][17] ),
-        .I2(vga_to_hdmi_i_193_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][5] ),
-        .I4(vga_to_hdmi_i_229_n_0),
-        .O(vga_to_hdmi_i_120_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_121
-       (.I0(\pallette_reg_reg_n_0_[3][16] ),
-        .I1(vga_to_hdmi_i_186_n_0),
-        .I2(\pallette_reg_reg_n_0_[1][16] ),
-        .I3(vga_to_hdmi_i_187_n_0),
-        .O(vga_to_hdmi_i_121_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_122
-       (.I0(vga_to_hdmi_i_230_n_0),
-        .I1(\pallette_reg_reg_n_0_[1][4] ),
-        .I2(vga_to_hdmi_i_189_n_0),
-        .I3(\pallette_reg_reg_n_0_[6][16] ),
-        .I4(vga_to_hdmi_i_190_n_0),
-        .I5(vga_to_hdmi_i_231_n_0),
-        .O(vga_to_hdmi_i_122_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_123
-       (.I0(vga_to_hdmi_i_192_n_0),
-        .I1(\pallette_reg_reg_n_0_[5][16] ),
-        .I2(vga_to_hdmi_i_193_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][4] ),
-        .I4(vga_to_hdmi_i_232_n_0),
-        .O(vga_to_hdmi_i_123_n_0));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_126
-       (.I0(vga_to_hdmi_i_233_n_0),
-        .I1(vga_to_hdmi_i_234_n_0),
-        .I2(vga_to_hdmi_i_235_n_0),
-        .I3(vga_to_hdmi_i_102_n_0),
-        .I4(\pallette_reg_reg_n_0_[6][16] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [3]));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_127
-       (.I0(\pallette_reg_reg_n_0_[3][15] ),
-        .I1(vga_to_hdmi_i_186_n_0),
-        .I2(\pallette_reg_reg_n_0_[1][15] ),
-        .I3(vga_to_hdmi_i_187_n_0),
-        .O(vga_to_hdmi_i_127_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_128
-       (.I0(vga_to_hdmi_i_236_n_0),
-        .I1(\pallette_reg_reg_n_0_[1][3] ),
-        .I2(vga_to_hdmi_i_189_n_0),
-        .I3(\pallette_reg_reg_n_0_[6][15] ),
-        .I4(vga_to_hdmi_i_190_n_0),
-        .I5(vga_to_hdmi_i_237_n_0),
-        .O(vga_to_hdmi_i_128_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_129
-       (.I0(vga_to_hdmi_i_192_n_0),
-        .I1(\pallette_reg_reg_n_0_[5][15] ),
-        .I2(vga_to_hdmi_i_193_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][3] ),
-        .I4(vga_to_hdmi_i_238_n_0),
-        .O(vga_to_hdmi_i_129_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_131
-       (.I0(\pallette_reg_reg_n_0_[7][15] ),
-        .I1(vga_to_hdmi_i_202_n_0),
-        .I2(\pallette_reg_reg_n_0_[5][15] ),
-        .I3(vga_to_hdmi_i_203_n_0),
-        .O(vga_to_hdmi_i_131_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_132
-       (.I0(vga_to_hdmi_i_241_n_0),
-        .I1(\pallette_reg_reg_n_0_[0][15] ),
-        .I2(vga_to_hdmi_i_205_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][3] ),
-        .I4(vga_to_hdmi_i_206_n_0),
-        .I5(vga_to_hdmi_i_242_n_0),
-        .O(vga_to_hdmi_i_132_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_133
-       (.I0(vga_to_hdmi_i_208_n_0),
-        .I1(\pallette_reg_reg_n_0_[2][15] ),
-        .I2(vga_to_hdmi_i_209_n_0),
-        .I3(\pallette_reg_reg_n_0_[1][15] ),
-        .I4(vga_to_hdmi_i_243_n_0),
-        .O(vga_to_hdmi_i_133_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_134
-       (.I0(\pallette_reg_reg_n_0_[7][14] ),
-        .I1(vga_to_hdmi_i_202_n_0),
-        .I2(\pallette_reg_reg_n_0_[5][14] ),
-        .I3(vga_to_hdmi_i_203_n_0),
-        .O(vga_to_hdmi_i_134_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_135
-       (.I0(vga_to_hdmi_i_244_n_0),
-        .I1(\pallette_reg_reg_n_0_[0][14] ),
-        .I2(vga_to_hdmi_i_205_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][2] ),
-        .I4(vga_to_hdmi_i_206_n_0),
-        .I5(vga_to_hdmi_i_245_n_0),
-        .O(vga_to_hdmi_i_135_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_136
-       (.I0(vga_to_hdmi_i_208_n_0),
-        .I1(\pallette_reg_reg_n_0_[2][14] ),
-        .I2(vga_to_hdmi_i_209_n_0),
-        .I3(\pallette_reg_reg_n_0_[1][14] ),
-        .I4(vga_to_hdmi_i_246_n_0),
-        .O(vga_to_hdmi_i_136_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_137
-       (.I0(\pallette_reg_reg_n_0_[3][14] ),
-        .I1(vga_to_hdmi_i_186_n_0),
-        .I2(\pallette_reg_reg_n_0_[1][14] ),
-        .I3(vga_to_hdmi_i_187_n_0),
-        .O(vga_to_hdmi_i_137_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_138
-       (.I0(vga_to_hdmi_i_247_n_0),
-        .I1(\pallette_reg_reg_n_0_[1][2] ),
-        .I2(vga_to_hdmi_i_189_n_0),
-        .I3(\pallette_reg_reg_n_0_[6][14] ),
-        .I4(vga_to_hdmi_i_190_n_0),
-        .I5(vga_to_hdmi_i_248_n_0),
-        .O(vga_to_hdmi_i_138_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_139
-       (.I0(vga_to_hdmi_i_192_n_0),
-        .I1(\pallette_reg_reg_n_0_[5][14] ),
-        .I2(vga_to_hdmi_i_193_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][2] ),
-        .I4(vga_to_hdmi_i_249_n_0),
-        .O(vga_to_hdmi_i_139_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_141
-       (.I0(\pallette_reg_reg_n_0_[7][13] ),
-        .I1(vga_to_hdmi_i_202_n_0),
-        .I2(\pallette_reg_reg_n_0_[5][13] ),
-        .I3(vga_to_hdmi_i_203_n_0),
-        .O(vga_to_hdmi_i_141_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_142
-       (.I0(vga_to_hdmi_i_251_n_0),
-        .I1(\pallette_reg_reg_n_0_[0][13] ),
-        .I2(vga_to_hdmi_i_205_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][1] ),
-        .I4(vga_to_hdmi_i_206_n_0),
-        .I5(vga_to_hdmi_i_252_n_0),
-        .O(vga_to_hdmi_i_142_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_143
-       (.I0(vga_to_hdmi_i_208_n_0),
-        .I1(\pallette_reg_reg_n_0_[2][13] ),
-        .I2(vga_to_hdmi_i_209_n_0),
-        .I3(\pallette_reg_reg_n_0_[1][13] ),
-        .I4(vga_to_hdmi_i_253_n_0),
-        .O(vga_to_hdmi_i_143_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_144
-       (.I0(\pallette_reg_reg_n_0_[3][13] ),
-        .I1(vga_to_hdmi_i_186_n_0),
-        .I2(\pallette_reg_reg_n_0_[1][13] ),
-        .I3(vga_to_hdmi_i_187_n_0),
-        .O(vga_to_hdmi_i_144_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_145
-       (.I0(vga_to_hdmi_i_254_n_0),
-        .I1(\pallette_reg_reg_n_0_[1][1] ),
-        .I2(vga_to_hdmi_i_189_n_0),
-        .I3(\pallette_reg_reg_n_0_[6][13] ),
-        .I4(vga_to_hdmi_i_190_n_0),
-        .I5(vga_to_hdmi_i_255_n_0),
-        .O(vga_to_hdmi_i_145_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_146
-       (.I0(vga_to_hdmi_i_192_n_0),
-        .I1(\pallette_reg_reg_n_0_[5][13] ),
-        .I2(vga_to_hdmi_i_193_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][1] ),
-        .I4(vga_to_hdmi_i_256_n_0),
-        .O(vga_to_hdmi_i_146_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_162
-       (.I0(\pallette_reg_reg_n_0_[5][12] ),
-        .I1(\pallette_reg_reg_n_0_[7][12] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][12] ),
-        .I5(\pallette_reg_reg_n_0_[6][12] ),
-        .O(vga_to_hdmi_i_162_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_163
-       (.I0(\pallette_reg_reg_n_0_[1][12] ),
-        .I1(\pallette_reg_reg_n_0_[3][12] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][12] ),
-        .I5(\pallette_reg_reg_n_0_[2][12] ),
-        .O(vga_to_hdmi_i_163_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_164
-       (.I0(\pallette_reg_reg_n_0_[5][24] ),
-        .I1(\pallette_reg_reg_n_0_[7][24] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][24] ),
-        .I5(\pallette_reg_reg_n_0_[6][24] ),
-        .O(vga_to_hdmi_i_164_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_165
-       (.I0(vga_to_hdmi_i_208_n_0),
-        .I1(\pallette_reg_reg_n_0_[2][24] ),
-        .I2(vga_to_hdmi_i_209_n_0),
-        .I3(\pallette_reg_reg_n_0_[1][24] ),
-        .I4(vga_to_hdmi_i_285_n_0),
-        .O(vga_to_hdmi_i_165_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_166
-       (.I0(vga_to_hdmi_i_286_n_0),
-        .I1(\pallette_reg_reg_n_0_[0][24] ),
-        .I2(vga_to_hdmi_i_205_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][12] ),
-        .I4(vga_to_hdmi_i_206_n_0),
-        .I5(vga_to_hdmi_i_287_n_0),
-        .O(vga_to_hdmi_i_166_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_167
        (.I0(\pallette_reg_reg_n_0_[7][24] ),
-        .I1(vga_to_hdmi_i_202_n_0),
-        .I2(\pallette_reg_reg_n_0_[5][24] ),
-        .I3(vga_to_hdmi_i_203_n_0),
-        .O(vga_to_hdmi_i_167_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
-  LUT5 #(
-    .INIT(32'h000ACC0A)) 
-    vga_to_hdmi_i_168
-       (.I0(user_dout[5]),
-        .I1(user_dout[21]),
-        .I2(user_dout[6]),
-        .I3(Q[0]),
-        .I4(user_dout[22]),
-        .O(vga_to_hdmi_i_168_n_0));
+        .I1(\pallette_reg_reg_n_0_[6][24] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][24] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][24] ),
+        .O(vga_to_hdmi_i_105_n_0));
   LUT6 #(
-    .INIT(64'h4703440000000000)) 
-    vga_to_hdmi_i_169
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_106
+       (.I0(\pallette_reg_reg_n_0_[3][24] ),
+        .I1(\pallette_reg_reg_n_0_[2][24] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][24] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][24] ),
+        .O(vga_to_hdmi_i_106_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    vga_to_hdmi_i_107
+       (.I0(user_dout[20]),
+        .I1(Q[0]),
+        .I2(user_dout[4]),
+        .O(vga_to_hdmi_i_107_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_108
+       (.I0(\pallette_reg_reg_n_0_[7][12] ),
+        .I1(\pallette_reg_reg_n_0_[6][12] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][12] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][12] ),
+        .O(vga_to_hdmi_i_108_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    vga_to_hdmi_i_109
        (.I0(user_dout[23]),
         .I1(Q[0]),
         .I2(user_dout[7]),
-        .I3(user_dout[20]),
-        .I4(user_dout[4]),
-        .I5(Red10_out),
-        .O(vga_to_hdmi_i_169_n_0));
+        .O(vga_to_hdmi_i_109_n_0));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFEEE)) 
-    vga_to_hdmi_i_17
-       (.I0(vga_to_hdmi_i_64_n_0),
-        .I1(vga_to_hdmi_i_65_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][24] ),
-        .I3(vga_to_hdmi_i_66_n_0),
-        .I4(vga_to_hdmi_i_67_n_0),
-        .I5(vga_to_hdmi_i_68_n_0),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
-  LUT5 #(
-    .INIT(32'h000ACC0A)) 
-    vga_to_hdmi_i_170
-       (.I0(user_dout[6]),
-        .I1(user_dout[22]),
-        .I2(user_dout[5]),
-        .I3(Q[0]),
-        .I4(user_dout[21]),
-        .O(vga_to_hdmi_i_170_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_110
+       (.I0(\pallette_reg_reg_n_0_[3][12] ),
+        .I1(\pallette_reg_reg_n_0_[2][12] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][12] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][12] ),
+        .O(vga_to_hdmi_i_110_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_111
+       (.I0(\pallette_reg_reg_n_0_[7][24] ),
+        .I1(\pallette_reg_reg_n_0_[6][24] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][24] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][24] ),
+        .O(vga_to_hdmi_i_111_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_112
+       (.I0(\pallette_reg_reg_n_0_[3][24] ),
+        .I1(\pallette_reg_reg_n_0_[2][24] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][24] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][24] ),
+        .O(vga_to_hdmi_i_112_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT3 #(
     .INIT(8'hB8)) 
-    vga_to_hdmi_i_175
-       (.I0(user_dout[21]),
+    vga_to_hdmi_i_113
+       (.I0(user_dout[16]),
         .I1(Q[0]),
-        .I2(user_dout[5]),
-        .O(vga_to_hdmi_i_175_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+        .I2(user_dout[0]),
+        .O(vga_to_hdmi_i_113_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_114
+       (.I0(\pallette_reg_reg_n_0_[7][12] ),
+        .I1(\pallette_reg_reg_n_0_[6][12] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][12] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][12] ),
+        .O(vga_to_hdmi_i_114_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT3 #(
     .INIT(8'hB8)) 
+    vga_to_hdmi_i_115
+       (.I0(user_dout[19]),
+        .I1(Q[0]),
+        .I2(user_dout[3]),
+        .O(vga_to_hdmi_i_115_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_116
+       (.I0(\pallette_reg_reg_n_0_[3][12] ),
+        .I1(\pallette_reg_reg_n_0_[2][12] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][12] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][12] ),
+        .O(vga_to_hdmi_i_116_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_127
+       (.I0(\pallette_reg_reg_n_0_[7][23] ),
+        .I1(\pallette_reg_reg_n_0_[6][23] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][23] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][23] ),
+        .O(vga_to_hdmi_i_127_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_128
+       (.I0(\pallette_reg_reg_n_0_[3][23] ),
+        .I1(\pallette_reg_reg_n_0_[2][23] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][23] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][23] ),
+        .O(vga_to_hdmi_i_128_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_129
+       (.I0(\pallette_reg_reg_n_0_[7][11] ),
+        .I1(\pallette_reg_reg_n_0_[6][11] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][11] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][11] ),
+        .O(vga_to_hdmi_i_129_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_130
+       (.I0(\pallette_reg_reg_n_0_[3][11] ),
+        .I1(\pallette_reg_reg_n_0_[2][11] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][11] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][11] ),
+        .O(vga_to_hdmi_i_130_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_131
+       (.I0(\pallette_reg_reg_n_0_[7][23] ),
+        .I1(\pallette_reg_reg_n_0_[6][23] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][23] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][23] ),
+        .O(vga_to_hdmi_i_131_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_132
+       (.I0(\pallette_reg_reg_n_0_[3][23] ),
+        .I1(\pallette_reg_reg_n_0_[2][23] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][23] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][23] ),
+        .O(vga_to_hdmi_i_132_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_133
+       (.I0(\pallette_reg_reg_n_0_[7][11] ),
+        .I1(\pallette_reg_reg_n_0_[6][11] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][11] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][11] ),
+        .O(vga_to_hdmi_i_133_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_134
+       (.I0(\pallette_reg_reg_n_0_[3][11] ),
+        .I1(\pallette_reg_reg_n_0_[2][11] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][11] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][11] ),
+        .O(vga_to_hdmi_i_134_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_140
+       (.I0(\pallette_reg_reg_n_0_[7][22] ),
+        .I1(\pallette_reg_reg_n_0_[6][22] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][22] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][22] ),
+        .O(vga_to_hdmi_i_140_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_141
+       (.I0(\pallette_reg_reg_n_0_[3][22] ),
+        .I1(\pallette_reg_reg_n_0_[2][22] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][22] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][22] ),
+        .O(vga_to_hdmi_i_141_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_142
+       (.I0(\pallette_reg_reg_n_0_[7][10] ),
+        .I1(\pallette_reg_reg_n_0_[6][10] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][10] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][10] ),
+        .O(vga_to_hdmi_i_142_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_143
+       (.I0(\pallette_reg_reg_n_0_[3][10] ),
+        .I1(\pallette_reg_reg_n_0_[2][10] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][10] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][10] ),
+        .O(vga_to_hdmi_i_143_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_144
+       (.I0(\pallette_reg_reg_n_0_[7][22] ),
+        .I1(\pallette_reg_reg_n_0_[6][22] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][22] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][22] ),
+        .O(vga_to_hdmi_i_144_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_145
+       (.I0(\pallette_reg_reg_n_0_[3][22] ),
+        .I1(\pallette_reg_reg_n_0_[2][22] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][22] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][22] ),
+        .O(vga_to_hdmi_i_145_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_146
+       (.I0(\pallette_reg_reg_n_0_[7][10] ),
+        .I1(\pallette_reg_reg_n_0_[6][10] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][10] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][10] ),
+        .O(vga_to_hdmi_i_146_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_147
+       (.I0(\pallette_reg_reg_n_0_[3][10] ),
+        .I1(\pallette_reg_reg_n_0_[2][10] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][10] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][10] ),
+        .O(vga_to_hdmi_i_147_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_148
+       (.I0(\pallette_reg_reg_n_0_[7][21] ),
+        .I1(\pallette_reg_reg_n_0_[6][21] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][21] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][21] ),
+        .O(vga_to_hdmi_i_148_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_149
+       (.I0(\pallette_reg_reg_n_0_[3][21] ),
+        .I1(\pallette_reg_reg_n_0_[2][21] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][21] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][21] ),
+        .O(vga_to_hdmi_i_149_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_150
+       (.I0(\pallette_reg_reg_n_0_[7][9] ),
+        .I1(\pallette_reg_reg_n_0_[6][9] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][9] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][9] ),
+        .O(vga_to_hdmi_i_150_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_151
+       (.I0(\pallette_reg_reg_n_0_[3][9] ),
+        .I1(\pallette_reg_reg_n_0_[2][9] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][9] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][9] ),
+        .O(vga_to_hdmi_i_151_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_152
+       (.I0(\pallette_reg_reg_n_0_[7][21] ),
+        .I1(\pallette_reg_reg_n_0_[6][21] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][21] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][21] ),
+        .O(vga_to_hdmi_i_152_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_153
+       (.I0(\pallette_reg_reg_n_0_[3][21] ),
+        .I1(\pallette_reg_reg_n_0_[2][21] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][21] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][21] ),
+        .O(vga_to_hdmi_i_153_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_154
+       (.I0(\pallette_reg_reg_n_0_[7][9] ),
+        .I1(\pallette_reg_reg_n_0_[6][9] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][9] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][9] ),
+        .O(vga_to_hdmi_i_154_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_155
+       (.I0(\pallette_reg_reg_n_0_[3][9] ),
+        .I1(\pallette_reg_reg_n_0_[2][9] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][9] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][9] ),
+        .O(vga_to_hdmi_i_155_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_156
+       (.I0(\pallette_reg_reg_n_0_[7][20] ),
+        .I1(\pallette_reg_reg_n_0_[6][20] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][20] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][20] ),
+        .O(vga_to_hdmi_i_156_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_157
+       (.I0(\pallette_reg_reg_n_0_[3][20] ),
+        .I1(\pallette_reg_reg_n_0_[2][20] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][20] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][20] ),
+        .O(vga_to_hdmi_i_157_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_158
+       (.I0(\pallette_reg_reg_n_0_[7][8] ),
+        .I1(\pallette_reg_reg_n_0_[6][8] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][8] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][8] ),
+        .O(vga_to_hdmi_i_158_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_159
+       (.I0(\pallette_reg_reg_n_0_[3][8] ),
+        .I1(\pallette_reg_reg_n_0_[2][8] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][8] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][8] ),
+        .O(vga_to_hdmi_i_159_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_160
+       (.I0(\pallette_reg_reg_n_0_[7][20] ),
+        .I1(\pallette_reg_reg_n_0_[6][20] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][20] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][20] ),
+        .O(vga_to_hdmi_i_160_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_161
+       (.I0(\pallette_reg_reg_n_0_[3][20] ),
+        .I1(\pallette_reg_reg_n_0_[2][20] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][20] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][20] ),
+        .O(vga_to_hdmi_i_161_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_162
+       (.I0(\pallette_reg_reg_n_0_[7][8] ),
+        .I1(\pallette_reg_reg_n_0_[6][8] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][8] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][8] ),
+        .O(vga_to_hdmi_i_162_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_163
+       (.I0(\pallette_reg_reg_n_0_[3][8] ),
+        .I1(\pallette_reg_reg_n_0_[2][8] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][8] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][8] ),
+        .O(vga_to_hdmi_i_163_n_0));
+  LUT5 #(
+    .INIT(32'h8A80FFFF)) 
+    vga_to_hdmi_i_17
+       (.I0(\srl[38].srl16_i ),
+        .I1(rgb_values[23]),
+        .I2(vga_to_hdmi_i_50_n_0),
+        .I3(rgb_values[11]),
+        .I4(\srl[39].srl16_i ),
+        .O(\hc_reg[2]_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_171
+       (.I0(\pallette_reg_reg_n_0_[7][19] ),
+        .I1(\pallette_reg_reg_n_0_[6][19] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][19] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][19] ),
+        .O(vga_to_hdmi_i_171_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_172
+       (.I0(\pallette_reg_reg_n_0_[3][19] ),
+        .I1(\pallette_reg_reg_n_0_[2][19] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][19] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][19] ),
+        .O(vga_to_hdmi_i_172_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_173
+       (.I0(\pallette_reg_reg_n_0_[7][7] ),
+        .I1(\pallette_reg_reg_n_0_[6][7] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][7] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][7] ),
+        .O(vga_to_hdmi_i_173_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_174
+       (.I0(\pallette_reg_reg_n_0_[3][7] ),
+        .I1(\pallette_reg_reg_n_0_[2][7] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][7] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][7] ),
+        .O(vga_to_hdmi_i_174_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_175
+       (.I0(\pallette_reg_reg_n_0_[7][19] ),
+        .I1(\pallette_reg_reg_n_0_[6][19] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][19] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][19] ),
+        .O(vga_to_hdmi_i_175_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     vga_to_hdmi_i_176
+       (.I0(\pallette_reg_reg_n_0_[3][19] ),
+        .I1(\pallette_reg_reg_n_0_[2][19] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][19] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][19] ),
+        .O(vga_to_hdmi_i_176_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_177
+       (.I0(\pallette_reg_reg_n_0_[7][7] ),
+        .I1(\pallette_reg_reg_n_0_[6][7] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][7] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][7] ),
+        .O(vga_to_hdmi_i_177_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_178
+       (.I0(\pallette_reg_reg_n_0_[3][7] ),
+        .I1(\pallette_reg_reg_n_0_[2][7] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][7] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][7] ),
+        .O(vga_to_hdmi_i_178_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_179
+       (.I0(\pallette_reg_reg_n_0_[7][18] ),
+        .I1(\pallette_reg_reg_n_0_[6][18] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][18] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][18] ),
+        .O(vga_to_hdmi_i_179_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_180
+       (.I0(\pallette_reg_reg_n_0_[3][18] ),
+        .I1(\pallette_reg_reg_n_0_[2][18] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][18] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][18] ),
+        .O(vga_to_hdmi_i_180_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_181
+       (.I0(\pallette_reg_reg_n_0_[7][6] ),
+        .I1(\pallette_reg_reg_n_0_[6][6] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][6] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][6] ),
+        .O(vga_to_hdmi_i_181_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_182
+       (.I0(\pallette_reg_reg_n_0_[3][6] ),
+        .I1(\pallette_reg_reg_n_0_[2][6] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][6] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][6] ),
+        .O(vga_to_hdmi_i_182_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_183
+       (.I0(\pallette_reg_reg_n_0_[7][18] ),
+        .I1(\pallette_reg_reg_n_0_[6][18] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][18] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][18] ),
+        .O(vga_to_hdmi_i_183_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_184
+       (.I0(\pallette_reg_reg_n_0_[3][18] ),
+        .I1(\pallette_reg_reg_n_0_[2][18] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][18] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][18] ),
+        .O(vga_to_hdmi_i_184_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_185
+       (.I0(\pallette_reg_reg_n_0_[7][6] ),
+        .I1(\pallette_reg_reg_n_0_[6][6] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][6] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][6] ),
+        .O(vga_to_hdmi_i_185_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_186
+       (.I0(\pallette_reg_reg_n_0_[3][6] ),
+        .I1(\pallette_reg_reg_n_0_[2][6] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][6] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][6] ),
+        .O(vga_to_hdmi_i_186_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_187
+       (.I0(\pallette_reg_reg_n_0_[7][17] ),
+        .I1(\pallette_reg_reg_n_0_[6][17] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][17] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][17] ),
+        .O(vga_to_hdmi_i_187_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_188
+       (.I0(\pallette_reg_reg_n_0_[3][17] ),
+        .I1(\pallette_reg_reg_n_0_[2][17] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][17] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][17] ),
+        .O(vga_to_hdmi_i_188_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_189
+       (.I0(\pallette_reg_reg_n_0_[7][5] ),
+        .I1(\pallette_reg_reg_n_0_[6][5] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][5] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][5] ),
+        .O(vga_to_hdmi_i_189_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_190
+       (.I0(\pallette_reg_reg_n_0_[3][5] ),
+        .I1(\pallette_reg_reg_n_0_[2][5] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][5] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][5] ),
+        .O(vga_to_hdmi_i_190_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_191
+       (.I0(\pallette_reg_reg_n_0_[7][17] ),
+        .I1(\pallette_reg_reg_n_0_[6][17] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][17] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][17] ),
+        .O(vga_to_hdmi_i_191_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_192
+       (.I0(\pallette_reg_reg_n_0_[3][17] ),
+        .I1(\pallette_reg_reg_n_0_[2][17] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][17] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][17] ),
+        .O(vga_to_hdmi_i_192_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_193
+       (.I0(\pallette_reg_reg_n_0_[7][5] ),
+        .I1(\pallette_reg_reg_n_0_[6][5] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][5] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][5] ),
+        .O(vga_to_hdmi_i_193_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_194
+       (.I0(\pallette_reg_reg_n_0_[3][5] ),
+        .I1(\pallette_reg_reg_n_0_[2][5] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][5] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][5] ),
+        .O(vga_to_hdmi_i_194_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_195
+       (.I0(\pallette_reg_reg_n_0_[7][16] ),
+        .I1(\pallette_reg_reg_n_0_[6][16] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][16] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][16] ),
+        .O(vga_to_hdmi_i_195_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_196
+       (.I0(\pallette_reg_reg_n_0_[3][16] ),
+        .I1(\pallette_reg_reg_n_0_[2][16] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][16] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][16] ),
+        .O(vga_to_hdmi_i_196_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_197
+       (.I0(\pallette_reg_reg_n_0_[7][4] ),
+        .I1(\pallette_reg_reg_n_0_[6][4] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][4] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][4] ),
+        .O(vga_to_hdmi_i_197_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_198
+       (.I0(\pallette_reg_reg_n_0_[3][4] ),
+        .I1(\pallette_reg_reg_n_0_[2][4] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][4] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][4] ),
+        .O(vga_to_hdmi_i_198_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_199
+       (.I0(\pallette_reg_reg_n_0_[7][16] ),
+        .I1(\pallette_reg_reg_n_0_[6][16] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][16] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][16] ),
+        .O(vga_to_hdmi_i_199_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_200
+       (.I0(\pallette_reg_reg_n_0_[3][16] ),
+        .I1(\pallette_reg_reg_n_0_[2][16] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][16] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][16] ),
+        .O(vga_to_hdmi_i_200_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_201
+       (.I0(\pallette_reg_reg_n_0_[7][4] ),
+        .I1(\pallette_reg_reg_n_0_[6][4] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][4] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][4] ),
+        .O(vga_to_hdmi_i_201_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_202
+       (.I0(\pallette_reg_reg_n_0_[3][4] ),
+        .I1(\pallette_reg_reg_n_0_[2][4] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][4] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][4] ),
+        .O(vga_to_hdmi_i_202_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_203
+       (.I0(\pallette_reg_reg_n_0_[7][15] ),
+        .I1(\pallette_reg_reg_n_0_[6][15] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][15] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][15] ),
+        .O(vga_to_hdmi_i_203_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_204
+       (.I0(\pallette_reg_reg_n_0_[3][15] ),
+        .I1(\pallette_reg_reg_n_0_[2][15] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][15] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][15] ),
+        .O(vga_to_hdmi_i_204_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_205
+       (.I0(\pallette_reg_reg_n_0_[7][3] ),
+        .I1(\pallette_reg_reg_n_0_[6][3] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][3] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][3] ),
+        .O(vga_to_hdmi_i_205_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_206
+       (.I0(\pallette_reg_reg_n_0_[3][3] ),
+        .I1(\pallette_reg_reg_n_0_[2][3] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][3] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][3] ),
+        .O(vga_to_hdmi_i_206_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_207
+       (.I0(\pallette_reg_reg_n_0_[7][15] ),
+        .I1(\pallette_reg_reg_n_0_[6][15] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][15] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][15] ),
+        .O(vga_to_hdmi_i_207_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_208
+       (.I0(\pallette_reg_reg_n_0_[3][15] ),
+        .I1(\pallette_reg_reg_n_0_[2][15] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][15] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][15] ),
+        .O(vga_to_hdmi_i_208_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_209
+       (.I0(\pallette_reg_reg_n_0_[7][3] ),
+        .I1(\pallette_reg_reg_n_0_[6][3] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][3] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][3] ),
+        .O(vga_to_hdmi_i_209_n_0));
+  MUXF7 vga_to_hdmi_i_21
+       (.I0(rgb_values[10]),
+        .I1(rgb_values[22]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_11 ),
+        .S(vga_to_hdmi_i_50_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_210
+       (.I0(\pallette_reg_reg_n_0_[3][3] ),
+        .I1(\pallette_reg_reg_n_0_[2][3] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][3] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][3] ),
+        .O(vga_to_hdmi_i_210_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_211
+       (.I0(\pallette_reg_reg_n_0_[7][14] ),
+        .I1(\pallette_reg_reg_n_0_[6][14] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][14] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][14] ),
+        .O(vga_to_hdmi_i_211_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_212
+       (.I0(\pallette_reg_reg_n_0_[3][14] ),
+        .I1(\pallette_reg_reg_n_0_[2][14] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][14] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][14] ),
+        .O(vga_to_hdmi_i_212_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_213
+       (.I0(\pallette_reg_reg_n_0_[7][2] ),
+        .I1(\pallette_reg_reg_n_0_[6][2] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][2] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][2] ),
+        .O(vga_to_hdmi_i_213_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_214
+       (.I0(\pallette_reg_reg_n_0_[3][2] ),
+        .I1(\pallette_reg_reg_n_0_[2][2] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][2] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][2] ),
+        .O(vga_to_hdmi_i_214_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_215
+       (.I0(\pallette_reg_reg_n_0_[7][14] ),
+        .I1(\pallette_reg_reg_n_0_[6][14] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][14] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][14] ),
+        .O(vga_to_hdmi_i_215_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_216
+       (.I0(\pallette_reg_reg_n_0_[3][14] ),
+        .I1(\pallette_reg_reg_n_0_[2][14] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][14] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][14] ),
+        .O(vga_to_hdmi_i_216_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_217
+       (.I0(\pallette_reg_reg_n_0_[7][2] ),
+        .I1(\pallette_reg_reg_n_0_[6][2] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][2] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][2] ),
+        .O(vga_to_hdmi_i_217_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_218
+       (.I0(\pallette_reg_reg_n_0_[3][2] ),
+        .I1(\pallette_reg_reg_n_0_[2][2] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][2] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][2] ),
+        .O(vga_to_hdmi_i_218_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_220
+       (.I0(\pallette_reg_reg_n_0_[7][13] ),
+        .I1(\pallette_reg_reg_n_0_[6][13] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][13] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][13] ),
+        .O(vga_to_hdmi_i_220_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_221
+       (.I0(\pallette_reg_reg_n_0_[3][13] ),
+        .I1(\pallette_reg_reg_n_0_[2][13] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][13] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][13] ),
+        .O(vga_to_hdmi_i_221_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_222
+       (.I0(\pallette_reg_reg_n_0_[7][1] ),
+        .I1(\pallette_reg_reg_n_0_[6][1] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][1] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][1] ),
+        .O(vga_to_hdmi_i_222_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_223
+       (.I0(\pallette_reg_reg_n_0_[3][1] ),
+        .I1(\pallette_reg_reg_n_0_[2][1] ),
+        .I2(vga_to_hdmi_i_249_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][1] ),
+        .I4(vga_to_hdmi_i_250_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][1] ),
+        .O(vga_to_hdmi_i_223_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_224
+       (.I0(\pallette_reg_reg_n_0_[7][13] ),
+        .I1(\pallette_reg_reg_n_0_[6][13] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][13] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][13] ),
+        .O(vga_to_hdmi_i_224_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_225
+       (.I0(\pallette_reg_reg_n_0_[3][13] ),
+        .I1(\pallette_reg_reg_n_0_[2][13] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][13] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][13] ),
+        .O(vga_to_hdmi_i_225_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_226
+       (.I0(\pallette_reg_reg_n_0_[7][1] ),
+        .I1(\pallette_reg_reg_n_0_[6][1] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[5][1] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[4][1] ),
+        .O(vga_to_hdmi_i_226_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_227
+       (.I0(\pallette_reg_reg_n_0_[3][1] ),
+        .I1(\pallette_reg_reg_n_0_[2][1] ),
+        .I2(vga_to_hdmi_i_247_n_0),
+        .I3(\pallette_reg_reg_n_0_[1][1] ),
+        .I4(vga_to_hdmi_i_248_n_0),
+        .I5(\pallette_reg_reg_n_0_[0][1] ),
+        .O(vga_to_hdmi_i_227_n_0));
+  MUXF7 vga_to_hdmi_i_23
+       (.I0(rgb_values[9]),
+        .I1(rgb_values[21]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_10 ),
+        .S(vga_to_hdmi_i_50_n_0));
+  MUXF7 vga_to_hdmi_i_24
+       (.I0(rgb_values[8]),
+        .I1(rgb_values[20]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_9 ),
+        .S(vga_to_hdmi_i_50_n_0));
+  LUT3 #(
+    .INIT(8'hB8)) 
+    vga_to_hdmi_i_247
        (.I0(user_dout[22]),
         .I1(Q[0]),
         .I2(user_dout[6]),
-        .O(vga_to_hdmi_i_176_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_177
-       (.I0(\pallette_reg_reg_n_0_[7][23] ),
-        .I1(vga_to_hdmi_i_202_n_0),
-        .I2(\pallette_reg_reg_n_0_[5][23] ),
-        .I3(vga_to_hdmi_i_203_n_0),
-        .O(vga_to_hdmi_i_177_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_178
-       (.I0(vga_to_hdmi_i_291_n_0),
-        .I1(\pallette_reg_reg_n_0_[0][23] ),
-        .I2(vga_to_hdmi_i_205_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][11] ),
-        .I4(vga_to_hdmi_i_206_n_0),
-        .I5(vga_to_hdmi_i_292_n_0),
-        .O(vga_to_hdmi_i_178_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_179
-       (.I0(vga_to_hdmi_i_208_n_0),
-        .I1(\pallette_reg_reg_n_0_[2][23] ),
-        .I2(vga_to_hdmi_i_209_n_0),
-        .I3(\pallette_reg_reg_n_0_[1][23] ),
-        .I4(vga_to_hdmi_i_293_n_0),
-        .O(vga_to_hdmi_i_179_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_180
-       (.I0(\pallette_reg_reg_n_0_[7][22] ),
-        .I1(vga_to_hdmi_i_202_n_0),
-        .I2(\pallette_reg_reg_n_0_[5][22] ),
-        .I3(vga_to_hdmi_i_203_n_0),
-        .O(vga_to_hdmi_i_180_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_181
-       (.I0(vga_to_hdmi_i_294_n_0),
-        .I1(\pallette_reg_reg_n_0_[0][22] ),
-        .I2(vga_to_hdmi_i_205_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][10] ),
-        .I4(vga_to_hdmi_i_206_n_0),
-        .I5(vga_to_hdmi_i_295_n_0),
-        .O(vga_to_hdmi_i_181_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_182
-       (.I0(vga_to_hdmi_i_208_n_0),
-        .I1(\pallette_reg_reg_n_0_[2][22] ),
-        .I2(vga_to_hdmi_i_209_n_0),
-        .I3(\pallette_reg_reg_n_0_[1][22] ),
-        .I4(vga_to_hdmi_i_296_n_0),
-        .O(vga_to_hdmi_i_182_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_183
-       (.I0(\pallette_reg_reg_n_0_[7][21] ),
-        .I1(vga_to_hdmi_i_202_n_0),
-        .I2(\pallette_reg_reg_n_0_[5][21] ),
-        .I3(vga_to_hdmi_i_203_n_0),
-        .O(vga_to_hdmi_i_183_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_184
-       (.I0(vga_to_hdmi_i_297_n_0),
-        .I1(\pallette_reg_reg_n_0_[0][21] ),
-        .I2(vga_to_hdmi_i_205_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][9] ),
-        .I4(vga_to_hdmi_i_206_n_0),
-        .I5(vga_to_hdmi_i_298_n_0),
-        .O(vga_to_hdmi_i_184_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_185
-       (.I0(vga_to_hdmi_i_208_n_0),
-        .I1(\pallette_reg_reg_n_0_[2][21] ),
-        .I2(vga_to_hdmi_i_209_n_0),
-        .I3(\pallette_reg_reg_n_0_[1][21] ),
-        .I4(vga_to_hdmi_i_299_n_0),
-        .O(vga_to_hdmi_i_185_n_0));
-  LUT6 #(
-    .INIT(64'h202A000A20200000)) 
-    vga_to_hdmi_i_186
-       (.I0(vga_to_hdmi_i_74_n_0),
-        .I1(user_dout[23]),
-        .I2(Q[0]),
-        .I3(user_dout[7]),
-        .I4(user_dout[20]),
-        .I5(user_dout[4]),
-        .O(vga_to_hdmi_i_186_n_0));
-  LUT6 #(
-    .INIT(64'h202A000A20200000)) 
-    vga_to_hdmi_i_187
-       (.I0(vga_to_hdmi_i_168_n_0),
-        .I1(user_dout[23]),
-        .I2(Q[0]),
-        .I3(user_dout[7]),
-        .I4(user_dout[20]),
-        .I5(user_dout[4]),
-        .O(vga_to_hdmi_i_187_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_188
-       (.I0(\pallette_reg_reg_n_0_[4][20] ),
-        .I1(vga_to_hdmi_i_300_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][8] ),
-        .I3(vga_to_hdmi_i_301_n_0),
-        .O(vga_to_hdmi_i_188_n_0));
-  LUT6 #(
-    .INIT(64'h0044034700000000)) 
-    vga_to_hdmi_i_189
-       (.I0(user_dout[23]),
-        .I1(Q[0]),
-        .I2(user_dout[7]),
-        .I3(user_dout[20]),
-        .I4(user_dout[4]),
-        .I5(vga_to_hdmi_i_168_n_0),
-        .O(vga_to_hdmi_i_189_n_0));
-  LUT6 #(
-    .INIT(64'hF800880088008800)) 
-    vga_to_hdmi_i_19
-       (.I0(vga_to_hdmi_i_70_n_0),
-        .I1(vga_to_hdmi_i_71_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][23] ),
-        .I3(Red10_out),
-        .I4(vga_to_hdmi_i_73_n_0),
-        .I5(vga_to_hdmi_i_74_n_0),
-        .O(vga_to_hdmi_i_19_n_0));
-  LUT6 #(
-    .INIT(64'hB830880000000000)) 
-    vga_to_hdmi_i_190
-       (.I0(user_dout[23]),
-        .I1(Q[0]),
-        .I2(user_dout[7]),
-        .I3(user_dout[20]),
-        .I4(user_dout[4]),
-        .I5(vga_to_hdmi_i_170_n_0),
-        .O(vga_to_hdmi_i_190_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_191
-       (.I0(\pallette_reg_reg_n_0_[0][20] ),
-        .I1(vga_to_hdmi_i_302_n_0),
-        .I2(\pallette_reg_reg_n_0_[7][20] ),
-        .I3(vga_to_hdmi_i_303_n_0),
-        .O(vga_to_hdmi_i_191_n_0));
-  LUT6 #(
-    .INIT(64'hB830880000000000)) 
-    vga_to_hdmi_i_192
-       (.I0(user_dout[23]),
-        .I1(Q[0]),
-        .I2(user_dout[7]),
-        .I3(user_dout[20]),
-        .I4(user_dout[4]),
-        .I5(vga_to_hdmi_i_168_n_0),
-        .O(vga_to_hdmi_i_192_n_0));
-  LUT6 #(
-    .INIT(64'h0044034700000000)) 
-    vga_to_hdmi_i_193
-       (.I0(user_dout[23]),
-        .I1(Q[0]),
-        .I2(user_dout[7]),
-        .I3(user_dout[20]),
-        .I4(user_dout[4]),
-        .I5(vga_to_hdmi_i_74_n_0),
-        .O(vga_to_hdmi_i_193_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_194
-       (.I0(\pallette_reg_reg_n_0_[2][8] ),
-        .I1(vga_to_hdmi_i_304_n_0),
-        .I2(vga_to_hdmi_i_305_n_0),
-        .I3(vga_to_hdmi_i_71_n_0),
-        .O(vga_to_hdmi_i_194_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_199
-       (.I0(\pallette_reg_reg_n_0_[7][20] ),
-        .I1(vga_to_hdmi_i_202_n_0),
-        .I2(\pallette_reg_reg_n_0_[5][20] ),
-        .I3(vga_to_hdmi_i_203_n_0),
-        .O(vga_to_hdmi_i_199_n_0));
-  LUT6 #(
-    .INIT(64'hFFEAEAEAAAAAAAAA)) 
-    vga_to_hdmi_i_20
-       (.I0(button_press017_out),
-        .I1(vga_to_hdmi_i_75_n_0),
-        .I2(vga_to_hdmi_i_76_n_0),
-        .I3(vga_to_hdmi_i_77_n_0),
-        .I4(vga_to_hdmi_i_78_n_0),
-        .I5(Red10_out),
-        .O(vga_to_hdmi_i_20_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_200
-       (.I0(vga_to_hdmi_i_309_n_0),
-        .I1(\pallette_reg_reg_n_0_[0][20] ),
-        .I2(vga_to_hdmi_i_205_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][8] ),
-        .I4(vga_to_hdmi_i_206_n_0),
-        .I5(vga_to_hdmi_i_310_n_0),
-        .O(vga_to_hdmi_i_200_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_201
-       (.I0(vga_to_hdmi_i_208_n_0),
-        .I1(\pallette_reg_reg_n_0_[2][20] ),
-        .I2(vga_to_hdmi_i_209_n_0),
-        .I3(\pallette_reg_reg_n_0_[1][20] ),
-        .I4(vga_to_hdmi_i_311_n_0),
-        .O(vga_to_hdmi_i_201_n_0));
-  LUT6 #(
-    .INIT(64'h8A800A0080800000)) 
-    vga_to_hdmi_i_202
-       (.I0(vga_to_hdmi_i_312_n_0),
-        .I1(user_dout[19]),
-        .I2(Q[0]),
-        .I3(user_dout[3]),
-        .I4(user_dout[16]),
-        .I5(user_dout[0]),
-        .O(vga_to_hdmi_i_202_n_0));
-  LUT6 #(
-    .INIT(64'h8A800A0080800000)) 
-    vga_to_hdmi_i_203
-       (.I0(vga_to_hdmi_i_313_n_0),
-        .I1(user_dout[19]),
-        .I2(Q[0]),
-        .I3(user_dout[3]),
-        .I4(user_dout[16]),
-        .I5(user_dout[0]),
-        .O(vga_to_hdmi_i_203_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_204
-       (.I0(\pallette_reg_reg_n_0_[2][7] ),
-        .I1(vga_to_hdmi_i_314_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][7] ),
-        .I3(vga_to_hdmi_i_315_n_0),
-        .O(vga_to_hdmi_i_204_n_0));
-  LUT6 #(
-    .INIT(64'h202A000A20200000)) 
-    vga_to_hdmi_i_205
-       (.I0(vga_to_hdmi_i_316_n_0),
-        .I1(user_dout[19]),
-        .I2(Q[0]),
-        .I3(user_dout[3]),
-        .I4(user_dout[16]),
-        .I5(user_dout[0]),
-        .O(vga_to_hdmi_i_205_n_0));
-  LUT6 #(
-    .INIT(64'h00002020000A202A)) 
-    vga_to_hdmi_i_206
-       (.I0(vga_to_hdmi_i_312_n_0),
-        .I1(user_dout[19]),
-        .I2(Q[0]),
-        .I3(user_dout[3]),
-        .I4(user_dout[16]),
-        .I5(user_dout[0]),
-        .O(vga_to_hdmi_i_206_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_207
-       (.I0(\pallette_reg_reg_n_0_[4][19] ),
-        .I1(vga_to_hdmi_i_317_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][19] ),
-        .I3(vga_to_hdmi_i_318_n_0),
-        .O(vga_to_hdmi_i_207_n_0));
-  LUT6 #(
-    .INIT(64'h202A000A20200000)) 
-    vga_to_hdmi_i_208
-       (.I0(vga_to_hdmi_i_211_n_0),
-        .I1(user_dout[19]),
-        .I2(Q[0]),
-        .I3(user_dout[3]),
-        .I4(user_dout[16]),
-        .I5(user_dout[0]),
-        .O(vga_to_hdmi_i_208_n_0));
-  LUT6 #(
-    .INIT(64'h202A000A20200000)) 
-    vga_to_hdmi_i_209
-       (.I0(vga_to_hdmi_i_313_n_0),
-        .I1(user_dout[19]),
-        .I2(Q[0]),
-        .I3(user_dout[3]),
-        .I4(user_dout[16]),
-        .I5(user_dout[0]),
-        .O(vga_to_hdmi_i_209_n_0));
-  LUT6 #(
-    .INIT(64'hFEBABABABABABABA)) 
-    vga_to_hdmi_i_21
-       (.I0(vga_to_hdmi_i_79_n_0),
-        .I1(Red10_out),
-        .I2(rgb_values[10]),
-        .I3(vga_to_hdmi_i_81_n_0),
-        .I4(vga_to_hdmi_i_73_n_0),
-        .I5(\pallette_reg_reg_n_0_[0][23] ),
-        .O(vga_to_hdmi_i_21_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_210
-       (.I0(\pallette_reg_reg_n_0_[1][7] ),
-        .I1(vga_to_hdmi_i_319_n_0),
-        .I2(vga_to_hdmi_i_320_n_0),
-        .I3(vga_to_hdmi_i_321_n_0),
-        .O(vga_to_hdmi_i_210_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
-  LUT5 #(
-    .INIT(32'h000ACC0A)) 
-    vga_to_hdmi_i_211
-       (.I0(user_dout[2]),
-        .I1(user_dout[18]),
-        .I2(user_dout[1]),
-        .I3(Q[0]),
-        .I4(user_dout[17]),
-        .O(vga_to_hdmi_i_211_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_212
-       (.I0(\pallette_reg_reg_n_0_[4][19] ),
-        .I1(vga_to_hdmi_i_300_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][7] ),
-        .I3(vga_to_hdmi_i_301_n_0),
-        .O(vga_to_hdmi_i_212_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_213
-       (.I0(\pallette_reg_reg_n_0_[0][19] ),
-        .I1(vga_to_hdmi_i_302_n_0),
-        .I2(\pallette_reg_reg_n_0_[7][19] ),
-        .I3(vga_to_hdmi_i_303_n_0),
-        .O(vga_to_hdmi_i_213_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_214
-       (.I0(\pallette_reg_reg_n_0_[2][7] ),
-        .I1(vga_to_hdmi_i_304_n_0),
-        .I2(vga_to_hdmi_i_322_n_0),
-        .I3(vga_to_hdmi_i_71_n_0),
-        .O(vga_to_hdmi_i_214_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_218
-       (.I0(\pallette_reg_reg_n_0_[2][6] ),
-        .I1(vga_to_hdmi_i_314_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][6] ),
-        .I3(vga_to_hdmi_i_315_n_0),
-        .O(vga_to_hdmi_i_218_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_219
-       (.I0(\pallette_reg_reg_n_0_[4][18] ),
-        .I1(vga_to_hdmi_i_317_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][18] ),
-        .I3(vga_to_hdmi_i_318_n_0),
-        .O(vga_to_hdmi_i_219_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_220
-       (.I0(\pallette_reg_reg_n_0_[1][6] ),
-        .I1(vga_to_hdmi_i_319_n_0),
-        .I2(vga_to_hdmi_i_323_n_0),
-        .I3(vga_to_hdmi_i_321_n_0),
-        .O(vga_to_hdmi_i_220_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_221
-       (.I0(\pallette_reg_reg_n_0_[4][18] ),
-        .I1(vga_to_hdmi_i_300_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][6] ),
-        .I3(vga_to_hdmi_i_301_n_0),
-        .O(vga_to_hdmi_i_221_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_222
-       (.I0(\pallette_reg_reg_n_0_[0][18] ),
-        .I1(vga_to_hdmi_i_302_n_0),
-        .I2(\pallette_reg_reg_n_0_[7][18] ),
-        .I3(vga_to_hdmi_i_303_n_0),
-        .O(vga_to_hdmi_i_222_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_223
-       (.I0(\pallette_reg_reg_n_0_[2][6] ),
-        .I1(vga_to_hdmi_i_304_n_0),
-        .I2(vga_to_hdmi_i_324_n_0),
-        .I3(vga_to_hdmi_i_71_n_0),
-        .O(vga_to_hdmi_i_223_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_224
-       (.I0(\pallette_reg_reg_n_0_[2][5] ),
-        .I1(vga_to_hdmi_i_314_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][5] ),
-        .I3(vga_to_hdmi_i_315_n_0),
-        .O(vga_to_hdmi_i_224_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_225
-       (.I0(\pallette_reg_reg_n_0_[4][17] ),
-        .I1(vga_to_hdmi_i_317_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][17] ),
-        .I3(vga_to_hdmi_i_318_n_0),
-        .O(vga_to_hdmi_i_225_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_226
-       (.I0(\pallette_reg_reg_n_0_[1][5] ),
-        .I1(vga_to_hdmi_i_319_n_0),
-        .I2(vga_to_hdmi_i_325_n_0),
-        .I3(vga_to_hdmi_i_321_n_0),
-        .O(vga_to_hdmi_i_226_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_227
-       (.I0(\pallette_reg_reg_n_0_[4][17] ),
-        .I1(vga_to_hdmi_i_300_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][5] ),
-        .I3(vga_to_hdmi_i_301_n_0),
-        .O(vga_to_hdmi_i_227_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_228
-       (.I0(\pallette_reg_reg_n_0_[0][17] ),
-        .I1(vga_to_hdmi_i_302_n_0),
-        .I2(\pallette_reg_reg_n_0_[7][17] ),
-        .I3(vga_to_hdmi_i_303_n_0),
-        .O(vga_to_hdmi_i_228_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_229
-       (.I0(\pallette_reg_reg_n_0_[2][5] ),
-        .I1(vga_to_hdmi_i_304_n_0),
-        .I2(vga_to_hdmi_i_326_n_0),
-        .I3(vga_to_hdmi_i_71_n_0),
-        .O(vga_to_hdmi_i_229_n_0));
-  LUT6 #(
-    .INIT(64'hF800880088008800)) 
-    vga_to_hdmi_i_23
-       (.I0(vga_to_hdmi_i_82_n_0),
-        .I1(vga_to_hdmi_i_71_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][22] ),
-        .I3(Red10_out),
-        .I4(vga_to_hdmi_i_73_n_0),
-        .I5(vga_to_hdmi_i_74_n_0),
-        .O(vga_to_hdmi_i_23_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_230
-       (.I0(\pallette_reg_reg_n_0_[4][16] ),
-        .I1(vga_to_hdmi_i_300_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][4] ),
-        .I3(vga_to_hdmi_i_301_n_0),
-        .O(vga_to_hdmi_i_230_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_231
-       (.I0(\pallette_reg_reg_n_0_[0][16] ),
-        .I1(vga_to_hdmi_i_302_n_0),
-        .I2(\pallette_reg_reg_n_0_[7][16] ),
-        .I3(vga_to_hdmi_i_303_n_0),
-        .O(vga_to_hdmi_i_231_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_232
-       (.I0(\pallette_reg_reg_n_0_[2][4] ),
-        .I1(vga_to_hdmi_i_304_n_0),
-        .I2(vga_to_hdmi_i_327_n_0),
-        .I3(vga_to_hdmi_i_71_n_0),
-        .O(vga_to_hdmi_i_232_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_233
-       (.I0(\pallette_reg_reg_n_0_[7][16] ),
-        .I1(vga_to_hdmi_i_202_n_0),
-        .I2(\pallette_reg_reg_n_0_[5][16] ),
-        .I3(vga_to_hdmi_i_203_n_0),
-        .O(vga_to_hdmi_i_233_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_234
-       (.I0(vga_to_hdmi_i_328_n_0),
-        .I1(\pallette_reg_reg_n_0_[0][16] ),
-        .I2(vga_to_hdmi_i_205_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][4] ),
-        .I4(vga_to_hdmi_i_206_n_0),
-        .I5(vga_to_hdmi_i_329_n_0),
-        .O(vga_to_hdmi_i_234_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_235
-       (.I0(vga_to_hdmi_i_208_n_0),
-        .I1(\pallette_reg_reg_n_0_[2][16] ),
-        .I2(vga_to_hdmi_i_209_n_0),
-        .I3(\pallette_reg_reg_n_0_[1][16] ),
-        .I4(vga_to_hdmi_i_330_n_0),
-        .O(vga_to_hdmi_i_235_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_236
-       (.I0(\pallette_reg_reg_n_0_[4][15] ),
-        .I1(vga_to_hdmi_i_300_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][3] ),
-        .I3(vga_to_hdmi_i_301_n_0),
-        .O(vga_to_hdmi_i_236_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_237
-       (.I0(\pallette_reg_reg_n_0_[0][15] ),
-        .I1(vga_to_hdmi_i_302_n_0),
-        .I2(\pallette_reg_reg_n_0_[7][15] ),
-        .I3(vga_to_hdmi_i_303_n_0),
-        .O(vga_to_hdmi_i_237_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_238
-       (.I0(\pallette_reg_reg_n_0_[2][3] ),
-        .I1(vga_to_hdmi_i_304_n_0),
-        .I2(vga_to_hdmi_i_331_n_0),
-        .I3(vga_to_hdmi_i_71_n_0),
-        .O(vga_to_hdmi_i_238_n_0));
-  LUT6 #(
-    .INIT(64'hFFEAEAEAAAAAAAAA)) 
-    vga_to_hdmi_i_24
-       (.I0(button_press017_out),
-        .I1(vga_to_hdmi_i_75_n_0),
-        .I2(vga_to_hdmi_i_83_n_0),
-        .I3(vga_to_hdmi_i_84_n_0),
-        .I4(vga_to_hdmi_i_78_n_0),
-        .I5(Red10_out),
-        .O(vga_to_hdmi_i_24_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_241
-       (.I0(\pallette_reg_reg_n_0_[2][3] ),
-        .I1(vga_to_hdmi_i_314_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][3] ),
-        .I3(vga_to_hdmi_i_315_n_0),
-        .O(vga_to_hdmi_i_241_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_242
-       (.I0(\pallette_reg_reg_n_0_[4][15] ),
-        .I1(vga_to_hdmi_i_317_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][15] ),
-        .I3(vga_to_hdmi_i_318_n_0),
-        .O(vga_to_hdmi_i_242_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_243
-       (.I0(\pallette_reg_reg_n_0_[1][3] ),
-        .I1(vga_to_hdmi_i_319_n_0),
-        .I2(vga_to_hdmi_i_332_n_0),
-        .I3(vga_to_hdmi_i_321_n_0),
-        .O(vga_to_hdmi_i_243_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_244
-       (.I0(\pallette_reg_reg_n_0_[2][2] ),
-        .I1(vga_to_hdmi_i_314_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][2] ),
-        .I3(vga_to_hdmi_i_315_n_0),
-        .O(vga_to_hdmi_i_244_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_245
-       (.I0(\pallette_reg_reg_n_0_[4][14] ),
-        .I1(vga_to_hdmi_i_317_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][14] ),
-        .I3(vga_to_hdmi_i_318_n_0),
-        .O(vga_to_hdmi_i_245_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_246
-       (.I0(\pallette_reg_reg_n_0_[1][2] ),
-        .I1(vga_to_hdmi_i_319_n_0),
-        .I2(vga_to_hdmi_i_333_n_0),
-        .I3(vga_to_hdmi_i_321_n_0),
-        .O(vga_to_hdmi_i_246_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_247
-       (.I0(\pallette_reg_reg_n_0_[4][14] ),
-        .I1(vga_to_hdmi_i_300_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][2] ),
-        .I3(vga_to_hdmi_i_301_n_0),
         .O(vga_to_hdmi_i_247_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     vga_to_hdmi_i_248
-       (.I0(\pallette_reg_reg_n_0_[0][14] ),
-        .I1(vga_to_hdmi_i_302_n_0),
-        .I2(\pallette_reg_reg_n_0_[7][14] ),
-        .I3(vga_to_hdmi_i_303_n_0),
+       (.I0(user_dout[21]),
+        .I1(Q[0]),
+        .I2(user_dout[5]),
         .O(vga_to_hdmi_i_248_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     vga_to_hdmi_i_249
-       (.I0(\pallette_reg_reg_n_0_[2][2] ),
-        .I1(vga_to_hdmi_i_304_n_0),
-        .I2(vga_to_hdmi_i_334_n_0),
-        .I3(vga_to_hdmi_i_71_n_0),
-        .O(vga_to_hdmi_i_249_n_0));
-  LUT6 #(
-    .INIT(64'hFEBABABABABABABA)) 
-    vga_to_hdmi_i_25
-       (.I0(vga_to_hdmi_i_85_n_0),
-        .I1(Red10_out),
-        .I2(rgb_values[9]),
-        .I3(vga_to_hdmi_i_81_n_0),
-        .I4(vga_to_hdmi_i_73_n_0),
-        .I5(\pallette_reg_reg_n_0_[0][22] ),
-        .O(vga_to_hdmi_i_25_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_251
-       (.I0(\pallette_reg_reg_n_0_[2][1] ),
-        .I1(vga_to_hdmi_i_314_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][1] ),
-        .I3(vga_to_hdmi_i_315_n_0),
-        .O(vga_to_hdmi_i_251_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_252
-       (.I0(\pallette_reg_reg_n_0_[4][13] ),
-        .I1(vga_to_hdmi_i_317_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][13] ),
-        .I3(vga_to_hdmi_i_318_n_0),
-        .O(vga_to_hdmi_i_252_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_253
-       (.I0(\pallette_reg_reg_n_0_[1][1] ),
-        .I1(vga_to_hdmi_i_319_n_0),
-        .I2(vga_to_hdmi_i_335_n_0),
-        .I3(vga_to_hdmi_i_321_n_0),
-        .O(vga_to_hdmi_i_253_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_254
-       (.I0(\pallette_reg_reg_n_0_[4][13] ),
-        .I1(vga_to_hdmi_i_300_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][1] ),
-        .I3(vga_to_hdmi_i_301_n_0),
-        .O(vga_to_hdmi_i_254_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_255
-       (.I0(\pallette_reg_reg_n_0_[0][13] ),
-        .I1(vga_to_hdmi_i_302_n_0),
-        .I2(\pallette_reg_reg_n_0_[7][13] ),
-        .I3(vga_to_hdmi_i_303_n_0),
-        .O(vga_to_hdmi_i_255_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_256
-       (.I0(\pallette_reg_reg_n_0_[2][1] ),
-        .I1(vga_to_hdmi_i_304_n_0),
-        .I2(vga_to_hdmi_i_336_n_0),
-        .I3(vga_to_hdmi_i_71_n_0),
-        .O(vga_to_hdmi_i_256_n_0));
-  LUT6 #(
-    .INIT(64'hF800880088008800)) 
-    vga_to_hdmi_i_26
-       (.I0(vga_to_hdmi_i_87_n_0),
-        .I1(vga_to_hdmi_i_71_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][21] ),
-        .I3(Red10_out),
-        .I4(vga_to_hdmi_i_73_n_0),
-        .I5(vga_to_hdmi_i_74_n_0),
-        .O(vga_to_hdmi_i_26_n_0));
-  LUT6 #(
-    .INIT(64'hFFEAEAEAAAAAAAAA)) 
-    vga_to_hdmi_i_27
-       (.I0(button_press017_out),
-        .I1(vga_to_hdmi_i_75_n_0),
-        .I2(vga_to_hdmi_i_88_n_0),
-        .I3(vga_to_hdmi_i_89_n_0),
-        .I4(vga_to_hdmi_i_78_n_0),
-        .I5(Red10_out),
-        .O(vga_to_hdmi_i_27_n_0));
-  LUT6 #(
-    .INIT(64'hFEBABABABABABABA)) 
-    vga_to_hdmi_i_28
-       (.I0(vga_to_hdmi_i_90_n_0),
-        .I1(Red10_out),
-        .I2(rgb_values[8]),
-        .I3(vga_to_hdmi_i_81_n_0),
-        .I4(vga_to_hdmi_i_73_n_0),
-        .I5(\pallette_reg_reg_n_0_[0][21] ),
-        .O(vga_to_hdmi_i_28_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_285
-       (.I0(\pallette_reg_reg_n_0_[1][12] ),
-        .I1(vga_to_hdmi_i_319_n_0),
-        .I2(vga_to_hdmi_i_357_n_0),
-        .I3(vga_to_hdmi_i_321_n_0),
-        .O(vga_to_hdmi_i_285_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_286
-       (.I0(\pallette_reg_reg_n_0_[2][12] ),
-        .I1(vga_to_hdmi_i_314_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][12] ),
-        .I3(vga_to_hdmi_i_315_n_0),
-        .O(vga_to_hdmi_i_286_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_287
-       (.I0(\pallette_reg_reg_n_0_[4][24] ),
-        .I1(vga_to_hdmi_i_317_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][24] ),
-        .I3(vga_to_hdmi_i_318_n_0),
-        .O(vga_to_hdmi_i_287_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_291
-       (.I0(\pallette_reg_reg_n_0_[2][11] ),
-        .I1(vga_to_hdmi_i_314_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][11] ),
-        .I3(vga_to_hdmi_i_315_n_0),
-        .O(vga_to_hdmi_i_291_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_292
-       (.I0(\pallette_reg_reg_n_0_[4][23] ),
-        .I1(vga_to_hdmi_i_317_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][23] ),
-        .I3(vga_to_hdmi_i_318_n_0),
-        .O(vga_to_hdmi_i_292_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_293
-       (.I0(\pallette_reg_reg_n_0_[1][11] ),
-        .I1(vga_to_hdmi_i_319_n_0),
-        .I2(vga_to_hdmi_i_360_n_0),
-        .I3(vga_to_hdmi_i_321_n_0),
-        .O(vga_to_hdmi_i_293_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_294
-       (.I0(\pallette_reg_reg_n_0_[2][10] ),
-        .I1(vga_to_hdmi_i_314_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][10] ),
-        .I3(vga_to_hdmi_i_315_n_0),
-        .O(vga_to_hdmi_i_294_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_295
-       (.I0(\pallette_reg_reg_n_0_[4][22] ),
-        .I1(vga_to_hdmi_i_317_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][22] ),
-        .I3(vga_to_hdmi_i_318_n_0),
-        .O(vga_to_hdmi_i_295_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_296
-       (.I0(\pallette_reg_reg_n_0_[1][10] ),
-        .I1(vga_to_hdmi_i_319_n_0),
-        .I2(vga_to_hdmi_i_361_n_0),
-        .I3(vga_to_hdmi_i_321_n_0),
-        .O(vga_to_hdmi_i_296_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_297
-       (.I0(\pallette_reg_reg_n_0_[2][9] ),
-        .I1(vga_to_hdmi_i_314_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][9] ),
-        .I3(vga_to_hdmi_i_315_n_0),
-        .O(vga_to_hdmi_i_297_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_298
-       (.I0(\pallette_reg_reg_n_0_[4][21] ),
-        .I1(vga_to_hdmi_i_317_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][21] ),
-        .I3(vga_to_hdmi_i_318_n_0),
-        .O(vga_to_hdmi_i_298_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_299
-       (.I0(\pallette_reg_reg_n_0_[1][9] ),
-        .I1(vga_to_hdmi_i_319_n_0),
-        .I2(vga_to_hdmi_i_362_n_0),
-        .I3(vga_to_hdmi_i_321_n_0),
-        .O(vga_to_hdmi_i_299_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFFE00)) 
-    vga_to_hdmi_i_3
-       (.I0(vga_to_hdmi_i_19_n_0),
-        .I1(vga_to_hdmi_i_20_n_0),
-        .I2(vga_to_hdmi_i_21_n_0),
-        .I3(\srl[20].srl16_i ),
-        .I4(\srl[20].srl16_i_0 ),
-        .O(red[2]));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_30
-       (.I0(vga_to_hdmi_i_92_n_0),
-        .I1(vga_to_hdmi_i_93_n_0),
-        .I2(vga_to_hdmi_i_94_n_0),
-        .I3(vga_to_hdmi_i_95_n_0),
-        .I4(\pallette_reg_reg_n_0_[2][20] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [15]));
-  LUT6 #(
-    .INIT(64'hB830880000000000)) 
-    vga_to_hdmi_i_300
-       (.I0(user_dout[23]),
-        .I1(Q[0]),
-        .I2(user_dout[7]),
-        .I3(user_dout[20]),
-        .I4(user_dout[4]),
-        .I5(vga_to_hdmi_i_81_n_0),
-        .O(vga_to_hdmi_i_300_n_0));
-  LUT6 #(
-    .INIT(64'h0044034700000000)) 
-    vga_to_hdmi_i_301
-       (.I0(user_dout[23]),
-        .I1(Q[0]),
-        .I2(user_dout[7]),
-        .I3(user_dout[20]),
-        .I4(user_dout[4]),
-        .I5(vga_to_hdmi_i_81_n_0),
-        .O(vga_to_hdmi_i_301_n_0));
-  LUT6 #(
-    .INIT(64'h202A000A20200000)) 
-    vga_to_hdmi_i_302
-       (.I0(vga_to_hdmi_i_81_n_0),
-        .I1(user_dout[23]),
-        .I2(Q[0]),
-        .I3(user_dout[7]),
-        .I4(user_dout[20]),
-        .I5(user_dout[4]),
-        .O(vga_to_hdmi_i_302_n_0));
-  LUT6 #(
-    .INIT(64'hB830880000000000)) 
-    vga_to_hdmi_i_303
-       (.I0(user_dout[23]),
-        .I1(Q[0]),
-        .I2(user_dout[7]),
-        .I3(user_dout[20]),
-        .I4(user_dout[4]),
-        .I5(vga_to_hdmi_i_74_n_0),
-        .O(vga_to_hdmi_i_303_n_0));
-  LUT6 #(
-    .INIT(64'h0044034700000000)) 
-    vga_to_hdmi_i_304
-       (.I0(user_dout[23]),
-        .I1(Q[0]),
-        .I2(user_dout[7]),
-        .I3(user_dout[20]),
-        .I4(user_dout[4]),
-        .I5(vga_to_hdmi_i_170_n_0),
-        .O(vga_to_hdmi_i_304_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_305
-       (.I0(\pallette_reg_reg_n_0_[5][8] ),
-        .I1(\pallette_reg_reg_n_0_[7][8] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][8] ),
-        .I5(\pallette_reg_reg_n_0_[6][8] ),
-        .O(vga_to_hdmi_i_305_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_309
-       (.I0(\pallette_reg_reg_n_0_[2][8] ),
-        .I1(vga_to_hdmi_i_314_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][8] ),
-        .I3(vga_to_hdmi_i_315_n_0),
-        .O(vga_to_hdmi_i_309_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_310
-       (.I0(\pallette_reg_reg_n_0_[4][20] ),
-        .I1(vga_to_hdmi_i_317_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][20] ),
-        .I3(vga_to_hdmi_i_318_n_0),
-        .O(vga_to_hdmi_i_310_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_311
-       (.I0(\pallette_reg_reg_n_0_[1][8] ),
-        .I1(vga_to_hdmi_i_319_n_0),
-        .I2(vga_to_hdmi_i_363_n_0),
-        .I3(vga_to_hdmi_i_321_n_0),
-        .O(vga_to_hdmi_i_311_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
-  LUT5 #(
-    .INIT(32'hCCA000A0)) 
-    vga_to_hdmi_i_312
-       (.I0(user_dout[2]),
-        .I1(user_dout[18]),
-        .I2(user_dout[1]),
-        .I3(Q[0]),
-        .I4(user_dout[17]),
-        .O(vga_to_hdmi_i_312_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
-  LUT5 #(
-    .INIT(32'h000ACC0A)) 
-    vga_to_hdmi_i_313
-       (.I0(user_dout[1]),
-        .I1(user_dout[17]),
-        .I2(user_dout[2]),
-        .I3(Q[0]),
-        .I4(user_dout[18]),
-        .O(vga_to_hdmi_i_313_n_0));
-  LUT6 #(
-    .INIT(64'h00002020000A202A)) 
-    vga_to_hdmi_i_314
-       (.I0(vga_to_hdmi_i_211_n_0),
-        .I1(user_dout[19]),
-        .I2(Q[0]),
-        .I3(user_dout[3]),
-        .I4(user_dout[16]),
-        .I5(user_dout[0]),
-        .O(vga_to_hdmi_i_314_n_0));
-  LUT6 #(
-    .INIT(64'h00002020000A202A)) 
-    vga_to_hdmi_i_315
-       (.I0(vga_to_hdmi_i_316_n_0),
-        .I1(user_dout[19]),
-        .I2(Q[0]),
-        .I3(user_dout[3]),
-        .I4(user_dout[16]),
-        .I5(user_dout[0]),
-        .O(vga_to_hdmi_i_315_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
-  LUT5 #(
-    .INIT(32'h00053305)) 
-    vga_to_hdmi_i_316
-       (.I0(user_dout[2]),
-        .I1(user_dout[18]),
-        .I2(user_dout[1]),
-        .I3(Q[0]),
-        .I4(user_dout[17]),
-        .O(vga_to_hdmi_i_316_n_0));
-  LUT6 #(
-    .INIT(64'h8A800A0080800000)) 
-    vga_to_hdmi_i_317
-       (.I0(vga_to_hdmi_i_316_n_0),
-        .I1(user_dout[19]),
-        .I2(Q[0]),
-        .I3(user_dout[3]),
-        .I4(user_dout[16]),
-        .I5(user_dout[0]),
-        .O(vga_to_hdmi_i_317_n_0));
-  LUT6 #(
-    .INIT(64'h202A000A20200000)) 
-    vga_to_hdmi_i_318
-       (.I0(vga_to_hdmi_i_312_n_0),
-        .I1(user_dout[19]),
-        .I2(Q[0]),
-        .I3(user_dout[3]),
-        .I4(user_dout[16]),
-        .I5(user_dout[0]),
-        .O(vga_to_hdmi_i_318_n_0));
-  LUT6 #(
-    .INIT(64'h00002020000A202A)) 
-    vga_to_hdmi_i_319
-       (.I0(vga_to_hdmi_i_313_n_0),
-        .I1(user_dout[19]),
-        .I2(Q[0]),
-        .I3(user_dout[3]),
-        .I4(user_dout[16]),
-        .I5(user_dout[0]),
-        .O(vga_to_hdmi_i_319_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_320
-       (.I0(\pallette_reg_reg_n_0_[5][7] ),
-        .I1(\pallette_reg_reg_n_0_[7][7] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][7] ),
-        .I5(\pallette_reg_reg_n_0_[6][7] ),
-        .O(vga_to_hdmi_i_320_n_0));
-  LUT5 #(
-    .INIT(32'h000ACC0A)) 
-    vga_to_hdmi_i_321
-       (.I0(user_dout[3]),
-        .I1(user_dout[19]),
-        .I2(user_dout[0]),
-        .I3(Q[0]),
-        .I4(user_dout[16]),
-        .O(vga_to_hdmi_i_321_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_322
-       (.I0(\pallette_reg_reg_n_0_[5][7] ),
-        .I1(\pallette_reg_reg_n_0_[7][7] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][7] ),
-        .I5(\pallette_reg_reg_n_0_[6][7] ),
-        .O(vga_to_hdmi_i_322_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_323
-       (.I0(\pallette_reg_reg_n_0_[5][6] ),
-        .I1(\pallette_reg_reg_n_0_[7][6] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][6] ),
-        .I5(\pallette_reg_reg_n_0_[6][6] ),
-        .O(vga_to_hdmi_i_323_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_324
-       (.I0(\pallette_reg_reg_n_0_[5][6] ),
-        .I1(\pallette_reg_reg_n_0_[7][6] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][6] ),
-        .I5(\pallette_reg_reg_n_0_[6][6] ),
-        .O(vga_to_hdmi_i_324_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_325
-       (.I0(\pallette_reg_reg_n_0_[5][5] ),
-        .I1(\pallette_reg_reg_n_0_[7][5] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][5] ),
-        .I5(\pallette_reg_reg_n_0_[6][5] ),
-        .O(vga_to_hdmi_i_325_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_326
-       (.I0(\pallette_reg_reg_n_0_[5][5] ),
-        .I1(\pallette_reg_reg_n_0_[7][5] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][5] ),
-        .I5(\pallette_reg_reg_n_0_[6][5] ),
-        .O(vga_to_hdmi_i_326_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_327
-       (.I0(\pallette_reg_reg_n_0_[5][4] ),
-        .I1(\pallette_reg_reg_n_0_[7][4] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][4] ),
-        .I5(\pallette_reg_reg_n_0_[6][4] ),
-        .O(vga_to_hdmi_i_327_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_328
-       (.I0(\pallette_reg_reg_n_0_[2][4] ),
-        .I1(vga_to_hdmi_i_314_n_0),
-        .I2(\pallette_reg_reg_n_0_[0][4] ),
-        .I3(vga_to_hdmi_i_315_n_0),
-        .O(vga_to_hdmi_i_328_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_329
-       (.I0(\pallette_reg_reg_n_0_[4][16] ),
-        .I1(vga_to_hdmi_i_317_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][16] ),
-        .I3(vga_to_hdmi_i_318_n_0),
-        .O(vga_to_hdmi_i_329_n_0));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_330
-       (.I0(\pallette_reg_reg_n_0_[1][4] ),
-        .I1(vga_to_hdmi_i_319_n_0),
-        .I2(vga_to_hdmi_i_366_n_0),
-        .I3(vga_to_hdmi_i_321_n_0),
-        .O(vga_to_hdmi_i_330_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_331
-       (.I0(\pallette_reg_reg_n_0_[5][3] ),
-        .I1(\pallette_reg_reg_n_0_[7][3] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][3] ),
-        .I5(\pallette_reg_reg_n_0_[6][3] ),
-        .O(vga_to_hdmi_i_331_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_332
-       (.I0(\pallette_reg_reg_n_0_[5][3] ),
-        .I1(\pallette_reg_reg_n_0_[7][3] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][3] ),
-        .I5(\pallette_reg_reg_n_0_[6][3] ),
-        .O(vga_to_hdmi_i_332_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_333
-       (.I0(\pallette_reg_reg_n_0_[5][2] ),
-        .I1(\pallette_reg_reg_n_0_[7][2] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][2] ),
-        .I5(\pallette_reg_reg_n_0_[6][2] ),
-        .O(vga_to_hdmi_i_333_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_334
-       (.I0(\pallette_reg_reg_n_0_[5][2] ),
-        .I1(\pallette_reg_reg_n_0_[7][2] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][2] ),
-        .I5(\pallette_reg_reg_n_0_[6][2] ),
-        .O(vga_to_hdmi_i_334_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_335
-       (.I0(\pallette_reg_reg_n_0_[5][1] ),
-        .I1(\pallette_reg_reg_n_0_[7][1] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][1] ),
-        .I5(\pallette_reg_reg_n_0_[6][1] ),
-        .O(vga_to_hdmi_i_335_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_336
-       (.I0(\pallette_reg_reg_n_0_[5][1] ),
-        .I1(\pallette_reg_reg_n_0_[7][1] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][1] ),
-        .I5(\pallette_reg_reg_n_0_[6][1] ),
-        .O(vga_to_hdmi_i_336_n_0));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_34
-       (.I0(vga_to_hdmi_i_99_n_0),
-        .I1(vga_to_hdmi_i_100_n_0),
-        .I2(vga_to_hdmi_i_101_n_0),
-        .I3(vga_to_hdmi_i_102_n_0),
-        .I4(\pallette_reg_reg_n_0_[6][19] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [6]));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_35
-       (.I0(vga_to_hdmi_i_103_n_0),
-        .I1(vga_to_hdmi_i_104_n_0),
-        .I2(vga_to_hdmi_i_105_n_0),
-        .I3(vga_to_hdmi_i_95_n_0),
-        .I4(\pallette_reg_reg_n_0_[2][19] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [14]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_357
-       (.I0(\pallette_reg_reg_n_0_[5][12] ),
-        .I1(\pallette_reg_reg_n_0_[7][12] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][12] ),
-        .I5(\pallette_reg_reg_n_0_[6][12] ),
-        .O(vga_to_hdmi_i_357_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_360
-       (.I0(\pallette_reg_reg_n_0_[5][11] ),
-        .I1(\pallette_reg_reg_n_0_[7][11] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][11] ),
-        .I5(\pallette_reg_reg_n_0_[6][11] ),
-        .O(vga_to_hdmi_i_360_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_361
-       (.I0(\pallette_reg_reg_n_0_[5][10] ),
-        .I1(\pallette_reg_reg_n_0_[7][10] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][10] ),
-        .I5(\pallette_reg_reg_n_0_[6][10] ),
-        .O(vga_to_hdmi_i_361_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_362
-       (.I0(\pallette_reg_reg_n_0_[5][9] ),
-        .I1(\pallette_reg_reg_n_0_[7][9] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][9] ),
-        .I5(\pallette_reg_reg_n_0_[6][9] ),
-        .O(vga_to_hdmi_i_362_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_363
-       (.I0(\pallette_reg_reg_n_0_[5][8] ),
-        .I1(\pallette_reg_reg_n_0_[7][8] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][8] ),
-        .I5(\pallette_reg_reg_n_0_[6][8] ),
-        .O(vga_to_hdmi_i_363_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    vga_to_hdmi_i_364
-       (.I0(user_dout[17]),
-        .I1(Q[0]),
-        .I2(user_dout[1]),
-        .O(sel0[0]));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    vga_to_hdmi_i_365
        (.I0(user_dout[18]),
         .I1(Q[0]),
         .I2(user_dout[2]),
-        .O(sel0[1]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_366
-       (.I0(\pallette_reg_reg_n_0_[5][4] ),
-        .I1(\pallette_reg_reg_n_0_[7][4] ),
-        .I2(sel0[0]),
-        .I3(sel0[1]),
-        .I4(\pallette_reg_reg_n_0_[4][4] ),
-        .I5(\pallette_reg_reg_n_0_[6][4] ),
-        .O(vga_to_hdmi_i_366_n_0));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_37
-       (.I0(vga_to_hdmi_i_109_n_0),
-        .I1(vga_to_hdmi_i_110_n_0),
-        .I2(vga_to_hdmi_i_111_n_0),
-        .I3(vga_to_hdmi_i_102_n_0),
-        .I4(\pallette_reg_reg_n_0_[6][18] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [5]));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_38
-       (.I0(vga_to_hdmi_i_112_n_0),
-        .I1(vga_to_hdmi_i_113_n_0),
-        .I2(vga_to_hdmi_i_114_n_0),
-        .I3(vga_to_hdmi_i_95_n_0),
-        .I4(\pallette_reg_reg_n_0_[2][18] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [13]));
-  LUT5 #(
-    .INIT(32'hFFFFFE00)) 
-    vga_to_hdmi_i_4
-       (.I0(vga_to_hdmi_i_23_n_0),
-        .I1(vga_to_hdmi_i_24_n_0),
-        .I2(vga_to_hdmi_i_25_n_0),
-        .I3(\srl[20].srl16_i ),
-        .I4(\srl[20].srl16_i_0 ),
-        .O(red[1]));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_40
-       (.I0(vga_to_hdmi_i_115_n_0),
-        .I1(vga_to_hdmi_i_116_n_0),
-        .I2(vga_to_hdmi_i_117_n_0),
-        .I3(vga_to_hdmi_i_102_n_0),
-        .I4(\pallette_reg_reg_n_0_[6][17] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [4]));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_41
-       (.I0(vga_to_hdmi_i_118_n_0),
-        .I1(vga_to_hdmi_i_119_n_0),
-        .I2(vga_to_hdmi_i_120_n_0),
-        .I3(vga_to_hdmi_i_95_n_0),
-        .I4(\pallette_reg_reg_n_0_[2][17] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [12]));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_42
-       (.I0(vga_to_hdmi_i_121_n_0),
-        .I1(vga_to_hdmi_i_122_n_0),
-        .I2(vga_to_hdmi_i_123_n_0),
-        .I3(vga_to_hdmi_i_95_n_0),
-        .I4(\pallette_reg_reg_n_0_[2][16] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [11]));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_46
-       (.I0(vga_to_hdmi_i_127_n_0),
-        .I1(vga_to_hdmi_i_128_n_0),
-        .I2(vga_to_hdmi_i_129_n_0),
-        .I3(vga_to_hdmi_i_95_n_0),
-        .I4(\pallette_reg_reg_n_0_[2][15] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [10]));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_48
-       (.I0(vga_to_hdmi_i_131_n_0),
-        .I1(vga_to_hdmi_i_132_n_0),
-        .I2(vga_to_hdmi_i_133_n_0),
-        .I3(vga_to_hdmi_i_102_n_0),
-        .I4(\pallette_reg_reg_n_0_[6][15] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [2]));
-  LUT5 #(
-    .INIT(32'hFFFFFE00)) 
-    vga_to_hdmi_i_5
-       (.I0(vga_to_hdmi_i_26_n_0),
-        .I1(vga_to_hdmi_i_27_n_0),
-        .I2(vga_to_hdmi_i_28_n_0),
-        .I3(\srl[20].srl16_i ),
-        .I4(\srl[20].srl16_i_0 ),
-        .O(red[0]));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_50
-       (.I0(vga_to_hdmi_i_134_n_0),
-        .I1(vga_to_hdmi_i_135_n_0),
-        .I2(vga_to_hdmi_i_136_n_0),
-        .I3(vga_to_hdmi_i_102_n_0),
-        .I4(\pallette_reg_reg_n_0_[6][14] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [1]));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_52
-       (.I0(vga_to_hdmi_i_137_n_0),
-        .I1(vga_to_hdmi_i_138_n_0),
-        .I2(vga_to_hdmi_i_139_n_0),
-        .I3(vga_to_hdmi_i_95_n_0),
-        .I4(\pallette_reg_reg_n_0_[2][14] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [9]));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_55
-       (.I0(vga_to_hdmi_i_141_n_0),
-        .I1(vga_to_hdmi_i_142_n_0),
-        .I2(vga_to_hdmi_i_143_n_0),
-        .I3(vga_to_hdmi_i_102_n_0),
-        .I4(\pallette_reg_reg_n_0_[6][13] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [0]));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_56
-       (.I0(vga_to_hdmi_i_144_n_0),
-        .I1(vga_to_hdmi_i_145_n_0),
-        .I2(vga_to_hdmi_i_146_n_0),
-        .I3(vga_to_hdmi_i_95_n_0),
-        .I4(\pallette_reg_reg_n_0_[2][13] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [8]));
-  LUT6 #(
-    .INIT(64'hF800880088008800)) 
-    vga_to_hdmi_i_64
-       (.I0(vga_to_hdmi_i_162_n_0),
-        .I1(vga_to_hdmi_i_71_n_0),
-        .I2(\pallette_reg_reg_n_0_[3][24] ),
-        .I3(Red10_out),
-        .I4(vga_to_hdmi_i_73_n_0),
-        .I5(vga_to_hdmi_i_74_n_0),
-        .O(vga_to_hdmi_i_64_n_0));
-  LUT6 #(
-    .INIT(64'hFFEAEAEAAAAAAAAA)) 
-    vga_to_hdmi_i_65
-       (.I0(button_press017_out),
-        .I1(vga_to_hdmi_i_75_n_0),
-        .I2(vga_to_hdmi_i_163_n_0),
-        .I3(vga_to_hdmi_i_164_n_0),
-        .I4(vga_to_hdmi_i_78_n_0),
-        .I5(Red10_out),
-        .O(vga_to_hdmi_i_65_n_0));
-  LUT6 #(
-    .INIT(64'h1DE2000000000000)) 
-    vga_to_hdmi_i_66
-       (.I0(doutb[1]),
+        .O(vga_to_hdmi_i_249_n_0));
+  LUT3 #(
+    .INIT(8'hB8)) 
+    vga_to_hdmi_i_250
+       (.I0(user_dout[17]),
         .I1(Q[0]),
-        .I2(doutb[3]),
-        .I3(ball_on),
-        .I4(vga_to_hdmi_i_73_n_0),
-        .I5(vga_to_hdmi_i_81_n_0),
-        .O(vga_to_hdmi_i_66_n_0));
-  LUT6 #(
-    .INIT(64'h5555555555555540)) 
-    vga_to_hdmi_i_67
-       (.I0(Red10_out),
-        .I1(\pallette_reg_reg_n_0_[6][24] ),
-        .I2(vga_to_hdmi_i_102_n_0),
-        .I3(vga_to_hdmi_i_165_n_0),
-        .I4(vga_to_hdmi_i_166_n_0),
-        .I5(vga_to_hdmi_i_167_n_0),
-        .O(vga_to_hdmi_i_67_n_0));
+        .I2(user_dout[1]),
+        .O(vga_to_hdmi_i_250_n_0));
   LUT5 #(
-    .INIT(32'hF8008800)) 
-    vga_to_hdmi_i_68
-       (.I0(\pallette_reg_reg_n_0_[1][24] ),
-        .I1(vga_to_hdmi_i_168_n_0),
-        .I2(\pallette_reg_reg_n_0_[2][24] ),
-        .I3(vga_to_hdmi_i_169_n_0),
-        .I4(vga_to_hdmi_i_170_n_0),
-        .O(vga_to_hdmi_i_68_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_70
-       (.I0(\pallette_reg_reg_n_0_[5][11] ),
-        .I1(\pallette_reg_reg_n_0_[7][11] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][11] ),
-        .I5(\pallette_reg_reg_n_0_[6][11] ),
-        .O(vga_to_hdmi_i_70_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+    .INIT(32'hB800FFFF)) 
+    vga_to_hdmi_i_26
+       (.I0(rgb_values[19]),
+        .I1(vga_to_hdmi_i_50_n_0),
+        .I2(rgb_values[7]),
+        .I3(\srl[38].srl16_i ),
+        .I4(\srl[39].srl16_i ),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ));
+  LUT4 #(
+    .INIT(16'hE2FF)) 
+    vga_to_hdmi_i_28
+       (.I0(rgb_values[6]),
+        .I1(vga_to_hdmi_i_50_n_0),
+        .I2(rgb_values[18]),
+        .I3(\srl[38].srl16_i ),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ));
+  MUXF7 vga_to_hdmi_i_30
+       (.I0(rgb_values[5]),
+        .I1(rgb_values[17]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 ),
+        .S(vga_to_hdmi_i_50_n_0));
+  MUXF7 vga_to_hdmi_i_31
+       (.I0(rgb_values[4]),
+        .I1(rgb_values[16]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 ),
+        .S(vga_to_hdmi_i_50_n_0));
   LUT5 #(
-    .INIT(32'h000ACC0A)) 
-    vga_to_hdmi_i_71
-       (.I0(user_dout[7]),
-        .I1(user_dout[23]),
-        .I2(user_dout[4]),
-        .I3(Q[0]),
-        .I4(user_dout[20]),
-        .O(vga_to_hdmi_i_71_n_0));
+    .INIT(32'hB800FFFF)) 
+    vga_to_hdmi_i_32
+       (.I0(rgb_values[15]),
+        .I1(vga_to_hdmi_i_50_n_0),
+        .I2(rgb_values[3]),
+        .I3(\srl[38].srl16_i ),
+        .I4(\srl[39].srl16_i ),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ));
+  LUT4 #(
+    .INIT(16'h02A2)) 
+    vga_to_hdmi_i_36
+       (.I0(\srl[38].srl16_i ),
+        .I1(rgb_values[2]),
+        .I2(vga_to_hdmi_i_50_n_0),
+        .I3(rgb_values[14]),
+        .O(\hc_reg[2] ));
+  MUXF7 vga_to_hdmi_i_37
+       (.I0(rgb_values[1]),
+        .I1(rgb_values[13]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 ),
+        .S(vga_to_hdmi_i_50_n_0));
+  MUXF7 vga_to_hdmi_i_39
+       (.I0(rgb_values[0]),
+        .I1(rgb_values[12]),
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 ),
+        .S(vga_to_hdmi_i_50_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_49
+       (.I0(vga_to_hdmi_i_105_n_0),
+        .I1(vga_to_hdmi_i_106_n_0),
+        .I2(vga_to_hdmi_i_107_n_0),
+        .I3(vga_to_hdmi_i_108_n_0),
+        .I4(vga_to_hdmi_i_109_n_0),
+        .I5(vga_to_hdmi_i_110_n_0),
+        .O(rgb_values[23]));
   LUT4 #(
     .INIT(16'h1DE2)) 
-    vga_to_hdmi_i_72
-       (.I0(doutb[1]),
+    vga_to_hdmi_i_50
+       (.I0(user_dout[15]),
         .I1(Q[0]),
-        .I2(doutb[3]),
+        .I2(user_dout[31]),
         .I3(ball_on),
-        .O(Red10_out));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
-  LUT5 #(
-    .INIT(32'h000ACC0A)) 
-    vga_to_hdmi_i_73
-       (.I0(user_dout[4]),
-        .I1(user_dout[20]),
-        .I2(user_dout[7]),
-        .I3(Q[0]),
-        .I4(user_dout[23]),
-        .O(vga_to_hdmi_i_73_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
-  LUT5 #(
-    .INIT(32'hCCA000A0)) 
-    vga_to_hdmi_i_74
-       (.I0(user_dout[6]),
-        .I1(user_dout[22]),
-        .I2(user_dout[5]),
-        .I3(Q[0]),
-        .I4(user_dout[21]),
-        .O(vga_to_hdmi_i_74_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
-  LUT5 #(
-    .INIT(32'h00053305)) 
-    vga_to_hdmi_i_75
-       (.I0(user_dout[4]),
-        .I1(user_dout[20]),
-        .I2(user_dout[7]),
-        .I3(Q[0]),
-        .I4(user_dout[23]),
-        .O(vga_to_hdmi_i_75_n_0));
+        .O(vga_to_hdmi_i_50_n_0));
   LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_76
-       (.I0(\pallette_reg_reg_n_0_[1][11] ),
-        .I1(\pallette_reg_reg_n_0_[3][11] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][11] ),
-        .I5(\pallette_reg_reg_n_0_[2][11] ),
-        .O(vga_to_hdmi_i_76_n_0));
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_51
+       (.I0(vga_to_hdmi_i_111_n_0),
+        .I1(vga_to_hdmi_i_112_n_0),
+        .I2(vga_to_hdmi_i_113_n_0),
+        .I3(vga_to_hdmi_i_114_n_0),
+        .I4(vga_to_hdmi_i_115_n_0),
+        .I5(vga_to_hdmi_i_116_n_0),
+        .O(rgb_values[11]));
   LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_77
-       (.I0(\pallette_reg_reg_n_0_[5][23] ),
-        .I1(\pallette_reg_reg_n_0_[7][23] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][23] ),
-        .I5(\pallette_reg_reg_n_0_[6][23] ),
-        .O(vga_to_hdmi_i_77_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
-  LUT5 #(
-    .INIT(32'hCCA000A0)) 
-    vga_to_hdmi_i_78
-       (.I0(user_dout[4]),
-        .I1(user_dout[20]),
-        .I2(user_dout[7]),
-        .I3(Q[0]),
-        .I4(user_dout[23]),
-        .O(vga_to_hdmi_i_78_n_0));
-  LUT5 #(
-    .INIT(32'hF8008800)) 
-    vga_to_hdmi_i_79
-       (.I0(\pallette_reg_reg_n_0_[1][23] ),
-        .I1(vga_to_hdmi_i_168_n_0),
-        .I2(\pallette_reg_reg_n_0_[2][23] ),
-        .I3(vga_to_hdmi_i_169_n_0),
-        .I4(vga_to_hdmi_i_170_n_0),
-        .O(vga_to_hdmi_i_79_n_0));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_80
-       (.I0(vga_to_hdmi_i_177_n_0),
-        .I1(vga_to_hdmi_i_178_n_0),
-        .I2(vga_to_hdmi_i_179_n_0),
-        .I3(vga_to_hdmi_i_102_n_0),
-        .I4(\pallette_reg_reg_n_0_[6][23] ),
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_58
+       (.I0(vga_to_hdmi_i_127_n_0),
+        .I1(vga_to_hdmi_i_128_n_0),
+        .I2(vga_to_hdmi_i_113_n_0),
+        .I3(vga_to_hdmi_i_129_n_0),
+        .I4(vga_to_hdmi_i_115_n_0),
+        .I5(vga_to_hdmi_i_130_n_0),
         .O(rgb_values[10]));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
-  LUT5 #(
-    .INIT(32'h00053305)) 
-    vga_to_hdmi_i_81
-       (.I0(user_dout[6]),
-        .I1(user_dout[22]),
-        .I2(user_dout[5]),
-        .I3(Q[0]),
-        .I4(user_dout[21]),
-        .O(vga_to_hdmi_i_81_n_0));
   LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_82
-       (.I0(\pallette_reg_reg_n_0_[5][10] ),
-        .I1(\pallette_reg_reg_n_0_[7][10] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][10] ),
-        .I5(\pallette_reg_reg_n_0_[6][10] ),
-        .O(vga_to_hdmi_i_82_n_0));
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_59
+       (.I0(vga_to_hdmi_i_131_n_0),
+        .I1(vga_to_hdmi_i_132_n_0),
+        .I2(vga_to_hdmi_i_107_n_0),
+        .I3(vga_to_hdmi_i_133_n_0),
+        .I4(vga_to_hdmi_i_109_n_0),
+        .I5(vga_to_hdmi_i_134_n_0),
+        .O(rgb_values[22]));
   LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_83
-       (.I0(\pallette_reg_reg_n_0_[1][10] ),
-        .I1(\pallette_reg_reg_n_0_[3][10] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][10] ),
-        .I5(\pallette_reg_reg_n_0_[2][10] ),
-        .O(vga_to_hdmi_i_83_n_0));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_84
-       (.I0(\pallette_reg_reg_n_0_[5][22] ),
-        .I1(\pallette_reg_reg_n_0_[7][22] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][22] ),
-        .I5(\pallette_reg_reg_n_0_[6][22] ),
-        .O(vga_to_hdmi_i_84_n_0));
-  LUT5 #(
-    .INIT(32'hF8008800)) 
-    vga_to_hdmi_i_85
-       (.I0(\pallette_reg_reg_n_0_[1][22] ),
-        .I1(vga_to_hdmi_i_168_n_0),
-        .I2(\pallette_reg_reg_n_0_[2][22] ),
-        .I3(vga_to_hdmi_i_169_n_0),
-        .I4(vga_to_hdmi_i_170_n_0),
-        .O(vga_to_hdmi_i_85_n_0));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_86
-       (.I0(vga_to_hdmi_i_180_n_0),
-        .I1(vga_to_hdmi_i_181_n_0),
-        .I2(vga_to_hdmi_i_182_n_0),
-        .I3(vga_to_hdmi_i_102_n_0),
-        .I4(\pallette_reg_reg_n_0_[6][22] ),
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_61
+       (.I0(vga_to_hdmi_i_140_n_0),
+        .I1(vga_to_hdmi_i_141_n_0),
+        .I2(vga_to_hdmi_i_113_n_0),
+        .I3(vga_to_hdmi_i_142_n_0),
+        .I4(vga_to_hdmi_i_115_n_0),
+        .I5(vga_to_hdmi_i_143_n_0),
         .O(rgb_values[9]));
   LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_87
-       (.I0(\pallette_reg_reg_n_0_[5][9] ),
-        .I1(\pallette_reg_reg_n_0_[7][9] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][9] ),
-        .I5(\pallette_reg_reg_n_0_[6][9] ),
-        .O(vga_to_hdmi_i_87_n_0));
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_62
+       (.I0(vga_to_hdmi_i_144_n_0),
+        .I1(vga_to_hdmi_i_145_n_0),
+        .I2(vga_to_hdmi_i_107_n_0),
+        .I3(vga_to_hdmi_i_146_n_0),
+        .I4(vga_to_hdmi_i_109_n_0),
+        .I5(vga_to_hdmi_i_147_n_0),
+        .O(rgb_values[21]));
   LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_88
-       (.I0(\pallette_reg_reg_n_0_[1][9] ),
-        .I1(\pallette_reg_reg_n_0_[3][9] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[0][9] ),
-        .I5(\pallette_reg_reg_n_0_[2][9] ),
-        .O(vga_to_hdmi_i_88_n_0));
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_63
+       (.I0(vga_to_hdmi_i_148_n_0),
+        .I1(vga_to_hdmi_i_149_n_0),
+        .I2(vga_to_hdmi_i_113_n_0),
+        .I3(vga_to_hdmi_i_150_n_0),
+        .I4(vga_to_hdmi_i_115_n_0),
+        .I5(vga_to_hdmi_i_151_n_0),
+        .O(rgb_values[8]));
   LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
-    vga_to_hdmi_i_89
-       (.I0(\pallette_reg_reg_n_0_[5][21] ),
-        .I1(\pallette_reg_reg_n_0_[7][21] ),
-        .I2(vga_to_hdmi_i_175_n_0),
-        .I3(vga_to_hdmi_i_176_n_0),
-        .I4(\pallette_reg_reg_n_0_[4][21] ),
-        .I5(\pallette_reg_reg_n_0_[6][21] ),
-        .O(vga_to_hdmi_i_89_n_0));
-  LUT5 #(
-    .INIT(32'hF8008800)) 
-    vga_to_hdmi_i_90
-       (.I0(\pallette_reg_reg_n_0_[1][21] ),
-        .I1(vga_to_hdmi_i_168_n_0),
-        .I2(\pallette_reg_reg_n_0_[2][21] ),
-        .I3(vga_to_hdmi_i_169_n_0),
-        .I4(vga_to_hdmi_i_170_n_0),
-        .O(vga_to_hdmi_i_90_n_0));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_91
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_64
+       (.I0(vga_to_hdmi_i_152_n_0),
+        .I1(vga_to_hdmi_i_153_n_0),
+        .I2(vga_to_hdmi_i_107_n_0),
+        .I3(vga_to_hdmi_i_154_n_0),
+        .I4(vga_to_hdmi_i_109_n_0),
+        .I5(vga_to_hdmi_i_155_n_0),
+        .O(rgb_values[20]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_65
+       (.I0(vga_to_hdmi_i_156_n_0),
+        .I1(vga_to_hdmi_i_157_n_0),
+        .I2(vga_to_hdmi_i_107_n_0),
+        .I3(vga_to_hdmi_i_158_n_0),
+        .I4(vga_to_hdmi_i_109_n_0),
+        .I5(vga_to_hdmi_i_159_n_0),
+        .O(rgb_values[19]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_66
+       (.I0(vga_to_hdmi_i_160_n_0),
+        .I1(vga_to_hdmi_i_161_n_0),
+        .I2(vga_to_hdmi_i_113_n_0),
+        .I3(vga_to_hdmi_i_162_n_0),
+        .I4(vga_to_hdmi_i_115_n_0),
+        .I5(vga_to_hdmi_i_163_n_0),
+        .O(rgb_values[7]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_73
+       (.I0(vga_to_hdmi_i_171_n_0),
+        .I1(vga_to_hdmi_i_172_n_0),
+        .I2(vga_to_hdmi_i_113_n_0),
+        .I3(vga_to_hdmi_i_173_n_0),
+        .I4(vga_to_hdmi_i_115_n_0),
+        .I5(vga_to_hdmi_i_174_n_0),
+        .O(rgb_values[6]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_74
+       (.I0(vga_to_hdmi_i_175_n_0),
+        .I1(vga_to_hdmi_i_176_n_0),
+        .I2(vga_to_hdmi_i_107_n_0),
+        .I3(vga_to_hdmi_i_177_n_0),
+        .I4(vga_to_hdmi_i_109_n_0),
+        .I5(vga_to_hdmi_i_178_n_0),
+        .O(rgb_values[18]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_75
+       (.I0(vga_to_hdmi_i_179_n_0),
+        .I1(vga_to_hdmi_i_180_n_0),
+        .I2(vga_to_hdmi_i_113_n_0),
+        .I3(vga_to_hdmi_i_181_n_0),
+        .I4(vga_to_hdmi_i_115_n_0),
+        .I5(vga_to_hdmi_i_182_n_0),
+        .O(rgb_values[5]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_76
        (.I0(vga_to_hdmi_i_183_n_0),
         .I1(vga_to_hdmi_i_184_n_0),
-        .I2(vga_to_hdmi_i_185_n_0),
-        .I3(vga_to_hdmi_i_102_n_0),
-        .I4(\pallette_reg_reg_n_0_[6][21] ),
-        .O(rgb_values[8]));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_92
-       (.I0(\pallette_reg_reg_n_0_[3][20] ),
-        .I1(vga_to_hdmi_i_186_n_0),
-        .I2(\pallette_reg_reg_n_0_[1][20] ),
-        .I3(vga_to_hdmi_i_187_n_0),
-        .O(vga_to_hdmi_i_92_n_0));
+        .I2(vga_to_hdmi_i_107_n_0),
+        .I3(vga_to_hdmi_i_185_n_0),
+        .I4(vga_to_hdmi_i_109_n_0),
+        .I5(vga_to_hdmi_i_186_n_0),
+        .O(rgb_values[17]));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFFEAEAEA)) 
-    vga_to_hdmi_i_93
-       (.I0(vga_to_hdmi_i_188_n_0),
-        .I1(\pallette_reg_reg_n_0_[1][8] ),
-        .I2(vga_to_hdmi_i_189_n_0),
-        .I3(\pallette_reg_reg_n_0_[6][20] ),
-        .I4(vga_to_hdmi_i_190_n_0),
-        .I5(vga_to_hdmi_i_191_n_0),
-        .O(vga_to_hdmi_i_93_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_94
-       (.I0(vga_to_hdmi_i_192_n_0),
-        .I1(\pallette_reg_reg_n_0_[5][20] ),
-        .I2(vga_to_hdmi_i_193_n_0),
-        .I3(\pallette_reg_reg_n_0_[3][8] ),
-        .I4(vga_to_hdmi_i_194_n_0),
-        .O(vga_to_hdmi_i_94_n_0));
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_77
+       (.I0(vga_to_hdmi_i_187_n_0),
+        .I1(vga_to_hdmi_i_188_n_0),
+        .I2(vga_to_hdmi_i_113_n_0),
+        .I3(vga_to_hdmi_i_189_n_0),
+        .I4(vga_to_hdmi_i_115_n_0),
+        .I5(vga_to_hdmi_i_190_n_0),
+        .O(rgb_values[4]));
   LUT6 #(
-    .INIT(64'h202A000A20200000)) 
-    vga_to_hdmi_i_95
-       (.I0(vga_to_hdmi_i_170_n_0),
-        .I1(user_dout[23]),
-        .I2(Q[0]),
-        .I3(user_dout[7]),
-        .I4(user_dout[20]),
-        .I5(user_dout[4]),
-        .O(vga_to_hdmi_i_95_n_0));
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
-    vga_to_hdmi_i_98
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_78
+       (.I0(vga_to_hdmi_i_191_n_0),
+        .I1(vga_to_hdmi_i_192_n_0),
+        .I2(vga_to_hdmi_i_107_n_0),
+        .I3(vga_to_hdmi_i_193_n_0),
+        .I4(vga_to_hdmi_i_109_n_0),
+        .I5(vga_to_hdmi_i_194_n_0),
+        .O(rgb_values[16]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_79
+       (.I0(vga_to_hdmi_i_195_n_0),
+        .I1(vga_to_hdmi_i_196_n_0),
+        .I2(vga_to_hdmi_i_107_n_0),
+        .I3(vga_to_hdmi_i_197_n_0),
+        .I4(vga_to_hdmi_i_109_n_0),
+        .I5(vga_to_hdmi_i_198_n_0),
+        .O(rgb_values[15]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_80
        (.I0(vga_to_hdmi_i_199_n_0),
         .I1(vga_to_hdmi_i_200_n_0),
-        .I2(vga_to_hdmi_i_201_n_0),
-        .I3(vga_to_hdmi_i_102_n_0),
-        .I4(\pallette_reg_reg_n_0_[6][20] ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 [7]));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    vga_to_hdmi_i_99
-       (.I0(\pallette_reg_reg_n_0_[7][19] ),
-        .I1(vga_to_hdmi_i_202_n_0),
-        .I2(\pallette_reg_reg_n_0_[5][19] ),
-        .I3(vga_to_hdmi_i_203_n_0),
-        .O(vga_to_hdmi_i_99_n_0));
+        .I2(vga_to_hdmi_i_113_n_0),
+        .I3(vga_to_hdmi_i_201_n_0),
+        .I4(vga_to_hdmi_i_115_n_0),
+        .I5(vga_to_hdmi_i_202_n_0),
+        .O(rgb_values[3]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_81
+       (.I0(vga_to_hdmi_i_203_n_0),
+        .I1(vga_to_hdmi_i_204_n_0),
+        .I2(vga_to_hdmi_i_113_n_0),
+        .I3(vga_to_hdmi_i_205_n_0),
+        .I4(vga_to_hdmi_i_115_n_0),
+        .I5(vga_to_hdmi_i_206_n_0),
+        .O(rgb_values[2]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_82
+       (.I0(vga_to_hdmi_i_207_n_0),
+        .I1(vga_to_hdmi_i_208_n_0),
+        .I2(vga_to_hdmi_i_107_n_0),
+        .I3(vga_to_hdmi_i_209_n_0),
+        .I4(vga_to_hdmi_i_109_n_0),
+        .I5(vga_to_hdmi_i_210_n_0),
+        .O(rgb_values[14]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_83
+       (.I0(vga_to_hdmi_i_211_n_0),
+        .I1(vga_to_hdmi_i_212_n_0),
+        .I2(vga_to_hdmi_i_113_n_0),
+        .I3(vga_to_hdmi_i_213_n_0),
+        .I4(vga_to_hdmi_i_115_n_0),
+        .I5(vga_to_hdmi_i_214_n_0),
+        .O(rgb_values[1]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_84
+       (.I0(vga_to_hdmi_i_215_n_0),
+        .I1(vga_to_hdmi_i_216_n_0),
+        .I2(vga_to_hdmi_i_107_n_0),
+        .I3(vga_to_hdmi_i_217_n_0),
+        .I4(vga_to_hdmi_i_109_n_0),
+        .I5(vga_to_hdmi_i_218_n_0),
+        .O(rgb_values[13]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_86
+       (.I0(vga_to_hdmi_i_220_n_0),
+        .I1(vga_to_hdmi_i_221_n_0),
+        .I2(vga_to_hdmi_i_113_n_0),
+        .I3(vga_to_hdmi_i_222_n_0),
+        .I4(vga_to_hdmi_i_115_n_0),
+        .I5(vga_to_hdmi_i_223_n_0),
+        .O(rgb_values[0]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    vga_to_hdmi_i_87
+       (.I0(vga_to_hdmi_i_224_n_0),
+        .I1(vga_to_hdmi_i_225_n_0),
+        .I2(vga_to_hdmi_i_107_n_0),
+        .I3(vga_to_hdmi_i_226_n_0),
+        .I4(vga_to_hdmi_i_109_n_0),
+        .I5(vga_to_hdmi_i_227_n_0),
+        .O(rgb_values[12]));
 endmodule
 
 (* ORIG_REF_NAME = "Timer" *) 
 module microblaze_GameIP_0_0_Timer
-   (S,
-    B,
-    \vc_reg[4] ,
-    \seconds_reg[15]_0 ,
-    \vc_reg[4]_0 ,
-    i__carry_i_11__0,
-    \vc_reg[7] ,
-    \seconds_reg[2]_0 ,
-    \seconds_reg[15]_1 ,
-    \seconds_reg[4]_0 ,
+   (seconds,
     DI,
-    \seconds_reg[7]_0 ,
-    \vc_reg[6] ,
-    i__carry_i_8__1_0,
+    S,
+    \seconds_reg[15]_0 ,
+    \vc_reg[4] ,
+    i__carry_i_12__0,
+    \seconds_reg[15]_1 ,
     \seconds_reg[15]_2 ,
+    i__carry_i_19__0_0,
     \seconds_reg[15]_3 ,
+    \seconds_reg[2]_0 ,
+    \seconds_reg[4]_0 ,
     \seconds_reg[2]_1 ,
-    \seconds_reg[15]_4 ,
     \seconds_reg[11]_0 ,
-    \seconds_reg[15]_5 ,
+    \seconds_reg[11]_1 ,
+    \seconds_reg[15]_4 ,
     \seconds_reg[14]_0 ,
+    \seconds_reg[15]_5 ,
     \seconds_reg[15]_6 ,
     \seconds_reg[15]_7 ,
     \seconds_reg[15]_8 ,
-    \vc_reg[6]_0 ,
+    \seconds_reg[15]_9 ,
+    \seconds_reg[15]_10 ,
+    \seconds_reg[2]_2 ,
+    \vc_reg[7] ,
     \seconds_reg[12]_0 ,
     \seconds_reg[8]_0 ,
     \seconds_reg[3]_0 ,
+    \seconds_reg[7]_0 ,
+    \seconds_reg[15]_11 ,
     \seconds_reg[7]_1 ,
-    \seconds_reg[15]_9 ,
-    \seconds_reg[7]_2 ,
-    \seconds_reg[11]_1 ,
+    \seconds_reg[11]_2 ,
     \seconds_reg[14]_1 ,
-    \seconds_reg[2]_2 ,
+    \seconds_reg[15]_12 ,
+    reset_ah,
+    clk_out3,
+    \BOTTOM_NUM1_inferred__4/i__carry__0 ,
     Q,
-    \BOTTOM_NUM1_inferred__2/i__carry__0 ,
-    \BOTTOM_NUM1_inferred__1/i__carry ,
-    \BOTTOM_NUM1_inferred__1/i__carry__0 ,
-    \BOTTOM_NUM1_inferred__2/i__carry__0_0 ,
-    \BOTTOM_NUM1_inferred__2/i__carry__0_1 ,
-    i__carry__0_i_2__2_0,
     O,
-    i__carry__0_i_2_0,
-    i__carry_i_2_0,
-    i__carry_i_7_0,
-    i__carry_i_11__0_0,
-    i__carry_i_11__0_1,
     CO,
-    i__carry_i_9__0_0,
-    i__carry__0_i_2_1,
-    i__carry__0_i_2_2,
-    i__carry_i_2_1,
+    \BOTTOM_NUM1_inferred__0/i__carry ,
+    \BOTTOM_NUM1_inferred__0/i__carry_0 ,
+    i__carry_i_6,
+    i__carry__0_i_3__1,
+    i__carry__0_i_3__1_0,
+    menu_sig,
     axi_aresetn,
+    BOTTOM_NUM1_carry,
+    \BOTTOM_NUM1_inferred__4/i__carry__0_0 ,
+    \BOTTOM_NUM1_inferred__4/i__carry__0_1 ,
+    i__carry_i_11_0,
+    i__carry_i_14__0,
+    i__carry_i_11_1,
+    i__carry_i_6_0,
+    i__carry_i_11_2,
+    i__carry_i_11_3,
     BOTTOM_NUM5__70_carry,
     BOTTOM_NUM5__70_carry__0,
-    CLK);
-  output [3:0]S;
-  output [0:0]B;
-  output [2:0]\vc_reg[4] ;
-  output [0:0]\seconds_reg[15]_0 ;
-  output [2:0]\vc_reg[4]_0 ;
-  output i__carry_i_11__0;
-  output [1:0]\vc_reg[7] ;
-  output [1:0]\seconds_reg[2]_0 ;
-  output [15:0]\seconds_reg[15]_1 ;
-  output \seconds_reg[4]_0 ;
+    next_state2);
+  output [15:0]seconds;
   output [0:0]DI;
-  output [0:0]\seconds_reg[7]_0 ;
-  output [1:0]\vc_reg[6] ;
-  output i__carry_i_8__1_0;
+  output [3:0]S;
+  output \seconds_reg[15]_0 ;
+  output [0:0]\vc_reg[4] ;
+  output i__carry_i_12__0;
+  output \seconds_reg[15]_1 ;
   output \seconds_reg[15]_2 ;
+  output i__carry_i_19__0_0;
   output \seconds_reg[15]_3 ;
-  output \seconds_reg[2]_1 ;
-  output [3:0]\seconds_reg[15]_4 ;
-  output [2:0]\seconds_reg[11]_0 ;
-  output [2:0]\seconds_reg[15]_5 ;
+  output [2:0]\seconds_reg[2]_0 ;
+  output \seconds_reg[4]_0 ;
+  output [1:0]\seconds_reg[2]_1 ;
+  output [3:0]\seconds_reg[11]_0 ;
+  output [3:0]\seconds_reg[11]_1 ;
+  output [2:0]\seconds_reg[15]_4 ;
   output [2:0]\seconds_reg[14]_0 ;
+  output \seconds_reg[15]_5 ;
   output \seconds_reg[15]_6 ;
   output \seconds_reg[15]_7 ;
   output \seconds_reg[15]_8 ;
-  output [1:0]\vc_reg[6]_0 ;
+  output \seconds_reg[15]_9 ;
+  output \seconds_reg[15]_10 ;
+  output [0:0]\seconds_reg[2]_2 ;
+  output [1:0]\vc_reg[7] ;
   output [3:0]\seconds_reg[12]_0 ;
   output [2:0]\seconds_reg[8]_0 ;
   output [1:0]\seconds_reg[3]_0 ;
+  output [3:0]\seconds_reg[7]_0 ;
+  output [3:0]\seconds_reg[15]_11 ;
   output [3:0]\seconds_reg[7]_1 ;
-  output [3:0]\seconds_reg[15]_9 ;
-  output [3:0]\seconds_reg[7]_2 ;
-  output [3:0]\seconds_reg[11]_1 ;
+  output [3:0]\seconds_reg[11]_2 ;
   output [2:0]\seconds_reg[14]_1 ;
-  output [1:0]\seconds_reg[2]_2 ;
-  input [3:0]Q;
-  input \BOTTOM_NUM1_inferred__2/i__carry__0 ;
-  input \BOTTOM_NUM1_inferred__1/i__carry ;
-  input \BOTTOM_NUM1_inferred__1/i__carry__0 ;
-  input \BOTTOM_NUM1_inferred__2/i__carry__0_0 ;
-  input \BOTTOM_NUM1_inferred__2/i__carry__0_1 ;
-  input i__carry__0_i_2__2_0;
-  input [2:0]O;
-  input [3:0]i__carry__0_i_2_0;
-  input i__carry_i_2_0;
-  input i__carry_i_7_0;
-  input i__carry_i_11__0_0;
-  input i__carry_i_11__0_1;
+  output [0:0]\seconds_reg[15]_12 ;
+  input reset_ah;
+  input clk_out3;
+  input \BOTTOM_NUM1_inferred__4/i__carry__0 ;
+  input [1:0]Q;
+  input [3:0]O;
   input [0:0]CO;
-  input i__carry_i_9__0_0;
-  input [0:0]i__carry__0_i_2_1;
-  input [0:0]i__carry__0_i_2_2;
-  input [0:0]i__carry_i_2_1;
+  input [3:0]\BOTTOM_NUM1_inferred__0/i__carry ;
+  input [0:0]\BOTTOM_NUM1_inferred__0/i__carry_0 ;
+  input i__carry_i_6;
+  input i__carry__0_i_3__1;
+  input i__carry__0_i_3__1_0;
+  input menu_sig;
   input axi_aresetn;
+  input BOTTOM_NUM1_carry;
+  input \BOTTOM_NUM1_inferred__4/i__carry__0_0 ;
+  input \BOTTOM_NUM1_inferred__4/i__carry__0_1 ;
+  input [2:0]i__carry_i_11_0;
+  input i__carry_i_14__0;
+  input [0:0]i__carry_i_11_1;
+  input i__carry_i_6_0;
+  input i__carry_i_11_2;
+  input i__carry_i_11_3;
   input [3:0]BOTTOM_NUM5__70_carry;
   input [3:0]BOTTOM_NUM5__70_carry__0;
-  input CLK;
+  input next_state2;
 
-  wire [0:0]B;
+  wire BOTTOM_NUM1_carry;
+  wire BOTTOM_NUM1_carry__0_i_10_n_0;
+  wire BOTTOM_NUM1_carry__0_i_11_n_0;
+  wire BOTTOM_NUM1_carry__0_i_12_n_0;
+  wire BOTTOM_NUM1_carry__0_i_13_n_0;
+  wire BOTTOM_NUM1_carry__0_i_14_n_0;
+  wire BOTTOM_NUM1_carry__0_i_15_n_0;
+  wire BOTTOM_NUM1_carry__0_i_16_n_0;
+  wire BOTTOM_NUM1_carry__0_i_17_n_0;
+  wire BOTTOM_NUM1_carry__0_i_18_n_0;
+  wire BOTTOM_NUM1_carry__0_i_19_n_0;
+  wire BOTTOM_NUM1_carry__0_i_20_n_0;
+  wire BOTTOM_NUM1_carry__0_i_21_n_0;
+  wire BOTTOM_NUM1_carry__0_i_22_n_0;
+  wire BOTTOM_NUM1_carry__0_i_4_n_0;
+  wire BOTTOM_NUM1_carry__0_i_5_n_0;
+  wire BOTTOM_NUM1_carry__0_i_6_n_0;
+  wire BOTTOM_NUM1_carry__0_i_7_n_0;
   wire BOTTOM_NUM1_carry_i_10_n_0;
   wire BOTTOM_NUM1_carry_i_11_n_0;
   wire BOTTOM_NUM1_carry_i_12_n_0;
+  wire BOTTOM_NUM1_carry_i_13_n_0;
   wire BOTTOM_NUM1_carry_i_14_n_0;
   wire BOTTOM_NUM1_carry_i_15_n_0;
   wire BOTTOM_NUM1_carry_i_16_n_0;
   wire BOTTOM_NUM1_carry_i_17_n_0;
+  wire BOTTOM_NUM1_carry_i_18_n_0;
   wire BOTTOM_NUM1_carry_i_19_n_0;
   wire BOTTOM_NUM1_carry_i_20_n_0;
   wire BOTTOM_NUM1_carry_i_21_n_0;
@@ -6801,154 +6251,96 @@ module microblaze_GameIP_0_0_Timer
   wire BOTTOM_NUM1_carry_i_23_n_0;
   wire BOTTOM_NUM1_carry_i_24_n_0;
   wire BOTTOM_NUM1_carry_i_25_n_0;
-  wire BOTTOM_NUM1_carry_i_26_n_0;
-  wire BOTTOM_NUM1_carry_i_27_n_0;
-  wire BOTTOM_NUM1_carry_i_28_n_0;
-  wire BOTTOM_NUM1_carry_i_29_n_0;
-  wire BOTTOM_NUM1_carry_i_30_n_0;
-  wire BOTTOM_NUM1_carry_i_31_n_0;
-  wire BOTTOM_NUM1_carry_i_32_n_0;
-  wire BOTTOM_NUM1_carry_i_33_n_0;
-  wire BOTTOM_NUM1_carry_i_34_n_0;
-  wire BOTTOM_NUM1_carry_i_35_n_0;
-  wire BOTTOM_NUM1_carry_i_36_n_0;
-  wire BOTTOM_NUM1_carry_i_37_n_0;
-  wire BOTTOM_NUM1_carry_i_8_n_0;
   wire BOTTOM_NUM1_carry_i_9_n_0;
-  wire \BOTTOM_NUM1_inferred__1/i__carry ;
-  wire \BOTTOM_NUM1_inferred__1/i__carry__0 ;
-  wire \BOTTOM_NUM1_inferred__2/i__carry__0 ;
-  wire \BOTTOM_NUM1_inferred__2/i__carry__0_0 ;
-  wire \BOTTOM_NUM1_inferred__2/i__carry__0_1 ;
+  wire [3:0]\BOTTOM_NUM1_inferred__0/i__carry ;
+  wire [0:0]\BOTTOM_NUM1_inferred__0/i__carry_0 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry__0 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry__0_0 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry__0_1 ;
   wire [3:0]BOTTOM_NUM5__70_carry;
   wire [3:0]BOTTOM_NUM5__70_carry__0;
-  wire CLK;
   wire [0:0]CO;
   wire [0:0]DI;
-  wire [2:0]O;
-  wire [3:0]Q;
+  wire [3:0]O;
+  wire [1:0]Q;
   wire [3:0]S;
   wire axi_aresetn;
-  wire [0:0]\color_instance/bot_draw/A ;
-  wire [3:2]\color_instance/bot_draw/A__0 ;
-  wire [2:2]\color_instance/bot_draw/B__0 ;
-  wire [3:0]i__carry__0_i_2_0;
-  wire [0:0]i__carry__0_i_2_1;
-  wire [0:0]i__carry__0_i_2_2;
-  wire i__carry__0_i_2__2_0;
-  wire i__carry__0_i_4_n_0;
-  wire i__carry_i_10_n_0;
-  wire i__carry_i_11__0;
-  wire i__carry_i_11__0_0;
-  wire i__carry_i_11__0_1;
-  wire i__carry_i_11_n_0;
-  wire i__carry_i_12__0_n_0;
-  wire i__carry_i_12_n_0;
-  wire i__carry_i_13__0_n_0;
-  wire i__carry_i_13_n_0;
-  wire i__carry_i_16_n_0;
+  wire clk_out3;
+  wire i__carry__0_i_3__1;
+  wire i__carry__0_i_3__1_0;
+  wire [2:0]i__carry_i_11_0;
+  wire [0:0]i__carry_i_11_1;
+  wire i__carry_i_11_2;
+  wire i__carry_i_11_3;
+  wire i__carry_i_12__0;
+  wire i__carry_i_14__0;
   wire i__carry_i_17_n_0;
-  wire i__carry_i_19_n_0;
-  wire i__carry_i_2_0;
-  wire [0:0]i__carry_i_2_1;
-  wire i__carry_i_7_0;
-  wire i__carry_i_8__0_n_0;
-  wire i__carry_i_8__1_0;
-  wire i__carry_i_8__1_n_0;
-  wire i__carry_i_8_n_0;
-  wire i__carry_i_9__0_0;
-  wire i__carry_i_9__1_n_0;
-  wire i__carry_i_9_n_0;
-  wire [21:0]internal_clk;
-  wire internal_clk0_carry__0_n_0;
-  wire internal_clk0_carry__0_n_1;
-  wire internal_clk0_carry__0_n_2;
-  wire internal_clk0_carry__0_n_3;
-  wire internal_clk0_carry__0_n_4;
-  wire internal_clk0_carry__0_n_5;
-  wire internal_clk0_carry__0_n_6;
-  wire internal_clk0_carry__0_n_7;
-  wire internal_clk0_carry__1_n_0;
-  wire internal_clk0_carry__1_n_1;
-  wire internal_clk0_carry__1_n_2;
-  wire internal_clk0_carry__1_n_3;
-  wire internal_clk0_carry__1_n_4;
-  wire internal_clk0_carry__1_n_5;
-  wire internal_clk0_carry__1_n_6;
-  wire internal_clk0_carry__1_n_7;
-  wire internal_clk0_carry__2_n_0;
-  wire internal_clk0_carry__2_n_1;
-  wire internal_clk0_carry__2_n_2;
-  wire internal_clk0_carry__2_n_3;
-  wire internal_clk0_carry__2_n_4;
-  wire internal_clk0_carry__2_n_5;
-  wire internal_clk0_carry__2_n_6;
-  wire internal_clk0_carry__2_n_7;
-  wire internal_clk0_carry__3_n_0;
-  wire internal_clk0_carry__3_n_1;
-  wire internal_clk0_carry__3_n_2;
-  wire internal_clk0_carry__3_n_3;
-  wire internal_clk0_carry__3_n_4;
-  wire internal_clk0_carry__3_n_5;
-  wire internal_clk0_carry__3_n_6;
-  wire internal_clk0_carry__3_n_7;
-  wire internal_clk0_carry__4_n_7;
-  wire internal_clk0_carry_n_0;
-  wire internal_clk0_carry_n_1;
-  wire internal_clk0_carry_n_2;
-  wire internal_clk0_carry_n_3;
-  wire internal_clk0_carry_n_4;
-  wire internal_clk0_carry_n_5;
-  wire internal_clk0_carry_n_6;
-  wire internal_clk0_carry_n_7;
-  wire \internal_clk[21]_i_3_n_0 ;
-  wire \internal_clk[21]_i_4_n_0 ;
-  wire \internal_clk[21]_i_5_n_0 ;
-  wire \internal_clk[21]_i_6_n_0 ;
-  wire \internal_clk[21]_i_7_n_0 ;
-  wire \internal_clk[21]_i_8_n_0 ;
-  wire \internal_clk_reg_n_0_[0] ;
-  wire \internal_clk_reg_n_0_[10] ;
-  wire \internal_clk_reg_n_0_[11] ;
-  wire \internal_clk_reg_n_0_[12] ;
-  wire \internal_clk_reg_n_0_[13] ;
-  wire \internal_clk_reg_n_0_[14] ;
-  wire \internal_clk_reg_n_0_[15] ;
-  wire \internal_clk_reg_n_0_[16] ;
-  wire \internal_clk_reg_n_0_[17] ;
-  wire \internal_clk_reg_n_0_[18] ;
-  wire \internal_clk_reg_n_0_[19] ;
-  wire \internal_clk_reg_n_0_[1] ;
-  wire \internal_clk_reg_n_0_[20] ;
-  wire \internal_clk_reg_n_0_[21] ;
-  wire \internal_clk_reg_n_0_[2] ;
-  wire \internal_clk_reg_n_0_[3] ;
-  wire \internal_clk_reg_n_0_[4] ;
-  wire \internal_clk_reg_n_0_[5] ;
-  wire \internal_clk_reg_n_0_[6] ;
-  wire \internal_clk_reg_n_0_[7] ;
-  wire \internal_clk_reg_n_0_[8] ;
-  wire \internal_clk_reg_n_0_[9] ;
-  wire seconds1;
-  wire \seconds[11]_i_2_n_0 ;
-  wire \seconds[11]_i_3_n_0 ;
-  wire \seconds[11]_i_4_n_0 ;
-  wire \seconds[11]_i_5_n_0 ;
-  wire \seconds[15]_i_2_n_0 ;
-  wire \seconds[15]_i_3_n_0 ;
-  wire \seconds[15]_i_4_n_0 ;
+  wire i__carry_i_18__0_n_0;
+  wire i__carry_i_19__0_0;
+  wire i__carry_i_19__0_n_0;
+  wire i__carry_i_6;
+  wire i__carry_i_6_0;
+  wire i__carry_i_6__0_n_0;
+  wire i__carry_i_7_n_0;
+  wire internal_clk;
+  wire \internal_clk[0]_i_1_n_0 ;
+  wire \internal_clk[0]_i_4_n_0 ;
+  wire [21:0]internal_clk_reg;
+  wire \internal_clk_reg[0]_i_3_n_0 ;
+  wire \internal_clk_reg[0]_i_3_n_1 ;
+  wire \internal_clk_reg[0]_i_3_n_2 ;
+  wire \internal_clk_reg[0]_i_3_n_3 ;
+  wire \internal_clk_reg[0]_i_3_n_4 ;
+  wire \internal_clk_reg[0]_i_3_n_5 ;
+  wire \internal_clk_reg[0]_i_3_n_6 ;
+  wire \internal_clk_reg[0]_i_3_n_7 ;
+  wire \internal_clk_reg[12]_i_1_n_0 ;
+  wire \internal_clk_reg[12]_i_1_n_1 ;
+  wire \internal_clk_reg[12]_i_1_n_2 ;
+  wire \internal_clk_reg[12]_i_1_n_3 ;
+  wire \internal_clk_reg[12]_i_1_n_4 ;
+  wire \internal_clk_reg[12]_i_1_n_5 ;
+  wire \internal_clk_reg[12]_i_1_n_6 ;
+  wire \internal_clk_reg[12]_i_1_n_7 ;
+  wire \internal_clk_reg[16]_i_1_n_0 ;
+  wire \internal_clk_reg[16]_i_1_n_1 ;
+  wire \internal_clk_reg[16]_i_1_n_2 ;
+  wire \internal_clk_reg[16]_i_1_n_3 ;
+  wire \internal_clk_reg[16]_i_1_n_4 ;
+  wire \internal_clk_reg[16]_i_1_n_5 ;
+  wire \internal_clk_reg[16]_i_1_n_6 ;
+  wire \internal_clk_reg[16]_i_1_n_7 ;
+  wire \internal_clk_reg[20]_i_1_n_3 ;
+  wire \internal_clk_reg[20]_i_1_n_6 ;
+  wire \internal_clk_reg[20]_i_1_n_7 ;
+  wire \internal_clk_reg[4]_i_1_n_0 ;
+  wire \internal_clk_reg[4]_i_1_n_1 ;
+  wire \internal_clk_reg[4]_i_1_n_2 ;
+  wire \internal_clk_reg[4]_i_1_n_3 ;
+  wire \internal_clk_reg[4]_i_1_n_4 ;
+  wire \internal_clk_reg[4]_i_1_n_5 ;
+  wire \internal_clk_reg[4]_i_1_n_6 ;
+  wire \internal_clk_reg[4]_i_1_n_7 ;
+  wire \internal_clk_reg[8]_i_1_n_0 ;
+  wire \internal_clk_reg[8]_i_1_n_1 ;
+  wire \internal_clk_reg[8]_i_1_n_2 ;
+  wire \internal_clk_reg[8]_i_1_n_3 ;
+  wire \internal_clk_reg[8]_i_1_n_4 ;
+  wire \internal_clk_reg[8]_i_1_n_5 ;
+  wire \internal_clk_reg[8]_i_1_n_6 ;
+  wire \internal_clk_reg[8]_i_1_n_7 ;
+  wire menu_sig;
+  wire next_state2;
+  wire reset_ah;
+  wire [15:0]seconds;
+  wire \seconds[15]_i_11_n_0 ;
+  wire \seconds[15]_i_13_n_0 ;
   wire \seconds[15]_i_5_n_0 ;
+  wire \seconds[15]_i_9_n_0 ;
   wire \seconds[3]_i_2_n_0 ;
-  wire \seconds[3]_i_3_n_0 ;
-  wire \seconds[3]_i_4_n_0 ;
-  wire \seconds[3]_i_5_n_0 ;
-  wire \seconds[3]_i_6_n_0 ;
-  wire \seconds[7]_i_2_n_0 ;
-  wire \seconds[7]_i_3_n_0 ;
-  wire \seconds[7]_i_4_n_0 ;
-  wire \seconds[7]_i_5_n_0 ;
-  wire [2:0]\seconds_reg[11]_0 ;
+  wire [3:0]\seconds_reg[11]_0 ;
   wire [3:0]\seconds_reg[11]_1 ;
+  wire [3:0]\seconds_reg[11]_2 ;
   wire \seconds_reg[11]_i_1_n_0 ;
   wire \seconds_reg[11]_i_1_n_1 ;
   wire \seconds_reg[11]_i_1_n_2 ;
@@ -6960,26 +6352,70 @@ module microblaze_GameIP_0_0_Timer
   wire [3:0]\seconds_reg[12]_0 ;
   wire [2:0]\seconds_reg[14]_0 ;
   wire [2:0]\seconds_reg[14]_1 ;
-  wire [0:0]\seconds_reg[15]_0 ;
-  wire [15:0]\seconds_reg[15]_1 ;
+  wire \seconds_reg[15]_0 ;
+  wire \seconds_reg[15]_1 ;
+  wire \seconds_reg[15]_10 ;
+  wire [3:0]\seconds_reg[15]_11 ;
+  wire [0:0]\seconds_reg[15]_12 ;
   wire \seconds_reg[15]_2 ;
   wire \seconds_reg[15]_3 ;
-  wire [3:0]\seconds_reg[15]_4 ;
-  wire [2:0]\seconds_reg[15]_5 ;
+  wire [2:0]\seconds_reg[15]_4 ;
+  wire \seconds_reg[15]_5 ;
   wire \seconds_reg[15]_6 ;
   wire \seconds_reg[15]_7 ;
   wire \seconds_reg[15]_8 ;
-  wire [3:0]\seconds_reg[15]_9 ;
-  wire \seconds_reg[15]_i_1_n_1 ;
-  wire \seconds_reg[15]_i_1_n_2 ;
-  wire \seconds_reg[15]_i_1_n_3 ;
-  wire \seconds_reg[15]_i_1_n_4 ;
-  wire \seconds_reg[15]_i_1_n_5 ;
-  wire \seconds_reg[15]_i_1_n_6 ;
-  wire \seconds_reg[15]_i_1_n_7 ;
-  wire [1:0]\seconds_reg[2]_0 ;
-  wire \seconds_reg[2]_1 ;
-  wire [1:0]\seconds_reg[2]_2 ;
+  wire \seconds_reg[15]_9 ;
+  wire \seconds_reg[15]_i_10_n_0 ;
+  wire \seconds_reg[15]_i_10_n_1 ;
+  wire \seconds_reg[15]_i_10_n_2 ;
+  wire \seconds_reg[15]_i_10_n_3 ;
+  wire \seconds_reg[15]_i_10_n_4 ;
+  wire \seconds_reg[15]_i_10_n_5 ;
+  wire \seconds_reg[15]_i_10_n_6 ;
+  wire \seconds_reg[15]_i_10_n_7 ;
+  wire \seconds_reg[15]_i_12_n_0 ;
+  wire \seconds_reg[15]_i_12_n_1 ;
+  wire \seconds_reg[15]_i_12_n_2 ;
+  wire \seconds_reg[15]_i_12_n_3 ;
+  wire \seconds_reg[15]_i_12_n_4 ;
+  wire \seconds_reg[15]_i_12_n_5 ;
+  wire \seconds_reg[15]_i_12_n_6 ;
+  wire \seconds_reg[15]_i_12_n_7 ;
+  wire \seconds_reg[15]_i_14_n_0 ;
+  wire \seconds_reg[15]_i_14_n_1 ;
+  wire \seconds_reg[15]_i_14_n_2 ;
+  wire \seconds_reg[15]_i_14_n_3 ;
+  wire \seconds_reg[15]_i_14_n_4 ;
+  wire \seconds_reg[15]_i_14_n_5 ;
+  wire \seconds_reg[15]_i_14_n_6 ;
+  wire \seconds_reg[15]_i_14_n_7 ;
+  wire \seconds_reg[15]_i_3_n_1 ;
+  wire \seconds_reg[15]_i_3_n_2 ;
+  wire \seconds_reg[15]_i_3_n_3 ;
+  wire \seconds_reg[15]_i_3_n_4 ;
+  wire \seconds_reg[15]_i_3_n_5 ;
+  wire \seconds_reg[15]_i_3_n_6 ;
+  wire \seconds_reg[15]_i_3_n_7 ;
+  wire \seconds_reg[15]_i_4_n_0 ;
+  wire \seconds_reg[15]_i_4_n_1 ;
+  wire \seconds_reg[15]_i_4_n_2 ;
+  wire \seconds_reg[15]_i_4_n_3 ;
+  wire \seconds_reg[15]_i_4_n_4 ;
+  wire \seconds_reg[15]_i_4_n_5 ;
+  wire \seconds_reg[15]_i_4_n_6 ;
+  wire \seconds_reg[15]_i_4_n_7 ;
+  wire \seconds_reg[15]_i_6_n_7 ;
+  wire \seconds_reg[15]_i_8_n_0 ;
+  wire \seconds_reg[15]_i_8_n_1 ;
+  wire \seconds_reg[15]_i_8_n_2 ;
+  wire \seconds_reg[15]_i_8_n_3 ;
+  wire \seconds_reg[15]_i_8_n_4 ;
+  wire \seconds_reg[15]_i_8_n_5 ;
+  wire \seconds_reg[15]_i_8_n_6 ;
+  wire \seconds_reg[15]_i_8_n_7 ;
+  wire [2:0]\seconds_reg[2]_0 ;
+  wire [1:0]\seconds_reg[2]_1 ;
+  wire [0:0]\seconds_reg[2]_2 ;
   wire [1:0]\seconds_reg[3]_0 ;
   wire \seconds_reg[3]_i_1_n_0 ;
   wire \seconds_reg[3]_i_1_n_1 ;
@@ -6990,9 +6426,8 @@ module microblaze_GameIP_0_0_Timer
   wire \seconds_reg[3]_i_1_n_6 ;
   wire \seconds_reg[3]_i_1_n_7 ;
   wire \seconds_reg[4]_0 ;
-  wire [0:0]\seconds_reg[7]_0 ;
+  wire [3:0]\seconds_reg[7]_0 ;
   wire [3:0]\seconds_reg[7]_1 ;
-  wire [3:0]\seconds_reg[7]_2 ;
   wire \seconds_reg[7]_i_1_n_0 ;
   wire \seconds_reg[7]_i_1_n_1 ;
   wire \seconds_reg[7]_i_1_n_2 ;
@@ -7002,1680 +6437,1365 @@ module microblaze_GameIP_0_0_Timer
   wire \seconds_reg[7]_i_1_n_6 ;
   wire \seconds_reg[7]_i_1_n_7 ;
   wire [2:0]\seconds_reg[8]_0 ;
-  wire [2:0]\vc_reg[4] ;
-  wire [2:0]\vc_reg[4]_0 ;
-  wire [1:0]\vc_reg[6] ;
-  wire [1:0]\vc_reg[6]_0 ;
+  wire [0:0]\vc_reg[4] ;
   wire [1:0]\vc_reg[7] ;
-  wire [3:0]NLW_internal_clk0_carry__4_CO_UNCONNECTED;
-  wire [3:1]NLW_internal_clk0_carry__4_O_UNCONNECTED;
-  wire [3:3]\NLW_seconds_reg[15]_i_1_CO_UNCONNECTED ;
+  wire [3:1]\NLW_internal_clk_reg[20]_i_1_CO_UNCONNECTED ;
+  wire [3:2]\NLW_internal_clk_reg[20]_i_1_O_UNCONNECTED ;
+  wire [3:3]\NLW_seconds_reg[15]_i_3_CO_UNCONNECTED ;
+  wire [3:0]\NLW_seconds_reg[15]_i_6_CO_UNCONNECTED ;
+  wire [3:1]\NLW_seconds_reg[15]_i_6_O_UNCONNECTED ;
 
   LUT6 #(
-    .INIT(64'h99B60BD0FFFFFFFF)) 
+    .INIT(64'h28D7D782FFFFFFFF)) 
     BOTTOM_NUM1_carry__0_i_1
-       (.I0(BOTTOM_NUM1_carry_i_8_n_0),
-        .I1(BOTTOM_NUM1_carry_i_9_n_0),
-        .I2(BOTTOM_NUM1_carry_i_10_n_0),
-        .I3(BOTTOM_NUM1_carry_i_11_n_0),
-        .I4(BOTTOM_NUM1_carry_i_12_n_0),
-        .I5(\BOTTOM_NUM1_inferred__2/i__carry__0 ),
+       (.I0(BOTTOM_NUM1_carry_i_10_n_0),
+        .I1(BOTTOM_NUM1_carry__0_i_4_n_0),
+        .I2(BOTTOM_NUM1_carry__0_i_5_n_0),
+        .I3(BOTTOM_NUM1_carry__0_i_6_n_0),
+        .I4(BOTTOM_NUM1_carry__0_i_7_n_0),
+        .I5(\BOTTOM_NUM1_inferred__4/i__carry__0 ),
         .O(DI));
-  LUT5 #(
-    .INIT(32'h69C9C9C9)) 
-    BOTTOM_NUM1_carry__0_i_2
-       (.I0(\BOTTOM_NUM1_inferred__2/i__carry__0_0 ),
-        .I1(\BOTTOM_NUM1_inferred__2/i__carry__0_1 ),
-        .I2(\color_instance/bot_draw/B__0 ),
-        .I3(BOTTOM_NUM1_carry_i_12_n_0),
-        .I4(B),
-        .O(\vc_reg[6]_0 [1]));
-  LUT5 #(
-    .INIT(32'h6C363C96)) 
-    BOTTOM_NUM1_carry__0_i_3
-       (.I0(\BOTTOM_NUM1_inferred__2/i__carry__0 ),
-        .I1(\BOTTOM_NUM1_inferred__2/i__carry__0_0 ),
-        .I2(\color_instance/bot_draw/B__0 ),
-        .I3(B),
-        .I4(BOTTOM_NUM1_carry_i_12_n_0),
-        .O(\vc_reg[6]_0 [0]));
   LUT6 #(
-    .INIT(64'h6649F42F99B60BD0)) 
-    BOTTOM_NUM1_carry_i_1
-       (.I0(BOTTOM_NUM1_carry_i_8_n_0),
-        .I1(BOTTOM_NUM1_carry_i_9_n_0),
-        .I2(BOTTOM_NUM1_carry_i_10_n_0),
-        .I3(BOTTOM_NUM1_carry_i_11_n_0),
-        .I4(BOTTOM_NUM1_carry_i_12_n_0),
-        .I5(\BOTTOM_NUM1_inferred__2/i__carry__0 ),
-        .O(\seconds_reg[7]_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+    .INIT(64'hB1B12AAB2AAB7272)) 
+    BOTTOM_NUM1_carry__0_i_10
+       (.I0(BOTTOM_NUM1_carry__0_i_15_n_0),
+        .I1(BOTTOM_NUM1_carry_i_20_n_0),
+        .I2(seconds[8]),
+        .I3(seconds[7]),
+        .I4(seconds[9]),
+        .I5(BOTTOM_NUM1_carry__0_i_16_n_0),
+        .O(BOTTOM_NUM1_carry__0_i_10_n_0));
+  LUT6 #(
+    .INIT(64'hFF99999966066606)) 
+    BOTTOM_NUM1_carry__0_i_11
+       (.I0(BOTTOM_NUM1_carry__0_i_16_n_0),
+        .I1(BOTTOM_NUM1_carry__0_i_17_n_0),
+        .I2(BOTTOM_NUM1_carry__0_i_18_n_0),
+        .I3(BOTTOM_NUM1_carry_i_19_n_0),
+        .I4(BOTTOM_NUM1_carry__0_i_10_n_0),
+        .I5(BOTTOM_NUM1_carry_i_20_n_0),
+        .O(BOTTOM_NUM1_carry__0_i_11_n_0));
+  LUT6 #(
+    .INIT(64'hA88A085504AAA88A)) 
+    BOTTOM_NUM1_carry__0_i_12
+       (.I0(BOTTOM_NUM1_carry__0_i_13_n_0),
+        .I1(seconds[5]),
+        .I2(BOTTOM_NUM1_carry_i_15_n_0),
+        .I3(seconds[6]),
+        .I4(BOTTOM_NUM1_carry__0_i_10_n_0),
+        .I5(seconds[7]),
+        .O(BOTTOM_NUM1_carry__0_i_12_n_0));
   LUT3 #(
     .INIT(8'h96)) 
+    BOTTOM_NUM1_carry__0_i_13
+       (.I0(seconds[8]),
+        .I1(BOTTOM_NUM1_carry_i_20_n_0),
+        .I2(seconds[7]),
+        .O(BOTTOM_NUM1_carry__0_i_13_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  LUT3 #(
+    .INIT(8'h69)) 
+    BOTTOM_NUM1_carry__0_i_14
+       (.I0(seconds[7]),
+        .I1(BOTTOM_NUM1_carry__0_i_10_n_0),
+        .I2(seconds[6]),
+        .O(BOTTOM_NUM1_carry__0_i_14_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  LUT3 #(
+    .INIT(8'h69)) 
+    BOTTOM_NUM1_carry__0_i_15
+       (.I0(seconds[10]),
+        .I1(BOTTOM_NUM1_carry_i_24_n_0),
+        .I2(seconds[9]),
+        .O(BOTTOM_NUM1_carry__0_i_15_n_0));
+  LUT6 #(
+    .INIT(64'h22808022BBFEFEBB)) 
+    BOTTOM_NUM1_carry__0_i_16
+       (.I0(BOTTOM_NUM1_carry_i_24_n_0),
+        .I1(seconds[10]),
+        .I2(seconds[9]),
+        .I3(BOTTOM_NUM1_carry__0_i_19_n_0),
+        .I4(seconds[11]),
+        .I5(BOTTOM_NUM1_carry__0_i_20_n_0),
+        .O(BOTTOM_NUM1_carry__0_i_16_n_0));
+  LUT6 #(
+    .INIT(64'h0CFFFF0CEE0000EE)) 
+    BOTTOM_NUM1_carry__0_i_17
+       (.I0(BOTTOM_NUM1_carry__0_i_21_n_0),
+        .I1(BOTTOM_NUM1_carry_i_23_n_0),
+        .I2(BOTTOM_NUM1_carry__0_i_16_n_0),
+        .I3(BOTTOM_NUM1_carry__0_i_22_n_0),
+        .I4(BOTTOM_NUM1_carry__0_i_19_n_0),
+        .I5(BOTTOM_NUM1_carry_i_24_n_0),
+        .O(BOTTOM_NUM1_carry__0_i_17_n_0));
+  LUT6 #(
+    .INIT(64'h5600959514149581)) 
+    BOTTOM_NUM1_carry__0_i_18
+       (.I0(BOTTOM_NUM1_carry__0_i_15_n_0),
+        .I1(BOTTOM_NUM1_carry__0_i_16_n_0),
+        .I2(seconds[9]),
+        .I3(seconds[7]),
+        .I4(seconds[8]),
+        .I5(BOTTOM_NUM1_carry_i_20_n_0),
+        .O(BOTTOM_NUM1_carry__0_i_18_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  LUT5 #(
+    .INIT(32'h30EF8E30)) 
+    BOTTOM_NUM1_carry__0_i_19
+       (.I0(seconds[11]),
+        .I1(seconds[12]),
+        .I2(seconds[14]),
+        .I3(seconds[13]),
+        .I4(seconds[15]),
+        .O(BOTTOM_NUM1_carry__0_i_19_n_0));
+  LUT5 #(
+    .INIT(32'h99996CCC)) 
+    BOTTOM_NUM1_carry__0_i_2
+       (.I0(\BOTTOM_NUM1_inferred__4/i__carry__0_0 ),
+        .I1(\BOTTOM_NUM1_inferred__4/i__carry__0_1 ),
+        .I2(BOTTOM_NUM1_carry_i_11_n_0),
+        .I3(BOTTOM_NUM1_carry_i_10_n_0),
+        .I4(BOTTOM_NUM1_carry_i_9_n_0),
+        .O(\vc_reg[7] [1]));
+  LUT6 #(
+    .INIT(64'h18E77518518EE751)) 
+    BOTTOM_NUM1_carry__0_i_20
+       (.I0(seconds[10]),
+        .I1(seconds[15]),
+        .I2(seconds[13]),
+        .I3(seconds[14]),
+        .I4(seconds[12]),
+        .I5(seconds[11]),
+        .O(BOTTOM_NUM1_carry__0_i_20_n_0));
+  LUT6 #(
+    .INIT(64'hAAFFAAAAEBEBAABE)) 
+    BOTTOM_NUM1_carry__0_i_21
+       (.I0(BOTTOM_NUM1_carry__0_i_20_n_0),
+        .I1(seconds[11]),
+        .I2(BOTTOM_NUM1_carry__0_i_19_n_0),
+        .I3(seconds[9]),
+        .I4(seconds[10]),
+        .I5(BOTTOM_NUM1_carry_i_24_n_0),
+        .O(BOTTOM_NUM1_carry__0_i_21_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  LUT5 #(
+    .INIT(32'h3FFF8000)) 
+    BOTTOM_NUM1_carry__0_i_22
+       (.I0(seconds[11]),
+        .I1(seconds[14]),
+        .I2(seconds[12]),
+        .I3(seconds[13]),
+        .I4(seconds[15]),
+        .O(BOTTOM_NUM1_carry__0_i_22_n_0));
+  LUT5 #(
+    .INIT(32'hC6C36369)) 
+    BOTTOM_NUM1_carry__0_i_3
+       (.I0(\BOTTOM_NUM1_inferred__4/i__carry__0 ),
+        .I1(\BOTTOM_NUM1_inferred__4/i__carry__0_0 ),
+        .I2(BOTTOM_NUM1_carry_i_9_n_0),
+        .I3(BOTTOM_NUM1_carry_i_10_n_0),
+        .I4(BOTTOM_NUM1_carry_i_11_n_0),
+        .O(\vc_reg[7] [0]));
+  LUT6 #(
+    .INIT(64'h66FF666690999099)) 
+    BOTTOM_NUM1_carry__0_i_4
+       (.I0(BOTTOM_NUM1_carry__0_i_10_n_0),
+        .I1(BOTTOM_NUM1_carry__0_i_11_n_0),
+        .I2(BOTTOM_NUM1_carry__0_i_5_n_0),
+        .I3(BOTTOM_NUM1_carry_i_14_n_0),
+        .I4(BOTTOM_NUM1_carry__0_i_12_n_0),
+        .I5(BOTTOM_NUM1_carry_i_15_n_0),
+        .O(BOTTOM_NUM1_carry__0_i_4_n_0));
+  LUT6 #(
+    .INIT(64'h82A6DBBE82249ABE)) 
+    BOTTOM_NUM1_carry__0_i_5
+       (.I0(BOTTOM_NUM1_carry__0_i_13_n_0),
+        .I1(seconds[7]),
+        .I2(BOTTOM_NUM1_carry__0_i_10_n_0),
+        .I3(seconds[6]),
+        .I4(BOTTOM_NUM1_carry_i_15_n_0),
+        .I5(seconds[5]),
+        .O(BOTTOM_NUM1_carry__0_i_5_n_0));
+  LUT6 #(
+    .INIT(64'h05CFF0F0F0F005CF)) 
+    BOTTOM_NUM1_carry__0_i_6
+       (.I0(BOTTOM_NUM1_carry_i_12_n_0),
+        .I1(BOTTOM_NUM1_carry_i_13_n_0),
+        .I2(BOTTOM_NUM1_carry__0_i_5_n_0),
+        .I3(BOTTOM_NUM1_carry__0_i_4_n_0),
+        .I4(BOTTOM_NUM1_carry_i_14_n_0),
+        .I5(BOTTOM_NUM1_carry_i_15_n_0),
+        .O(BOTTOM_NUM1_carry__0_i_6_n_0));
+  LUT6 #(
+    .INIT(64'h037F13F0F037013F)) 
+    BOTTOM_NUM1_carry__0_i_7
+       (.I0(seconds[4]),
+        .I1(BOTTOM_NUM1_carry__0_i_5_n_0),
+        .I2(BOTTOM_NUM1_carry_i_15_n_0),
+        .I3(BOTTOM_NUM1_carry__0_i_14_n_0),
+        .I4(seconds[5]),
+        .I5(seconds[6]),
+        .O(BOTTOM_NUM1_carry__0_i_7_n_0));
+  LUT6 #(
+    .INIT(64'h205B20496DFB25FB)) 
     BOTTOM_NUM1_carry_i_10
-       (.I0(BOTTOM_NUM1_carry_i_15_n_0),
-        .I1(BOTTOM_NUM1_carry_i_8_n_0),
-        .I2(BOTTOM_NUM1_carry_i_22_n_0),
+       (.I0(seconds[5]),
+        .I1(seconds[4]),
+        .I2(BOTTOM_NUM1_carry__0_i_5_n_0),
+        .I3(BOTTOM_NUM1_carry_i_16_n_0),
+        .I4(seconds[3]),
+        .I5(BOTTOM_NUM1_carry__0_i_7_n_0),
         .O(BOTTOM_NUM1_carry_i_10_n_0));
   LUT6 #(
-    .INIT(64'h3CA2BBCF0C22BAC3)) 
+    .INIT(64'h90F6906666096666)) 
     BOTTOM_NUM1_carry_i_11
-       (.I0(BOTTOM_NUM1_carry_i_23_n_0),
-        .I1(\seconds_reg[15]_1 [6]),
-        .I2(\seconds_reg[15]_1 [5]),
-        .I3(BOTTOM_NUM1_carry_i_15_n_0),
-        .I4(BOTTOM_NUM1_carry_i_24_n_0),
-        .I5(\seconds_reg[15]_1 [4]),
+       (.I0(BOTTOM_NUM1_carry_i_15_n_0),
+        .I1(BOTTOM_NUM1_carry_i_14_n_0),
+        .I2(BOTTOM_NUM1_carry__0_i_4_n_0),
+        .I3(BOTTOM_NUM1_carry__0_i_5_n_0),
+        .I4(BOTTOM_NUM1_carry_i_12_n_0),
+        .I5(BOTTOM_NUM1_carry_i_13_n_0),
         .O(BOTTOM_NUM1_carry_i_11_n_0));
   LUT6 #(
-    .INIT(64'h70109898E6E6F7F1)) 
+    .INIT(64'hB800E00F0B80FE00)) 
     BOTTOM_NUM1_carry_i_12
-       (.I0(\seconds_reg[15]_1 [5]),
-        .I1(BOTTOM_NUM1_carry_i_8_n_0),
-        .I2(BOTTOM_NUM1_carry_i_11_n_0),
-        .I3(\seconds_reg[15]_1 [3]),
-        .I4(\seconds_reg[15]_1 [4]),
-        .I5(i__carry_i_8_n_0),
+       (.I0(seconds[4]),
+        .I1(BOTTOM_NUM1_carry__0_i_5_n_0),
+        .I2(BOTTOM_NUM1_carry_i_15_n_0),
+        .I3(BOTTOM_NUM1_carry__0_i_14_n_0),
+        .I4(seconds[5]),
+        .I5(seconds[6]),
         .O(BOTTOM_NUM1_carry_i_12_n_0));
   LUT6 #(
-    .INIT(64'h6816168116818168)) 
+    .INIT(64'h0545A0A050500545)) 
+    BOTTOM_NUM1_carry_i_13
+       (.I0(BOTTOM_NUM1_carry__0_i_14_n_0),
+        .I1(BOTTOM_NUM1_carry__0_i_5_n_0),
+        .I2(seconds[5]),
+        .I3(seconds[4]),
+        .I4(seconds[6]),
+        .I5(BOTTOM_NUM1_carry_i_15_n_0),
+        .O(BOTTOM_NUM1_carry_i_13_n_0));
+  LUT6 #(
+    .INIT(64'h00FFF5C0F5C000FF)) 
     BOTTOM_NUM1_carry_i_14
-       (.I0(BOTTOM_NUM1_carry_i_25_n_0),
-        .I1(BOTTOM_NUM1_carry_i_26_n_0),
-        .I2(BOTTOM_NUM1_carry_i_27_n_0),
-        .I3(BOTTOM_NUM1_carry_i_28_n_0),
-        .I4(BOTTOM_NUM1_carry_i_29_n_0),
-        .I5(BOTTOM_NUM1_carry_i_21_n_0),
+       (.I0(BOTTOM_NUM1_carry_i_17_n_0),
+        .I1(BOTTOM_NUM1_carry_i_18_n_0),
+        .I2(BOTTOM_NUM1_carry__0_i_11_n_0),
+        .I3(BOTTOM_NUM1_carry__0_i_10_n_0),
+        .I4(BOTTOM_NUM1_carry_i_19_n_0),
+        .I5(BOTTOM_NUM1_carry_i_20_n_0),
         .O(BOTTOM_NUM1_carry_i_14_n_0));
   LUT6 #(
-    .INIT(64'h70109898E6E6F7F1)) 
+    .INIT(64'hEB6A8128EB7EA928)) 
     BOTTOM_NUM1_carry_i_15
-       (.I0(\seconds_reg[15]_1 [8]),
-        .I1(BOTTOM_NUM1_carry_i_21_n_0),
-        .I2(BOTTOM_NUM1_carry_i_17_n_0),
-        .I3(\seconds_reg[15]_1 [6]),
-        .I4(\seconds_reg[15]_1 [7]),
-        .I5(BOTTOM_NUM1_carry_i_30_n_0),
-        .O(BOTTOM_NUM1_carry_i_15_n_0));
-  LUT6 #(
-    .INIT(64'h2C3B8BC2CBE232BC)) 
-    BOTTOM_NUM1_carry_i_16
-       (.I0(BOTTOM_NUM1_carry_i_17_n_0),
-        .I1(BOTTOM_NUM1_carry_i_25_n_0),
-        .I2(BOTTOM_NUM1_carry_i_31_n_0),
-        .I3(BOTTOM_NUM1_carry_i_32_n_0),
-        .I4(BOTTOM_NUM1_carry_i_29_n_0),
-        .I5(BOTTOM_NUM1_carry_i_21_n_0),
-        .O(BOTTOM_NUM1_carry_i_16_n_0));
-  LUT6 #(
-    .INIT(64'h70109898E6E6F7F1)) 
-    BOTTOM_NUM1_carry_i_17
-       (.I0(\seconds_reg[15]_1 [9]),
-        .I1(BOTTOM_NUM1_carry_i_25_n_0),
-        .I2(BOTTOM_NUM1_carry_i_21_n_0),
-        .I3(\seconds_reg[15]_1 [7]),
-        .I4(\seconds_reg[15]_1 [8]),
-        .I5(BOTTOM_NUM1_carry_i_33_n_0),
-        .O(BOTTOM_NUM1_carry_i_17_n_0));
-  LUT6 #(
-    .INIT(64'h18E6468186911168)) 
-    BOTTOM_NUM1_carry_i_18
-       (.I0(BOTTOM_NUM1_carry_i_11_n_0),
-        .I1(BOTTOM_NUM1_carry_i_15_n_0),
-        .I2(BOTTOM_NUM1_carry_i_14_n_0),
-        .I3(BOTTOM_NUM1_carry_i_16_n_0),
-        .I4(BOTTOM_NUM1_carry_i_17_n_0),
-        .I5(BOTTOM_NUM1_carry_i_8_n_0),
-        .O(\color_instance/bot_draw/B__0 ));
-  LUT3 #(
-    .INIT(8'h69)) 
-    BOTTOM_NUM1_carry_i_19
-       (.I0(\seconds_reg[15]_1 [8]),
-        .I1(\seconds_reg[15]_1 [7]),
-        .I2(BOTTOM_NUM1_carry_i_21_n_0),
-        .O(BOTTOM_NUM1_carry_i_19_n_0));
-  LUT6 #(
-    .INIT(64'hBC2B2BC22BC2C2BC)) 
-    BOTTOM_NUM1_carry_i_20
        (.I0(BOTTOM_NUM1_carry_i_21_n_0),
-        .I1(BOTTOM_NUM1_carry_i_29_n_0),
-        .I2(BOTTOM_NUM1_carry_i_28_n_0),
-        .I3(BOTTOM_NUM1_carry_i_27_n_0),
-        .I4(BOTTOM_NUM1_carry_i_26_n_0),
-        .I5(BOTTOM_NUM1_carry_i_25_n_0),
-        .O(BOTTOM_NUM1_carry_i_20_n_0));
-  LUT6 #(
-    .INIT(64'h70109898E6E6F7F1)) 
-    BOTTOM_NUM1_carry_i_21
-       (.I0(\seconds_reg[15]_1 [10]),
-        .I1(BOTTOM_NUM1_carry_i_29_n_0),
-        .I2(BOTTOM_NUM1_carry_i_25_n_0),
-        .I3(\seconds_reg[15]_1 [8]),
-        .I4(\seconds_reg[15]_1 [9]),
-        .I5(BOTTOM_NUM1_carry_i_34_n_0),
-        .O(BOTTOM_NUM1_carry_i_21_n_0));
-  LUT6 #(
-    .INIT(64'h2C3B8BC2CBE232BC)) 
-    BOTTOM_NUM1_carry_i_22
-       (.I0(BOTTOM_NUM1_carry_i_15_n_0),
-        .I1(BOTTOM_NUM1_carry_i_21_n_0),
-        .I2(BOTTOM_NUM1_carry_i_35_n_0),
-        .I3(BOTTOM_NUM1_carry_i_36_n_0),
-        .I4(BOTTOM_NUM1_carry_i_25_n_0),
-        .I5(BOTTOM_NUM1_carry_i_17_n_0),
-        .O(BOTTOM_NUM1_carry_i_22_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
-  LUT5 #(
-    .INIT(32'hD24B2DB4)) 
-    BOTTOM_NUM1_carry_i_23
-       (.I0(BOTTOM_NUM1_carry_i_17_n_0),
-        .I1(\seconds_reg[15]_1 [6]),
-        .I2(BOTTOM_NUM1_carry_i_21_n_0),
-        .I3(\seconds_reg[15]_1 [7]),
-        .I4(\seconds_reg[15]_1 [8]),
-        .O(BOTTOM_NUM1_carry_i_23_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
-  LUT3 #(
-    .INIT(8'h69)) 
-    BOTTOM_NUM1_carry_i_24
-       (.I0(\seconds_reg[15]_1 [7]),
-        .I1(\seconds_reg[15]_1 [6]),
-        .I2(BOTTOM_NUM1_carry_i_17_n_0),
-        .O(BOTTOM_NUM1_carry_i_24_n_0));
-  LUT6 #(
-    .INIT(64'hF6F6FFF960009090)) 
-    BOTTOM_NUM1_carry_i_25
-       (.I0(\seconds_reg[15]_1 [11]),
-        .I1(BOTTOM_NUM1_carry_i_26_n_0),
-        .I2(BOTTOM_NUM1_carry_i_29_n_0),
-        .I3(\seconds_reg[15]_1 [9]),
-        .I4(\seconds_reg[15]_1 [10]),
-        .I5(BOTTOM_NUM1_carry_i_37_n_0),
-        .O(BOTTOM_NUM1_carry_i_25_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
-  LUT5 #(
-    .INIT(32'h4FB44B24)) 
-    BOTTOM_NUM1_carry_i_26
-       (.I0(\seconds_reg[15]_1 [12]),
-        .I1(\seconds_reg[15]_1 [14]),
-        .I2(\seconds_reg[15]_1 [13]),
-        .I3(\seconds_reg[15]_1 [15]),
-        .I4(\seconds_reg[15]_1 [11]),
-        .O(BOTTOM_NUM1_carry_i_26_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
-  LUT3 #(
-    .INIT(8'hE0)) 
-    BOTTOM_NUM1_carry_i_27
-       (.I0(\seconds_reg[15]_1 [14]),
-        .I1(\seconds_reg[15]_1 [13]),
-        .I2(\seconds_reg[15]_1 [15]),
-        .O(BOTTOM_NUM1_carry_i_27_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
-  LUT4 #(
-    .INIT(16'hD242)) 
-    BOTTOM_NUM1_carry_i_28
-       (.I0(\seconds_reg[15]_1 [15]),
-        .I1(\seconds_reg[15]_1 [13]),
-        .I2(\seconds_reg[15]_1 [14]),
-        .I3(\seconds_reg[15]_1 [12]),
-        .O(BOTTOM_NUM1_carry_i_28_n_0));
-  LUT6 #(
-    .INIT(64'h18EFF718108EE710)) 
-    BOTTOM_NUM1_carry_i_29
-       (.I0(\seconds_reg[15]_1 [11]),
-        .I1(\seconds_reg[15]_1 [15]),
-        .I2(\seconds_reg[15]_1 [13]),
-        .I3(\seconds_reg[15]_1 [14]),
-        .I4(\seconds_reg[15]_1 [12]),
-        .I5(\seconds_reg[15]_1 [10]),
-        .O(BOTTOM_NUM1_carry_i_29_n_0));
-  LUT6 #(
-    .INIT(64'h982624C143189826)) 
-    BOTTOM_NUM1_carry_i_3
-       (.I0(BOTTOM_NUM1_carry_i_14_n_0),
-        .I1(BOTTOM_NUM1_carry_i_15_n_0),
-        .I2(BOTTOM_NUM1_carry_i_16_n_0),
-        .I3(BOTTOM_NUM1_carry_i_17_n_0),
-        .I4(BOTTOM_NUM1_carry_i_8_n_0),
-        .I5(BOTTOM_NUM1_carry_i_11_n_0),
-        .O(B));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
-  LUT3 #(
-    .INIT(8'h69)) 
-    BOTTOM_NUM1_carry_i_30
-       (.I0(\seconds_reg[15]_1 [9]),
-        .I1(\seconds_reg[15]_1 [8]),
-        .I2(BOTTOM_NUM1_carry_i_25_n_0),
-        .O(BOTTOM_NUM1_carry_i_30_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
-  LUT5 #(
-    .INIT(32'h00F007E0)) 
-    BOTTOM_NUM1_carry_i_31
-       (.I0(\seconds_reg[15]_1 [11]),
-        .I1(\seconds_reg[15]_1 [15]),
-        .I2(\seconds_reg[15]_1 [13]),
-        .I3(\seconds_reg[15]_1 [14]),
-        .I4(\seconds_reg[15]_1 [12]),
-        .O(BOTTOM_NUM1_carry_i_31_n_0));
-  LUT6 #(
-    .INIT(64'h1FE0FF001F80FF00)) 
-    BOTTOM_NUM1_carry_i_32
-       (.I0(\seconds_reg[15]_1 [11]),
-        .I1(\seconds_reg[15]_1 [15]),
-        .I2(\seconds_reg[15]_1 [13]),
-        .I3(\seconds_reg[15]_1 [14]),
-        .I4(\seconds_reg[15]_1 [12]),
-        .I5(\seconds_reg[15]_1 [10]),
-        .O(BOTTOM_NUM1_carry_i_32_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
-  LUT3 #(
-    .INIT(8'h69)) 
-    BOTTOM_NUM1_carry_i_33
-       (.I0(\seconds_reg[15]_1 [10]),
-        .I1(\seconds_reg[15]_1 [9]),
-        .I2(BOTTOM_NUM1_carry_i_29_n_0),
-        .O(BOTTOM_NUM1_carry_i_33_n_0));
-  LUT6 #(
-    .INIT(64'h9569966969569569)) 
-    BOTTOM_NUM1_carry_i_34
-       (.I0(\seconds_reg[15]_1 [10]),
-        .I1(\seconds_reg[15]_1 [11]),
-        .I2(\seconds_reg[15]_1 [15]),
-        .I3(\seconds_reg[15]_1 [13]),
-        .I4(\seconds_reg[15]_1 [14]),
-        .I5(\seconds_reg[15]_1 [12]),
-        .O(BOTTOM_NUM1_carry_i_34_n_0));
-  LUT6 #(
-    .INIT(64'h007E00CC00CC13C8)) 
-    BOTTOM_NUM1_carry_i_35
-       (.I0(\seconds_reg[15]_1 [10]),
-        .I1(\seconds_reg[15]_1 [12]),
-        .I2(\seconds_reg[15]_1 [14]),
-        .I3(\seconds_reg[15]_1 [13]),
-        .I4(\seconds_reg[15]_1 [15]),
-        .I5(\seconds_reg[15]_1 [11]),
-        .O(BOTTOM_NUM1_carry_i_35_n_0));
-  LUT5 #(
-    .INIT(32'h2BC2C2BC)) 
-    BOTTOM_NUM1_carry_i_36
-       (.I0(BOTTOM_NUM1_carry_i_25_n_0),
-        .I1(BOTTOM_NUM1_carry_i_26_n_0),
-        .I2(BOTTOM_NUM1_carry_i_27_n_0),
-        .I3(BOTTOM_NUM1_carry_i_28_n_0),
-        .I4(BOTTOM_NUM1_carry_i_29_n_0),
-        .O(BOTTOM_NUM1_carry_i_36_n_0));
-  LUT6 #(
-    .INIT(64'hE7188AE7AE7118AE)) 
-    BOTTOM_NUM1_carry_i_37
-       (.I0(\seconds_reg[15]_1 [10]),
-        .I1(\seconds_reg[15]_1 [15]),
-        .I2(\seconds_reg[15]_1 [13]),
-        .I3(\seconds_reg[15]_1 [14]),
-        .I4(\seconds_reg[15]_1 [12]),
-        .I5(\seconds_reg[15]_1 [11]),
-        .O(BOTTOM_NUM1_carry_i_37_n_0));
-  LUT5 #(
-    .INIT(32'h956A6A95)) 
-    BOTTOM_NUM1_carry_i_4
-       (.I0(\BOTTOM_NUM1_inferred__2/i__carry__0 ),
-        .I1(\color_instance/bot_draw/B__0 ),
-        .I2(BOTTOM_NUM1_carry_i_12_n_0),
-        .I3(B),
-        .I4(\BOTTOM_NUM1_inferred__1/i__carry ),
-        .O(S[3]));
+        .I1(seconds[8]),
+        .I2(BOTTOM_NUM1_carry_i_20_n_0),
+        .I3(seconds[7]),
+        .I4(BOTTOM_NUM1_carry__0_i_10_n_0),
+        .I5(seconds[6]),
+        .O(BOTTOM_NUM1_carry_i_15_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT3 #(
     .INIT(8'h96)) 
+    BOTTOM_NUM1_carry_i_16
+       (.I0(seconds[6]),
+        .I1(BOTTOM_NUM1_carry_i_15_n_0),
+        .I2(seconds[5]),
+        .O(BOTTOM_NUM1_carry_i_16_n_0));
+  LUT6 #(
+    .INIT(64'h04AA544554450855)) 
+    BOTTOM_NUM1_carry_i_17
+       (.I0(BOTTOM_NUM1_carry_i_21_n_0),
+        .I1(seconds[6]),
+        .I2(BOTTOM_NUM1_carry__0_i_10_n_0),
+        .I3(seconds[7]),
+        .I4(BOTTOM_NUM1_carry_i_20_n_0),
+        .I5(seconds[8]),
+        .O(BOTTOM_NUM1_carry_i_17_n_0));
+  LUT6 #(
+    .INIT(64'h812881288128A928)) 
+    BOTTOM_NUM1_carry_i_18
+       (.I0(BOTTOM_NUM1_carry_i_21_n_0),
+        .I1(seconds[8]),
+        .I2(BOTTOM_NUM1_carry_i_20_n_0),
+        .I3(seconds[7]),
+        .I4(BOTTOM_NUM1_carry__0_i_10_n_0),
+        .I5(seconds[6]),
+        .O(BOTTOM_NUM1_carry_i_18_n_0));
+  LUT6 #(
+    .INIT(64'hFF0030F530F5FF00)) 
+    BOTTOM_NUM1_carry_i_19
+       (.I0(BOTTOM_NUM1_carry_i_22_n_0),
+        .I1(BOTTOM_NUM1_carry_i_20_n_0),
+        .I2(BOTTOM_NUM1_carry__0_i_17_n_0),
+        .I3(BOTTOM_NUM1_carry__0_i_16_n_0),
+        .I4(BOTTOM_NUM1_carry_i_23_n_0),
+        .I5(BOTTOM_NUM1_carry_i_24_n_0),
+        .O(BOTTOM_NUM1_carry_i_19_n_0));
+  LUT6 #(
+    .INIT(64'h4E4ED554D5548D8D)) 
+    BOTTOM_NUM1_carry_i_20
+       (.I0(BOTTOM_NUM1_carry_i_25_n_0),
+        .I1(BOTTOM_NUM1_carry__0_i_16_n_0),
+        .I2(seconds[9]),
+        .I3(seconds[8]),
+        .I4(seconds[10]),
+        .I5(BOTTOM_NUM1_carry_i_24_n_0),
+        .O(BOTTOM_NUM1_carry_i_20_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  LUT3 #(
+    .INIT(8'h69)) 
+    BOTTOM_NUM1_carry_i_21
+       (.I0(seconds[9]),
+        .I1(BOTTOM_NUM1_carry__0_i_16_n_0),
+        .I2(seconds[8]),
+        .O(BOTTOM_NUM1_carry_i_21_n_0));
+  LUT6 #(
+    .INIT(64'h5600959514149581)) 
+    BOTTOM_NUM1_carry_i_22
+       (.I0(BOTTOM_NUM1_carry_i_25_n_0),
+        .I1(BOTTOM_NUM1_carry_i_24_n_0),
+        .I2(seconds[10]),
+        .I3(seconds[8]),
+        .I4(seconds[9]),
+        .I5(BOTTOM_NUM1_carry__0_i_16_n_0),
+        .O(BOTTOM_NUM1_carry_i_22_n_0));
+  LUT6 #(
+    .INIT(64'hC30F870FC70F8F0F)) 
+    BOTTOM_NUM1_carry_i_23
+       (.I0(seconds[11]),
+        .I1(seconds[12]),
+        .I2(seconds[14]),
+        .I3(seconds[13]),
+        .I4(seconds[15]),
+        .I5(seconds[10]),
+        .O(BOTTOM_NUM1_carry_i_23_n_0));
+  LUT6 #(
+    .INIT(64'h2FD24BF40BD042B4)) 
+    BOTTOM_NUM1_carry_i_24
+       (.I0(seconds[15]),
+        .I1(seconds[13]),
+        .I2(seconds[14]),
+        .I3(seconds[12]),
+        .I4(seconds[11]),
+        .I5(seconds[10]),
+        .O(BOTTOM_NUM1_carry_i_24_n_0));
+  LUT6 #(
+    .INIT(64'h9699656659659699)) 
+    BOTTOM_NUM1_carry_i_25
+       (.I0(seconds[10]),
+        .I1(seconds[11]),
+        .I2(seconds[12]),
+        .I3(seconds[14]),
+        .I4(seconds[13]),
+        .I5(seconds[15]),
+        .O(BOTTOM_NUM1_carry_i_25_n_0));
+  LUT5 #(
+    .INIT(32'h659A9A65)) 
+    BOTTOM_NUM1_carry_i_4
+       (.I0(\BOTTOM_NUM1_inferred__4/i__carry__0 ),
+        .I1(BOTTOM_NUM1_carry_i_9_n_0),
+        .I2(BOTTOM_NUM1_carry_i_10_n_0),
+        .I3(BOTTOM_NUM1_carry_i_11_n_0),
+        .I4(BOTTOM_NUM1_carry),
+        .O(S[3]));
+  LUT3 #(
+    .INIT(8'h69)) 
     BOTTOM_NUM1_carry_i_5
-       (.I0(\BOTTOM_NUM1_inferred__1/i__carry ),
-        .I1(BOTTOM_NUM1_carry_i_12_n_0),
-        .I2(\color_instance/bot_draw/B__0 ),
+       (.I0(BOTTOM_NUM1_carry),
+        .I1(BOTTOM_NUM1_carry_i_9_n_0),
+        .I2(BOTTOM_NUM1_carry_i_10_n_0),
         .O(S[2]));
   LUT2 #(
     .INIT(4'h9)) 
     BOTTOM_NUM1_carry_i_6
-       (.I0(B),
+       (.I0(BOTTOM_NUM1_carry_i_11_n_0),
         .I1(Q[1]),
         .O(S[1]));
   LUT2 #(
     .INIT(4'h6)) 
     BOTTOM_NUM1_carry_i_7
-       (.I0(BOTTOM_NUM1_carry_i_12_n_0),
+       (.I0(BOTTOM_NUM1_carry_i_10_n_0),
         .I1(Q[0]),
         .O(S[0]));
   LUT6 #(
-    .INIT(64'h70109898E6E6F7F1)) 
-    BOTTOM_NUM1_carry_i_8
-       (.I0(\seconds_reg[15]_1 [7]),
-        .I1(BOTTOM_NUM1_carry_i_17_n_0),
-        .I2(BOTTOM_NUM1_carry_i_15_n_0),
-        .I3(\seconds_reg[15]_1 [5]),
-        .I4(\seconds_reg[15]_1 [6]),
-        .I5(BOTTOM_NUM1_carry_i_19_n_0),
-        .O(BOTTOM_NUM1_carry_i_8_n_0));
-  LUT6 #(
-    .INIT(64'hC28383C2BC3E3EBC)) 
+    .INIT(64'hC23FF20DF20DC23F)) 
     BOTTOM_NUM1_carry_i_9
-       (.I0(BOTTOM_NUM1_carry_i_8_n_0),
-        .I1(BOTTOM_NUM1_carry_i_17_n_0),
-        .I2(BOTTOM_NUM1_carry_i_16_n_0),
-        .I3(BOTTOM_NUM1_carry_i_20_n_0),
-        .I4(BOTTOM_NUM1_carry_i_21_n_0),
+       (.I0(BOTTOM_NUM1_carry_i_12_n_0),
+        .I1(BOTTOM_NUM1_carry_i_13_n_0),
+        .I2(BOTTOM_NUM1_carry__0_i_5_n_0),
+        .I3(BOTTOM_NUM1_carry__0_i_4_n_0),
+        .I4(BOTTOM_NUM1_carry_i_14_n_0),
         .I5(BOTTOM_NUM1_carry_i_15_n_0),
         .O(BOTTOM_NUM1_carry_i_9_n_0));
   LUT1 #(
     .INIT(2'h1)) 
     BOTTOM_NUM5__42_carry__1_i_1
-       (.I0(O[2]),
-        .O(\seconds_reg[15]_5 [2]));
+       (.I0(i__carry_i_11_0[2]),
+        .O(\seconds_reg[15]_4 [2]));
   LUT1 #(
     .INIT(2'h1)) 
     BOTTOM_NUM5__42_carry__1_i_2
-       (.I0(O[1]),
-        .O(\seconds_reg[15]_5 [1]));
+       (.I0(i__carry_i_11_0[1]),
+        .O(\seconds_reg[15]_4 [1]));
   LUT1 #(
     .INIT(2'h1)) 
     BOTTOM_NUM5__42_carry__1_i_3
-       (.I0(O[0]),
-        .O(\seconds_reg[15]_5 [0]));
+       (.I0(i__carry_i_11_0[0]),
+        .O(\seconds_reg[15]_4 [0]));
   LUT3 #(
     .INIT(8'hE8)) 
     BOTTOM_NUM5__4_carry__0_i_1
-       (.I0(\seconds_reg[15]_1 [3]),
-        .I1(\seconds_reg[15]_1 [11]),
-        .I2(\seconds_reg[15]_1 [7]),
+       (.I0(seconds[3]),
+        .I1(seconds[11]),
+        .I2(seconds[7]),
         .O(\seconds_reg[3]_0 [1]));
   LUT3 #(
     .INIT(8'h96)) 
     BOTTOM_NUM5__4_carry__0_i_2
-       (.I0(\seconds_reg[15]_1 [11]),
-        .I1(\seconds_reg[15]_1 [3]),
-        .I2(\seconds_reg[15]_1 [7]),
+       (.I0(seconds[11]),
+        .I1(seconds[3]),
+        .I2(seconds[7]),
         .O(\seconds_reg[3]_0 [0]));
   LUT4 #(
     .INIT(16'h6996)) 
     BOTTOM_NUM5__4_carry__0_i_3
-       (.I0(\seconds_reg[15]_1 [12]),
-        .I1(\seconds_reg[15]_1 [4]),
-        .I2(\seconds_reg[15]_1 [8]),
+       (.I0(seconds[12]),
+        .I1(seconds[8]),
+        .I2(seconds[4]),
         .I3(\seconds_reg[3]_0 [1]),
         .O(\seconds_reg[12]_0 [3]));
   LUT5 #(
     .INIT(32'h69969696)) 
     BOTTOM_NUM5__4_carry__0_i_4
-       (.I0(\seconds_reg[15]_1 [3]),
-        .I1(\seconds_reg[15]_1 [11]),
-        .I2(\seconds_reg[15]_1 [7]),
-        .I3(\seconds_reg[15]_1 [6]),
-        .I4(\seconds_reg[15]_1 [2]),
+       (.I0(seconds[3]),
+        .I1(seconds[11]),
+        .I2(seconds[7]),
+        .I3(seconds[2]),
+        .I4(seconds[6]),
         .O(\seconds_reg[12]_0 [2]));
   LUT3 #(
     .INIT(8'h96)) 
     BOTTOM_NUM5__4_carry__0_i_5
-       (.I0(\seconds_reg[15]_1 [2]),
-        .I1(\seconds_reg[15]_1 [6]),
-        .I2(\seconds_reg[15]_1 [10]),
+       (.I0(seconds[2]),
+        .I1(seconds[6]),
+        .I2(seconds[10]),
         .O(\seconds_reg[12]_0 [1]));
   LUT2 #(
     .INIT(4'h6)) 
     BOTTOM_NUM5__4_carry__0_i_6
-       (.I0(\seconds_reg[15]_1 [9]),
-        .I1(\seconds_reg[15]_1 [5]),
+       (.I0(seconds[9]),
+        .I1(seconds[5]),
         .O(\seconds_reg[12]_0 [0]));
   LUT3 #(
     .INIT(8'hE8)) 
     BOTTOM_NUM5__4_carry__1_i_1
-       (.I0(\seconds_reg[15]_1 [15]),
-        .I1(\seconds_reg[15]_1 [11]),
-        .I2(\seconds_reg[15]_1 [7]),
-        .O(\seconds_reg[15]_4 [3]));
+       (.I0(seconds[11]),
+        .I1(seconds[15]),
+        .I2(seconds[7]),
+        .O(\seconds_reg[11]_1 [3]));
   LUT3 #(
     .INIT(8'hE8)) 
     BOTTOM_NUM5__4_carry__1_i_2
-       (.I0(\seconds_reg[15]_1 [14]),
-        .I1(\seconds_reg[15]_1 [6]),
-        .I2(\seconds_reg[15]_1 [10]),
-        .O(\seconds_reg[15]_4 [2]));
+       (.I0(seconds[10]),
+        .I1(seconds[14]),
+        .I2(seconds[6]),
+        .O(\seconds_reg[11]_1 [2]));
   LUT3 #(
     .INIT(8'hE8)) 
     BOTTOM_NUM5__4_carry__1_i_3
-       (.I0(\seconds_reg[15]_1 [13]),
-        .I1(\seconds_reg[15]_1 [5]),
-        .I2(\seconds_reg[15]_1 [9]),
-        .O(\seconds_reg[15]_4 [1]));
+       (.I0(seconds[13]),
+        .I1(seconds[9]),
+        .I2(seconds[5]),
+        .O(\seconds_reg[11]_1 [1]));
   LUT3 #(
     .INIT(8'hE8)) 
     BOTTOM_NUM5__4_carry__1_i_4
-       (.I0(\seconds_reg[15]_1 [12]),
-        .I1(\seconds_reg[15]_1 [4]),
-        .I2(\seconds_reg[15]_1 [8]),
-        .O(\seconds_reg[15]_4 [0]));
+       (.I0(seconds[12]),
+        .I1(seconds[8]),
+        .I2(seconds[4]),
+        .O(\seconds_reg[11]_1 [0]));
   LUT5 #(
     .INIT(32'hE81717E8)) 
     BOTTOM_NUM5__4_carry__1_i_5
-       (.I0(\seconds_reg[15]_1 [7]),
-        .I1(\seconds_reg[15]_1 [11]),
-        .I2(\seconds_reg[15]_1 [15]),
-        .I3(\seconds_reg[15]_1 [8]),
-        .I4(\seconds_reg[15]_1 [12]),
-        .O(\seconds_reg[7]_1 [3]));
+       (.I0(seconds[7]),
+        .I1(seconds[15]),
+        .I2(seconds[11]),
+        .I3(seconds[8]),
+        .I4(seconds[12]),
+        .O(\seconds_reg[7]_0 [3]));
   LUT4 #(
     .INIT(16'h6996)) 
     BOTTOM_NUM5__4_carry__1_i_6
-       (.I0(\seconds_reg[15]_4 [2]),
-        .I1(\seconds_reg[15]_1 [7]),
-        .I2(\seconds_reg[15]_1 [11]),
-        .I3(\seconds_reg[15]_1 [15]),
-        .O(\seconds_reg[7]_1 [2]));
+       (.I0(\seconds_reg[11]_1 [2]),
+        .I1(seconds[11]),
+        .I2(seconds[15]),
+        .I3(seconds[7]),
+        .O(\seconds_reg[7]_0 [2]));
   LUT4 #(
     .INIT(16'h6996)) 
     BOTTOM_NUM5__4_carry__1_i_7
-       (.I0(\seconds_reg[15]_1 [14]),
-        .I1(\seconds_reg[15]_1 [6]),
-        .I2(\seconds_reg[15]_1 [10]),
-        .I3(\seconds_reg[15]_4 [1]),
-        .O(\seconds_reg[7]_1 [1]));
+       (.I0(seconds[10]),
+        .I1(seconds[14]),
+        .I2(seconds[6]),
+        .I3(\seconds_reg[11]_1 [1]),
+        .O(\seconds_reg[7]_0 [1]));
   LUT4 #(
     .INIT(16'h6996)) 
     BOTTOM_NUM5__4_carry__1_i_8
-       (.I0(\seconds_reg[15]_1 [13]),
-        .I1(\seconds_reg[15]_1 [5]),
-        .I2(\seconds_reg[15]_1 [9]),
-        .I3(\seconds_reg[15]_4 [0]),
-        .O(\seconds_reg[7]_1 [0]));
+       (.I0(seconds[13]),
+        .I1(seconds[9]),
+        .I2(seconds[5]),
+        .I3(\seconds_reg[11]_1 [0]),
+        .O(\seconds_reg[7]_0 [0]));
   LUT2 #(
-    .INIT(4'h6)) 
+    .INIT(4'h8)) 
     BOTTOM_NUM5__4_carry__2_i_1
-       (.I0(\seconds_reg[15]_1 [11]),
-        .I1(\seconds_reg[15]_1 [15]),
-        .O(\seconds_reg[11]_0 [2]));
+       (.I0(seconds[11]),
+        .I1(seconds[15]),
+        .O(\seconds_reg[11]_0 [3]));
   LUT2 #(
-    .INIT(4'h6)) 
+    .INIT(4'h8)) 
     BOTTOM_NUM5__4_carry__2_i_2
-       (.I0(\seconds_reg[15]_1 [10]),
-        .I1(\seconds_reg[15]_1 [14]),
-        .O(\seconds_reg[11]_0 [1]));
+       (.I0(seconds[10]),
+        .I1(seconds[14]),
+        .O(\seconds_reg[11]_0 [2]));
   LUT2 #(
     .INIT(4'h8)) 
     BOTTOM_NUM5__4_carry__2_i_3
-       (.I0(\seconds_reg[15]_1 [8]),
-        .I1(\seconds_reg[15]_1 [12]),
+       (.I0(seconds[13]),
+        .I1(seconds[9]),
+        .O(\seconds_reg[11]_0 [1]));
+  LUT2 #(
+    .INIT(4'h8)) 
+    BOTTOM_NUM5__4_carry__2_i_4
+       (.I0(seconds[12]),
+        .I1(seconds[8]),
         .O(\seconds_reg[11]_0 [0]));
   LUT3 #(
     .INIT(8'h78)) 
-    BOTTOM_NUM5__4_carry__2_i_4
-       (.I0(\seconds_reg[15]_1 [15]),
-        .I1(\seconds_reg[15]_1 [11]),
-        .I2(\seconds_reg[15]_1 [12]),
-        .O(\seconds_reg[15]_9 [3]));
-  LUT4 #(
-    .INIT(16'h8778)) 
     BOTTOM_NUM5__4_carry__2_i_5
-       (.I0(\seconds_reg[15]_1 [14]),
-        .I1(\seconds_reg[15]_1 [10]),
-        .I2(\seconds_reg[15]_1 [15]),
-        .I3(\seconds_reg[15]_1 [11]),
-        .O(\seconds_reg[15]_9 [2]));
+       (.I0(seconds[15]),
+        .I1(seconds[11]),
+        .I2(seconds[12]),
+        .O(\seconds_reg[15]_11 [3]));
   LUT4 #(
     .INIT(16'h8778)) 
     BOTTOM_NUM5__4_carry__2_i_6
-       (.I0(\seconds_reg[15]_1 [13]),
-        .I1(\seconds_reg[15]_1 [9]),
-        .I2(\seconds_reg[15]_1 [14]),
-        .I3(\seconds_reg[15]_1 [10]),
-        .O(\seconds_reg[15]_9 [1]));
+       (.I0(seconds[14]),
+        .I1(seconds[10]),
+        .I2(seconds[15]),
+        .I3(seconds[11]),
+        .O(\seconds_reg[15]_11 [2]));
   LUT4 #(
     .INIT(16'h8778)) 
     BOTTOM_NUM5__4_carry__2_i_7
-       (.I0(\seconds_reg[15]_1 [12]),
-        .I1(\seconds_reg[15]_1 [8]),
-        .I2(\seconds_reg[15]_1 [9]),
-        .I3(\seconds_reg[15]_1 [13]),
-        .O(\seconds_reg[15]_9 [0]));
+       (.I0(seconds[9]),
+        .I1(seconds[13]),
+        .I2(seconds[14]),
+        .I3(seconds[10]),
+        .O(\seconds_reg[15]_11 [1]));
+  LUT4 #(
+    .INIT(16'h8778)) 
+    BOTTOM_NUM5__4_carry__2_i_8
+       (.I0(seconds[8]),
+        .I1(seconds[12]),
+        .I2(seconds[9]),
+        .I3(seconds[13]),
+        .O(\seconds_reg[15]_11 [0]));
   LUT2 #(
     .INIT(4'h6)) 
     BOTTOM_NUM5__4_carry_i_1
-       (.I0(\seconds_reg[15]_1 [8]),
-        .I1(\seconds_reg[15]_1 [4]),
+       (.I0(seconds[8]),
+        .I1(seconds[4]),
         .O(\seconds_reg[8]_0 [2]));
   LUT2 #(
     .INIT(4'h6)) 
     BOTTOM_NUM5__4_carry_i_2
-       (.I0(\seconds_reg[15]_1 [7]),
-        .I1(\seconds_reg[15]_1 [3]),
+       (.I0(seconds[7]),
+        .I1(seconds[3]),
         .O(\seconds_reg[8]_0 [1]));
   LUT2 #(
     .INIT(4'h6)) 
     BOTTOM_NUM5__4_carry_i_3
-       (.I0(\seconds_reg[15]_1 [6]),
-        .I1(\seconds_reg[15]_1 [2]),
+       (.I0(seconds[6]),
+        .I1(seconds[2]),
         .O(\seconds_reg[8]_0 [0]));
   LUT4 #(
     .INIT(16'hB44B)) 
     BOTTOM_NUM5__70_carry__0_i_5
-       (.I0(\seconds_reg[15]_1 [11]),
+       (.I0(seconds[11]),
         .I1(BOTTOM_NUM5__70_carry__0[3]),
-        .I2(i__carry__0_i_2_0[0]),
-        .I3(\seconds_reg[15]_1 [12]),
-        .O(\seconds_reg[11]_1 [3]));
+        .I2(\BOTTOM_NUM1_inferred__0/i__carry [0]),
+        .I3(seconds[12]),
+        .O(\seconds_reg[11]_2 [3]));
   LUT4 #(
     .INIT(16'hB44B)) 
     BOTTOM_NUM5__70_carry__0_i_6
-       (.I0(\seconds_reg[15]_1 [10]),
+       (.I0(seconds[10]),
         .I1(BOTTOM_NUM5__70_carry__0[2]),
         .I2(BOTTOM_NUM5__70_carry__0[3]),
-        .I3(\seconds_reg[15]_1 [11]),
-        .O(\seconds_reg[11]_1 [2]));
+        .I3(seconds[11]),
+        .O(\seconds_reg[11]_2 [2]));
   LUT4 #(
     .INIT(16'hB44B)) 
     BOTTOM_NUM5__70_carry__0_i_7
-       (.I0(\seconds_reg[15]_1 [9]),
+       (.I0(seconds[9]),
         .I1(BOTTOM_NUM5__70_carry__0[1]),
         .I2(BOTTOM_NUM5__70_carry__0[2]),
-        .I3(\seconds_reg[15]_1 [10]),
-        .O(\seconds_reg[11]_1 [1]));
+        .I3(seconds[10]),
+        .O(\seconds_reg[11]_2 [1]));
   LUT4 #(
     .INIT(16'hB44B)) 
     BOTTOM_NUM5__70_carry__0_i_8
-       (.I0(\seconds_reg[15]_1 [8]),
+       (.I0(seconds[8]),
         .I1(BOTTOM_NUM5__70_carry__0[0]),
         .I2(BOTTOM_NUM5__70_carry__0[1]),
-        .I3(\seconds_reg[15]_1 [9]),
-        .O(\seconds_reg[11]_1 [0]));
+        .I3(seconds[9]),
+        .O(\seconds_reg[11]_2 [0]));
   LUT2 #(
     .INIT(4'h2)) 
     BOTTOM_NUM5__70_carry__1_i_1
-       (.I0(i__carry__0_i_2_0[2]),
-        .I1(\seconds_reg[15]_1 [14]),
+       (.I0(\BOTTOM_NUM1_inferred__0/i__carry [2]),
+        .I1(seconds[14]),
         .O(\seconds_reg[14]_0 [2]));
   LUT2 #(
     .INIT(4'h2)) 
     BOTTOM_NUM5__70_carry__1_i_2
-       (.I0(i__carry__0_i_2_0[1]),
-        .I1(\seconds_reg[15]_1 [13]),
+       (.I0(\BOTTOM_NUM1_inferred__0/i__carry [1]),
+        .I1(seconds[13]),
         .O(\seconds_reg[14]_0 [1]));
   LUT2 #(
     .INIT(4'h2)) 
     BOTTOM_NUM5__70_carry__1_i_3
-       (.I0(i__carry__0_i_2_0[0]),
-        .I1(\seconds_reg[15]_1 [12]),
+       (.I0(\BOTTOM_NUM1_inferred__0/i__carry [0]),
+        .I1(seconds[12]),
         .O(\seconds_reg[14]_0 [0]));
   LUT4 #(
     .INIT(16'hB44B)) 
     BOTTOM_NUM5__70_carry__1_i_4
-       (.I0(\seconds_reg[15]_1 [14]),
-        .I1(i__carry__0_i_2_0[2]),
-        .I2(i__carry__0_i_2_0[3]),
-        .I3(\seconds_reg[15]_1 [15]),
+       (.I0(seconds[14]),
+        .I1(\BOTTOM_NUM1_inferred__0/i__carry [2]),
+        .I2(\BOTTOM_NUM1_inferred__0/i__carry [3]),
+        .I3(seconds[15]),
         .O(\seconds_reg[14]_1 [2]));
   LUT4 #(
     .INIT(16'hB44B)) 
     BOTTOM_NUM5__70_carry__1_i_5
-       (.I0(\seconds_reg[15]_1 [13]),
-        .I1(i__carry__0_i_2_0[1]),
-        .I2(i__carry__0_i_2_0[2]),
-        .I3(\seconds_reg[15]_1 [14]),
+       (.I0(seconds[13]),
+        .I1(\BOTTOM_NUM1_inferred__0/i__carry [1]),
+        .I2(\BOTTOM_NUM1_inferred__0/i__carry [2]),
+        .I3(seconds[14]),
         .O(\seconds_reg[14]_1 [1]));
   LUT4 #(
     .INIT(16'hB44B)) 
     BOTTOM_NUM5__70_carry__1_i_6
-       (.I0(\seconds_reg[15]_1 [12]),
-        .I1(i__carry__0_i_2_0[0]),
-        .I2(i__carry__0_i_2_0[1]),
-        .I3(\seconds_reg[15]_1 [13]),
+       (.I0(seconds[12]),
+        .I1(\BOTTOM_NUM1_inferred__0/i__carry [0]),
+        .I2(\BOTTOM_NUM1_inferred__0/i__carry [1]),
+        .I3(seconds[13]),
         .O(\seconds_reg[14]_1 [0]));
   LUT4 #(
     .INIT(16'h2DD2)) 
     BOTTOM_NUM5__70_carry_i_5
-       (.I0(\seconds_reg[15]_1 [7]),
+       (.I0(seconds[7]),
         .I1(BOTTOM_NUM5__70_carry[3]),
         .I2(BOTTOM_NUM5__70_carry__0[0]),
-        .I3(\seconds_reg[15]_1 [8]),
-        .O(\seconds_reg[7]_2 [3]));
+        .I3(seconds[8]),
+        .O(\seconds_reg[7]_1 [3]));
   LUT4 #(
     .INIT(16'hD22D)) 
     BOTTOM_NUM5__70_carry_i_6
-       (.I0(\seconds_reg[15]_1 [6]),
+       (.I0(seconds[6]),
         .I1(BOTTOM_NUM5__70_carry[2]),
         .I2(BOTTOM_NUM5__70_carry[3]),
-        .I3(\seconds_reg[15]_1 [7]),
-        .O(\seconds_reg[7]_2 [2]));
+        .I3(seconds[7]),
+        .O(\seconds_reg[7]_1 [2]));
   LUT4 #(
     .INIT(16'hD22D)) 
     BOTTOM_NUM5__70_carry_i_7
-       (.I0(\seconds_reg[15]_1 [5]),
+       (.I0(seconds[5]),
         .I1(BOTTOM_NUM5__70_carry[1]),
         .I2(BOTTOM_NUM5__70_carry[2]),
-        .I3(\seconds_reg[15]_1 [6]),
-        .O(\seconds_reg[7]_2 [1]));
+        .I3(seconds[6]),
+        .O(\seconds_reg[7]_1 [1]));
   LUT4 #(
     .INIT(16'hD22D)) 
     BOTTOM_NUM5__70_carry_i_8
-       (.I0(\seconds_reg[15]_1 [4]),
+       (.I0(seconds[4]),
         .I1(BOTTOM_NUM5__70_carry[0]),
         .I2(BOTTOM_NUM5__70_carry[1]),
-        .I3(\seconds_reg[15]_1 [5]),
-        .O(\seconds_reg[7]_2 [0]));
+        .I3(seconds[5]),
+        .O(\seconds_reg[7]_1 [0]));
+  LUT5 #(
+    .INIT(32'hD7D77DD7)) 
+    i__carry__0_i_1__0
+       (.I0(\BOTTOM_NUM1_inferred__4/i__carry__0 ),
+        .I1(\seconds_reg[4]_0 ),
+        .I2(i__carry_i_7_n_0),
+        .I3(seconds[2]),
+        .I4(i__carry_i_6__0_n_0),
+        .O(\seconds_reg[2]_2 ));
   LUT6 #(
-    .INIT(64'h96B4B43C2D2D6969)) 
-    i__carry__0_i_2
-       (.I0(\BOTTOM_NUM1_inferred__2/i__carry__0_0 ),
-        .I1(\color_instance/bot_draw/A__0 [3]),
-        .I2(\BOTTOM_NUM1_inferred__2/i__carry__0_1 ),
-        .I3(\color_instance/bot_draw/A ),
-        .I4(\seconds_reg[15]_0 ),
-        .I5(\color_instance/bot_draw/A__0 [2]),
-        .O(\vc_reg[6] [1]));
-  LUT6 #(
-    .INIT(64'h17E8FC033FC0FC03)) 
+    .INIT(64'hC30FC33C7887F00F)) 
     i__carry__0_i_2__2
-       (.I0(i__carry_i_12_n_0),
-        .I1(Q[2]),
-        .I2(\BOTTOM_NUM1_inferred__1/i__carry__0 ),
-        .I3(Q[3]),
-        .I4(i__carry_i_13_n_0),
-        .I5(i__carry_i_11__0),
-        .O(\vc_reg[7] [1]));
-  LUT6 #(
-    .INIT(64'hC7388F700CF33CC3)) 
-    i__carry__0_i_2__3
-       (.I0(\seconds_reg[15]_1 [2]),
-        .I1(\BOTTOM_NUM1_inferred__2/i__carry__0_0 ),
-        .I2(i__carry__0_i_4_n_0),
-        .I3(\BOTTOM_NUM1_inferred__2/i__carry__0_1 ),
+       (.I0(seconds[2]),
+        .I1(\BOTTOM_NUM1_inferred__4/i__carry__0_0 ),
+        .I2(\BOTTOM_NUM1_inferred__4/i__carry__0_1 ),
+        .I3(i__carry_i_7_n_0),
         .I4(\seconds_reg[4]_0 ),
-        .I5(i__carry_i_9_n_0),
-        .O(\seconds_reg[2]_0 [1]));
+        .I5(i__carry_i_6__0_n_0),
+        .O(\seconds_reg[2]_1 [1]));
   LUT6 #(
-    .INIT(64'hC96C693C6C363C96)) 
-    i__carry__0_i_3
-       (.I0(\BOTTOM_NUM1_inferred__2/i__carry__0 ),
-        .I1(\BOTTOM_NUM1_inferred__2/i__carry__0_0 ),
-        .I2(\color_instance/bot_draw/A__0 [2]),
-        .I3(\seconds_reg[15]_0 ),
-        .I4(\color_instance/bot_draw/A ),
-        .I5(\color_instance/bot_draw/A__0 [3]),
-        .O(\vc_reg[6] [0]));
-  LUT5 #(
-    .INIT(32'h2DF04B3C)) 
+    .INIT(64'hFC2E3F4803D1C0B7)) 
     i__carry__0_i_3__2
-       (.I0(i__carry_i_12_n_0),
-        .I1(\BOTTOM_NUM1_inferred__2/i__carry__0 ),
-        .I2(\BOTTOM_NUM1_inferred__2/i__carry__0_0 ),
-        .I3(i__carry_i_13_n_0),
-        .I4(i__carry_i_11__0),
-        .O(\vc_reg[7] [0]));
-  LUT6 #(
-    .INIT(64'hB4C32DF02DF04B3C)) 
-    i__carry__0_i_3__3
-       (.I0(\seconds_reg[15]_1 [2]),
-        .I1(\BOTTOM_NUM1_inferred__2/i__carry__0 ),
-        .I2(\BOTTOM_NUM1_inferred__2/i__carry__0_0 ),
-        .I3(i__carry_i_9_n_0),
+       (.I0(seconds[2]),
+        .I1(\BOTTOM_NUM1_inferred__4/i__carry__0 ),
+        .I2(i__carry_i_7_n_0),
+        .I3(i__carry_i_6__0_n_0),
         .I4(\seconds_reg[4]_0 ),
-        .I5(i__carry__0_i_4_n_0),
-        .O(\seconds_reg[2]_0 [0]));
-  LUT6 #(
-    .INIT(64'h412431C42A89238C)) 
-    i__carry__0_i_4
-       (.I0(i__carry_i_8_n_0),
-        .I1(\seconds_reg[15]_1 [5]),
-        .I2(\seconds_reg[15]_1 [4]),
-        .I3(BOTTOM_NUM1_carry_i_8_n_0),
-        .I4(\seconds_reg[15]_1 [3]),
-        .I5(BOTTOM_NUM1_carry_i_11_n_0),
-        .O(i__carry__0_i_4_n_0));
-  LUT6 #(
-    .INIT(64'h04482A4A91520112)) 
-    i__carry__0_i_4__1
-       (.I0(i__carry_i_2_0),
-        .I1(i__carry_i_7_0),
-        .I2(\seconds_reg[15]_2 ),
-        .I3(i__carry_i_13__0_n_0),
-        .I4(i__carry_i_12__0_n_0),
-        .I5(i__carry_i_8__0_n_0),
-        .O(\color_instance/bot_draw/A__0 [3]));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
-  LUT4 #(
-    .INIT(16'hAE51)) 
-    i__carry__0_i_5__0
-       (.I0(i__carry__0_i_2_1),
-        .I1(i__carry__0_i_2_0[3]),
-        .I2(\seconds_reg[15]_1 [15]),
-        .I3(i__carry__0_i_2_2),
-        .O(\color_instance/bot_draw/A ));
-  LUT6 #(
-    .INIT(64'hF108308F0EF3EF70)) 
-    i__carry_i_10
-       (.I0(BOTTOM_NUM1_carry_i_24_n_0),
-        .I1(BOTTOM_NUM1_carry_i_23_n_0),
-        .I2(\seconds_reg[15]_1 [4]),
-        .I3(BOTTOM_NUM1_carry_i_15_n_0),
-        .I4(\seconds_reg[15]_1 [5]),
-        .I5(\seconds_reg[15]_1 [6]),
-        .O(i__carry_i_10_n_0));
-  LUT6 #(
-    .INIT(64'h2DF24FB424D20DB0)) 
+        .I5(\BOTTOM_NUM1_inferred__4/i__carry__0_0 ),
+        .O(\seconds_reg[2]_1 [0]));
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  LUT5 #(
+    .INIT(32'h65665555)) 
     i__carry_i_10__0
-       (.I0(i__carry_i_11__0_1),
-        .I1(O[0]),
-        .I2(CO),
-        .I3(O[1]),
-        .I4(O[2]),
-        .I5(i__carry_i_11__0_0),
-        .O(\seconds_reg[15]_3 ));
-  LUT6 #(
-    .INIT(64'h559A66996699A655)) 
-    i__carry_i_11
-       (.I0(\seconds_reg[15]_1 [4]),
-        .I1(BOTTOM_NUM1_carry_i_23_n_0),
-        .I2(\seconds_reg[15]_1 [6]),
-        .I3(\seconds_reg[15]_1 [5]),
-        .I4(BOTTOM_NUM1_carry_i_15_n_0),
-        .I5(BOTTOM_NUM1_carry_i_24_n_0),
-        .O(i__carry_i_11_n_0));
-  LUT6 #(
-    .INIT(64'h3CA2BBCF0C22BAC3)) 
-    i__carry_i_12
-       (.I0(i__carry_i_12__0_n_0),
-        .I1(i__carry_i_2_0),
-        .I2(i__carry_i_7_0),
-        .I3(\seconds_reg[15]_2 ),
-        .I4(i__carry_i_8__0_n_0),
-        .I5(i__carry_i_13__0_n_0),
-        .O(i__carry_i_12_n_0));
-  LUT6 #(
-    .INIT(64'hF108308F0EF3EF70)) 
-    i__carry_i_12__0
-       (.I0(i__carry_i_19_n_0),
-        .I1(i__carry_i_16_n_0),
-        .I2(i__carry_i_2_0),
-        .I3(i__carry_i_9__1_n_0),
-        .I4(i__carry_i_11__0_0),
-        .I5(i__carry_i_17_n_0),
-        .O(i__carry_i_12__0_n_0));
-  LUT5 #(
-    .INIT(32'h16818168)) 
-    i__carry_i_13
-       (.I0(i__carry__0_i_2__2_0),
-        .I1(\seconds_reg[15]_3 ),
-        .I2(i__carry_i_8__1_n_0),
-        .I3(i__carry_i_9__1_n_0),
-        .I4(\seconds_reg[15]_2 ),
-        .O(i__carry_i_13_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
-  LUT5 #(
-    .INIT(32'hFF75008A)) 
-    i__carry_i_13__0
-       (.I0(i__carry__0_i_2_2),
-        .I1(\seconds_reg[15]_1 [15]),
-        .I2(i__carry__0_i_2_0[3]),
-        .I3(i__carry__0_i_2_1),
-        .I4(i__carry_i_2_1),
-        .O(i__carry_i_13__0_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
-  LUT3 #(
-    .INIT(8'hF4)) 
-    i__carry_i_14
-       (.I0(\seconds_reg[15]_1 [15]),
-        .I1(i__carry__0_i_2_0[3]),
-        .I2(i__carry__0_i_2_1),
-        .O(\seconds_reg[15]_6 ));
-  LUT6 #(
-    .INIT(64'h003776A39FC88805)) 
-    i__carry_i_15
-       (.I0(i__carry_i_13__0_n_0),
-        .I1(i__carry_i_12__0_n_0),
-        .I2(i__carry_i_2_0),
-        .I3(\seconds_reg[15]_2 ),
-        .I4(i__carry_i_8__0_n_0),
-        .I5(i__carry_i_7_0),
-        .O(\color_instance/bot_draw/A__0 [2]));
-  LUT6 #(
-    .INIT(64'h39333939BC9BBCBC)) 
-    i__carry_i_16
-       (.I0(CO),
-        .I1(O[2]),
-        .I2(O[0]),
-        .I3(\seconds_reg[15]_6 ),
-        .I4(i__carry_i_9__0_0),
-        .I5(O[1]),
-        .O(i__carry_i_16_n_0));
-  LUT6 #(
-    .INIT(64'h5569966596965996)) 
-    i__carry_i_16__0
-       (.I0(i__carry_i_11__0_0),
-        .I1(i__carry_i_11__0_1),
-        .I2(O[0]),
-        .I3(CO),
-        .I4(O[1]),
-        .I5(O[2]),
-        .O(\seconds_reg[15]_7 ));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
-  LUT5 #(
-    .INIT(32'hFF75008A)) 
-    i__carry_i_17
-       (.I0(i__carry_i_9__0_0),
-        .I1(\seconds_reg[15]_1 [15]),
-        .I2(i__carry__0_i_2_0[3]),
-        .I3(i__carry__0_i_2_1),
-        .I4(O[0]),
-        .O(i__carry_i_17_n_0));
-  LUT6 #(
-    .INIT(64'h38339E99CFCC3033)) 
-    i__carry_i_19
-       (.I0(O[2]),
-        .I1(O[0]),
-        .I2(\seconds_reg[15]_6 ),
-        .I3(i__carry_i_9__0_0),
-        .I4(O[1]),
-        .I5(CO),
-        .O(i__carry_i_19_n_0));
-  LUT6 #(
-    .INIT(64'h8218E63A5C671841)) 
-    i__carry_i_2
-       (.I0(i__carry_i_8__0_n_0),
-        .I1(\seconds_reg[15]_2 ),
-        .I2(i__carry_i_7_0),
-        .I3(i__carry_i_2_0),
-        .I4(i__carry_i_12__0_n_0),
-        .I5(i__carry_i_13__0_n_0),
+       (.I0(O[0]),
+        .I1(CO),
+        .I2(seconds[15]),
+        .I3(\BOTTOM_NUM1_inferred__0/i__carry [3]),
+        .I4(\BOTTOM_NUM1_inferred__0/i__carry_0 ),
         .O(\seconds_reg[15]_0 ));
-  LUT5 #(
-    .INIT(32'h92492492)) 
-    i__carry_i_2__0
-       (.I0(i__carry_i_8__1_n_0),
-        .I1(i__carry_i_9__1_n_0),
-        .I2(\seconds_reg[15]_3 ),
-        .I3(\seconds_reg[15]_2 ),
-        .I4(i__carry__0_i_2__2_0),
-        .O(i__carry_i_11__0));
   LUT6 #(
-    .INIT(64'h8D2A2A4E725454B1)) 
-    i__carry_i_2__1
-       (.I0(i__carry_i_8_n_0),
-        .I1(\seconds_reg[15]_1 [4]),
-        .I2(BOTTOM_NUM1_carry_i_11_n_0),
-        .I3(BOTTOM_NUM1_carry_i_8_n_0),
-        .I4(\seconds_reg[15]_1 [5]),
-        .I5(\seconds_reg[15]_1 [3]),
-        .O(\seconds_reg[4]_0 ));
-  LUT4 #(
-    .INIT(16'h9669)) 
-    i__carry_i_4__0
-       (.I0(\BOTTOM_NUM1_inferred__1/i__carry ),
-        .I1(\seconds_reg[15]_6 ),
-        .I2(i__carry__0_i_2_2),
-        .I3(\color_instance/bot_draw/A__0 [2]),
-        .O(\vc_reg[4] [2]));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i__carry_i_4__1
-       (.I0(\BOTTOM_NUM1_inferred__1/i__carry ),
-        .I1(\seconds_reg[15]_1 [2]),
-        .I2(i__carry_i_9_n_0),
-        .O(\seconds_reg[2]_2 [1]));
-  LUT3 #(
-    .INIT(8'h96)) 
-    i__carry_i_4__3
-       (.I0(i__carry_i_12_n_0),
-        .I1(\BOTTOM_NUM1_inferred__1/i__carry ),
-        .I2(i__carry_i_13_n_0),
-        .O(\vc_reg[4]_0 [2]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    i__carry_i_5__0
-       (.I0(\seconds_reg[15]_0 ),
-        .I1(Q[1]),
-        .O(\vc_reg[4] [1]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    i__carry_i_5__1
-       (.I0(i__carry_i_11__0),
-        .I1(Q[1]),
-        .O(\vc_reg[4]_0 [1]));
-  LUT5 #(
-    .INIT(32'h559AAA65)) 
-    i__carry_i_6__0
-       (.I0(i__carry__0_i_2_2),
-        .I1(\seconds_reg[15]_1 [15]),
-        .I2(i__carry__0_i_2_0[3]),
-        .I3(i__carry__0_i_2_1),
-        .I4(Q[0]),
-        .O(\vc_reg[4] [0]));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i__carry_i_6__1
-       (.I0(\seconds_reg[15]_1 [2]),
-        .I1(Q[0]),
-        .O(\seconds_reg[2]_2 [0]));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i__carry_i_6__2
-       (.I0(i__carry_i_12_n_0),
-        .I1(Q[0]),
-        .O(\vc_reg[4]_0 [0]));
-  LUT6 #(
-    .INIT(64'hCB2CB2CB2CB2CB2C)) 
-    i__carry_i_7
-       (.I0(i__carry_i_12_n_0),
-        .I1(i__carry__0_i_2__2_0),
-        .I2(\seconds_reg[15]_2 ),
-        .I3(\seconds_reg[15]_3 ),
-        .I4(i__carry_i_9__1_n_0),
-        .I5(i__carry_i_8__1_n_0),
-        .O(i__carry_i_8__1_0));
-  LUT6 #(
-    .INIT(64'h0AAFF550BFD442AF)) 
-    i__carry_i_7__0
-       (.I0(\seconds_reg[15]_1 [2]),
-        .I1(i__carry_i_10_n_0),
-        .I2(\seconds_reg[15]_1 [4]),
-        .I3(BOTTOM_NUM1_carry_i_11_n_0),
-        .I4(i__carry_i_11_n_0),
-        .I5(\seconds_reg[15]_1 [3]),
-        .O(\seconds_reg[2]_1 ));
-  LUT5 #(
-    .INIT(32'h827D7D82)) 
-    i__carry_i_7__1
-       (.I0(\color_instance/bot_draw/A__0 [2]),
-        .I1(\seconds_reg[15]_6 ),
-        .I2(i__carry__0_i_2_2),
-        .I3(\seconds_reg[15]_0 ),
-        .I4(\color_instance/bot_draw/A__0 [3]),
-        .O(\seconds_reg[15]_8 ));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
-  LUT3 #(
-    .INIT(8'h69)) 
-    i__carry_i_8
-       (.I0(\seconds_reg[15]_1 [6]),
-        .I1(\seconds_reg[15]_1 [5]),
-        .I2(BOTTOM_NUM1_carry_i_15_n_0),
-        .O(i__carry_i_8_n_0));
-  LUT6 #(
-    .INIT(64'h559A66996699A655)) 
-    i__carry_i_8__0
-       (.I0(i__carry_i_2_0),
-        .I1(i__carry_i_16_n_0),
+    .INIT(64'hFFFF00000C00AFAA)) 
+    i__carry_i_11
+       (.I0(i__carry_i_6),
+        .I1(i__carry_i_6_0),
         .I2(i__carry_i_17_n_0),
-        .I3(i__carry_i_11__0_0),
-        .I4(i__carry_i_9__1_n_0),
-        .I5(i__carry_i_19_n_0),
-        .O(i__carry_i_8__0_n_0));
+        .I3(i__carry_i_18__0_n_0),
+        .I4(\seconds_reg[15]_1 ),
+        .I5(i__carry_i_19__0_n_0),
+        .O(i__carry_i_19__0_0));
   LUT6 #(
-    .INIT(64'hAA2AAAAA88A88888)) 
-    i__carry_i_8__1
-       (.I0(CO),
-        .I1(O[1]),
-        .I2(i__carry_i_9__0_0),
-        .I3(\seconds_reg[15]_6 ),
-        .I4(O[0]),
-        .I5(O[2]),
-        .O(i__carry_i_8__1_n_0));
+    .INIT(64'h00010015EAAAAAA8)) 
+    i__carry_i_12
+       (.I0(i__carry_i_11_0[1]),
+        .I1(i__carry_i_14__0),
+        .I2(O[3]),
+        .I3(i__carry_i_11_0[0]),
+        .I4(i__carry_i_11_1),
+        .I5(i__carry_i_11_0[2]),
+        .O(\seconds_reg[15]_5 ));
   LUT6 #(
-    .INIT(64'h001EFFF9FF600081)) 
-    i__carry_i_9
-       (.I0(\seconds_reg[15]_1 [5]),
-        .I1(BOTTOM_NUM1_carry_i_8_n_0),
-        .I2(i__carry_i_8_n_0),
-        .I3(\seconds_reg[15]_1 [3]),
-        .I4(BOTTOM_NUM1_carry_i_11_n_0),
-        .I5(\seconds_reg[15]_1 [4]),
-        .O(i__carry_i_9_n_0));
-  LUT6 #(
-    .INIT(64'h3CA2BBCF0C22BAC3)) 
-    i__carry_i_9__0
-       (.I0(i__carry_i_16_n_0),
+    .INIT(64'h9999999696969666)) 
+    i__carry_i_13
+       (.I0(i__carry_i_11_0[0]),
         .I1(i__carry_i_17_n_0),
-        .I2(i__carry_i_11__0_0),
-        .I3(i__carry_i_9__1_n_0),
-        .I4(i__carry_i_19_n_0),
-        .I5(i__carry_i_2_0),
+        .I2(O[3]),
+        .I3(O[2]),
+        .I4(\seconds_reg[15]_8 ),
+        .I5(\seconds_reg[15]_1 ),
+        .O(\seconds_reg[15]_7 ));
+  LUT6 #(
+    .INIT(64'h9B9393B333333333)) 
+    i__carry_i_14
+       (.I0(i__carry_i_11_0[2]),
+        .I1(i__carry_i_11_1),
+        .I2(i__carry_i_11_0[0]),
+        .I3(O[3]),
+        .I4(i__carry_i_14__0),
+        .I5(i__carry_i_11_0[1]),
         .O(\seconds_reg[15]_2 ));
   LUT6 #(
-    .INIT(64'h9A180A9A9A189A18)) 
-    i__carry_i_9__1
-       (.I0(O[2]),
-        .I1(O[1]),
-        .I2(CO),
-        .I3(O[0]),
-        .I4(\seconds_reg[15]_6 ),
-        .I5(i__carry_i_9__0_0),
-        .O(i__carry_i_9__1_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 internal_clk0_carry
-       (.CI(1'b0),
-        .CO({internal_clk0_carry_n_0,internal_clk0_carry_n_1,internal_clk0_carry_n_2,internal_clk0_carry_n_3}),
-        .CYINIT(\internal_clk_reg_n_0_[0] ),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({internal_clk0_carry_n_4,internal_clk0_carry_n_5,internal_clk0_carry_n_6,internal_clk0_carry_n_7}),
-        .S({\internal_clk_reg_n_0_[4] ,\internal_clk_reg_n_0_[3] ,\internal_clk_reg_n_0_[2] ,\internal_clk_reg_n_0_[1] }));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 internal_clk0_carry__0
-       (.CI(internal_clk0_carry_n_0),
-        .CO({internal_clk0_carry__0_n_0,internal_clk0_carry__0_n_1,internal_clk0_carry__0_n_2,internal_clk0_carry__0_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({internal_clk0_carry__0_n_4,internal_clk0_carry__0_n_5,internal_clk0_carry__0_n_6,internal_clk0_carry__0_n_7}),
-        .S({\internal_clk_reg_n_0_[8] ,\internal_clk_reg_n_0_[7] ,\internal_clk_reg_n_0_[6] ,\internal_clk_reg_n_0_[5] }));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 internal_clk0_carry__1
-       (.CI(internal_clk0_carry__0_n_0),
-        .CO({internal_clk0_carry__1_n_0,internal_clk0_carry__1_n_1,internal_clk0_carry__1_n_2,internal_clk0_carry__1_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({internal_clk0_carry__1_n_4,internal_clk0_carry__1_n_5,internal_clk0_carry__1_n_6,internal_clk0_carry__1_n_7}),
-        .S({\internal_clk_reg_n_0_[12] ,\internal_clk_reg_n_0_[11] ,\internal_clk_reg_n_0_[10] ,\internal_clk_reg_n_0_[9] }));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 internal_clk0_carry__2
-       (.CI(internal_clk0_carry__1_n_0),
-        .CO({internal_clk0_carry__2_n_0,internal_clk0_carry__2_n_1,internal_clk0_carry__2_n_2,internal_clk0_carry__2_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({internal_clk0_carry__2_n_4,internal_clk0_carry__2_n_5,internal_clk0_carry__2_n_6,internal_clk0_carry__2_n_7}),
-        .S({\internal_clk_reg_n_0_[16] ,\internal_clk_reg_n_0_[15] ,\internal_clk_reg_n_0_[14] ,\internal_clk_reg_n_0_[13] }));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 internal_clk0_carry__3
-       (.CI(internal_clk0_carry__2_n_0),
-        .CO({internal_clk0_carry__3_n_0,internal_clk0_carry__3_n_1,internal_clk0_carry__3_n_2,internal_clk0_carry__3_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({internal_clk0_carry__3_n_4,internal_clk0_carry__3_n_5,internal_clk0_carry__3_n_6,internal_clk0_carry__3_n_7}),
-        .S({\internal_clk_reg_n_0_[20] ,\internal_clk_reg_n_0_[19] ,\internal_clk_reg_n_0_[18] ,\internal_clk_reg_n_0_[17] }));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 internal_clk0_carry__4
-       (.CI(internal_clk0_carry__3_n_0),
-        .CO(NLW_internal_clk0_carry__4_CO_UNCONNECTED[3:0]),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({NLW_internal_clk0_carry__4_O_UNCONNECTED[3:1],internal_clk0_carry__4_n_7}),
-        .S({1'b0,1'b0,1'b0,\internal_clk_reg_n_0_[21] }));
-  (* SOFT_HLUTNM = "soft_lutpair75" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
-    \internal_clk[0]_i_1 
-       (.I0(axi_aresetn),
-        .I1(\internal_clk_reg_n_0_[0] ),
-        .O(internal_clk[0]));
-  (* SOFT_HLUTNM = "soft_lutpair70" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[10]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__1_n_6),
-        .O(internal_clk[10]));
-  (* SOFT_HLUTNM = "soft_lutpair70" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[11]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__1_n_5),
-        .O(internal_clk[11]));
-  (* SOFT_HLUTNM = "soft_lutpair69" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[12]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__1_n_4),
-        .O(internal_clk[12]));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[13]_i_1 
-       (.I0(internal_clk0_carry__2_n_7),
-        .I1(axi_aresetn),
-        .O(internal_clk[13]));
-  (* SOFT_HLUTNM = "soft_lutpair69" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[14]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__2_n_6),
-        .O(internal_clk[14]));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[15]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__2_n_5),
-        .O(internal_clk[15]));
-  (* SOFT_HLUTNM = "soft_lutpair68" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[16]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__2_n_4),
-        .O(internal_clk[16]));
-  (* SOFT_HLUTNM = "soft_lutpair68" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[17]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__3_n_7),
-        .O(internal_clk[17]));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[18]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__3_n_6),
-        .O(internal_clk[18]));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[19]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__3_n_5),
-        .O(internal_clk[19]));
-  (* SOFT_HLUTNM = "soft_lutpair75" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[1]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry_n_7),
-        .O(internal_clk[1]));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[20]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__3_n_4),
-        .O(internal_clk[20]));
-  LUT6 #(
-    .INIT(64'hFEEEEEEE00000000)) 
-    \internal_clk[21]_i_1 
-       (.I0(internal_clk0_carry__3_n_4),
-        .I1(internal_clk0_carry__3_n_5),
-        .I2(\internal_clk[21]_i_3_n_0 ),
-        .I3(internal_clk0_carry__3_n_6),
-        .I4(internal_clk0_carry__3_n_7),
-        .I5(internal_clk[21]),
-        .O(seconds1));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[21]_i_2 
-       (.I0(internal_clk0_carry__4_n_7),
-        .I1(axi_aresetn),
-        .O(internal_clk[21]));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFF0FFB0)) 
-    \internal_clk[21]_i_3 
-       (.I0(internal_clk0_carry_n_4),
-        .I1(\internal_clk_reg_n_0_[0] ),
-        .I2(\internal_clk[21]_i_4_n_0 ),
-        .I3(\internal_clk[21]_i_5_n_0 ),
-        .I4(internal_clk0_carry_n_7),
-        .I5(\internal_clk[21]_i_6_n_0 ),
-        .O(\internal_clk[21]_i_3_n_0 ));
-  LUT6 #(
-    .INIT(64'h8000000000000000)) 
-    \internal_clk[21]_i_4 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__2_n_7),
-        .I2(internal_clk0_carry__1_n_6),
-        .I3(internal_clk0_carry__0_n_5),
-        .I4(internal_clk0_carry__0_n_4),
-        .I5(internal_clk0_carry__0_n_7),
-        .O(\internal_clk[21]_i_4_n_0 ));
-  LUT6 #(
-    .INIT(64'hFE00AA00EE00AA00)) 
-    \internal_clk[21]_i_5 
-       (.I0(internal_clk0_carry__2_n_4),
-        .I1(internal_clk0_carry__1_n_4),
-        .I2(internal_clk0_carry__1_n_7),
-        .I3(axi_aresetn),
-        .I4(internal_clk0_carry__2_n_7),
-        .I5(internal_clk0_carry__1_n_6),
-        .O(\internal_clk[21]_i_5_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFF00A800)) 
-    \internal_clk[21]_i_6 
-       (.I0(internal_clk0_carry__0_n_7),
-        .I1(internal_clk0_carry_n_6),
-        .I2(internal_clk0_carry_n_5),
-        .I3(\internal_clk[21]_i_7_n_0 ),
-        .I4(internal_clk0_carry__0_n_6),
-        .I5(\internal_clk[21]_i_8_n_0 ),
-        .O(\internal_clk[21]_i_6_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+    .INIT(64'hCEC6C6E773313139)) 
+    i__carry_i_15__0
+       (.I0(i__carry_i_11_0[2]),
+        .I1(i__carry_i_11_1),
+        .I2(i__carry_i_11_0[0]),
+        .I3(O[3]),
+        .I4(i__carry_i_14__0),
+        .I5(i__carry_i_11_0[1]),
+        .O(\seconds_reg[15]_1 ));
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT5 #(
-    .INIT(32'h80000000)) 
-    \internal_clk[21]_i_7 
-       (.I0(internal_clk0_carry__0_n_4),
-        .I1(internal_clk0_carry__0_n_5),
-        .I2(internal_clk0_carry__1_n_6),
-        .I3(internal_clk0_carry__2_n_7),
-        .I4(axi_aresetn),
-        .O(\internal_clk[21]_i_7_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
-  LUT5 #(
-    .INIT(32'hFEEE0000)) 
-    \internal_clk[21]_i_8 
-       (.I0(internal_clk0_carry__2_n_6),
-        .I1(internal_clk0_carry__2_n_5),
-        .I2(internal_clk0_carry__1_n_5),
-        .I3(internal_clk0_carry__2_n_7),
-        .I4(axi_aresetn),
-        .O(\internal_clk[21]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair74" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[2]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry_n_6),
-        .O(internal_clk[2]));
-  (* SOFT_HLUTNM = "soft_lutpair74" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[3]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry_n_5),
-        .O(internal_clk[3]));
-  (* SOFT_HLUTNM = "soft_lutpair73" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[4]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry_n_4),
-        .O(internal_clk[4]));
-  (* SOFT_HLUTNM = "soft_lutpair73" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[5]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__0_n_7),
-        .O(internal_clk[5]));
-  (* SOFT_HLUTNM = "soft_lutpair72" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[6]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__0_n_6),
-        .O(internal_clk[6]));
-  (* SOFT_HLUTNM = "soft_lutpair72" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[7]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__0_n_5),
-        .O(internal_clk[7]));
-  (* SOFT_HLUTNM = "soft_lutpair71" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[8]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__0_n_4),
-        .O(internal_clk[8]));
-  (* SOFT_HLUTNM = "soft_lutpair71" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \internal_clk[9]_i_1 
-       (.I0(axi_aresetn),
-        .I1(internal_clk0_carry__1_n_7),
-        .O(internal_clk[9]));
-  FDRE \internal_clk_reg[0] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[0]),
-        .Q(\internal_clk_reg_n_0_[0] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[10] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[10]),
-        .Q(\internal_clk_reg_n_0_[10] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[11] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[11]),
-        .Q(\internal_clk_reg_n_0_[11] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[12] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[12]),
-        .Q(\internal_clk_reg_n_0_[12] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[13] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[13]),
-        .Q(\internal_clk_reg_n_0_[13] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[14] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[14]),
-        .Q(\internal_clk_reg_n_0_[14] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[15] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[15]),
-        .Q(\internal_clk_reg_n_0_[15] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[16] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[16]),
-        .Q(\internal_clk_reg_n_0_[16] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[17] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[17]),
-        .Q(\internal_clk_reg_n_0_[17] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[18] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[18]),
-        .Q(\internal_clk_reg_n_0_[18] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[19] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[19]),
-        .Q(\internal_clk_reg_n_0_[19] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[1] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[1]),
-        .Q(\internal_clk_reg_n_0_[1] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[20] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[20]),
-        .Q(\internal_clk_reg_n_0_[20] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[21] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[21]),
-        .Q(\internal_clk_reg_n_0_[21] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[2] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[2]),
-        .Q(\internal_clk_reg_n_0_[2] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[3] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[3]),
-        .Q(\internal_clk_reg_n_0_[3] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[4] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[4]),
-        .Q(\internal_clk_reg_n_0_[4] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[5] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[5]),
-        .Q(\internal_clk_reg_n_0_[5] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[6] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[6]),
-        .Q(\internal_clk_reg_n_0_[6] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[7] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[7]),
-        .Q(\internal_clk_reg_n_0_[7] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[8] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[8]),
-        .Q(\internal_clk_reg_n_0_[8] ),
-        .R(seconds1));
-  FDRE \internal_clk_reg[9] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(internal_clk[9]),
-        .Q(\internal_clk_reg_n_0_[9] ),
-        .R(seconds1));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[11]_i_2 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [11]),
-        .O(\seconds[11]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[11]_i_3 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [10]),
-        .O(\seconds[11]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[11]_i_4 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [9]),
-        .O(\seconds[11]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[11]_i_5 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [8]),
-        .O(\seconds[11]_i_5_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[15]_i_2 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [15]),
-        .O(\seconds[15]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[15]_i_3 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [14]),
-        .O(\seconds[15]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[15]_i_4 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [13]),
-        .O(\seconds[15]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[15]_i_5 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [12]),
-        .O(\seconds[15]_i_5_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[3]_i_2 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [0]),
-        .O(\seconds[3]_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[3]_i_3 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [3]),
-        .O(\seconds[3]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[3]_i_4 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [2]),
-        .O(\seconds[3]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[3]_i_5 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [1]),
-        .O(\seconds[3]_i_5_n_0 ));
+    .INIT(32'h5DD40222)) 
+    i__carry_i_17
+       (.I0(i__carry_i_11_1),
+        .I1(i__carry_i_11_0[1]),
+        .I2(i__carry_i_11_0[0]),
+        .I3(i__carry_i_11_2),
+        .I4(i__carry_i_11_0[2]),
+        .O(i__carry_i_17_n_0));
   LUT3 #(
-    .INIT(8'h78)) 
-    \seconds[3]_i_6 
-       (.I0(\seconds_reg[15]_1 [0]),
-        .I1(axi_aresetn),
-        .I2(seconds1),
-        .O(\seconds[3]_i_6_n_0 ));
+    .INIT(8'h45)) 
+    i__carry_i_17__0
+       (.I0(CO),
+        .I1(seconds[15]),
+        .I2(\BOTTOM_NUM1_inferred__0/i__carry [3]),
+        .O(\seconds_reg[15]_10 ));
+  LUT6 #(
+    .INIT(64'h4349D3CBD3CB492C)) 
+    i__carry_i_18
+       (.I0(i__carry_i_11_0[2]),
+        .I1(i__carry_i_11_0[1]),
+        .I2(i__carry_i_11_1),
+        .I3(i__carry_i_11_0[0]),
+        .I4(O[3]),
+        .I5(i__carry_i_14__0),
+        .O(\seconds_reg[15]_6 ));
+  LUT4 #(
+    .INIT(16'h2AA8)) 
+    i__carry_i_18__0
+       (.I0(i__carry_i_11_1),
+        .I1(i__carry_i_11_0[2]),
+        .I2(i__carry_i_11_0[1]),
+        .I3(i__carry_i_11_3),
+        .O(i__carry_i_18__0_n_0));
+  LUT6 #(
+    .INIT(64'hF565659A9A1818E7)) 
+    i__carry_i_19
+       (.I0(i__carry_i_11_0[2]),
+        .I1(i__carry_i_11_0[1]),
+        .I2(i__carry_i_11_1),
+        .I3(O[3]),
+        .I4(i__carry_i_14__0),
+        .I5(i__carry_i_11_0[0]),
+        .O(\seconds_reg[15]_9 ));
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  LUT5 #(
+    .INIT(32'h0015AAA8)) 
+    i__carry_i_19__0
+       (.I0(i__carry_i_11_0[2]),
+        .I1(i__carry_i_11_2),
+        .I2(i__carry_i_11_0[0]),
+        .I3(i__carry_i_11_0[1]),
+        .I4(i__carry_i_11_1),
+        .O(i__carry_i_19__0_n_0));
+  LUT6 #(
+    .INIT(64'h0D00000000000000)) 
+    i__carry_i_21
+       (.I0(\BOTTOM_NUM1_inferred__0/i__carry [3]),
+        .I1(seconds[15]),
+        .I2(CO),
+        .I3(O[1]),
+        .I4(\BOTTOM_NUM1_inferred__0/i__carry_0 ),
+        .I5(O[0]),
+        .O(\seconds_reg[15]_8 ));
+  LUT6 #(
+    .INIT(64'h2DD2D22DD22D2DD2)) 
+    i__carry_i_2__2
+       (.I0(seconds[2]),
+        .I1(i__carry_i_6__0_n_0),
+        .I2(i__carry_i_7_n_0),
+        .I3(\seconds_reg[4]_0 ),
+        .I4(\BOTTOM_NUM1_inferred__4/i__carry__0 ),
+        .I5(BOTTOM_NUM1_carry),
+        .O(\seconds_reg[2]_0 [2]));
+  LUT6 #(
+    .INIT(64'h9A65659A659A9A65)) 
+    i__carry_i_3__1
+       (.I0(BOTTOM_NUM1_carry),
+        .I1(seconds[3]),
+        .I2(BOTTOM_NUM1_carry_i_10_n_0),
+        .I3(BOTTOM_NUM1_carry__0_i_7_n_0),
+        .I4(seconds[4]),
+        .I5(seconds[2]),
+        .O(\seconds_reg[2]_0 [1]));
   LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[7]_i_2 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [7]),
-        .O(\seconds[7]_i_2_n_0 ));
+    .INIT(4'h9)) 
+    i__carry_i_4__1
+       (.I0(i__carry_i_12__0),
+        .I1(Q[1]),
+        .O(\vc_reg[4] ));
   LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[7]_i_3 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [6]),
-        .O(\seconds[7]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[7]_i_4 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [5]),
-        .O(\seconds[7]_i_4_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    \seconds[7]_i_5 
-       (.I0(axi_aresetn),
-        .I1(\seconds_reg[15]_1 [4]),
-        .O(\seconds[7]_i_5_n_0 ));
+    .INIT(4'h6)) 
+    i__carry_i_5__0
+       (.I0(seconds[2]),
+        .I1(Q[0]),
+        .O(\seconds_reg[2]_0 [0]));
+  LUT5 #(
+    .INIT(32'h45BABA45)) 
+    i__carry_i_5__1
+       (.I0(CO),
+        .I1(seconds[15]),
+        .I2(\BOTTOM_NUM1_inferred__0/i__carry [3]),
+        .I3(\BOTTOM_NUM1_inferred__0/i__carry_0 ),
+        .I4(Q[0]),
+        .O(\seconds_reg[15]_12 ));
+  LUT6 #(
+    .INIT(64'h3333137ACCCCE937)) 
+    i__carry_i_6__0
+       (.I0(seconds[5]),
+        .I1(seconds[4]),
+        .I2(BOTTOM_NUM1_carry__0_i_5_n_0),
+        .I3(BOTTOM_NUM1_carry_i_16_n_0),
+        .I4(seconds[3]),
+        .I5(BOTTOM_NUM1_carry__0_i_7_n_0),
+        .O(i__carry_i_6__0_n_0));
+  LUT6 #(
+    .INIT(64'h85FEA5EDFB6DB7A5)) 
+    i__carry_i_7
+       (.I0(seconds[5]),
+        .I1(seconds[4]),
+        .I2(BOTTOM_NUM1_carry__0_i_5_n_0),
+        .I3(BOTTOM_NUM1_carry_i_16_n_0),
+        .I4(seconds[3]),
+        .I5(BOTTOM_NUM1_carry__0_i_7_n_0),
+        .O(i__carry_i_7_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  LUT4 #(
+    .INIT(16'hAA59)) 
+    i__carry_i_7__1
+       (.I0(\BOTTOM_NUM1_inferred__0/i__carry_0 ),
+        .I1(\BOTTOM_NUM1_inferred__0/i__carry [3]),
+        .I2(seconds[15]),
+        .I3(CO),
+        .O(\seconds_reg[15]_3 ));
+  LUT6 #(
+    .INIT(64'hE82C8BC813D13417)) 
+    i__carry_i_8__1
+       (.I0(BOTTOM_NUM1_carry__0_i_7_n_0),
+        .I1(BOTTOM_NUM1_carry_i_16_n_0),
+        .I2(BOTTOM_NUM1_carry__0_i_5_n_0),
+        .I3(seconds[4]),
+        .I4(seconds[5]),
+        .I5(seconds[3]),
+        .O(\seconds_reg[4]_0 ));
+  LUT6 #(
+    .INIT(64'h90F6906666096699)) 
+    i__carry_i_9__0
+       (.I0(\seconds_reg[15]_1 ),
+        .I1(\seconds_reg[15]_2 ),
+        .I2(i__carry_i_19__0_0),
+        .I3(i__carry_i_6),
+        .I4(i__carry__0_i_3__1),
+        .I5(i__carry__0_i_3__1_0),
+        .O(i__carry_i_12__0));
+  LUT6 #(
+    .INIT(64'h0000FE00FFFFFFFF)) 
+    \internal_clk[0]_i_1 
+       (.I0(\seconds_reg[15]_i_4_n_4 ),
+        .I1(\seconds_reg[15]_i_4_n_5 ),
+        .I2(\seconds[15]_i_5_n_0 ),
+        .I3(\seconds_reg[15]_i_6_n_7 ),
+        .I4(menu_sig),
+        .I5(axi_aresetn),
+        .O(\internal_clk[0]_i_1_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \internal_clk[0]_i_4 
+       (.I0(internal_clk_reg[0]),
+        .O(\internal_clk[0]_i_4_n_0 ));
+  FDRE \internal_clk_reg[0] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[0]_i_3_n_7 ),
+        .Q(internal_clk_reg[0]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \internal_clk_reg[0]_i_3 
+       (.CI(1'b0),
+        .CO({\internal_clk_reg[0]_i_3_n_0 ,\internal_clk_reg[0]_i_3_n_1 ,\internal_clk_reg[0]_i_3_n_2 ,\internal_clk_reg[0]_i_3_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b1}),
+        .O({\internal_clk_reg[0]_i_3_n_4 ,\internal_clk_reg[0]_i_3_n_5 ,\internal_clk_reg[0]_i_3_n_6 ,\internal_clk_reg[0]_i_3_n_7 }),
+        .S({internal_clk_reg[3:1],\internal_clk[0]_i_4_n_0 }));
+  FDRE \internal_clk_reg[10] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[8]_i_1_n_5 ),
+        .Q(internal_clk_reg[10]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[11] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[8]_i_1_n_4 ),
+        .Q(internal_clk_reg[11]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[12] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[12]_i_1_n_7 ),
+        .Q(internal_clk_reg[12]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \internal_clk_reg[12]_i_1 
+       (.CI(\internal_clk_reg[8]_i_1_n_0 ),
+        .CO({\internal_clk_reg[12]_i_1_n_0 ,\internal_clk_reg[12]_i_1_n_1 ,\internal_clk_reg[12]_i_1_n_2 ,\internal_clk_reg[12]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({\internal_clk_reg[12]_i_1_n_4 ,\internal_clk_reg[12]_i_1_n_5 ,\internal_clk_reg[12]_i_1_n_6 ,\internal_clk_reg[12]_i_1_n_7 }),
+        .S(internal_clk_reg[15:12]));
+  FDRE \internal_clk_reg[13] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[12]_i_1_n_6 ),
+        .Q(internal_clk_reg[13]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[14] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[12]_i_1_n_5 ),
+        .Q(internal_clk_reg[14]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[15] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[12]_i_1_n_4 ),
+        .Q(internal_clk_reg[15]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[16] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[16]_i_1_n_7 ),
+        .Q(internal_clk_reg[16]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \internal_clk_reg[16]_i_1 
+       (.CI(\internal_clk_reg[12]_i_1_n_0 ),
+        .CO({\internal_clk_reg[16]_i_1_n_0 ,\internal_clk_reg[16]_i_1_n_1 ,\internal_clk_reg[16]_i_1_n_2 ,\internal_clk_reg[16]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({\internal_clk_reg[16]_i_1_n_4 ,\internal_clk_reg[16]_i_1_n_5 ,\internal_clk_reg[16]_i_1_n_6 ,\internal_clk_reg[16]_i_1_n_7 }),
+        .S(internal_clk_reg[19:16]));
+  FDRE \internal_clk_reg[17] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[16]_i_1_n_6 ),
+        .Q(internal_clk_reg[17]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[18] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[16]_i_1_n_5 ),
+        .Q(internal_clk_reg[18]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[19] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[16]_i_1_n_4 ),
+        .Q(internal_clk_reg[19]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[1] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[0]_i_3_n_6 ),
+        .Q(internal_clk_reg[1]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[20] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[20]_i_1_n_7 ),
+        .Q(internal_clk_reg[20]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \internal_clk_reg[20]_i_1 
+       (.CI(\internal_clk_reg[16]_i_1_n_0 ),
+        .CO({\NLW_internal_clk_reg[20]_i_1_CO_UNCONNECTED [3:1],\internal_clk_reg[20]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({\NLW_internal_clk_reg[20]_i_1_O_UNCONNECTED [3:2],\internal_clk_reg[20]_i_1_n_6 ,\internal_clk_reg[20]_i_1_n_7 }),
+        .S({1'b0,1'b0,internal_clk_reg[21:20]}));
+  FDRE \internal_clk_reg[21] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[20]_i_1_n_6 ),
+        .Q(internal_clk_reg[21]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[2] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[0]_i_3_n_5 ),
+        .Q(internal_clk_reg[2]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[3] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[0]_i_3_n_4 ),
+        .Q(internal_clk_reg[3]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[4] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[4]_i_1_n_7 ),
+        .Q(internal_clk_reg[4]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \internal_clk_reg[4]_i_1 
+       (.CI(\internal_clk_reg[0]_i_3_n_0 ),
+        .CO({\internal_clk_reg[4]_i_1_n_0 ,\internal_clk_reg[4]_i_1_n_1 ,\internal_clk_reg[4]_i_1_n_2 ,\internal_clk_reg[4]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({\internal_clk_reg[4]_i_1_n_4 ,\internal_clk_reg[4]_i_1_n_5 ,\internal_clk_reg[4]_i_1_n_6 ,\internal_clk_reg[4]_i_1_n_7 }),
+        .S(internal_clk_reg[7:4]));
+  FDRE \internal_clk_reg[5] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[4]_i_1_n_6 ),
+        .Q(internal_clk_reg[5]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[6] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[4]_i_1_n_5 ),
+        .Q(internal_clk_reg[6]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[7] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[4]_i_1_n_4 ),
+        .Q(internal_clk_reg[7]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  FDRE \internal_clk_reg[8] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[8]_i_1_n_7 ),
+        .Q(internal_clk_reg[8]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \internal_clk_reg[8]_i_1 
+       (.CI(\internal_clk_reg[4]_i_1_n_0 ),
+        .CO({\internal_clk_reg[8]_i_1_n_0 ,\internal_clk_reg[8]_i_1_n_1 ,\internal_clk_reg[8]_i_1_n_2 ,\internal_clk_reg[8]_i_1_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({\internal_clk_reg[8]_i_1_n_4 ,\internal_clk_reg[8]_i_1_n_5 ,\internal_clk_reg[8]_i_1_n_6 ,\internal_clk_reg[8]_i_1_n_7 }),
+        .S(internal_clk_reg[11:8]));
+  FDRE \internal_clk_reg[9] 
+       (.C(clk_out3),
+        .CE(next_state2),
+        .D(\internal_clk_reg[8]_i_1_n_6 ),
+        .Q(internal_clk_reg[9]),
+        .R(\internal_clk[0]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'h5555555557FFFFFF)) 
+    \seconds[15]_i_11 
+       (.I0(\seconds_reg[15]_i_10_n_6 ),
+        .I1(\seconds[15]_i_13_n_0 ),
+        .I2(\seconds_reg[15]_i_12_n_6 ),
+        .I3(\seconds_reg[15]_i_12_n_5 ),
+        .I4(\seconds_reg[15]_i_12_n_4 ),
+        .I5(\seconds_reg[15]_i_10_n_7 ),
+        .O(\seconds[15]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'hAAAAAAAAAAA8AAAA)) 
+    \seconds[15]_i_13 
+       (.I0(\seconds_reg[15]_i_12_n_7 ),
+        .I1(\seconds_reg[15]_i_14_n_5 ),
+        .I2(\seconds_reg[15]_i_14_n_6 ),
+        .I3(\seconds_reg[15]_i_14_n_4 ),
+        .I4(internal_clk_reg[0]),
+        .I5(\seconds_reg[15]_i_14_n_7 ),
+        .O(\seconds[15]_i_13_n_0 ));
+  LUT5 #(
+    .INIT(32'h0000FE00)) 
+    \seconds[15]_i_2 
+       (.I0(\seconds_reg[15]_i_4_n_4 ),
+        .I1(\seconds_reg[15]_i_4_n_5 ),
+        .I2(\seconds[15]_i_5_n_0 ),
+        .I3(\seconds_reg[15]_i_6_n_7 ),
+        .I4(menu_sig),
+        .O(internal_clk));
+  LUT6 #(
+    .INIT(64'hFFFE000000000000)) 
+    \seconds[15]_i_5 
+       (.I0(\seconds_reg[15]_i_8_n_4 ),
+        .I1(\seconds_reg[15]_i_8_n_6 ),
+        .I2(\seconds_reg[15]_i_8_n_5 ),
+        .I3(\seconds[15]_i_9_n_0 ),
+        .I4(\seconds_reg[15]_i_4_n_7 ),
+        .I5(\seconds_reg[15]_i_4_n_6 ),
+        .O(\seconds[15]_i_5_n_0 ));
+  LUT4 #(
+    .INIT(16'hA8AA)) 
+    \seconds[15]_i_9 
+       (.I0(\seconds_reg[15]_i_8_n_7 ),
+        .I1(\seconds_reg[15]_i_10_n_4 ),
+        .I2(\seconds_reg[15]_i_10_n_5 ),
+        .I3(\seconds[15]_i_11_n_0 ),
+        .O(\seconds[15]_i_9_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \seconds[3]_i_2 
+       (.I0(seconds[0]),
+        .O(\seconds[3]_i_2_n_0 ));
   FDRE \seconds_reg[0] 
-       (.C(CLK),
-        .CE(1'b1),
+       (.C(clk_out3),
+        .CE(internal_clk),
         .D(\seconds_reg[3]_i_1_n_7 ),
-        .Q(\seconds_reg[15]_1 [0]),
-        .R(1'b0));
+        .Q(seconds[0]),
+        .R(reset_ah));
   FDRE \seconds_reg[10] 
-       (.C(CLK),
-        .CE(1'b1),
+       (.C(clk_out3),
+        .CE(internal_clk),
         .D(\seconds_reg[11]_i_1_n_5 ),
-        .Q(\seconds_reg[15]_1 [10]),
-        .R(1'b0));
+        .Q(seconds[10]),
+        .R(reset_ah));
   FDRE \seconds_reg[11] 
-       (.C(CLK),
-        .CE(1'b1),
+       (.C(clk_out3),
+        .CE(internal_clk),
         .D(\seconds_reg[11]_i_1_n_4 ),
-        .Q(\seconds_reg[15]_1 [11]),
-        .R(1'b0));
-  (* ADDER_THRESHOLD = "35" *) 
+        .Q(seconds[11]),
+        .R(reset_ah));
+  (* ADDER_THRESHOLD = "11" *) 
   CARRY4 \seconds_reg[11]_i_1 
        (.CI(\seconds_reg[7]_i_1_n_0 ),
         .CO({\seconds_reg[11]_i_1_n_0 ,\seconds_reg[11]_i_1_n_1 ,\seconds_reg[11]_i_1_n_2 ,\seconds_reg[11]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\seconds_reg[11]_i_1_n_4 ,\seconds_reg[11]_i_1_n_5 ,\seconds_reg[11]_i_1_n_6 ,\seconds_reg[11]_i_1_n_7 }),
-        .S({\seconds[11]_i_2_n_0 ,\seconds[11]_i_3_n_0 ,\seconds[11]_i_4_n_0 ,\seconds[11]_i_5_n_0 }));
+        .S(seconds[11:8]));
   FDRE \seconds_reg[12] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(\seconds_reg[15]_i_1_n_7 ),
-        .Q(\seconds_reg[15]_1 [12]),
-        .R(1'b0));
+       (.C(clk_out3),
+        .CE(internal_clk),
+        .D(\seconds_reg[15]_i_3_n_7 ),
+        .Q(seconds[12]),
+        .R(reset_ah));
   FDRE \seconds_reg[13] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(\seconds_reg[15]_i_1_n_6 ),
-        .Q(\seconds_reg[15]_1 [13]),
-        .R(1'b0));
+       (.C(clk_out3),
+        .CE(internal_clk),
+        .D(\seconds_reg[15]_i_3_n_6 ),
+        .Q(seconds[13]),
+        .R(reset_ah));
   FDRE \seconds_reg[14] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(\seconds_reg[15]_i_1_n_5 ),
-        .Q(\seconds_reg[15]_1 [14]),
-        .R(1'b0));
+       (.C(clk_out3),
+        .CE(internal_clk),
+        .D(\seconds_reg[15]_i_3_n_5 ),
+        .Q(seconds[14]),
+        .R(reset_ah));
   FDRE \seconds_reg[15] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(\seconds_reg[15]_i_1_n_4 ),
-        .Q(\seconds_reg[15]_1 [15]),
-        .R(1'b0));
+       (.C(clk_out3),
+        .CE(internal_clk),
+        .D(\seconds_reg[15]_i_3_n_4 ),
+        .Q(seconds[15]),
+        .R(reset_ah));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \seconds_reg[15]_i_1 
-       (.CI(\seconds_reg[11]_i_1_n_0 ),
-        .CO({\NLW_seconds_reg[15]_i_1_CO_UNCONNECTED [3],\seconds_reg[15]_i_1_n_1 ,\seconds_reg[15]_i_1_n_2 ,\seconds_reg[15]_i_1_n_3 }),
+  CARRY4 \seconds_reg[15]_i_10 
+       (.CI(\seconds_reg[15]_i_12_n_0 ),
+        .CO({\seconds_reg[15]_i_10_n_0 ,\seconds_reg[15]_i_10_n_1 ,\seconds_reg[15]_i_10_n_2 ,\seconds_reg[15]_i_10_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\seconds_reg[15]_i_1_n_4 ,\seconds_reg[15]_i_1_n_5 ,\seconds_reg[15]_i_1_n_6 ,\seconds_reg[15]_i_1_n_7 }),
-        .S({\seconds[15]_i_2_n_0 ,\seconds[15]_i_3_n_0 ,\seconds[15]_i_4_n_0 ,\seconds[15]_i_5_n_0 }));
-  FDRE \seconds_reg[1] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(\seconds_reg[3]_i_1_n_6 ),
-        .Q(\seconds_reg[15]_1 [1]),
-        .R(1'b0));
-  FDRE \seconds_reg[2] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(\seconds_reg[3]_i_1_n_5 ),
-        .Q(\seconds_reg[15]_1 [2]),
-        .R(1'b0));
-  FDRE \seconds_reg[3] 
-       (.C(CLK),
-        .CE(1'b1),
-        .D(\seconds_reg[3]_i_1_n_4 ),
-        .Q(\seconds_reg[15]_1 [3]),
-        .R(1'b0));
+        .O({\seconds_reg[15]_i_10_n_4 ,\seconds_reg[15]_i_10_n_5 ,\seconds_reg[15]_i_10_n_6 ,\seconds_reg[15]_i_10_n_7 }),
+        .S(internal_clk_reg[12:9]));
   (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \seconds_reg[15]_i_12 
+       (.CI(\seconds_reg[15]_i_14_n_0 ),
+        .CO({\seconds_reg[15]_i_12_n_0 ,\seconds_reg[15]_i_12_n_1 ,\seconds_reg[15]_i_12_n_2 ,\seconds_reg[15]_i_12_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({\seconds_reg[15]_i_12_n_4 ,\seconds_reg[15]_i_12_n_5 ,\seconds_reg[15]_i_12_n_6 ,\seconds_reg[15]_i_12_n_7 }),
+        .S(internal_clk_reg[8:5]));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \seconds_reg[15]_i_14 
+       (.CI(1'b0),
+        .CO({\seconds_reg[15]_i_14_n_0 ,\seconds_reg[15]_i_14_n_1 ,\seconds_reg[15]_i_14_n_2 ,\seconds_reg[15]_i_14_n_3 }),
+        .CYINIT(internal_clk_reg[0]),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({\seconds_reg[15]_i_14_n_4 ,\seconds_reg[15]_i_14_n_5 ,\seconds_reg[15]_i_14_n_6 ,\seconds_reg[15]_i_14_n_7 }),
+        .S(internal_clk_reg[4:1]));
+  (* ADDER_THRESHOLD = "11" *) 
+  CARRY4 \seconds_reg[15]_i_3 
+       (.CI(\seconds_reg[11]_i_1_n_0 ),
+        .CO({\NLW_seconds_reg[15]_i_3_CO_UNCONNECTED [3],\seconds_reg[15]_i_3_n_1 ,\seconds_reg[15]_i_3_n_2 ,\seconds_reg[15]_i_3_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({\seconds_reg[15]_i_3_n_4 ,\seconds_reg[15]_i_3_n_5 ,\seconds_reg[15]_i_3_n_6 ,\seconds_reg[15]_i_3_n_7 }),
+        .S(seconds[15:12]));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \seconds_reg[15]_i_4 
+       (.CI(\seconds_reg[15]_i_8_n_0 ),
+        .CO({\seconds_reg[15]_i_4_n_0 ,\seconds_reg[15]_i_4_n_1 ,\seconds_reg[15]_i_4_n_2 ,\seconds_reg[15]_i_4_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({\seconds_reg[15]_i_4_n_4 ,\seconds_reg[15]_i_4_n_5 ,\seconds_reg[15]_i_4_n_6 ,\seconds_reg[15]_i_4_n_7 }),
+        .S(internal_clk_reg[20:17]));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \seconds_reg[15]_i_6 
+       (.CI(\seconds_reg[15]_i_4_n_0 ),
+        .CO(\NLW_seconds_reg[15]_i_6_CO_UNCONNECTED [3:0]),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({\NLW_seconds_reg[15]_i_6_O_UNCONNECTED [3:1],\seconds_reg[15]_i_6_n_7 }),
+        .S({1'b0,1'b0,1'b0,internal_clk_reg[21]}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \seconds_reg[15]_i_8 
+       (.CI(\seconds_reg[15]_i_10_n_0 ),
+        .CO({\seconds_reg[15]_i_8_n_0 ,\seconds_reg[15]_i_8_n_1 ,\seconds_reg[15]_i_8_n_2 ,\seconds_reg[15]_i_8_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({\seconds_reg[15]_i_8_n_4 ,\seconds_reg[15]_i_8_n_5 ,\seconds_reg[15]_i_8_n_6 ,\seconds_reg[15]_i_8_n_7 }),
+        .S(internal_clk_reg[16:13]));
+  FDRE \seconds_reg[1] 
+       (.C(clk_out3),
+        .CE(internal_clk),
+        .D(\seconds_reg[3]_i_1_n_6 ),
+        .Q(seconds[1]),
+        .R(reset_ah));
+  FDRE \seconds_reg[2] 
+       (.C(clk_out3),
+        .CE(internal_clk),
+        .D(\seconds_reg[3]_i_1_n_5 ),
+        .Q(seconds[2]),
+        .R(reset_ah));
+  FDRE \seconds_reg[3] 
+       (.C(clk_out3),
+        .CE(internal_clk),
+        .D(\seconds_reg[3]_i_1_n_4 ),
+        .Q(seconds[3]),
+        .R(reset_ah));
+  (* ADDER_THRESHOLD = "11" *) 
   CARRY4 \seconds_reg[3]_i_1 
        (.CI(1'b0),
         .CO({\seconds_reg[3]_i_1_n_0 ,\seconds_reg[3]_i_1_n_1 ,\seconds_reg[3]_i_1_n_2 ,\seconds_reg[3]_i_1_n_3 }),
         .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,\seconds[3]_i_2_n_0 }),
+        .DI({1'b0,1'b0,1'b0,1'b1}),
         .O({\seconds_reg[3]_i_1_n_4 ,\seconds_reg[3]_i_1_n_5 ,\seconds_reg[3]_i_1_n_6 ,\seconds_reg[3]_i_1_n_7 }),
-        .S({\seconds[3]_i_3_n_0 ,\seconds[3]_i_4_n_0 ,\seconds[3]_i_5_n_0 ,\seconds[3]_i_6_n_0 }));
+        .S({seconds[3:1],\seconds[3]_i_2_n_0 }));
   FDRE \seconds_reg[4] 
-       (.C(CLK),
-        .CE(1'b1),
+       (.C(clk_out3),
+        .CE(internal_clk),
         .D(\seconds_reg[7]_i_1_n_7 ),
-        .Q(\seconds_reg[15]_1 [4]),
-        .R(1'b0));
+        .Q(seconds[4]),
+        .R(reset_ah));
   FDRE \seconds_reg[5] 
-       (.C(CLK),
-        .CE(1'b1),
+       (.C(clk_out3),
+        .CE(internal_clk),
         .D(\seconds_reg[7]_i_1_n_6 ),
-        .Q(\seconds_reg[15]_1 [5]),
-        .R(1'b0));
+        .Q(seconds[5]),
+        .R(reset_ah));
   FDRE \seconds_reg[6] 
-       (.C(CLK),
-        .CE(1'b1),
+       (.C(clk_out3),
+        .CE(internal_clk),
         .D(\seconds_reg[7]_i_1_n_5 ),
-        .Q(\seconds_reg[15]_1 [6]),
-        .R(1'b0));
+        .Q(seconds[6]),
+        .R(reset_ah));
   FDRE \seconds_reg[7] 
-       (.C(CLK),
-        .CE(1'b1),
+       (.C(clk_out3),
+        .CE(internal_clk),
         .D(\seconds_reg[7]_i_1_n_4 ),
-        .Q(\seconds_reg[15]_1 [7]),
-        .R(1'b0));
-  (* ADDER_THRESHOLD = "35" *) 
+        .Q(seconds[7]),
+        .R(reset_ah));
+  (* ADDER_THRESHOLD = "11" *) 
   CARRY4 \seconds_reg[7]_i_1 
        (.CI(\seconds_reg[3]_i_1_n_0 ),
         .CO({\seconds_reg[7]_i_1_n_0 ,\seconds_reg[7]_i_1_n_1 ,\seconds_reg[7]_i_1_n_2 ,\seconds_reg[7]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\seconds_reg[7]_i_1_n_4 ,\seconds_reg[7]_i_1_n_5 ,\seconds_reg[7]_i_1_n_6 ,\seconds_reg[7]_i_1_n_7 }),
-        .S({\seconds[7]_i_2_n_0 ,\seconds[7]_i_3_n_0 ,\seconds[7]_i_4_n_0 ,\seconds[7]_i_5_n_0 }));
+        .S(seconds[7:4]));
   FDRE \seconds_reg[8] 
-       (.C(CLK),
-        .CE(1'b1),
+       (.C(clk_out3),
+        .CE(internal_clk),
         .D(\seconds_reg[11]_i_1_n_7 ),
-        .Q(\seconds_reg[15]_1 [8]),
-        .R(1'b0));
+        .Q(seconds[8]),
+        .R(reset_ah));
   FDRE \seconds_reg[9] 
-       (.C(CLK),
-        .CE(1'b1),
+       (.C(clk_out3),
+        .CE(internal_clk),
         .D(\seconds_reg[11]_i_1_n_6 ),
-        .Q(\seconds_reg[15]_1 [9]),
-        .R(1'b0));
+        .Q(seconds[9]),
+        .R(reset_ah));
 endmodule
 
 (* CHECK_LICENSE_TYPE = "blk_mem_gen_0,blk_mem_gen_v8_4_6,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "blk_mem_gen_0" *) 
@@ -8702,13 +7822,12 @@ module microblaze_GameIP_0_0_blk_mem_gen_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB DIN" *) input [31:0]dinb;
   (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB DOUT" *) output [31:0]doutb;
 
-  wire \<const0> ;
   wire [8:0]addra;
   wire [8:0]addrb;
   wire clka;
   wire [31:0]dina;
   wire [31:0]douta;
-  wire [31:0]\^doutb ;
+  wire [31:0]doutb;
   wire [3:0]wea;
   wire NLW_U0_dbiterr_UNCONNECTED;
   wire NLW_U0_rsta_busy_UNCONNECTED;
@@ -8731,19 +7850,6 @@ module microblaze_GameIP_0_0_blk_mem_gen_0
   wire [3:0]NLW_U0_s_axi_rid_UNCONNECTED;
   wire [1:0]NLW_U0_s_axi_rresp_UNCONNECTED;
 
-  assign doutb[31] = \^doutb [31];
-  assign doutb[30] = \<const0> ;
-  assign doutb[29] = \<const0> ;
-  assign doutb[28] = \<const0> ;
-  assign doutb[27] = \<const0> ;
-  assign doutb[26:15] = \^doutb [26:15];
-  assign doutb[14] = \<const0> ;
-  assign doutb[13] = \<const0> ;
-  assign doutb[12] = \<const0> ;
-  assign doutb[11] = \<const0> ;
-  assign doutb[10:0] = \^doutb [10:0];
-  GND GND
-       (.G(\<const0> ));
   (* C_ADDRA_WIDTH = "9" *) 
   (* C_ADDRB_WIDTH = "9" *) 
   (* C_ALGORITHM = "1" *) 
@@ -8831,7 +7937,7 @@ module microblaze_GameIP_0_0_blk_mem_gen_0
         .dina(dina),
         .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .douta(douta),
-        .doutb(\^doutb ),
+        .doutb(doutb),
         .eccpipece(1'b0),
         .ena(1'b0),
         .enb(1'b0),
@@ -8887,290 +7993,160 @@ module microblaze_GameIP_0_0_blk_mem_gen_0
         .web({1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "block_rom" *) 
-module microblaze_GameIP_0_0_block_rom
-   (\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 ,
-    sel,
-    ball_on_reg_i_8,
-    ball_on_reg_i_8_0,
-    ball_on_reg_i_15,
-    ball_on_reg_i_15_0,
-    ball_on_reg_i_15_1,
-    ball_on_reg_i_15_2,
-    ball_on_reg_i_15_3,
-    ball_on_reg_i_15_4,
-    ball_on_reg_i_15_5,
-    doutb,
-    block_addr1,
-    Q,
-    ball_on_reg_i_15_6,
-    ball_on_reg_i_8_1,
-    ball_on_reg_i_8_2,
-    ball_on_reg_i_12,
-    ball_on_reg_i_12_0,
-    ball_on_reg_i_1,
-    ball_on_reg_i_1_0,
-    ball_on_reg_i_7,
-    ball_on_reg_i_7_0,
-    ball_on_reg_i_1_1,
-    ball_on_reg_i_1_2);
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 ;
-  input [0:0]sel;
-  input ball_on_reg_i_8;
-  input ball_on_reg_i_8_0;
-  input ball_on_reg_i_15;
-  input ball_on_reg_i_15_0;
-  input ball_on_reg_i_15_1;
-  input ball_on_reg_i_15_2;
-  input ball_on_reg_i_15_3;
-  input ball_on_reg_i_15_4;
-  input ball_on_reg_i_15_5;
-  input [1:0]doutb;
-  input block_addr1;
-  input [0:0]Q;
-  input ball_on_reg_i_15_6;
-  input ball_on_reg_i_8_1;
-  input ball_on_reg_i_8_2;
-  input ball_on_reg_i_12;
-  input ball_on_reg_i_12_0;
-  input ball_on_reg_i_1;
-  input ball_on_reg_i_1_0;
-  input ball_on_reg_i_7;
-  input ball_on_reg_i_7_0;
-  input ball_on_reg_i_1_1;
-  input ball_on_reg_i_1_2;
-
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 ;
-  wire [0:0]Q;
-  wire ball_on_reg_i_1;
-  wire ball_on_reg_i_12;
-  wire ball_on_reg_i_12_0;
-  wire ball_on_reg_i_15;
-  wire ball_on_reg_i_15_0;
-  wire ball_on_reg_i_15_1;
-  wire ball_on_reg_i_15_2;
-  wire ball_on_reg_i_15_3;
-  wire ball_on_reg_i_15_4;
-  wire ball_on_reg_i_15_5;
-  wire ball_on_reg_i_15_6;
-  wire ball_on_reg_i_1_0;
-  wire ball_on_reg_i_1_1;
-  wire ball_on_reg_i_1_2;
-  wire ball_on_reg_i_7;
-  wire ball_on_reg_i_7_0;
-  wire ball_on_reg_i_8;
-  wire ball_on_reg_i_8_0;
-  wire ball_on_reg_i_8_1;
-  wire ball_on_reg_i_8_2;
-  wire block_addr1;
-  wire [1:0]doutb;
-  wire [0:0]sel;
-
-  MUXF7 ball_on_reg_i_14
-       (.I0(ball_on_reg_i_7),
-        .I1(ball_on_reg_i_7_0),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 ),
-        .S(sel));
-  MUXF7 ball_on_reg_i_16
-       (.I0(ball_on_reg_i_8_1),
-        .I1(ball_on_reg_i_8_2),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 ),
-        .S(sel));
-  MUXF7 ball_on_reg_i_17
-       (.I0(ball_on_reg_i_8),
-        .I1(ball_on_reg_i_8_0),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ),
-        .S(sel));
-  MUXF7 ball_on_reg_i_27
-       (.I0(ball_on_reg_i_12),
-        .I1(ball_on_reg_i_12_0),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 ),
-        .S(sel));
-  LUT6 #(
-    .INIT(64'hBFBFAFFF8080A000)) 
-    ball_on_reg_i_28
-       (.I0(ball_on_reg_i_15_5),
-        .I1(doutb[1]),
-        .I2(block_addr1),
-        .I3(doutb[0]),
-        .I4(Q),
-        .I5(ball_on_reg_i_15_6),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 ));
-  MUXF7 ball_on_reg_i_29
-       (.I0(ball_on_reg_i_15_1),
-        .I1(ball_on_reg_i_15_2),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ),
-        .S(sel));
-  MUXF7 ball_on_reg_i_30
-       (.I0(ball_on_reg_i_15_3),
-        .I1(ball_on_reg_i_15_4),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 ),
-        .S(sel));
-  MUXF7 ball_on_reg_i_31
-       (.I0(ball_on_reg_i_15),
-        .I1(ball_on_reg_i_15_0),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ),
-        .S(sel));
-  LUT6 #(
-    .INIT(64'hBFBFAFFF8080A000)) 
-    ball_on_reg_i_4
-       (.I0(ball_on_reg_i_1_1),
-        .I1(doutb[1]),
-        .I2(block_addr1),
-        .I3(doutb[0]),
-        .I4(Q),
-        .I5(ball_on_reg_i_1_2),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 ));
-  MUXF7 ball_on_reg_i_6
-       (.I0(ball_on_reg_i_1),
-        .I1(ball_on_reg_i_1_0),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 ),
-        .S(sel));
-endmodule
-
 (* ORIG_REF_NAME = "bottom_drawing" *) 
 module microblaze_GameIP_0_0_bottom_drawing
-   (\seconds_reg[12] ,
-    CO,
-    O,
-    BOTTOM_NUM5__4_carry__1_0,
-    \seconds_reg[12]_0 ,
+   (\seconds_reg[11] ,
     \seconds_reg[15] ,
-    \seconds_reg[14] ,
     \seconds_reg[15]_0 ,
-    \seconds_reg[12]_1 ,
     \seconds_reg[15]_1 ,
-    \seconds_reg[12]_2 ,
+    BOTTOM_NUM5__4_carry__1_0,
+    BOTTOM_NUM5__42_carry__0_i_4_0,
     \seconds_reg[15]_2 ,
-    \seconds_reg[12]_3 ,
+    CO,
+    \seconds_reg[15]_3 ,
+    i__carry_i_19,
+    \seconds_reg[15]_4 ,
+    \seconds_reg[15]_5 ,
+    \seconds_reg[15]_6 ,
     \hc_reg[4] ,
-    bot_red29_in,
-    bot_red25_in,
-    out,
-    bot_red21_in,
-    \vc_reg[3] ,
+    i__carry_i_7__0_0,
+    \seconds_reg[15]_7 ,
+    \seconds_reg[15]_8 ,
+    \seconds_reg[15]_9 ,
+    i__carry_i_19_0,
+    \hc_reg[4]_0 ,
+    \hc_reg[3] ,
+    \hc_reg[3]_0 ,
+    \hc_reg[3]_1 ,
     DI,
-    S,
     g0_b0_0,
+    S,
     g0_b0_1,
-    i__carry_i_12,
+    g0_b0_2,
+    seconds,
     BOTTOM_NUM5__4_carry__0_0,
     BOTTOM_NUM5__4_carry__1_1,
     BOTTOM_NUM5__4_carry__1_2,
-    i__carry__0_i_5__0,
-    i__carry__0_i_5__0_0,
-    i__carry_i_13__0,
-    i__carry_i_13__0_0,
+    i__carry_i_5__1,
+    i__carry_i_5__1_0,
+    i__carry_i_21,
+    i__carry_i_21_0,
     BOTTOM_NUM5__70_carry__1_i_3,
     BOTTOM_NUM5__70_carry__0_0,
     BOTTOM_NUM5__70_carry__1_0,
-    i__carry__0_i_5__0_1,
-    i__carry__0_i_5__0_2,
+    i__carry_i_5__1_1,
+    i__carry_i_5__1_2,
     g0_b0__0_0,
     g0_b0__0_1,
     g0_b0__0_2,
-    g0_b0__0_3,
     g0_b0__1_0,
     g0_b0__1_1,
     g0_b0__1_2,
-    g0_b0__1_3,
     g0_b0__2_0,
     g0_b0__2_1,
     g0_b0__2_2,
     g0_b0__2_3,
-    i__carry_i_13,
-    i__carry_i_13_0,
-    i__carry_i_13_1,
-    i__carry_i_16__0,
+    g0_b0__3_0,
+    g0_b0__3_1,
+    g0_b0__3_2,
     Q,
-    bot_red318_in);
-  output [1:0]\seconds_reg[12] ;
-  output [0:0]CO;
-  output [2:0]O;
+    i__carry_i_6_0,
+    i__carry__0_i_3__1_0,
+    i__carry_i_18__0,
+    i__carry_i_19__0,
+    vga_to_hdmi_i_91,
+    \BOTTOM_NUM1_inferred__0/i__carry_0 ,
+    \BOTTOM_NUM1_inferred__1/i__carry__0_0 ,
+    \BOTTOM_NUM1_inferred__0/i__carry__0_0 ,
+    \BOTTOM_NUM1_inferred__0/i__carry__0_1 ,
+    i__carry_i_2__0,
+    i__carry_i_2__0_0,
+    \BOTTOM_NUM1_inferred__0/i__carry_1 ,
+    i__carry__0_i_1__2,
+    i__carry__0_i_3__1_1,
+    i__carry_i_11,
+    i__carry_i_11_0);
+  output [3:0]\seconds_reg[11] ;
+  output [2:0]\seconds_reg[15] ;
+  output [0:0]\seconds_reg[15]_0 ;
+  output [0:0]\seconds_reg[15]_1 ;
   output [3:0]BOTTOM_NUM5__4_carry__1_0;
-  output [3:0]\seconds_reg[12]_0 ;
-  output [3:0]\seconds_reg[15] ;
-  output [0:0]\seconds_reg[14] ;
-  output \seconds_reg[15]_0 ;
-  output \seconds_reg[12]_1 ;
-  output \seconds_reg[15]_1 ;
-  output \seconds_reg[12]_2 ;
-  output \seconds_reg[15]_2 ;
-  output \seconds_reg[12]_3 ;
+  output [3:0]BOTTOM_NUM5__42_carry__0_i_4_0;
+  output [3:0]\seconds_reg[15]_2 ;
+  output [0:0]CO;
+  output \seconds_reg[15]_3 ;
+  output i__carry_i_19;
+  output \seconds_reg[15]_4 ;
+  output \seconds_reg[15]_5 ;
+  output \seconds_reg[15]_6 ;
   output \hc_reg[4] ;
-  output bot_red29_in;
-  output bot_red25_in;
-  output [2:0]out;
-  output bot_red21_in;
-  output [2:0]\vc_reg[3] ;
+  output i__carry_i_7__0_0;
+  output \seconds_reg[15]_7 ;
+  output \seconds_reg[15]_8 ;
+  output \seconds_reg[15]_9 ;
+  output i__carry_i_19_0;
+  output \hc_reg[4]_0 ;
+  output \hc_reg[3] ;
+  output \hc_reg[3]_0 ;
+  output \hc_reg[3]_1 ;
   input [3:0]DI;
-  input [3:0]S;
   input [0:0]g0_b0_0;
-  input [1:0]g0_b0_1;
-  input [11:0]i__carry_i_12;
+  input [3:0]S;
+  input [0:0]g0_b0_1;
+  input [1:0]g0_b0_2;
+  input [10:0]seconds;
   input [2:0]BOTTOM_NUM5__4_carry__0_0;
   input [1:0]BOTTOM_NUM5__4_carry__1_1;
   input [3:0]BOTTOM_NUM5__4_carry__1_2;
-  input [3:0]i__carry__0_i_5__0;
-  input [3:0]i__carry__0_i_5__0_0;
-  input [2:0]i__carry_i_13__0;
-  input [3:0]i__carry_i_13__0_0;
+  input [3:0]i__carry_i_5__1;
+  input [3:0]i__carry_i_5__1_0;
+  input [3:0]i__carry_i_21;
+  input [3:0]i__carry_i_21_0;
   input [2:0]BOTTOM_NUM5__70_carry__1_i_3;
   input [3:0]BOTTOM_NUM5__70_carry__0_0;
   input [3:0]BOTTOM_NUM5__70_carry__1_0;
-  input [2:0]i__carry__0_i_5__0_1;
-  input [2:0]i__carry__0_i_5__0_2;
-  input [1:0]g0_b0__0_0;
-  input [3:0]g0_b0__0_1;
+  input [2:0]i__carry_i_5__1_1;
+  input [2:0]i__carry_i_5__1_2;
+  input [0:0]g0_b0__0_0;
+  input [1:0]g0_b0__0_1;
   input [0:0]g0_b0__0_2;
-  input [1:0]g0_b0__0_3;
-  input [1:0]g0_b0__1_0;
-  input [3:0]g0_b0__1_1;
+  input [0:0]g0_b0__1_0;
+  input [1:0]g0_b0__1_1;
   input [0:0]g0_b0__1_2;
-  input [1:0]g0_b0__1_3;
   input [1:0]g0_b0__2_0;
   input [3:0]g0_b0__2_1;
   input [0:0]g0_b0__2_2;
   input [1:0]g0_b0__2_3;
-  input i__carry_i_13;
-  input i__carry_i_13_0;
-  input i__carry_i_13_1;
-  input i__carry_i_16__0;
-  input [1:0]Q;
-  input bot_red318_in;
+  input [3:0]g0_b0__3_0;
+  input [0:0]g0_b0__3_1;
+  input [1:0]g0_b0__3_2;
+  input [0:0]Q;
+  input i__carry_i_6_0;
+  input i__carry__0_i_3__1_0;
+  input i__carry_i_18__0;
+  input i__carry_i_19__0;
+  input [2:0]vga_to_hdmi_i_91;
+  input \BOTTOM_NUM1_inferred__0/i__carry_0 ;
+  input \BOTTOM_NUM1_inferred__1/i__carry__0_0 ;
+  input \BOTTOM_NUM1_inferred__0/i__carry__0_0 ;
+  input \BOTTOM_NUM1_inferred__0/i__carry__0_1 ;
+  input i__carry_i_2__0;
+  input i__carry_i_2__0_0;
+  input \BOTTOM_NUM1_inferred__0/i__carry_1 ;
+  input i__carry__0_i_1__2;
+  input i__carry__0_i_3__1_1;
+  input i__carry_i_11;
+  input i__carry_i_11_0;
 
   wire BOTTOM_NUM1_carry__0_n_3;
   wire BOTTOM_NUM1_carry_n_0;
   wire BOTTOM_NUM1_carry_n_1;
   wire BOTTOM_NUM1_carry_n_2;
   wire BOTTOM_NUM1_carry_n_3;
+  wire \BOTTOM_NUM1_inferred__0/i__carry_0 ;
+  wire \BOTTOM_NUM1_inferred__0/i__carry_1 ;
+  wire \BOTTOM_NUM1_inferred__0/i__carry__0_0 ;
+  wire \BOTTOM_NUM1_inferred__0/i__carry__0_1 ;
   wire \BOTTOM_NUM1_inferred__0/i__carry__0_n_3 ;
   wire \BOTTOM_NUM1_inferred__0/i__carry__0_n_6 ;
   wire \BOTTOM_NUM1_inferred__0/i__carry__0_n_7 ;
@@ -9182,6 +8158,7 @@ module microblaze_GameIP_0_0_bottom_drawing
   wire \BOTTOM_NUM1_inferred__0/i__carry_n_5 ;
   wire \BOTTOM_NUM1_inferred__0/i__carry_n_6 ;
   wire \BOTTOM_NUM1_inferred__0/i__carry_n_7 ;
+  wire \BOTTOM_NUM1_inferred__1/i__carry__0_0 ;
   wire \BOTTOM_NUM1_inferred__1/i__carry__0_n_3 ;
   wire \BOTTOM_NUM1_inferred__1/i__carry__0_n_6 ;
   wire \BOTTOM_NUM1_inferred__1/i__carry__0_n_7 ;
@@ -9204,9 +8181,21 @@ module microblaze_GameIP_0_0_bottom_drawing
   wire \BOTTOM_NUM1_inferred__2/i__carry_n_5 ;
   wire \BOTTOM_NUM1_inferred__2/i__carry_n_6 ;
   wire \BOTTOM_NUM1_inferred__2/i__carry_n_7 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry__0_n_3 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry__0_n_6 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry__0_n_7 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry_n_0 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry_n_1 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry_n_2 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry_n_3 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry_n_4 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry_n_5 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry_n_6 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry_n_7 ;
   wire BOTTOM_NUM5__42_carry__0_i_1_n_0;
   wire BOTTOM_NUM5__42_carry__0_i_2_n_0;
   wire BOTTOM_NUM5__42_carry__0_i_3_n_0;
+  wire [3:0]BOTTOM_NUM5__42_carry__0_i_4_0;
   wire BOTTOM_NUM5__42_carry__0_i_4_n_0;
   wire BOTTOM_NUM5__42_carry__0_n_0;
   wire BOTTOM_NUM5__42_carry__0_n_1;
@@ -9239,9 +8228,6 @@ module microblaze_GameIP_0_0_bottom_drawing
   wire BOTTOM_NUM5__4_carry__2_n_1;
   wire BOTTOM_NUM5__4_carry__2_n_2;
   wire BOTTOM_NUM5__4_carry__2_n_3;
-  wire BOTTOM_NUM5__4_carry__2_n_4;
-  wire BOTTOM_NUM5__4_carry__2_n_5;
-  wire BOTTOM_NUM5__4_carry__2_n_6;
   wire BOTTOM_NUM5__4_carry__3_n_2;
   wire BOTTOM_NUM5__4_carry__3_n_3;
   wire BOTTOM_NUM5__4_carry_n_0;
@@ -9271,58 +8257,94 @@ module microblaze_GameIP_0_0_bottom_drawing
   wire BOTTOM_NUM5__70_carry_n_3;
   wire [0:0]CO;
   wire [3:0]DI;
-  wire [2:0]O;
-  wire [1:0]Q;
+  wire [0:0]Q;
   wire [3:0]S;
-  wire bot_red21_in;
-  wire bot_red25_in;
-  wire bot_red29_in;
-  wire bot_red318_in;
   wire [0:0]g0_b0_0;
-  wire [1:0]g0_b0_1;
-  wire [1:0]g0_b0__0_0;
-  wire [3:0]g0_b0__0_1;
+  wire [0:0]g0_b0_1;
+  wire [1:0]g0_b0_2;
+  wire [0:0]g0_b0__0_0;
+  wire [1:0]g0_b0__0_1;
   wire [0:0]g0_b0__0_2;
-  wire [1:0]g0_b0__0_3;
-  wire [1:0]g0_b0__1_0;
-  wire [3:0]g0_b0__1_1;
+  wire g0_b0__0_n_0;
+  wire [0:0]g0_b0__1_0;
+  wire [1:0]g0_b0__1_1;
   wire [0:0]g0_b0__1_2;
-  wire [1:0]g0_b0__1_3;
   wire g0_b0__1_n_0;
   wire [1:0]g0_b0__2_0;
   wire [3:0]g0_b0__2_1;
   wire [0:0]g0_b0__2_2;
   wire [1:0]g0_b0__2_3;
+  wire g0_b0__2_n_0;
+  wire [3:0]g0_b0__3_0;
+  wire [0:0]g0_b0__3_1;
+  wire [1:0]g0_b0__3_2;
+  wire g0_b0__3_n_0;
   wire g0_b0_n_0;
+  wire g0_b1__0_n_0;
   wire g0_b1__1_n_0;
+  wire g0_b1__2_n_0;
+  wire g0_b1__3_n_0;
   wire g0_b1_n_0;
+  wire g0_b2__0_n_0;
   wire g0_b2__1_n_0;
+  wire g0_b2__2_n_0;
+  wire g0_b2__3_n_0;
   wire g0_b2_n_0;
+  wire \hc_reg[3] ;
+  wire \hc_reg[3]_0 ;
+  wire \hc_reg[3]_1 ;
   wire \hc_reg[4] ;
-  wire [3:0]i__carry__0_i_5__0;
-  wire [3:0]i__carry__0_i_5__0_0;
-  wire [2:0]i__carry__0_i_5__0_1;
-  wire [2:0]i__carry__0_i_5__0_2;
-  wire [11:0]i__carry_i_12;
-  wire i__carry_i_13;
-  wire i__carry_i_13_0;
-  wire i__carry_i_13_1;
-  wire [2:0]i__carry_i_13__0;
-  wire [3:0]i__carry_i_13__0_0;
-  wire i__carry_i_16__0;
-  wire [2:0]out;
-  wire [1:0]\seconds_reg[12] ;
-  wire [3:0]\seconds_reg[12]_0 ;
-  wire \seconds_reg[12]_1 ;
-  wire \seconds_reg[12]_2 ;
-  wire \seconds_reg[12]_3 ;
-  wire [0:0]\seconds_reg[14] ;
-  wire [3:0]\seconds_reg[15] ;
-  wire \seconds_reg[15]_0 ;
-  wire \seconds_reg[15]_1 ;
-  wire \seconds_reg[15]_2 ;
+  wire \hc_reg[4]_0 ;
+  wire i__carry__0_i_1__2;
+  wire i__carry__0_i_2__0_n_0;
+  wire i__carry__0_i_2__1_n_0;
+  wire i__carry__0_i_3__1_0;
+  wire i__carry__0_i_3__1_1;
+  wire i__carry__0_i_3__1_n_0;
+  wire i__carry__0_i_3_n_0;
+  wire i__carry__0_i_4_n_0;
+  wire i__carry_i_11;
+  wire i__carry_i_11_0;
+  wire i__carry_i_11__0_n_0;
+  wire i__carry_i_13__0_n_0;
+  wire i__carry_i_15_n_0;
+  wire i__carry_i_16__0_n_0;
+  wire i__carry_i_18__0;
+  wire i__carry_i_19;
+  wire i__carry_i_19_0;
+  wire i__carry_i_19__0;
+  wire [3:0]i__carry_i_21;
+  wire [3:0]i__carry_i_21_0;
+  wire i__carry_i_2__0;
+  wire i__carry_i_2__0_0;
+  wire i__carry_i_2_n_0;
+  wire i__carry_i_3__2_n_0;
+  wire i__carry_i_4__0_n_0;
+  wire [3:0]i__carry_i_5__1;
+  wire [3:0]i__carry_i_5__1_0;
+  wire [2:0]i__carry_i_5__1_1;
+  wire [2:0]i__carry_i_5__1_2;
+  wire i__carry_i_5__2_n_0;
+  wire i__carry_i_6_0;
+  wire i__carry_i_7__0_0;
+  wire i__carry_i_7__0_n_0;
+  wire i__carry_i_8__0_n_0;
+  wire i__carry_i_9_n_0;
+  wire [10:0]seconds;
+  wire [3:0]\seconds_reg[11] ;
+  wire [2:0]\seconds_reg[15] ;
+  wire [0:0]\seconds_reg[15]_0 ;
+  wire [0:0]\seconds_reg[15]_1 ;
+  wire [3:0]\seconds_reg[15]_2 ;
+  wire \seconds_reg[15]_3 ;
+  wire \seconds_reg[15]_4 ;
+  wire \seconds_reg[15]_5 ;
+  wire \seconds_reg[15]_6 ;
+  wire \seconds_reg[15]_7 ;
+  wire \seconds_reg[15]_8 ;
+  wire \seconds_reg[15]_9 ;
   wire [5:0]sel;
-  wire [2:0]\vc_reg[3] ;
+  wire [2:0]vga_to_hdmi_i_91;
   wire [3:1]NLW_BOTTOM_NUM1_carry__0_CO_UNCONNECTED;
   wire [3:2]NLW_BOTTOM_NUM1_carry__0_O_UNCONNECTED;
   wire [3:1]\NLW_BOTTOM_NUM1_inferred__0/i__carry__0_CO_UNCONNECTED ;
@@ -9331,6 +8353,8 @@ module microblaze_GameIP_0_0_bottom_drawing
   wire [3:2]\NLW_BOTTOM_NUM1_inferred__1/i__carry__0_O_UNCONNECTED ;
   wire [3:1]\NLW_BOTTOM_NUM1_inferred__2/i__carry__0_CO_UNCONNECTED ;
   wire [3:2]\NLW_BOTTOM_NUM1_inferred__2/i__carry__0_O_UNCONNECTED ;
+  wire [3:1]\NLW_BOTTOM_NUM1_inferred__4/i__carry__0_CO_UNCONNECTED ;
+  wire [3:2]\NLW_BOTTOM_NUM1_inferred__4/i__carry__0_O_UNCONNECTED ;
   wire [3:3]NLW_BOTTOM_NUM5__42_carry__1_CO_UNCONNECTED;
   wire [3:0]NLW_BOTTOM_NUM5__4_carry_O_UNCONNECTED;
   wire [3:0]NLW_BOTTOM_NUM5__4_carry__0_O_UNCONNECTED;
@@ -9347,7 +8371,7 @@ module microblaze_GameIP_0_0_bottom_drawing
        (.CI(1'b0),
         .CO({BOTTOM_NUM1_carry_n_0,BOTTOM_NUM1_carry_n_1,BOTTOM_NUM1_carry_n_2,BOTTOM_NUM1_carry_n_3}),
         .CYINIT(1'b1),
-        .DI(DI),
+        .DI({DI[3:2],g0_b0_0,DI[0]}),
         .O(sel[3:0]),
         .S(S));
   (* ADDER_THRESHOLD = "35" *) 
@@ -9355,17 +8379,17 @@ module microblaze_GameIP_0_0_bottom_drawing
        (.CI(BOTTOM_NUM1_carry_n_0),
         .CO({NLW_BOTTOM_NUM1_carry__0_CO_UNCONNECTED[3:1],BOTTOM_NUM1_carry__0_n_3}),
         .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,g0_b0_0}),
+        .DI({1'b0,1'b0,1'b0,g0_b0_1}),
         .O({NLW_BOTTOM_NUM1_carry__0_O_UNCONNECTED[3:2],sel[5:4]}),
-        .S({1'b0,1'b0,g0_b0_1}));
+        .S({1'b0,1'b0,g0_b0_2}));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \BOTTOM_NUM1_inferred__0/i__carry 
        (.CI(1'b0),
         .CO({\BOTTOM_NUM1_inferred__0/i__carry_n_0 ,\BOTTOM_NUM1_inferred__0/i__carry_n_1 ,\BOTTOM_NUM1_inferred__0/i__carry_n_2 ,\BOTTOM_NUM1_inferred__0/i__carry_n_3 }),
         .CYINIT(1'b1),
-        .DI({g0_b0__0_0[1],DI[2],g0_b0__0_0[0],DI[0]}),
+        .DI({DI[3:2],g0_b0__0_0,DI[0]}),
         .O({\BOTTOM_NUM1_inferred__0/i__carry_n_4 ,\BOTTOM_NUM1_inferred__0/i__carry_n_5 ,\BOTTOM_NUM1_inferred__0/i__carry_n_6 ,\BOTTOM_NUM1_inferred__0/i__carry_n_7 }),
-        .S(g0_b0__0_1));
+        .S({i__carry_i_2_n_0,g0_b0__0_1[1],i__carry_i_4__0_n_0,g0_b0__0_1[0]}));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \BOTTOM_NUM1_inferred__0/i__carry__0 
        (.CI(\BOTTOM_NUM1_inferred__0/i__carry_n_0 ),
@@ -9373,15 +8397,15 @@ module microblaze_GameIP_0_0_bottom_drawing
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,g0_b0__0_2}),
         .O({\NLW_BOTTOM_NUM1_inferred__0/i__carry__0_O_UNCONNECTED [3:2],\BOTTOM_NUM1_inferred__0/i__carry__0_n_6 ,\BOTTOM_NUM1_inferred__0/i__carry__0_n_7 }),
-        .S({1'b0,1'b0,g0_b0__0_3}));
+        .S({1'b0,1'b0,i__carry__0_i_2__0_n_0,i__carry__0_i_3_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \BOTTOM_NUM1_inferred__1/i__carry 
        (.CI(1'b0),
         .CO({\BOTTOM_NUM1_inferred__1/i__carry_n_0 ,\BOTTOM_NUM1_inferred__1/i__carry_n_1 ,\BOTTOM_NUM1_inferred__1/i__carry_n_2 ,\BOTTOM_NUM1_inferred__1/i__carry_n_3 }),
         .CYINIT(1'b1),
-        .DI({g0_b0__1_0[1],DI[2],g0_b0__1_0[0],DI[0]}),
+        .DI({DI[3:2],g0_b0__1_0,DI[0]}),
         .O({\BOTTOM_NUM1_inferred__1/i__carry_n_4 ,\BOTTOM_NUM1_inferred__1/i__carry_n_5 ,\BOTTOM_NUM1_inferred__1/i__carry_n_6 ,\BOTTOM_NUM1_inferred__1/i__carry_n_7 }),
-        .S(g0_b0__1_1));
+        .S({g0_b0__1_1[1],i__carry_i_3__2_n_0,g0_b0__1_1[0],i__carry_i_5__2_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \BOTTOM_NUM1_inferred__1/i__carry__0 
        (.CI(\BOTTOM_NUM1_inferred__1/i__carry_n_0 ),
@@ -9389,13 +8413,13 @@ module microblaze_GameIP_0_0_bottom_drawing
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,g0_b0__1_2}),
         .O({\NLW_BOTTOM_NUM1_inferred__1/i__carry__0_O_UNCONNECTED [3:2],\BOTTOM_NUM1_inferred__1/i__carry__0_n_6 ,\BOTTOM_NUM1_inferred__1/i__carry__0_n_7 }),
-        .S({1'b0,1'b0,g0_b0__1_3}));
+        .S({1'b0,1'b0,i__carry__0_i_2__1_n_0,i__carry__0_i_3__1_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \BOTTOM_NUM1_inferred__2/i__carry 
        (.CI(1'b0),
         .CO({\BOTTOM_NUM1_inferred__2/i__carry_n_0 ,\BOTTOM_NUM1_inferred__2/i__carry_n_1 ,\BOTTOM_NUM1_inferred__2/i__carry_n_2 ,\BOTTOM_NUM1_inferred__2/i__carry_n_3 }),
         .CYINIT(1'b1),
-        .DI({g0_b0__2_0[1],DI[2],g0_b0__2_0[0],DI[0]}),
+        .DI({DI[3:2],g0_b0__2_0}),
         .O({\BOTTOM_NUM1_inferred__2/i__carry_n_4 ,\BOTTOM_NUM1_inferred__2/i__carry_n_5 ,\BOTTOM_NUM1_inferred__2/i__carry_n_6 ,\BOTTOM_NUM1_inferred__2/i__carry_n_7 }),
         .S(g0_b0__2_1));
   (* ADDER_THRESHOLD = "35" *) 
@@ -9407,109 +8431,125 @@ module microblaze_GameIP_0_0_bottom_drawing
         .O({\NLW_BOTTOM_NUM1_inferred__2/i__carry__0_O_UNCONNECTED [3:2],\BOTTOM_NUM1_inferred__2/i__carry__0_n_6 ,\BOTTOM_NUM1_inferred__2/i__carry__0_n_7 }),
         .S({1'b0,1'b0,g0_b0__2_3}));
   (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \BOTTOM_NUM1_inferred__4/i__carry 
+       (.CI(1'b0),
+        .CO({\BOTTOM_NUM1_inferred__4/i__carry_n_0 ,\BOTTOM_NUM1_inferred__4/i__carry_n_1 ,\BOTTOM_NUM1_inferred__4/i__carry_n_2 ,\BOTTOM_NUM1_inferred__4/i__carry_n_3 }),
+        .CYINIT(1'b1),
+        .DI(DI),
+        .O({\BOTTOM_NUM1_inferred__4/i__carry_n_4 ,\BOTTOM_NUM1_inferred__4/i__carry_n_5 ,\BOTTOM_NUM1_inferred__4/i__carry_n_6 ,\BOTTOM_NUM1_inferred__4/i__carry_n_7 }),
+        .S(g0_b0__3_0));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \BOTTOM_NUM1_inferred__4/i__carry__0 
+       (.CI(\BOTTOM_NUM1_inferred__4/i__carry_n_0 ),
+        .CO({\NLW_BOTTOM_NUM1_inferred__4/i__carry__0_CO_UNCONNECTED [3:1],\BOTTOM_NUM1_inferred__4/i__carry__0_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,g0_b0__3_1}),
+        .O({\NLW_BOTTOM_NUM1_inferred__4/i__carry__0_O_UNCONNECTED [3:2],\BOTTOM_NUM1_inferred__4/i__carry__0_n_6 ,\BOTTOM_NUM1_inferred__4/i__carry__0_n_7 }),
+        .S({1'b0,1'b0,g0_b0__3_2}));
+  (* ADDER_THRESHOLD = "35" *) 
   CARRY4 BOTTOM_NUM5__42_carry
        (.CI(1'b0),
         .CO({BOTTOM_NUM5__42_carry_n_0,BOTTOM_NUM5__42_carry_n_1,BOTTOM_NUM5__42_carry_n_2,BOTTOM_NUM5__42_carry_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b1}),
         .O(BOTTOM_NUM5__4_carry__1_0),
-        .S({BOTTOM_NUM5__42_carry_i_1_n_0,BOTTOM_NUM5__42_carry_i_2_n_0,BOTTOM_NUM5__42_carry_i_3_n_0,\seconds_reg[12] [0]}));
+        .S({BOTTOM_NUM5__42_carry_i_1_n_0,BOTTOM_NUM5__42_carry_i_2_n_0,BOTTOM_NUM5__42_carry_i_3_n_0,\seconds_reg[11] [0]}));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 BOTTOM_NUM5__42_carry__0
        (.CI(BOTTOM_NUM5__42_carry_n_0),
         .CO({BOTTOM_NUM5__42_carry__0_n_0,BOTTOM_NUM5__42_carry__0_n_1,BOTTOM_NUM5__42_carry__0_n_2,BOTTOM_NUM5__42_carry__0_n_3}),
         .CYINIT(1'b0),
-        .DI({BOTTOM_NUM5__4_carry__2_n_5,BOTTOM_NUM5__4_carry__2_n_6,\seconds_reg[12] }),
-        .O(\seconds_reg[12]_0 ),
+        .DI(\seconds_reg[11] ),
+        .O(BOTTOM_NUM5__42_carry__0_i_4_0),
         .S({BOTTOM_NUM5__42_carry__0_i_1_n_0,BOTTOM_NUM5__42_carry__0_i_2_n_0,BOTTOM_NUM5__42_carry__0_i_3_n_0,BOTTOM_NUM5__42_carry__0_i_4_n_0}));
   LUT2 #(
     .INIT(4'h9)) 
     BOTTOM_NUM5__42_carry__0_i_1
-       (.I0(BOTTOM_NUM5__4_carry__2_n_5),
-        .I1(O[2]),
+       (.I0(\seconds_reg[11] [3]),
+        .I1(\seconds_reg[15]_1 ),
         .O(BOTTOM_NUM5__42_carry__0_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     BOTTOM_NUM5__42_carry__0_i_2
-       (.I0(BOTTOM_NUM5__4_carry__2_n_6),
-        .I1(O[1]),
+       (.I0(\seconds_reg[11] [2]),
+        .I1(\seconds_reg[15] [2]),
         .O(BOTTOM_NUM5__42_carry__0_i_2_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     BOTTOM_NUM5__42_carry__0_i_3
-       (.I0(\seconds_reg[12] [1]),
-        .I1(O[0]),
+       (.I0(\seconds_reg[11] [1]),
+        .I1(\seconds_reg[15] [1]),
         .O(BOTTOM_NUM5__42_carry__0_i_3_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     BOTTOM_NUM5__42_carry__0_i_4
-       (.I0(\seconds_reg[12] [0]),
-        .I1(BOTTOM_NUM5__4_carry__2_n_4),
+       (.I0(\seconds_reg[11] [0]),
+        .I1(\seconds_reg[15] [0]),
         .O(BOTTOM_NUM5__42_carry__0_i_4_n_0));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 BOTTOM_NUM5__42_carry__1
        (.CI(BOTTOM_NUM5__42_carry__0_n_0),
         .CO({NLW_BOTTOM_NUM5__42_carry__1_CO_UNCONNECTED[3],BOTTOM_NUM5__42_carry__1_n_1,BOTTOM_NUM5__42_carry__1_n_2,BOTTOM_NUM5__42_carry__1_n_3}),
         .CYINIT(1'b0),
-        .DI({1'b0,O[1:0],BOTTOM_NUM5__4_carry__2_n_4}),
-        .O(\seconds_reg[15] ),
+        .DI({1'b0,\seconds_reg[15] }),
+        .O(\seconds_reg[15]_2 ),
         .S({BOTTOM_NUM5__70_carry__1_i_3,BOTTOM_NUM5__42_carry__1_i_4_n_0}));
   LUT2 #(
     .INIT(4'h9)) 
     BOTTOM_NUM5__42_carry__1_i_4
-       (.I0(BOTTOM_NUM5__4_carry__2_n_4),
-        .I1(CO),
+       (.I0(\seconds_reg[15] [0]),
+        .I1(\seconds_reg[15]_0 ),
         .O(BOTTOM_NUM5__42_carry__1_i_4_n_0));
   LUT1 #(
     .INIT(2'h1)) 
     BOTTOM_NUM5__42_carry_i_1
-       (.I0(BOTTOM_NUM5__4_carry__2_n_5),
+       (.I0(\seconds_reg[11] [3]),
         .O(BOTTOM_NUM5__42_carry_i_1_n_0));
   LUT1 #(
     .INIT(2'h1)) 
     BOTTOM_NUM5__42_carry_i_2
-       (.I0(BOTTOM_NUM5__4_carry__2_n_6),
+       (.I0(\seconds_reg[11] [2]),
         .O(BOTTOM_NUM5__42_carry_i_2_n_0));
   LUT1 #(
     .INIT(2'h1)) 
     BOTTOM_NUM5__42_carry_i_3
-       (.I0(\seconds_reg[12] [1]),
+       (.I0(\seconds_reg[11] [1]),
         .O(BOTTOM_NUM5__42_carry_i_3_n_0));
   CARRY4 BOTTOM_NUM5__4_carry
        (.CI(1'b0),
         .CO({BOTTOM_NUM5__4_carry_n_0,BOTTOM_NUM5__4_carry_n_1,BOTTOM_NUM5__4_carry_n_2,BOTTOM_NUM5__4_carry_n_3}),
         .CYINIT(1'b0),
-        .DI({i__carry_i_12[4:2],1'b0}),
+        .DI({seconds[4:2],1'b0}),
         .O(NLW_BOTTOM_NUM5__4_carry_O_UNCONNECTED[3:0]),
-        .S({BOTTOM_NUM5__4_carry__0_0,i__carry_i_12[1]}));
+        .S({BOTTOM_NUM5__4_carry__0_0,seconds[1]}));
   CARRY4 BOTTOM_NUM5__4_carry__0
        (.CI(BOTTOM_NUM5__4_carry_n_0),
         .CO({BOTTOM_NUM5__4_carry__0_n_0,BOTTOM_NUM5__4_carry__0_n_1,BOTTOM_NUM5__4_carry__0_n_2,BOTTOM_NUM5__4_carry__0_n_3}),
         .CYINIT(1'b0),
-        .DI({BOTTOM_NUM5__4_carry__1_1,i__carry_i_12[6:5]}),
+        .DI({BOTTOM_NUM5__4_carry__1_1,seconds[6:5]}),
         .O(NLW_BOTTOM_NUM5__4_carry__0_O_UNCONNECTED[3:0]),
         .S(BOTTOM_NUM5__4_carry__1_2));
   CARRY4 BOTTOM_NUM5__4_carry__1
        (.CI(BOTTOM_NUM5__4_carry__0_n_0),
         .CO({BOTTOM_NUM5__4_carry__1_n_0,BOTTOM_NUM5__4_carry__1_n_1,BOTTOM_NUM5__4_carry__1_n_2,BOTTOM_NUM5__4_carry__1_n_3}),
         .CYINIT(1'b0),
-        .DI(i__carry__0_i_5__0),
-        .O({\seconds_reg[12] [0],NLW_BOTTOM_NUM5__4_carry__1_O_UNCONNECTED[2:0]}),
-        .S(i__carry__0_i_5__0_0));
+        .DI(i__carry_i_5__1),
+        .O({\seconds_reg[11] [0],NLW_BOTTOM_NUM5__4_carry__1_O_UNCONNECTED[2:0]}),
+        .S(i__carry_i_5__1_0));
   CARRY4 BOTTOM_NUM5__4_carry__2
        (.CI(BOTTOM_NUM5__4_carry__1_n_0),
         .CO({BOTTOM_NUM5__4_carry__2_n_0,BOTTOM_NUM5__4_carry__2_n_1,BOTTOM_NUM5__4_carry__2_n_2,BOTTOM_NUM5__4_carry__2_n_3}),
         .CYINIT(1'b0),
-        .DI({i__carry_i_12[8],i__carry_i_13__0}),
-        .O({BOTTOM_NUM5__4_carry__2_n_4,BOTTOM_NUM5__4_carry__2_n_5,BOTTOM_NUM5__4_carry__2_n_6,\seconds_reg[12] [1]}),
-        .S(i__carry_i_13__0_0));
+        .DI(i__carry_i_21),
+        .O({\seconds_reg[15] [0],\seconds_reg[11] [3:1]}),
+        .S(i__carry_i_21_0));
   CARRY4 BOTTOM_NUM5__4_carry__3
        (.CI(BOTTOM_NUM5__4_carry__2_n_0),
-        .CO({CO,NLW_BOTTOM_NUM5__4_carry__3_CO_UNCONNECTED[2],BOTTOM_NUM5__4_carry__3_n_2,BOTTOM_NUM5__4_carry__3_n_3}),
+        .CO({\seconds_reg[15]_0 ,NLW_BOTTOM_NUM5__4_carry__3_CO_UNCONNECTED[2],BOTTOM_NUM5__4_carry__3_n_2,BOTTOM_NUM5__4_carry__3_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({NLW_BOTTOM_NUM5__4_carry__3_O_UNCONNECTED[3],O}),
-        .S({1'b1,i__carry_i_12[11:9]}));
+        .O({NLW_BOTTOM_NUM5__4_carry__3_O_UNCONNECTED[3],\seconds_reg[15]_1 ,\seconds_reg[15] [2:1]}),
+        .S({1'b1,seconds[10:8]}));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 BOTTOM_NUM5__70_carry
        (.CI(1'b0),
@@ -9529,58 +8569,58 @@ module microblaze_GameIP_0_0_bottom_drawing
   LUT2 #(
     .INIT(4'h2)) 
     BOTTOM_NUM5__70_carry__0_i_1
-       (.I0(\seconds_reg[12]_0 [3]),
-        .I1(i__carry_i_12[7]),
+       (.I0(BOTTOM_NUM5__42_carry__0_i_4_0[3]),
+        .I1(seconds[7]),
         .O(BOTTOM_NUM5__70_carry__0_i_1_n_0));
   LUT2 #(
     .INIT(4'h2)) 
     BOTTOM_NUM5__70_carry__0_i_2
-       (.I0(\seconds_reg[12]_0 [2]),
-        .I1(i__carry_i_12[6]),
+       (.I0(BOTTOM_NUM5__42_carry__0_i_4_0[2]),
+        .I1(seconds[6]),
         .O(BOTTOM_NUM5__70_carry__0_i_2_n_0));
   LUT2 #(
     .INIT(4'h2)) 
     BOTTOM_NUM5__70_carry__0_i_3
-       (.I0(\seconds_reg[12]_0 [1]),
-        .I1(i__carry_i_12[5]),
+       (.I0(BOTTOM_NUM5__42_carry__0_i_4_0[1]),
+        .I1(seconds[5]),
         .O(BOTTOM_NUM5__70_carry__0_i_3_n_0));
   LUT2 #(
     .INIT(4'h2)) 
     BOTTOM_NUM5__70_carry__0_i_4
-       (.I0(\seconds_reg[12]_0 [0]),
-        .I1(i__carry_i_12[4]),
+       (.I0(BOTTOM_NUM5__42_carry__0_i_4_0[0]),
+        .I1(seconds[4]),
         .O(BOTTOM_NUM5__70_carry__0_i_4_n_0));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 BOTTOM_NUM5__70_carry__1
        (.CI(BOTTOM_NUM5__70_carry__0_n_0),
-        .CO({NLW_BOTTOM_NUM5__70_carry__1_CO_UNCONNECTED[3],\seconds_reg[14] ,BOTTOM_NUM5__70_carry__1_n_2,BOTTOM_NUM5__70_carry__1_n_3}),
+        .CO({NLW_BOTTOM_NUM5__70_carry__1_CO_UNCONNECTED[3],CO,BOTTOM_NUM5__70_carry__1_n_2,BOTTOM_NUM5__70_carry__1_n_3}),
         .CYINIT(1'b0),
-        .DI({1'b0,i__carry__0_i_5__0_1}),
+        .DI({1'b0,i__carry_i_5__1_1}),
         .O(NLW_BOTTOM_NUM5__70_carry__1_O_UNCONNECTED[3:0]),
-        .S({1'b0,i__carry__0_i_5__0_2}));
+        .S({1'b0,i__carry_i_5__1_2}));
   LUT2 #(
     .INIT(4'hB)) 
     BOTTOM_NUM5__70_carry_i_1
        (.I0(BOTTOM_NUM5__4_carry__1_0[3]),
-        .I1(i__carry_i_12[3]),
+        .I1(seconds[3]),
         .O(BOTTOM_NUM5__70_carry_i_1_n_0));
   LUT2 #(
     .INIT(4'hB)) 
     BOTTOM_NUM5__70_carry_i_2
        (.I0(BOTTOM_NUM5__4_carry__1_0[2]),
-        .I1(i__carry_i_12[2]),
+        .I1(seconds[2]),
         .O(BOTTOM_NUM5__70_carry_i_2_n_0));
   LUT2 #(
     .INIT(4'hB)) 
     BOTTOM_NUM5__70_carry_i_3
        (.I0(BOTTOM_NUM5__4_carry__1_0[1]),
-        .I1(i__carry_i_12[1]),
+        .I1(seconds[1]),
         .O(BOTTOM_NUM5__70_carry_i_3_n_0));
   LUT2 #(
     .INIT(4'hB)) 
     BOTTOM_NUM5__70_carry_i_4
        (.I0(BOTTOM_NUM5__4_carry__1_0[0]),
-        .I1(i__carry_i_12[0]),
+        .I1(seconds[0]),
         .O(BOTTOM_NUM5__70_carry_i_4_n_0));
   LUT6 #(
     .INIT(64'h0003FFFF7BFFDFFF)) 
@@ -9601,7 +8641,7 @@ module microblaze_GameIP_0_0_bottom_drawing
         .I3(\BOTTOM_NUM1_inferred__0/i__carry_n_4 ),
         .I4(\BOTTOM_NUM1_inferred__0/i__carry__0_n_7 ),
         .I5(\BOTTOM_NUM1_inferred__0/i__carry__0_n_6 ),
-        .O(out[0]));
+        .O(g0_b0__0_n_0));
   LUT6 #(
     .INIT(64'h0003FFFF7BFFDFFF)) 
     g0_b0__1
@@ -9621,7 +8661,17 @@ module microblaze_GameIP_0_0_bottom_drawing
         .I3(\BOTTOM_NUM1_inferred__2/i__carry_n_4 ),
         .I4(\BOTTOM_NUM1_inferred__2/i__carry__0_n_7 ),
         .I5(\BOTTOM_NUM1_inferred__2/i__carry__0_n_6 ),
-        .O(\vc_reg[3] [0]));
+        .O(g0_b0__2_n_0));
+  LUT6 #(
+    .INIT(64'h0003FFFF7BFFDFFF)) 
+    g0_b0__3
+       (.I0(\BOTTOM_NUM1_inferred__4/i__carry_n_7 ),
+        .I1(\BOTTOM_NUM1_inferred__4/i__carry_n_6 ),
+        .I2(\BOTTOM_NUM1_inferred__4/i__carry_n_5 ),
+        .I3(\BOTTOM_NUM1_inferred__4/i__carry_n_4 ),
+        .I4(\BOTTOM_NUM1_inferred__4/i__carry__0_n_7 ),
+        .I5(\BOTTOM_NUM1_inferred__4/i__carry__0_n_6 ),
+        .O(g0_b0__3_n_0));
   LUT6 #(
     .INIT(64'h0000B50D6A4AD411)) 
     g0_b1
@@ -9641,7 +8691,7 @@ module microblaze_GameIP_0_0_bottom_drawing
         .I3(\BOTTOM_NUM1_inferred__0/i__carry_n_4 ),
         .I4(\BOTTOM_NUM1_inferred__0/i__carry__0_n_7 ),
         .I5(\BOTTOM_NUM1_inferred__0/i__carry__0_n_6 ),
-        .O(out[1]));
+        .O(g0_b1__0_n_0));
   LUT6 #(
     .INIT(64'h0000B50D6A4AD411)) 
     g0_b1__1
@@ -9661,7 +8711,17 @@ module microblaze_GameIP_0_0_bottom_drawing
         .I3(\BOTTOM_NUM1_inferred__2/i__carry_n_4 ),
         .I4(\BOTTOM_NUM1_inferred__2/i__carry__0_n_7 ),
         .I5(\BOTTOM_NUM1_inferred__2/i__carry__0_n_6 ),
-        .O(\vc_reg[3] [1]));
+        .O(g0_b1__2_n_0));
+  LUT6 #(
+    .INIT(64'h0000B50D6A4AD411)) 
+    g0_b1__3
+       (.I0(\BOTTOM_NUM1_inferred__4/i__carry_n_7 ),
+        .I1(\BOTTOM_NUM1_inferred__4/i__carry_n_6 ),
+        .I2(\BOTTOM_NUM1_inferred__4/i__carry_n_5 ),
+        .I3(\BOTTOM_NUM1_inferred__4/i__carry_n_4 ),
+        .I4(\BOTTOM_NUM1_inferred__4/i__carry__0_n_7 ),
+        .I5(\BOTTOM_NUM1_inferred__4/i__carry__0_n_6 ),
+        .O(g0_b1__3_n_0));
   LUT6 #(
     .INIT(64'h0000FF0FEE7AF41F)) 
     g0_b2
@@ -9681,7 +8741,7 @@ module microblaze_GameIP_0_0_bottom_drawing
         .I3(\BOTTOM_NUM1_inferred__0/i__carry_n_4 ),
         .I4(\BOTTOM_NUM1_inferred__0/i__carry__0_n_7 ),
         .I5(\BOTTOM_NUM1_inferred__0/i__carry__0_n_6 ),
-        .O(out[2]));
+        .O(g0_b2__0_n_0));
   LUT6 #(
     .INIT(64'h0000FF0FEE7AF41F)) 
     g0_b2__1
@@ -9701,102 +8761,304 @@ module microblaze_GameIP_0_0_bottom_drawing
         .I3(\BOTTOM_NUM1_inferred__2/i__carry_n_4 ),
         .I4(\BOTTOM_NUM1_inferred__2/i__carry__0_n_7 ),
         .I5(\BOTTOM_NUM1_inferred__2/i__carry__0_n_6 ),
-        .O(\vc_reg[3] [2]));
+        .O(g0_b2__2_n_0));
   LUT6 #(
-    .INIT(64'hDDFDFFFF22020000)) 
-    i__carry_i_10__1
-       (.I0(\seconds_reg[12] [1]),
-        .I1(\seconds_reg[14] ),
-        .I2(\seconds_reg[15] [3]),
-        .I3(i__carry_i_12[11]),
-        .I4(\seconds_reg[12] [0]),
-        .I5(BOTTOM_NUM5__4_carry__2_n_6),
-        .O(\seconds_reg[15]_1 ));
+    .INIT(64'h0000FF0FEE7AF41F)) 
+    g0_b2__3
+       (.I0(\BOTTOM_NUM1_inferred__4/i__carry_n_7 ),
+        .I1(\BOTTOM_NUM1_inferred__4/i__carry_n_6 ),
+        .I2(\BOTTOM_NUM1_inferred__4/i__carry_n_5 ),
+        .I3(\BOTTOM_NUM1_inferred__4/i__carry_n_4 ),
+        .I4(\BOTTOM_NUM1_inferred__4/i__carry__0_n_7 ),
+        .I5(\BOTTOM_NUM1_inferred__4/i__carry__0_n_6 ),
+        .O(g0_b2__3_n_0));
   LUT6 #(
-    .INIT(64'h70109898E6E6F7F1)) 
-    i__carry_i_11__0
-       (.I0(\seconds_reg[12]_1 ),
-        .I1(i__carry_i_13),
-        .I2(i__carry_i_13_0),
-        .I3(\seconds_reg[15]_1 ),
-        .I4(\seconds_reg[12]_2 ),
-        .I5(i__carry_i_13_1),
-        .O(\seconds_reg[15]_0 ));
+    .INIT(64'h3936393C699C693C)) 
+    i__carry__0_i_2__0
+       (.I0(\BOTTOM_NUM1_inferred__0/i__carry__0_0 ),
+        .I1(\BOTTOM_NUM1_inferred__0/i__carry__0_1 ),
+        .I2(i__carry__0_i_4_n_0),
+        .I3(\seconds_reg[15]_8 ),
+        .I4(\BOTTOM_NUM1_inferred__0/i__carry_1 ),
+        .I5(i__carry_i_9_n_0),
+        .O(i__carry__0_i_2__0_n_0));
   LUT5 #(
-    .INIT(32'hF7FF0800)) 
-    i__carry_i_11__1
-       (.I0(BOTTOM_NUM5__4_carry__2_n_6),
-        .I1(\seconds_reg[12] [0]),
-        .I2(i__carry_i_16__0),
-        .I3(\seconds_reg[12] [1]),
-        .I4(BOTTOM_NUM5__4_carry__2_n_5),
-        .O(\seconds_reg[12]_2 ));
+    .INIT(32'hCCBF3340)) 
+    i__carry__0_i_2__1
+       (.I0(i__carry_i_7__0_n_0),
+        .I1(\BOTTOM_NUM1_inferred__0/i__carry__0_0 ),
+        .I2(\BOTTOM_NUM1_inferred__1/i__carry__0_0 ),
+        .I3(i__carry_i_8__0_n_0),
+        .I4(\BOTTOM_NUM1_inferred__0/i__carry__0_1 ),
+        .O(i__carry__0_i_2__1_n_0));
+  LUT6 #(
+    .INIT(64'hAFF52442500ADBBD)) 
+    i__carry__0_i_3
+       (.I0(\BOTTOM_NUM1_inferred__0/i__carry_0 ),
+        .I1(\BOTTOM_NUM1_inferred__0/i__carry_1 ),
+        .I2(i__carry_i_9_n_0),
+        .I3(i__carry__0_i_4_n_0),
+        .I4(\seconds_reg[15]_8 ),
+        .I5(\BOTTOM_NUM1_inferred__0/i__carry__0_0 ),
+        .O(i__carry__0_i_3_n_0));
+  LUT5 #(
+    .INIT(32'hF1380EC7)) 
+    i__carry__0_i_3__1
+       (.I0(i__carry_i_7__0_n_0),
+        .I1(\BOTTOM_NUM1_inferred__0/i__carry_0 ),
+        .I2(i__carry_i_8__0_n_0),
+        .I3(\BOTTOM_NUM1_inferred__1/i__carry__0_0 ),
+        .I4(\BOTTOM_NUM1_inferred__0/i__carry__0_0 ),
+        .O(i__carry__0_i_3__1_n_0));
+  LUT6 #(
+    .INIT(64'h0410282B282B1004)) 
+    i__carry__0_i_4
+       (.I0(i__carry__0_i_1__2),
+        .I1(\seconds_reg[15]_3 ),
+        .I2(i__carry_i_15_n_0),
+        .I3(i__carry_i_11__0_n_0),
+        .I4(i__carry_i_13__0_n_0),
+        .I5(i__carry_i_19),
+        .O(i__carry__0_i_4_n_0));
+  LUT6 #(
+    .INIT(64'hAA8888AAA8AAAAA8)) 
+    i__carry_i_10
+       (.I0(i__carry_i_6_0),
+        .I1(i__carry_i_19),
+        .I2(i__carry_i_15_n_0),
+        .I3(i__carry_i_16__0_n_0),
+        .I4(i__carry__0_i_3__1_0),
+        .I5(i__carry_i_13__0_n_0),
+        .O(\seconds_reg[15]_7 ));
+  LUT3 #(
+    .INIT(8'h96)) 
+    i__carry_i_11__0
+       (.I0(i__carry_i_13__0_n_0),
+        .I1(i__carry__0_i_3__1_0),
+        .I2(i__carry_i_16__0_n_0),
+        .O(i__carry_i_11__0_n_0));
+  LUT6 #(
+    .INIT(64'h15575F055F051557)) 
+    i__carry_i_12__0
+       (.I0(i__carry_i_6_0),
+        .I1(i__carry_i_15_n_0),
+        .I2(i__carry_i_19),
+        .I3(i__carry_i_13__0_n_0),
+        .I4(i__carry_i_16__0_n_0),
+        .I5(i__carry__0_i_3__1_0),
+        .O(\seconds_reg[15]_3 ));
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  LUT5 #(
+    .INIT(32'h6AAAAAAA)) 
+    i__carry_i_13__0
+       (.I0(\seconds_reg[11] [3]),
+        .I1(\seconds_reg[11] [1]),
+        .I2(\seconds_reg[11] [0]),
+        .I3(\seconds_reg[11] [2]),
+        .I4(i__carry_i_19__0),
+        .O(i__carry_i_13__0_n_0));
+  LUT6 #(
+    .INIT(64'hCFCFCDCD0CCC0C0C)) 
+    i__carry_i_14__0
+       (.I0(i__carry_i_16__0_n_0),
+        .I1(i__carry_i_11),
+        .I2(i__carry__0_i_3__1_0),
+        .I3(\seconds_reg[15] [0]),
+        .I4(i__carry_i_13__0_n_0),
+        .I5(i__carry_i_11_0),
+        .O(i__carry_i_19));
+  LUT6 #(
+    .INIT(64'hAA6AAAAAAA6AAA6A)) 
+    i__carry_i_15
+       (.I0(\seconds_reg[11] [2]),
+        .I1(\seconds_reg[11] [0]),
+        .I2(\seconds_reg[11] [1]),
+        .I3(CO),
+        .I4(seconds[10]),
+        .I5(\seconds_reg[15]_2 [3]),
+        .O(i__carry_i_15_n_0));
+  LUT6 #(
+    .INIT(64'hCCCCC4C40CCC0404)) 
+    i__carry_i_16
+       (.I0(i__carry_i_16__0_n_0),
+        .I1(i__carry_i_11),
+        .I2(i__carry__0_i_3__1_0),
+        .I3(\seconds_reg[15] [0]),
+        .I4(i__carry_i_13__0_n_0),
+        .I5(i__carry_i_11_0),
+        .O(i__carry_i_19_0));
+  LUT6 #(
+    .INIT(64'h6AAAAAAAAAAAAAAA)) 
+    i__carry_i_16__0
+       (.I0(\seconds_reg[15] [0]),
+        .I1(\seconds_reg[11] [3]),
+        .I2(i__carry_i_19__0),
+        .I3(\seconds_reg[11] [2]),
+        .I4(\seconds_reg[11] [0]),
+        .I5(\seconds_reg[11] [1]),
+        .O(i__carry_i_16__0_n_0));
+  LUT5 #(
+    .INIT(32'h4BB4B44B)) 
+    i__carry_i_2
+       (.I0(\seconds_reg[15]_8 ),
+        .I1(\BOTTOM_NUM1_inferred__0/i__carry_1 ),
+        .I2(\seconds_reg[15]_9 ),
+        .I3(\BOTTOM_NUM1_inferred__0/i__carry_0 ),
+        .I4(DI[2]),
+        .O(i__carry_i_2_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT5 #(
     .INIT(32'h80000000)) 
-    i__carry_i_14__0
-       (.I0(BOTTOM_NUM5__4_carry__2_n_4),
-        .I1(BOTTOM_NUM5__4_carry__2_n_5),
-        .I2(BOTTOM_NUM5__4_carry__2_n_6),
-        .I3(\seconds_reg[12] [0]),
-        .I4(\seconds_reg[12] [1]),
-        .O(\seconds_reg[12]_3 ));
+    i__carry_i_20
+       (.I0(\seconds_reg[11] [1]),
+        .I1(\seconds_reg[11] [0]),
+        .I2(\seconds_reg[11] [2]),
+        .I3(i__carry_i_19__0),
+        .I4(\seconds_reg[11] [3]),
+        .O(\seconds_reg[15]_6 ));
   LUT6 #(
-    .INIT(64'hBFFFFFFFFFFFFFFF)) 
-    i__carry_i_15__0
-       (.I0(i__carry_i_16__0),
-        .I1(\seconds_reg[12] [1]),
-        .I2(\seconds_reg[12] [0]),
-        .I3(BOTTOM_NUM5__4_carry__2_n_6),
-        .I4(BOTTOM_NUM5__4_carry__2_n_5),
-        .I5(BOTTOM_NUM5__4_carry__2_n_4),
-        .O(\seconds_reg[15]_2 ));
+    .INIT(64'h8000000000000000)) 
+    i__carry_i_22
+       (.I0(\seconds_reg[11] [3]),
+        .I1(i__carry_i_19__0),
+        .I2(\seconds_reg[11] [2]),
+        .I3(\seconds_reg[11] [0]),
+        .I4(\seconds_reg[11] [1]),
+        .I5(\seconds_reg[15] [0]),
+        .O(\seconds_reg[15]_5 ));
+  LUT4 #(
+    .INIT(16'h8000)) 
+    i__carry_i_23
+       (.I0(\seconds_reg[15] [0]),
+        .I1(i__carry_i_18__0),
+        .I2(\seconds_reg[11] [3]),
+        .I3(\seconds_reg[15] [1]),
+        .O(\seconds_reg[15]_4 ));
+  LUT3 #(
+    .INIT(8'h96)) 
+    i__carry_i_3__2
+       (.I0(i__carry_i_7__0_n_0),
+        .I1(DI[2]),
+        .I2(i__carry_i_8__0_n_0),
+        .O(i__carry_i_3__2_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    i__carry_i_4__0
+       (.I0(i__carry_i_9_n_0),
+        .I1(Q),
+        .O(i__carry_i_4__0_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    i__carry_i_5__2
+       (.I0(i__carry_i_7__0_n_0),
+        .I1(DI[0]),
+        .O(i__carry_i_5__2_n_0));
   LUT6 #(
-    .INIT(64'hF7FFFFFF08000000)) 
-    i__carry_i_18
-       (.I0(BOTTOM_NUM5__4_carry__2_n_5),
-        .I1(\seconds_reg[12] [1]),
-        .I2(i__carry_i_16__0),
-        .I3(\seconds_reg[12] [0]),
-        .I4(BOTTOM_NUM5__4_carry__2_n_6),
-        .I5(BOTTOM_NUM5__4_carry__2_n_4),
-        .O(\seconds_reg[12]_1 ));
+    .INIT(64'h3C3CC90330CFF4C3)) 
+    i__carry_i_6
+       (.I0(\seconds_reg[15]_7 ),
+        .I1(\seconds_reg[15]_3 ),
+        .I2(i__carry_i_19),
+        .I3(i__carry_i_2__0),
+        .I4(i__carry_i_2__0_0),
+        .I5(i__carry_i_7__0_n_0),
+        .O(i__carry_i_7__0_0));
   LUT6 #(
-    .INIT(64'hFBCB380800000000)) 
-    vga_to_hdmi_i_267
-       (.I0(g0_b2__1_n_0),
-        .I1(Q[1]),
-        .I2(Q[0]),
-        .I3(g0_b0__1_n_0),
-        .I4(g0_b1__1_n_0),
-        .I5(bot_red318_in),
+    .INIT(64'h0D2D2D077AF2F2DA)) 
+    i__carry_i_6__1
+       (.I0(i__carry__0_i_1__2),
+        .I1(i__carry_i_11__0_n_0),
+        .I2(\seconds_reg[15]_3 ),
+        .I3(i__carry_i_13__0_n_0),
+        .I4(i__carry_i_19),
+        .I5(i__carry_i_15_n_0),
+        .O(\seconds_reg[15]_8 ));
+  LUT6 #(
+    .INIT(64'hBAA71BF2B0271AA2)) 
+    i__carry_i_7__0
+       (.I0(i__carry_i_11__0_n_0),
+        .I1(i__carry_i_6_0),
+        .I2(i__carry_i_13__0_n_0),
+        .I3(i__carry_i_19),
+        .I4(i__carry_i_15_n_0),
+        .I5(i__carry__0_i_1__2),
+        .O(i__carry_i_7__0_n_0));
+  LUT6 #(
+    .INIT(64'h06E77899F9F99966)) 
+    i__carry_i_8
+       (.I0(i__carry_i_19),
+        .I1(i__carry_i_13__0_n_0),
+        .I2(i__carry_i_11__0_n_0),
+        .I3(i__carry_i_15_n_0),
+        .I4(\seconds_reg[15]_3 ),
+        .I5(i__carry__0_i_1__2),
+        .O(\seconds_reg[15]_9 ));
+  LUT6 #(
+    .INIT(64'hC23FF30CF30CC23F)) 
+    i__carry_i_8__0
+       (.I0(\seconds_reg[15]_7 ),
+        .I1(\seconds_reg[15]_3 ),
+        .I2(i__carry_i_19),
+        .I3(i__carry_i_2__0),
+        .I4(i__carry__0_i_3__1_1),
+        .I5(i__carry__0_i_3__1_0),
+        .O(i__carry_i_8__0_n_0));
+  LUT6 #(
+    .INIT(64'hAAAA66A655559959)) 
+    i__carry_i_9
+       (.I0(i__carry_i_7__0_n_0),
+        .I1(\seconds_reg[11] [0]),
+        .I2(\seconds_reg[15]_2 [3]),
+        .I3(seconds[10]),
+        .I4(CO),
+        .I5(\seconds_reg[11] [1]),
+        .O(i__carry_i_9_n_0));
+  LUT5 #(
+    .INIT(32'hACFAAC0A)) 
+    vga_to_hdmi_i_228
+       (.I0(g0_b1__3_n_0),
+        .I1(g0_b2__3_n_0),
+        .I2(vga_to_hdmi_i_91[0]),
+        .I3(vga_to_hdmi_i_91[1]),
+        .I4(g0_b0__3_n_0),
+        .O(\hc_reg[3]_0 ));
+  LUT5 #(
+    .INIT(32'h0305F3F5)) 
+    vga_to_hdmi_i_229
+       (.I0(g0_b0_n_0),
+        .I1(g0_b2_n_0),
+        .I2(vga_to_hdmi_i_91[1]),
+        .I3(vga_to_hdmi_i_91[0]),
+        .I4(g0_b1_n_0),
+        .O(\hc_reg[4]_0 ));
+  LUT5 #(
+    .INIT(32'hACFFAC00)) 
+    vga_to_hdmi_i_231
+       (.I0(g0_b2__2_n_0),
+        .I1(g0_b0__2_n_0),
+        .I2(vga_to_hdmi_i_91[0]),
+        .I3(vga_to_hdmi_i_91[1]),
+        .I4(g0_b1__2_n_0),
+        .O(\hc_reg[3]_1 ));
+  LUT6 #(
+    .INIT(64'hBFBC838000000000)) 
+    vga_to_hdmi_i_233
+       (.I0(g0_b0__0_n_0),
+        .I1(vga_to_hdmi_i_91[1]),
+        .I2(vga_to_hdmi_i_91[0]),
+        .I3(g0_b2__0_n_0),
+        .I4(g0_b1__0_n_0),
+        .I5(vga_to_hdmi_i_91[2]),
         .O(\hc_reg[4] ));
   LUT5 #(
-    .INIT(32'hF0CCAAAA)) 
-    vga_to_hdmi_i_345
-       (.I0(g0_b1__1_n_0),
-        .I1(g0_b0__1_n_0),
-        .I2(g0_b2__1_n_0),
-        .I3(Q[0]),
-        .I4(Q[1]),
-        .O(bot_red29_in));
-  LUT5 #(
-    .INIT(32'hF0CCCCAA)) 
-    vga_to_hdmi_i_347
-       (.I0(out[2]),
-        .I1(out[1]),
-        .I2(out[0]),
-        .I3(Q[0]),
-        .I4(Q[1]),
-        .O(bot_red25_in));
-  LUT5 #(
-    .INIT(32'hFFE400E4)) 
-    vga_to_hdmi_i_349
-       (.I0(Q[0]),
-        .I1(g0_b0_n_0),
-        .I2(g0_b2_n_0),
-        .I3(Q[1]),
-        .I4(g0_b1_n_0),
-        .O(bot_red21_in));
+    .INIT(32'h350035FF)) 
+    vga_to_hdmi_i_234
+       (.I0(g0_b0__1_n_0),
+        .I1(g0_b2__1_n_0),
+        .I2(vga_to_hdmi_i_91[0]),
+        .I3(vga_to_hdmi_i_91[1]),
+        .I4(g0_b1__1_n_0),
+        .O(\hc_reg[3] ));
 endmodule
 
 (* ORIG_REF_NAME = "clk_wiz_0" *) 
@@ -9978,254 +9240,184 @@ module microblaze_GameIP_0_0_color_mapper
    (button_press,
     button_press0,
     ball_on,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 ,
     \seconds_reg[10] ,
-    \seconds_reg[12] ,
-    CO,
     O,
-    BOTTOM_NUM5__4_carry__1,
-    \seconds_reg[12]_0 ,
     \seconds_reg[15] ,
-    \seconds_reg[14] ,
-    \vc_reg[7] ,
-    \vc_reg[9] ,
-    \vc_reg[9]_0 ,
-    \hc_reg[9] ,
-    anim_sig,
-    button_press121_out,
-    \hc_reg[7] ,
-    \vc_reg[0] ,
-    player_pos_10_sp_1,
-    \hc_reg[0] ,
-    \hc_reg[0]_0 ,
-    \player_pos[20] ,
     \seconds_reg[15]_0 ,
-    \seconds_reg[12]_1 ,
+    BOTTOM_NUM5__4_carry__1,
+    BOTTOM_NUM5__42_carry__0_i_4,
     \seconds_reg[15]_1 ,
-    \seconds_reg[12]_2 ,
+    CO,
+    choice_reg_0,
+    anim_sig,
     \seconds_reg[15]_2 ,
-    \seconds_reg[12]_3 ,
-    player_pos_0_sp_1,
-    player_pos_2_sp_1,
+    i__carry_i_19,
+    \seconds_reg[15]_3 ,
+    \seconds_reg[15]_4 ,
+    \seconds_reg[15]_5 ,
     \hc_reg[4] ,
-    bot_red29_in,
-    bot_red25_in,
-    out,
-    bot_red21_in,
-    \vc_reg[3] ,
-    \FSM_sequential_state_reg[1] ,
-    vga_to_hdmi_i_72,
-    block_addr1,
-    sel,
-    ball_on_reg_i_8,
-    ball_on_reg_i_8_0,
-    ball_on_reg_i_15,
-    ball_on_reg_i_15_0,
-    ball_on_reg_i_15_1,
-    ball_on_reg_i_15_2,
-    ball_on_reg_i_15_3,
-    ball_on_reg_i_15_4,
-    ball_on_reg_i_15_5,
-    doutb,
-    Q,
-    ball_on_reg_i_15_6,
-    ball_on_reg_i_8_1,
-    ball_on_reg_i_8_2,
-    ball_on_reg_i_12,
-    ball_on_reg_i_12_0,
-    ball_on_reg_i_1,
-    ball_on_reg_i_1_0,
-    ball_on_reg_i_7,
-    ball_on_reg_i_7_0,
-    ball_on_reg_i_1_1,
-    ball_on_reg_i_1_2,
+    i__carry_i_7__0,
+    \seconds_reg[15]_6 ,
+    \seconds_reg[15]_7 ,
+    \seconds_reg[15]_8 ,
+    i__carry_i_19_0,
+    \player_pos[4] ,
+    player_pos_2_sp_1,
+    \hc_reg[4]_0 ,
+    \hc_reg[3] ,
+    \hc_reg[3]_0 ,
+    \hc_reg[3]_1 ,
+    \Hardware_to_software[5]_INST_0_i_2 ,
+    vga_to_hdmi_i_50,
+    vga_to_hdmi_i_50_0,
+    axi_aclk,
     DI,
-    S,
     g0_b0,
+    S,
     g0_b0_0,
-    i__carry_i_12,
+    g0_b0_1,
+    seconds,
     BOTTOM_NUM5__4_carry__0,
     BOTTOM_NUM5__4_carry__1_0,
     BOTTOM_NUM5__4_carry__1_1,
-    i__carry__0_i_5__0,
-    i__carry__0_i_5__0_0,
-    i__carry_i_13__0,
-    i__carry_i_13__0_0,
+    i__carry_i_5__1,
+    i__carry_i_5__1_0,
+    i__carry_i_21,
+    i__carry_i_21_0,
     BOTTOM_NUM5__70_carry__1_i_3,
     BOTTOM_NUM5__70_carry__0,
     BOTTOM_NUM5__70_carry__1,
-    i__carry__0_i_5__0_1,
-    i__carry__0_i_5__0_2,
+    i__carry_i_5__1_1,
+    i__carry_i_5__1_2,
     g0_b0__0,
     g0_b0__0_0,
     g0_b0__0_1,
-    g0_b0__0_2,
     g0_b0__1,
     g0_b0__1_0,
     g0_b0__1_1,
-    g0_b0__1_2,
     g0_b0__2,
     g0_b0__2_0,
     g0_b0__2_1,
     g0_b0__2_2,
-    vga_to_hdmi_i_159,
-    button_press4_carry__0_0,
-    vga_to_hdmi_i_160_0,
-    vga_to_hdmi_i_159_0,
-    vga_to_hdmi_i_161_0,
-    vga_to_hdmi_i_161_1,
-    vga_to_hdmi_i_160_1,
-    vga_to_hdmi_i_277_0,
-    vga_to_hdmi_i_277_1,
-    vga_to_hdmi_i_277_2,
-    vga_to_hdmi_i_277_3,
-    vga_to_hdmi_i_44,
-    vga_to_hdmi_i_16,
-    vga_to_hdmi_i_16_0,
-    vga_to_hdmi_i_153_0,
-    vga_to_hdmi_i_60_0,
+    g0_b0__3,
+    g0_b0__3_0,
+    g0_b0__3_1,
+    anim_sig_reg_0,
+    Q,
+    i__carry_i_6,
+    i__carry__0_i_3__1,
+    i__carry_i_18__0,
+    i__carry_i_19__0,
     player_pos,
-    i__carry_i_13,
-    i__carry_i_13_0,
-    i__carry_i_13_1,
-    i__carry_i_16__0,
-    bot_red318_in,
-    vga_to_hdmi_i_16_1);
+    vga_to_hdmi_i_91,
+    \BOTTOM_NUM1_inferred__0/i__carry ,
+    \BOTTOM_NUM1_inferred__1/i__carry__0 ,
+    \BOTTOM_NUM1_inferred__0/i__carry__0 ,
+    \BOTTOM_NUM1_inferred__0/i__carry__0_0 ,
+    temp_reg_0,
+    i__carry_i_2__0,
+    i__carry_i_2__0_0,
+    \BOTTOM_NUM1_inferred__0/i__carry_0 ,
+    i__carry__0_i_1__2,
+    i__carry__0_i_3__1_0,
+    i__carry_i_11,
+    i__carry_i_11_0,
+    button_press_reg_i_31,
+    button_press_reg_i_31_0);
   output button_press;
   output button_press0;
   output ball_on;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 ;
   output [0:0]\seconds_reg[10] ;
-  output [0:0]\seconds_reg[12] ;
-  output [0:0]CO;
-  output [2:0]O;
+  output [3:0]O;
+  output [0:0]\seconds_reg[15] ;
+  output [2:0]\seconds_reg[15]_0 ;
   output [3:0]BOTTOM_NUM5__4_carry__1;
-  output [3:0]\seconds_reg[12]_0 ;
-  output [3:0]\seconds_reg[15] ;
-  output [0:0]\seconds_reg[14] ;
-  output [1:0]\vc_reg[7] ;
-  output [0:0]\vc_reg[9] ;
-  output [1:0]\vc_reg[9]_0 ;
-  output [0:0]\hc_reg[9] ;
+  output [3:0]BOTTOM_NUM5__42_carry__0_i_4;
+  output [3:0]\seconds_reg[15]_1 ;
+  output [0:0]CO;
+  output choice_reg_0;
   output anim_sig;
-  output button_press121_out;
-  output \hc_reg[7] ;
-  output \vc_reg[0] ;
-  output player_pos_10_sp_1;
-  output \hc_reg[0] ;
-  output \hc_reg[0]_0 ;
-  output \player_pos[20] ;
-  output \seconds_reg[15]_0 ;
-  output \seconds_reg[12]_1 ;
-  output \seconds_reg[15]_1 ;
-  output \seconds_reg[12]_2 ;
   output \seconds_reg[15]_2 ;
-  output \seconds_reg[12]_3 ;
-  output player_pos_0_sp_1;
-  output player_pos_2_sp_1;
+  output i__carry_i_19;
+  output \seconds_reg[15]_3 ;
+  output \seconds_reg[15]_4 ;
+  output \seconds_reg[15]_5 ;
   output \hc_reg[4] ;
-  output bot_red29_in;
-  output bot_red25_in;
-  output [2:0]out;
-  output bot_red21_in;
-  output [2:0]\vc_reg[3] ;
-  input \FSM_sequential_state_reg[1] ;
-  input vga_to_hdmi_i_72;
-  input block_addr1;
-  input [0:0]sel;
-  input ball_on_reg_i_8;
-  input ball_on_reg_i_8_0;
-  input ball_on_reg_i_15;
-  input ball_on_reg_i_15_0;
-  input ball_on_reg_i_15_1;
-  input ball_on_reg_i_15_2;
-  input ball_on_reg_i_15_3;
-  input ball_on_reg_i_15_4;
-  input ball_on_reg_i_15_5;
-  input [1:0]doutb;
-  input [9:0]Q;
-  input ball_on_reg_i_15_6;
-  input ball_on_reg_i_8_1;
-  input ball_on_reg_i_8_2;
-  input ball_on_reg_i_12;
-  input ball_on_reg_i_12_0;
-  input ball_on_reg_i_1;
-  input ball_on_reg_i_1_0;
-  input ball_on_reg_i_7;
-  input ball_on_reg_i_7_0;
-  input ball_on_reg_i_1_1;
-  input ball_on_reg_i_1_2;
+  output i__carry_i_7__0;
+  output \seconds_reg[15]_6 ;
+  output \seconds_reg[15]_7 ;
+  output \seconds_reg[15]_8 ;
+  output i__carry_i_19_0;
+  output [1:0]\player_pos[4] ;
+  output player_pos_2_sp_1;
+  output \hc_reg[4]_0 ;
+  output \hc_reg[3] ;
+  output \hc_reg[3]_0 ;
+  output \hc_reg[3]_1 ;
+  input \Hardware_to_software[5]_INST_0_i_2 ;
+  input vga_to_hdmi_i_50;
+  input vga_to_hdmi_i_50_0;
+  input axi_aclk;
   input [3:0]DI;
-  input [3:0]S;
   input [0:0]g0_b0;
-  input [1:0]g0_b0_0;
-  input [12:0]i__carry_i_12;
+  input [3:0]S;
+  input [0:0]g0_b0_0;
+  input [1:0]g0_b0_1;
+  input [11:0]seconds;
   input [2:0]BOTTOM_NUM5__4_carry__0;
   input [1:0]BOTTOM_NUM5__4_carry__1_0;
   input [3:0]BOTTOM_NUM5__4_carry__1_1;
-  input [3:0]i__carry__0_i_5__0;
-  input [3:0]i__carry__0_i_5__0_0;
-  input [2:0]i__carry_i_13__0;
-  input [3:0]i__carry_i_13__0_0;
+  input [3:0]i__carry_i_5__1;
+  input [3:0]i__carry_i_5__1_0;
+  input [3:0]i__carry_i_21;
+  input [3:0]i__carry_i_21_0;
   input [2:0]BOTTOM_NUM5__70_carry__1_i_3;
   input [3:0]BOTTOM_NUM5__70_carry__0;
   input [3:0]BOTTOM_NUM5__70_carry__1;
-  input [2:0]i__carry__0_i_5__0_1;
-  input [2:0]i__carry__0_i_5__0_2;
-  input [1:0]g0_b0__0;
-  input [3:0]g0_b0__0_0;
+  input [2:0]i__carry_i_5__1_1;
+  input [2:0]i__carry_i_5__1_2;
+  input [0:0]g0_b0__0;
+  input [1:0]g0_b0__0_0;
   input [0:0]g0_b0__0_1;
-  input [1:0]g0_b0__0_2;
-  input [1:0]g0_b0__1;
-  input [3:0]g0_b0__1_0;
+  input [0:0]g0_b0__1;
+  input [1:0]g0_b0__1_0;
   input [0:0]g0_b0__1_1;
-  input [1:0]g0_b0__1_2;
   input [1:0]g0_b0__2;
   input [3:0]g0_b0__2_0;
   input [0:0]g0_b0__2_1;
   input [1:0]g0_b0__2_2;
-  input [8:0]vga_to_hdmi_i_159;
-  input [3:0]button_press4_carry__0_0;
-  input [3:0]vga_to_hdmi_i_160_0;
-  input [1:0]vga_to_hdmi_i_159_0;
-  input [3:0]vga_to_hdmi_i_161_0;
-  input [3:0]vga_to_hdmi_i_161_1;
-  input [1:0]vga_to_hdmi_i_160_1;
-  input [2:0]vga_to_hdmi_i_277_0;
-  input [3:0]vga_to_hdmi_i_277_1;
-  input [0:0]vga_to_hdmi_i_277_2;
-  input [1:0]vga_to_hdmi_i_277_3;
-  input vga_to_hdmi_i_44;
-  input vga_to_hdmi_i_16;
-  input vga_to_hdmi_i_16_0;
-  input vga_to_hdmi_i_153_0;
-  input vga_to_hdmi_i_60_0;
+  input [3:0]g0_b0__3;
+  input [0:0]g0_b0__3_0;
+  input [1:0]g0_b0__3_1;
+  input anim_sig_reg_0;
+  input [1:0]Q;
+  input i__carry_i_6;
+  input i__carry__0_i_3__1;
+  input i__carry_i_18__0;
+  input i__carry_i_19__0;
   input [17:0]player_pos;
-  input i__carry_i_13;
-  input i__carry_i_13_0;
-  input i__carry_i_13_1;
-  input i__carry_i_16__0;
-  input bot_red318_in;
-  input vga_to_hdmi_i_16_1;
+  input [2:0]vga_to_hdmi_i_91;
+  input \BOTTOM_NUM1_inferred__0/i__carry ;
+  input \BOTTOM_NUM1_inferred__1/i__carry__0 ;
+  input \BOTTOM_NUM1_inferred__0/i__carry__0 ;
+  input \BOTTOM_NUM1_inferred__0/i__carry__0_0 ;
+  input temp_reg_0;
+  input i__carry_i_2__0;
+  input i__carry_i_2__0_0;
+  input \BOTTOM_NUM1_inferred__0/i__carry_0 ;
+  input i__carry__0_i_1__2;
+  input i__carry__0_i_3__1_0;
+  input i__carry_i_11;
+  input i__carry_i_11_0;
+  input button_press_reg_i_31;
+  input [0:0]button_press_reg_i_31_0;
 
+  wire \BOTTOM_NUM1_inferred__0/i__carry ;
+  wire \BOTTOM_NUM1_inferred__0/i__carry_0 ;
+  wire \BOTTOM_NUM1_inferred__0/i__carry__0 ;
+  wire \BOTTOM_NUM1_inferred__0/i__carry__0_0 ;
+  wire \BOTTOM_NUM1_inferred__1/i__carry__0 ;
+  wire [3:0]BOTTOM_NUM5__42_carry__0_i_4;
   wire [2:0]BOTTOM_NUM5__4_carry__0;
   wire [3:0]BOTTOM_NUM5__4_carry__1;
   wire [1:0]BOTTOM_NUM5__4_carry__1_0;
@@ -10234,220 +9426,92 @@ module microblaze_GameIP_0_0_color_mapper
   wire [3:0]BOTTOM_NUM5__70_carry__1;
   wire [2:0]BOTTOM_NUM5__70_carry__1_i_3;
   wire [0:0]CO;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 ;
   wire [3:0]DI;
-  wire \FSM_sequential_state_reg[1] ;
-  wire [2:0]O;
-  wire [9:0]Q;
+  wire \Hardware_to_software[5]_INST_0_i_2 ;
+  wire [3:0]O;
+  wire [1:0]Q;
   wire [3:0]S;
-  wire \addr0_inferred__0/i__carry__0_n_3 ;
-  wire \addr0_inferred__0/i__carry__0_n_6 ;
-  wire \addr0_inferred__0/i__carry__0_n_7 ;
-  wire \addr0_inferred__0/i__carry_n_0 ;
-  wire \addr0_inferred__0/i__carry_n_1 ;
-  wire \addr0_inferred__0/i__carry_n_2 ;
-  wire \addr0_inferred__0/i__carry_n_3 ;
-  wire \addr0_inferred__0/i__carry_n_4 ;
-  wire \addr0_inferred__0/i__carry_n_5 ;
-  wire \addr0_inferred__0/i__carry_n_6 ;
-  wire \addr0_inferred__0/i__carry_n_7 ;
   wire anim_sig;
-  wire anim_sig_i_1_n_0;
+  wire anim_sig_reg_0;
+  wire axi_aclk;
   wire ball_on;
-  wire ball_on_reg_i_1;
-  wire ball_on_reg_i_12;
-  wire ball_on_reg_i_12_0;
-  wire ball_on_reg_i_15;
-  wire ball_on_reg_i_15_0;
-  wire ball_on_reg_i_15_1;
-  wire ball_on_reg_i_15_2;
-  wire ball_on_reg_i_15_3;
-  wire ball_on_reg_i_15_4;
-  wire ball_on_reg_i_15_5;
-  wire ball_on_reg_i_15_6;
-  wire ball_on_reg_i_1_0;
-  wire ball_on_reg_i_1_1;
-  wire ball_on_reg_i_1_2;
-  wire ball_on_reg_i_7;
-  wire ball_on_reg_i_7_0;
-  wire ball_on_reg_i_8;
-  wire ball_on_reg_i_8_0;
-  wire ball_on_reg_i_8_1;
-  wire ball_on_reg_i_8_2;
-  wire block_addr1;
-  wire bot_red21_in;
-  wire bot_red25_in;
-  wire bot_red29_in;
-  wire bot_red318_in;
   wire button_press;
   wire button_press0;
-  wire button_press121_out;
-  wire [3:0]button_press4_carry__0_0;
-  wire button_press4_carry__0_n_0;
-  wire button_press4_carry__0_n_1;
-  wire button_press4_carry__0_n_2;
-  wire button_press4_carry__0_n_3;
-  wire button_press4_carry__0_n_6;
-  wire button_press4_carry__0_n_7;
-  wire button_press4_carry__1_n_3;
-  wire button_press4_carry_n_0;
-  wire button_press4_carry_n_1;
-  wire button_press4_carry_n_2;
-  wire button_press4_carry_n_3;
-  wire \button_press4_inferred__0/i__carry__0_n_0 ;
-  wire \button_press4_inferred__0/i__carry__0_n_1 ;
-  wire \button_press4_inferred__0/i__carry__0_n_2 ;
-  wire \button_press4_inferred__0/i__carry__0_n_3 ;
-  wire \button_press4_inferred__0/i__carry__0_n_4 ;
-  wire \button_press4_inferred__0/i__carry__0_n_5 ;
-  wire \button_press4_inferred__0/i__carry__0_n_6 ;
-  wire \button_press4_inferred__0/i__carry__0_n_7 ;
-  wire \button_press4_inferred__0/i__carry__1_n_3 ;
-  wire \button_press4_inferred__0/i__carry__1_n_6 ;
-  wire \button_press4_inferred__0/i__carry__1_n_7 ;
-  wire \button_press4_inferred__0/i__carry_n_0 ;
-  wire \button_press4_inferred__0/i__carry_n_1 ;
-  wire \button_press4_inferred__0/i__carry_n_2 ;
-  wire \button_press4_inferred__0/i__carry_n_3 ;
-  wire \button_press4_inferred__0/i__carry_n_4 ;
-  wire \button_press4_inferred__0/i__carry_n_5 ;
-  wire \button_press4_inferred__0/i__carry_n_6 ;
-  wire \button_press4_inferred__0/i__carry_n_7 ;
-  wire button_press_reg_i_21_n_0;
-  wire button_press_reg_i_23_n_0;
-  wire button_press_reg_i_38_n_0;
+  wire button_press_reg_i_31;
+  wire [0:0]button_press_reg_i_31_0;
   wire button_press_reg_i_3_n_0;
-  wire button_press_reg_i_40_n_0;
   wire button_press_reg_i_4_n_0;
   wire button_press_reg_i_5_n_0;
-  wire button_press_reg_i_6_n_0;
-  wire button_press_reg_i_7_n_0;
-  wire [1:0]doutb;
+  wire button_press_reg_i_91_n_0;
+  wire choice_i_1_n_0;
+  wire choice_reg_0;
   wire [0:0]g0_b0;
-  wire [1:0]g0_b0_0;
-  wire [1:0]g0_b0__0;
-  wire [3:0]g0_b0__0_0;
+  wire [0:0]g0_b0_0;
+  wire [1:0]g0_b0_1;
+  wire [0:0]g0_b0__0;
+  wire [1:0]g0_b0__0_0;
   wire [0:0]g0_b0__0_1;
-  wire [1:0]g0_b0__0_2;
-  wire [1:0]g0_b0__1;
-  wire [3:0]g0_b0__1_0;
+  wire [0:0]g0_b0__1;
+  wire [1:0]g0_b0__1_0;
   wire [0:0]g0_b0__1_1;
-  wire [1:0]g0_b0__1_2;
   wire [1:0]g0_b0__2;
   wire [3:0]g0_b0__2_0;
   wire [0:0]g0_b0__2_1;
   wire [1:0]g0_b0__2_2;
-  wire \hc_reg[0] ;
-  wire \hc_reg[0]_0 ;
+  wire [3:0]g0_b0__3;
+  wire [0:0]g0_b0__3_0;
+  wire [1:0]g0_b0__3_1;
+  wire \hc_reg[3] ;
+  wire \hc_reg[3]_0 ;
+  wire \hc_reg[3]_1 ;
   wire \hc_reg[4] ;
-  wire \hc_reg[7] ;
-  wire [0:0]\hc_reg[9] ;
-  wire [3:0]i__carry__0_i_5__0;
-  wire [3:0]i__carry__0_i_5__0_0;
-  wire [2:0]i__carry__0_i_5__0_1;
-  wire [2:0]i__carry__0_i_5__0_2;
-  wire [12:0]i__carry_i_12;
-  wire i__carry_i_13;
-  wire i__carry_i_13_0;
-  wire i__carry_i_13_1;
-  wire [2:0]i__carry_i_13__0;
-  wire [3:0]i__carry_i_13__0_0;
-  wire i__carry_i_16__0;
-  wire [2:0]out;
-  wire [19:0]player_data;
+  wire \hc_reg[4]_0 ;
+  wire i__carry__0_i_1__2;
+  wire i__carry__0_i_3__1;
+  wire i__carry__0_i_3__1_0;
+  wire i__carry_i_11;
+  wire i__carry_i_11_0;
+  wire i__carry_i_18__0;
+  wire i__carry_i_19;
+  wire i__carry_i_19_0;
+  wire i__carry_i_19__0;
+  wire [3:0]i__carry_i_21;
+  wire [3:0]i__carry_i_21_0;
+  wire i__carry_i_2__0;
+  wire i__carry_i_2__0_0;
+  wire [3:0]i__carry_i_5__1;
+  wire [3:0]i__carry_i_5__1_0;
+  wire [2:0]i__carry_i_5__1_1;
+  wire [2:0]i__carry_i_5__1_2;
+  wire i__carry_i_6;
+  wire i__carry_i_7__0;
   wire [17:0]player_pos;
-  wire \player_pos[20] ;
-  wire player_pos_0_sn_1;
-  wire player_pos_10_sn_1;
+  wire [1:0]\player_pos[4] ;
   wire player_pos_2_sn_1;
+  wire [11:0]seconds;
   wire [0:0]\seconds_reg[10] ;
-  wire [0:0]\seconds_reg[12] ;
-  wire [3:0]\seconds_reg[12]_0 ;
-  wire \seconds_reg[12]_1 ;
-  wire \seconds_reg[12]_2 ;
-  wire \seconds_reg[12]_3 ;
-  wire [0:0]\seconds_reg[14] ;
-  wire [3:0]\seconds_reg[15] ;
-  wire \seconds_reg[15]_0 ;
-  wire \seconds_reg[15]_1 ;
+  wire [0:0]\seconds_reg[15] ;
+  wire [2:0]\seconds_reg[15]_0 ;
+  wire [3:0]\seconds_reg[15]_1 ;
   wire \seconds_reg[15]_2 ;
-  wire [0:0]sel;
-  wire \vc_reg[0] ;
-  wire [2:0]\vc_reg[3] ;
-  wire [1:0]\vc_reg[7] ;
-  wire [0:0]\vc_reg[9] ;
-  wire [1:0]\vc_reg[9]_0 ;
-  wire vga_to_hdmi_i_151_n_0;
-  wire vga_to_hdmi_i_152_n_0;
-  wire vga_to_hdmi_i_153_0;
-  wire vga_to_hdmi_i_153_n_0;
-  wire [8:0]vga_to_hdmi_i_159;
-  wire [1:0]vga_to_hdmi_i_159_0;
-  wire vga_to_hdmi_i_16;
-  wire [3:0]vga_to_hdmi_i_160_0;
-  wire [1:0]vga_to_hdmi_i_160_1;
-  wire vga_to_hdmi_i_160_n_0;
-  wire [3:0]vga_to_hdmi_i_161_0;
-  wire [3:0]vga_to_hdmi_i_161_1;
-  wire vga_to_hdmi_i_161_n_0;
-  wire vga_to_hdmi_i_16_0;
-  wire vga_to_hdmi_i_16_1;
-  wire vga_to_hdmi_i_269_n_0;
-  wire vga_to_hdmi_i_270_n_0;
-  wire [2:0]vga_to_hdmi_i_277_0;
-  wire [3:0]vga_to_hdmi_i_277_1;
-  wire [0:0]vga_to_hdmi_i_277_2;
-  wire [1:0]vga_to_hdmi_i_277_3;
-  wire vga_to_hdmi_i_278_n_0;
-  wire vga_to_hdmi_i_44;
-  wire vga_to_hdmi_i_60_0;
-  wire vga_to_hdmi_i_72;
-  wire [3:1]\NLW_addr0_inferred__0/i__carry__0_CO_UNCONNECTED ;
-  wire [3:2]\NLW_addr0_inferred__0/i__carry__0_O_UNCONNECTED ;
-  wire [3:0]NLW_button_press4_carry_O_UNCONNECTED;
-  wire [3:1]NLW_button_press4_carry__1_CO_UNCONNECTED;
-  wire [3:2]NLW_button_press4_carry__1_O_UNCONNECTED;
-  wire [3:1]\NLW_button_press4_inferred__0/i__carry__1_CO_UNCONNECTED ;
-  wire [3:2]\NLW_button_press4_inferred__0/i__carry__1_O_UNCONNECTED ;
+  wire \seconds_reg[15]_3 ;
+  wire \seconds_reg[15]_4 ;
+  wire \seconds_reg[15]_5 ;
+  wire \seconds_reg[15]_6 ;
+  wire \seconds_reg[15]_7 ;
+  wire \seconds_reg[15]_8 ;
+  wire temp_i_1_n_0;
+  wire temp_reg_0;
+  wire temp_reg_n_0;
+  wire vga_to_hdmi_i_50;
+  wire vga_to_hdmi_i_50_0;
+  wire [2:0]vga_to_hdmi_i_91;
 
-  assign player_pos_0_sp_1 = player_pos_0_sn_1;
-  assign player_pos_10_sp_1 = player_pos_10_sn_1;
   assign player_pos_2_sp_1 = player_pos_2_sn_1;
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \addr0_inferred__0/i__carry 
-       (.CI(1'b0),
-        .CO({\addr0_inferred__0/i__carry_n_0 ,\addr0_inferred__0/i__carry_n_1 ,\addr0_inferred__0/i__carry_n_2 ,\addr0_inferred__0/i__carry_n_3 }),
-        .CYINIT(1'b0),
-        .DI({vga_to_hdmi_i_277_0,vga_to_hdmi_i_159[0]}),
-        .O({\addr0_inferred__0/i__carry_n_4 ,\addr0_inferred__0/i__carry_n_5 ,\addr0_inferred__0/i__carry_n_6 ,\addr0_inferred__0/i__carry_n_7 }),
-        .S(vga_to_hdmi_i_277_1));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \addr0_inferred__0/i__carry__0 
-       (.CI(\addr0_inferred__0/i__carry_n_0 ),
-        .CO({\NLW_addr0_inferred__0/i__carry__0_CO_UNCONNECTED [3:1],\addr0_inferred__0/i__carry__0_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,vga_to_hdmi_i_277_2}),
-        .O({\NLW_addr0_inferred__0/i__carry__0_O_UNCONNECTED [3:2],\addr0_inferred__0/i__carry__0_n_6 ,\addr0_inferred__0/i__carry__0_n_7 }),
-        .S({1'b0,1'b0,vga_to_hdmi_i_277_3}));
-  LUT2 #(
-    .INIT(4'h6)) 
-    anim_sig_i_1
-       (.I0(player_pos[17]),
-        .I1(anim_sig),
-        .O(anim_sig_i_1_n_0));
   FDRE anim_sig_reg
-       (.C(i__carry_i_12[0]),
+       (.C(seconds[0]),
         .CE(1'b1),
-        .D(anim_sig_i_1_n_0),
+        .D(anim_sig_reg_0),
         .Q(anim_sig),
         .R(1'b0));
   (* XILINX_LEGACY_PRIM = "LD" *) 
@@ -10456,47 +9520,18 @@ module microblaze_GameIP_0_0_color_mapper
     .INIT(1'b0)) 
     ball_on_reg
        (.CLR(1'b0),
-        .D(vga_to_hdmi_i_72),
-        .G(block_addr1),
+        .D(vga_to_hdmi_i_50),
+        .G(vga_to_hdmi_i_50_0),
         .GE(1'b1),
         .Q(ball_on));
-  microblaze_GameIP_0_0_block_rom blocks
-       (.\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram (\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 (\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 (\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_2 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 (\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_3 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 (\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_4 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 (\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_5 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 (\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_6 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 (\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_7 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 (\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_8 ),
-        .Q(Q[4]),
-        .ball_on_reg_i_1(ball_on_reg_i_1),
-        .ball_on_reg_i_12(ball_on_reg_i_12),
-        .ball_on_reg_i_12_0(ball_on_reg_i_12_0),
-        .ball_on_reg_i_15(ball_on_reg_i_15),
-        .ball_on_reg_i_15_0(ball_on_reg_i_15_0),
-        .ball_on_reg_i_15_1(ball_on_reg_i_15_1),
-        .ball_on_reg_i_15_2(ball_on_reg_i_15_2),
-        .ball_on_reg_i_15_3(ball_on_reg_i_15_3),
-        .ball_on_reg_i_15_4(ball_on_reg_i_15_4),
-        .ball_on_reg_i_15_5(ball_on_reg_i_15_5),
-        .ball_on_reg_i_15_6(ball_on_reg_i_15_6),
-        .ball_on_reg_i_1_0(ball_on_reg_i_1_0),
-        .ball_on_reg_i_1_1(ball_on_reg_i_1_1),
-        .ball_on_reg_i_1_2(ball_on_reg_i_1_2),
-        .ball_on_reg_i_7(ball_on_reg_i_7),
-        .ball_on_reg_i_7_0(ball_on_reg_i_7_0),
-        .ball_on_reg_i_8(ball_on_reg_i_8),
-        .ball_on_reg_i_8_0(ball_on_reg_i_8_0),
-        .ball_on_reg_i_8_1(ball_on_reg_i_8_1),
-        .ball_on_reg_i_8_2(ball_on_reg_i_8_2),
-        .block_addr1(block_addr1),
-        .doutb(doutb),
-        .sel(sel));
   microblaze_GameIP_0_0_bottom_drawing bot_draw
-       (.BOTTOM_NUM5__4_carry__0_0(BOTTOM_NUM5__4_carry__0),
+       (.\BOTTOM_NUM1_inferred__0/i__carry_0 (\BOTTOM_NUM1_inferred__0/i__carry ),
+        .\BOTTOM_NUM1_inferred__0/i__carry_1 (\BOTTOM_NUM1_inferred__0/i__carry_0 ),
+        .\BOTTOM_NUM1_inferred__0/i__carry__0_0 (\BOTTOM_NUM1_inferred__0/i__carry__0 ),
+        .\BOTTOM_NUM1_inferred__0/i__carry__0_1 (\BOTTOM_NUM1_inferred__0/i__carry__0_0 ),
+        .\BOTTOM_NUM1_inferred__1/i__carry__0_0 (\BOTTOM_NUM1_inferred__1/i__carry__0 ),
+        .BOTTOM_NUM5__42_carry__0_i_4_0(BOTTOM_NUM5__42_carry__0_i_4),
+        .BOTTOM_NUM5__4_carry__0_0(BOTTOM_NUM5__4_carry__0),
         .BOTTOM_NUM5__4_carry__1_0(BOTTOM_NUM5__4_carry__1),
         .BOTTOM_NUM5__4_carry__1_1(BOTTOM_NUM5__4_carry__1_0),
         .BOTTOM_NUM5__4_carry__1_2(BOTTOM_NUM5__4_carry__1_1),
@@ -10505,93 +9540,62 @@ module microblaze_GameIP_0_0_color_mapper
         .BOTTOM_NUM5__70_carry__1_i_3(BOTTOM_NUM5__70_carry__1_i_3),
         .CO(CO),
         .DI(DI),
-        .O(O),
-        .Q(Q[4:3]),
+        .Q(Q[0]),
         .S(S),
-        .bot_red21_in(bot_red21_in),
-        .bot_red25_in(bot_red25_in),
-        .bot_red29_in(bot_red29_in),
-        .bot_red318_in(bot_red318_in),
         .g0_b0_0(g0_b0),
         .g0_b0_1(g0_b0_0),
+        .g0_b0_2(g0_b0_1),
         .g0_b0__0_0(g0_b0__0),
         .g0_b0__0_1(g0_b0__0_0),
         .g0_b0__0_2(g0_b0__0_1),
-        .g0_b0__0_3(g0_b0__0_2),
         .g0_b0__1_0(g0_b0__1),
         .g0_b0__1_1(g0_b0__1_0),
         .g0_b0__1_2(g0_b0__1_1),
-        .g0_b0__1_3(g0_b0__1_2),
         .g0_b0__2_0(g0_b0__2),
         .g0_b0__2_1(g0_b0__2_0),
         .g0_b0__2_2(g0_b0__2_1),
         .g0_b0__2_3(g0_b0__2_2),
+        .g0_b0__3_0(g0_b0__3),
+        .g0_b0__3_1(g0_b0__3_0),
+        .g0_b0__3_2(g0_b0__3_1),
+        .\hc_reg[3] (\hc_reg[3] ),
+        .\hc_reg[3]_0 (\hc_reg[3]_0 ),
+        .\hc_reg[3]_1 (\hc_reg[3]_1 ),
         .\hc_reg[4] (\hc_reg[4] ),
-        .i__carry__0_i_5__0(i__carry__0_i_5__0),
-        .i__carry__0_i_5__0_0(i__carry__0_i_5__0_0),
-        .i__carry__0_i_5__0_1(i__carry__0_i_5__0_1),
-        .i__carry__0_i_5__0_2(i__carry__0_i_5__0_2),
-        .i__carry_i_12(i__carry_i_12[12:1]),
-        .i__carry_i_13(i__carry_i_13),
-        .i__carry_i_13_0(i__carry_i_13_0),
-        .i__carry_i_13_1(i__carry_i_13_1),
-        .i__carry_i_13__0(i__carry_i_13__0),
-        .i__carry_i_13__0_0(i__carry_i_13__0_0),
-        .i__carry_i_16__0(i__carry_i_16__0),
-        .out(out),
-        .\seconds_reg[12] ({\seconds_reg[12] ,\seconds_reg[10] }),
-        .\seconds_reg[12]_0 (\seconds_reg[12]_0 ),
-        .\seconds_reg[12]_1 (\seconds_reg[12]_1 ),
-        .\seconds_reg[12]_2 (\seconds_reg[12]_2 ),
-        .\seconds_reg[12]_3 (\seconds_reg[12]_3 ),
-        .\seconds_reg[14] (\seconds_reg[14] ),
-        .\seconds_reg[15] (\seconds_reg[15] ),
-        .\seconds_reg[15]_0 (\seconds_reg[15]_0 ),
-        .\seconds_reg[15]_1 (\seconds_reg[15]_1 ),
-        .\seconds_reg[15]_2 (\seconds_reg[15]_2 ),
-        .\vc_reg[3] (\vc_reg[3] ));
-  CARRY4 button_press4_carry
-       (.CI(1'b0),
-        .CO({button_press4_carry_n_0,button_press4_carry_n_1,button_press4_carry_n_2,button_press4_carry_n_3}),
-        .CYINIT(1'b1),
-        .DI({DI[0],vga_to_hdmi_i_159[2:0]}),
-        .O(NLW_button_press4_carry_O_UNCONNECTED[3:0]),
-        .S(button_press4_carry__0_0));
-  CARRY4 button_press4_carry__0
-       (.CI(button_press4_carry_n_0),
-        .CO({button_press4_carry__0_n_0,button_press4_carry__0_n_1,button_press4_carry__0_n_2,button_press4_carry__0_n_3}),
-        .CYINIT(1'b0),
-        .DI(vga_to_hdmi_i_159[6:3]),
-        .O({\vc_reg[7] ,button_press4_carry__0_n_6,button_press4_carry__0_n_7}),
-        .S(vga_to_hdmi_i_160_0));
-  CARRY4 button_press4_carry__1
-       (.CI(button_press4_carry__0_n_0),
-        .CO({NLW_button_press4_carry__1_CO_UNCONNECTED[3],\vc_reg[9] ,NLW_button_press4_carry__1_CO_UNCONNECTED[1],button_press4_carry__1_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,vga_to_hdmi_i_159[8:7]}),
-        .O({NLW_button_press4_carry__1_O_UNCONNECTED[3:2],\vc_reg[9]_0 }),
-        .S({1'b0,1'b1,vga_to_hdmi_i_159_0}));
-  CARRY4 \button_press4_inferred__0/i__carry 
-       (.CI(1'b0),
-        .CO({\button_press4_inferred__0/i__carry_n_0 ,\button_press4_inferred__0/i__carry_n_1 ,\button_press4_inferred__0/i__carry_n_2 ,\button_press4_inferred__0/i__carry_n_3 }),
-        .CYINIT(1'b1),
-        .DI(Q[3:0]),
-        .O({\button_press4_inferred__0/i__carry_n_4 ,\button_press4_inferred__0/i__carry_n_5 ,\button_press4_inferred__0/i__carry_n_6 ,\button_press4_inferred__0/i__carry_n_7 }),
-        .S(vga_to_hdmi_i_161_0));
-  CARRY4 \button_press4_inferred__0/i__carry__0 
-       (.CI(\button_press4_inferred__0/i__carry_n_0 ),
-        .CO({\button_press4_inferred__0/i__carry__0_n_0 ,\button_press4_inferred__0/i__carry__0_n_1 ,\button_press4_inferred__0/i__carry__0_n_2 ,\button_press4_inferred__0/i__carry__0_n_3 }),
-        .CYINIT(1'b0),
-        .DI(Q[7:4]),
-        .O({\button_press4_inferred__0/i__carry__0_n_4 ,\button_press4_inferred__0/i__carry__0_n_5 ,\button_press4_inferred__0/i__carry__0_n_6 ,\button_press4_inferred__0/i__carry__0_n_7 }),
-        .S(vga_to_hdmi_i_161_1));
-  CARRY4 \button_press4_inferred__0/i__carry__1 
-       (.CI(\button_press4_inferred__0/i__carry__0_n_0 ),
-        .CO({\NLW_button_press4_inferred__0/i__carry__1_CO_UNCONNECTED [3],\hc_reg[9] ,\NLW_button_press4_inferred__0/i__carry__1_CO_UNCONNECTED [1],\button_press4_inferred__0/i__carry__1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,Q[9:8]}),
-        .O({\NLW_button_press4_inferred__0/i__carry__1_O_UNCONNECTED [3:2],\button_press4_inferred__0/i__carry__1_n_6 ,\button_press4_inferred__0/i__carry__1_n_7 }),
-        .S({1'b0,1'b1,vga_to_hdmi_i_160_1}));
+        .\hc_reg[4]_0 (\hc_reg[4]_0 ),
+        .i__carry__0_i_1__2(i__carry__0_i_1__2),
+        .i__carry__0_i_3__1_0(i__carry__0_i_3__1),
+        .i__carry__0_i_3__1_1(i__carry__0_i_3__1_0),
+        .i__carry_i_11(i__carry_i_11),
+        .i__carry_i_11_0(i__carry_i_11_0),
+        .i__carry_i_18__0(i__carry_i_18__0),
+        .i__carry_i_19(i__carry_i_19),
+        .i__carry_i_19_0(i__carry_i_19_0),
+        .i__carry_i_19__0(i__carry_i_19__0),
+        .i__carry_i_21(i__carry_i_21),
+        .i__carry_i_21_0(i__carry_i_21_0),
+        .i__carry_i_2__0(i__carry_i_2__0),
+        .i__carry_i_2__0_0(i__carry_i_2__0_0),
+        .i__carry_i_5__1(i__carry_i_5__1),
+        .i__carry_i_5__1_0(i__carry_i_5__1_0),
+        .i__carry_i_5__1_1(i__carry_i_5__1_1),
+        .i__carry_i_5__1_2(i__carry_i_5__1_2),
+        .i__carry_i_6_0(i__carry_i_6),
+        .i__carry_i_7__0_0(i__carry_i_7__0),
+        .seconds(seconds[11:1]),
+        .\seconds_reg[11] ({O[2:0],\seconds_reg[10] }),
+        .\seconds_reg[15] ({\seconds_reg[15]_0 [1:0],O[3]}),
+        .\seconds_reg[15]_0 (\seconds_reg[15] ),
+        .\seconds_reg[15]_1 (\seconds_reg[15]_0 [2]),
+        .\seconds_reg[15]_2 (\seconds_reg[15]_1 ),
+        .\seconds_reg[15]_3 (\seconds_reg[15]_2 ),
+        .\seconds_reg[15]_4 (\seconds_reg[15]_3 ),
+        .\seconds_reg[15]_5 (\seconds_reg[15]_4 ),
+        .\seconds_reg[15]_6 (\seconds_reg[15]_5 ),
+        .\seconds_reg[15]_7 (\seconds_reg[15]_6 ),
+        .\seconds_reg[15]_8 (\seconds_reg[15]_7 ),
+        .\seconds_reg[15]_9 (\seconds_reg[15]_8 ),
+        .vga_to_hdmi_i_91(vga_to_hdmi_i_91));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   (* XILINX_TRANSFORM_PINMAP = "VCC:GE GND:CLR" *) 
   LDCE #(
@@ -10599,415 +9603,113 @@ module microblaze_GameIP_0_0_color_mapper
     button_press_reg
        (.CLR(1'b0),
         .D(button_press0),
-        .G(\FSM_sequential_state_reg[1] ),
+        .G(\Hardware_to_software[5]_INST_0_i_2 ),
         .GE(1'b1),
         .Q(button_press));
   LUT6 #(
-    .INIT(64'h0000000000000008)) 
+    .INIT(64'h0000000000000042)) 
     button_press_reg_i_1
-       (.I0(button_press_reg_i_3_n_0),
-        .I1(button_press_reg_i_4_n_0),
-        .I2(player_pos[16]),
-        .I3(button_press_reg_i_5_n_0),
-        .I4(button_press_reg_i_6_n_0),
-        .I5(button_press_reg_i_7_n_0),
+       (.I0(player_pos[12]),
+        .I1(player_pos[10]),
+        .I2(player_pos[11]),
+        .I3(button_press_reg_i_3_n_0),
+        .I4(button_press_reg_i_4_n_0),
+        .I5(button_press_reg_i_5_n_0),
         .O(button_press0));
-  LUT6 #(
-    .INIT(64'hAAAAAAAA00008A80)) 
-    button_press_reg_i_10
-       (.I0(\hc_reg[7] ),
-        .I1(button_press_reg_i_21_n_0),
-        .I2(vga_to_hdmi_i_44),
-        .I3(button_press_reg_i_23_n_0),
-        .I4(vga_to_hdmi_i_16),
-        .I5(\vc_reg[0] ),
-        .O(button_press121_out));
-  LUT5 #(
-    .INIT(32'hB8BBB888)) 
-    button_press_reg_i_21
-       (.I0(\hc_reg[0]_0 ),
-        .I1(vga_to_hdmi_i_16_0),
-        .I2(button_press_reg_i_38_n_0),
-        .I3(vga_to_hdmi_i_60_0),
-        .I4(button_press_reg_i_40_n_0),
-        .O(button_press_reg_i_21_n_0));
-  MUXF7 button_press_reg_i_23
-       (.I0(player_pos_10_sn_1),
-        .I1(\hc_reg[0] ),
-        .O(button_press_reg_i_23_n_0),
-        .S(vga_to_hdmi_i_16_0));
-  LUT5 #(
-    .INIT(32'h0155FFFF)) 
+  LUT4 #(
+    .INIT(16'hFFDF)) 
     button_press_reg_i_3
        (.I0(player_pos[14]),
-        .I1(player_pos[12]),
-        .I2(player_pos[11]),
-        .I3(player_pos[13]),
-        .I4(player_pos[15]),
+        .I1(player_pos[13]),
+        .I2(player_pos[5]),
+        .I3(player_pos[8]),
         .O(button_press_reg_i_3_n_0));
-  MUXF7 button_press_reg_i_38
-       (.I0(player_data[11]),
-        .I1(player_data[10]),
-        .O(button_press_reg_i_38_n_0),
-        .S(vga_to_hdmi_i_153_0));
-  LUT4 #(
-    .INIT(16'h8880)) 
+  LUT6 #(
+    .INIT(64'hFFFFFFF1FFFFFFFF)) 
     button_press_reg_i_4
-       (.I0(player_pos[7]),
-        .I1(player_pos[5]),
-        .I2(player_pos[3]),
-        .I3(player_pos[4]),
-        .O(button_press_reg_i_4_n_0));
-  MUXF7 button_press_reg_i_40
-       (.I0(player_data[9]),
-        .I1(player_data[8]),
-        .O(button_press_reg_i_40_n_0),
-        .S(vga_to_hdmi_i_153_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFF655F755E)) 
-    button_press_reg_i_48
-       (.I0(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I1(\addr0_inferred__0/i__carry_n_5 ),
-        .I2(\addr0_inferred__0/i__carry_n_6 ),
-        .I3(\addr0_inferred__0/i__carry_n_7 ),
-        .I4(\addr0_inferred__0/i__carry__0_n_6 ),
-        .I5(\addr0_inferred__0/i__carry_n_4 ),
-        .O(player_data[11]));
-  LUT6 #(
-    .INIT(64'hFFFFFFA5FFFFFF7E)) 
-    button_press_reg_i_49
-       (.I0(\addr0_inferred__0/i__carry_n_7 ),
-        .I1(\addr0_inferred__0/i__carry__0_n_6 ),
-        .I2(\addr0_inferred__0/i__carry_n_6 ),
-        .I3(\addr0_inferred__0/i__carry_n_5 ),
-        .I4(\addr0_inferred__0/i__carry_n_4 ),
-        .I5(\addr0_inferred__0/i__carry__0_n_7 ),
-        .O(player_data[10]));
-  LUT6 #(
-    .INIT(64'h000000000007FFFF)) 
-    button_press_reg_i_5
-       (.I0(player_pos[11]),
-        .I1(player_pos[12]),
-        .I2(player_pos[14]),
-        .I3(player_pos[13]),
+       (.I0(player_pos[3]),
+        .I1(player_pos[4]),
+        .I2(player_pos[6]),
+        .I3(player_pos[9]),
         .I4(player_pos[15]),
-        .I5(player_pos[16]),
+        .I5(player_pos[7]),
+        .O(button_press_reg_i_4_n_0));
+  LUT4 #(
+    .INIT(16'hAA80)) 
+    button_press_reg_i_5
+       (.I0(player_pos[4]),
+        .I1(player_pos[2]),
+        .I2(player_pos[1]),
+        .I3(player_pos[3]),
         .O(button_press_reg_i_5_n_0));
   LUT6 #(
-    .INIT(64'hFCFDEEEFFCFFEFFE)) 
-    button_press_reg_i_50
-       (.I0(\addr0_inferred__0/i__carry__0_n_6 ),
-        .I1(\addr0_inferred__0/i__carry_n_4 ),
-        .I2(\addr0_inferred__0/i__carry_n_5 ),
-        .I3(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I4(\addr0_inferred__0/i__carry_n_6 ),
-        .I5(\addr0_inferred__0/i__carry_n_7 ),
-        .O(player_data[9]));
-  LUT6 #(
-    .INIT(64'hFFFEFFF4FFAEFF0E)) 
-    button_press_reg_i_51
-       (.I0(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I1(\addr0_inferred__0/i__carry__0_n_6 ),
-        .I2(\addr0_inferred__0/i__carry_n_5 ),
-        .I3(\addr0_inferred__0/i__carry_n_4 ),
-        .I4(\addr0_inferred__0/i__carry_n_7 ),
-        .I5(\addr0_inferred__0/i__carry_n_6 ),
-        .O(player_data[8]));
+    .INIT(64'h7E81817E817E7E81)) 
+    button_press_reg_i_67
+       (.I0(button_press_reg_i_91_n_0),
+        .I1(player_pos[4]),
+        .I2(anim_sig),
+        .I3(Q[1]),
+        .I4(player_pos[5]),
+        .I5(button_press_reg_i_31),
+        .O(\player_pos[4] [1]));
   LUT4 #(
-    .INIT(16'hFEEE)) 
-    button_press_reg_i_6
-       (.I0(player_pos[8]),
-        .I1(player_pos[9]),
-        .I2(player_pos[7]),
-        .I3(player_pos[6]),
-        .O(button_press_reg_i_6_n_0));
-  LUT6 #(
-    .INIT(64'h8080800080008000)) 
-    button_press_reg_i_7
-       (.I0(player_pos[4]),
-        .I1(player_pos[5]),
-        .I2(player_pos[7]),
-        .I3(player_pos[3]),
-        .I4(player_pos[2]),
-        .I5(player_pos[1]),
-        .O(button_press_reg_i_7_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair76" *) 
-  LUT5 #(
-    .INIT(32'h17FFFFFF)) 
-    i__carry__0_i_5
-       (.I0(player_pos[0]),
+    .INIT(16'h9669)) 
+    button_press_reg_i_68
+       (.I0(button_press_reg_i_31_0),
+        .I1(player_pos[4]),
+        .I2(anim_sig),
+        .I3(button_press_reg_i_91_n_0),
+        .O(\player_pos[4] [0]));
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  LUT4 #(
+    .INIT(16'hA880)) 
+    button_press_reg_i_89
+       (.I0(player_pos[2]),
         .I1(player_pos[1]),
         .I2(anim_sig),
-        .I3(player_pos[2]),
-        .I4(player_pos[3]),
-        .O(player_pos_0_sn_1));
-  (* SOFT_HLUTNM = "soft_lutpair76" *) 
-  LUT4 #(
-    .INIT(16'h577F)) 
-    i__carry_i_8__2
-       (.I0(player_pos[2]),
-        .I1(anim_sig),
-        .I2(player_pos[1]),
         .I3(player_pos[0]),
         .O(player_pos_2_sn_1));
-  LUT2 #(
-    .INIT(4'h6)) 
-    vga_to_hdmi_i_151
-       (.I0(\addr0_inferred__0/i__carry_n_5 ),
-        .I1(\addr0_inferred__0/i__carry__0_n_7 ),
-        .O(vga_to_hdmi_i_151_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair78" *) 
-  LUT2 #(
-    .INIT(4'h6)) 
-    vga_to_hdmi_i_152
-       (.I0(\addr0_inferred__0/i__carry_n_6 ),
-        .I1(\addr0_inferred__0/i__carry_n_5 ),
-        .O(vga_to_hdmi_i_152_n_0));
-  MUXF8 vga_to_hdmi_i_153
-       (.I0(vga_to_hdmi_i_269_n_0),
-        .I1(vga_to_hdmi_i_270_n_0),
-        .O(vga_to_hdmi_i_153_n_0),
-        .S(vga_to_hdmi_i_60_0));
-  LUT6 #(
-    .INIT(64'hCFCFAFA0C0C0AFA0)) 
-    vga_to_hdmi_i_155
-       (.I0(player_data[4]),
-        .I1(player_data[6]),
-        .I2(vga_to_hdmi_i_153_0),
-        .I3(player_data[5]),
-        .I4(vga_to_hdmi_i_60_0),
-        .I5(player_data[7]),
-        .O(\hc_reg[0] ));
-  LUT6 #(
-    .INIT(64'hCFCFAFA0CCCCAFA0)) 
-    vga_to_hdmi_i_156
-       (.I0(player_data[0]),
-        .I1(vga_to_hdmi_i_278_n_0),
-        .I2(vga_to_hdmi_i_153_0),
-        .I3(player_data[1]),
-        .I4(vga_to_hdmi_i_60_0),
-        .I5(player_data[3]),
-        .O(player_pos_10_sn_1));
-  LUT6 #(
-    .INIT(64'hCFCFAFA0C0C0AFA0)) 
-    vga_to_hdmi_i_157
-       (.I0(player_data[12]),
-        .I1(player_data[14]),
-        .I2(vga_to_hdmi_i_153_0),
-        .I3(player_data[13]),
-        .I4(vga_to_hdmi_i_60_0),
-        .I5(player_data[15]),
-        .O(\hc_reg[0]_0 ));
-  MUXF8 vga_to_hdmi_i_158
-       (.I0(button_press_reg_i_40_n_0),
-        .I1(button_press_reg_i_38_n_0),
-        .O(\player_pos[20] ),
-        .S(vga_to_hdmi_i_60_0));
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  LUT5 #(
+    .INIT(32'hE8000000)) 
+    button_press_reg_i_91
+       (.I0(player_pos[0]),
+        .I1(anim_sig),
+        .I2(player_pos[1]),
+        .I3(player_pos[2]),
+        .I4(player_pos[3]),
+        .O(button_press_reg_i_91_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  LUT5 #(
+    .INIT(32'hFFFD0002)) 
+    choice_i_1
+       (.I0(temp_reg_0),
+        .I1(temp_reg_n_0),
+        .I2(player_pos[16]),
+        .I3(player_pos[17]),
+        .I4(choice_reg_0),
+        .O(choice_i_1_n_0));
+  FDRE choice_reg
+       (.C(axi_aclk),
+        .CE(1'b1),
+        .D(choice_i_1_n_0),
+        .Q(choice_reg_0),
+        .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT4 #(
-    .INIT(16'h0001)) 
-    vga_to_hdmi_i_160
-       (.I0(button_press4_carry__0_n_6),
-        .I1(button_press4_carry__0_n_7),
-        .I2(\button_press4_inferred__0/i__carry__1_n_6 ),
-        .I3(\button_press4_inferred__0/i__carry__1_n_7 ),
-        .O(vga_to_hdmi_i_160_n_0));
-  LUT5 #(
-    .INIT(32'h0155FFFF)) 
-    vga_to_hdmi_i_161
-       (.I0(\button_press4_inferred__0/i__carry_n_4 ),
-        .I1(\button_press4_inferred__0/i__carry_n_7 ),
-        .I2(\button_press4_inferred__0/i__carry_n_6 ),
-        .I3(\button_press4_inferred__0/i__carry_n_5 ),
-        .I4(\button_press4_inferred__0/i__carry__0_n_7 ),
-        .O(vga_to_hdmi_i_161_n_0));
-  MUXF7 vga_to_hdmi_i_269
-       (.I0(player_data[17]),
-        .I1(player_data[16]),
-        .O(vga_to_hdmi_i_269_n_0),
-        .S(vga_to_hdmi_i_153_0));
-  MUXF7 vga_to_hdmi_i_270
-       (.I0(player_data[19]),
-        .I1(player_data[18]),
-        .O(vga_to_hdmi_i_270_n_0),
-        .S(vga_to_hdmi_i_153_0));
-  LUT6 #(
-    .INIT(64'hF4D0F0FFF4D00000)) 
-    vga_to_hdmi_i_272
-       (.I0(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I1(\addr0_inferred__0/i__carry_n_7 ),
-        .I2(\addr0_inferred__0/i__carry_n_5 ),
-        .I3(\addr0_inferred__0/i__carry_n_6 ),
-        .I4(\addr0_inferred__0/i__carry_n_4 ),
-        .I5(\addr0_inferred__0/i__carry__0_n_6 ),
-        .O(player_data[4]));
-  LUT6 #(
-    .INIT(64'hDFDDEFEFFDFFCEFE)) 
-    vga_to_hdmi_i_273
-       (.I0(\addr0_inferred__0/i__carry_n_7 ),
-        .I1(\addr0_inferred__0/i__carry__0_n_6 ),
-        .I2(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I3(\addr0_inferred__0/i__carry_n_4 ),
-        .I4(\addr0_inferred__0/i__carry_n_5 ),
-        .I5(\addr0_inferred__0/i__carry_n_6 ),
-        .O(player_data[6]));
-  LUT6 #(
-    .INIT(64'hC0EAF0EAEAABEEEE)) 
-    vga_to_hdmi_i_275
-       (.I0(\addr0_inferred__0/i__carry__0_n_6 ),
-        .I1(\addr0_inferred__0/i__carry_n_5 ),
-        .I2(\addr0_inferred__0/i__carry_n_4 ),
-        .I3(\addr0_inferred__0/i__carry_n_7 ),
-        .I4(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I5(\addr0_inferred__0/i__carry_n_6 ),
-        .O(player_data[5]));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFEEB6)) 
-    vga_to_hdmi_i_276
-       (.I0(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I1(\addr0_inferred__0/i__carry_n_6 ),
-        .I2(\addr0_inferred__0/i__carry_n_7 ),
-        .I3(\addr0_inferred__0/i__carry_n_5 ),
-        .I4(\addr0_inferred__0/i__carry__0_n_6 ),
-        .I5(\addr0_inferred__0/i__carry_n_4 ),
-        .O(player_data[7]));
-  (* SOFT_HLUTNM = "soft_lutpair77" *) 
-  LUT5 #(
-    .INIT(32'h3008848C)) 
-    vga_to_hdmi_i_277
-       (.I0(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I1(\addr0_inferred__0/i__carry_n_4 ),
-        .I2(\addr0_inferred__0/i__carry_n_6 ),
-        .I3(\addr0_inferred__0/i__carry_n_5 ),
-        .I4(\addr0_inferred__0/i__carry_n_7 ),
-        .O(player_data[0]));
-  LUT6 #(
-    .INIT(64'h9099090000000000)) 
-    vga_to_hdmi_i_278
-       (.I0(player_pos[10]),
-        .I1(Q[0]),
-        .I2(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I3(\addr0_inferred__0/i__carry_n_6 ),
-        .I4(\addr0_inferred__0/i__carry_n_5 ),
-        .I5(\addr0_inferred__0/i__carry_n_4 ),
-        .O(vga_to_hdmi_i_278_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair77" *) 
-  LUT5 #(
-    .INIT(32'h48460860)) 
-    vga_to_hdmi_i_279
-       (.I0(\addr0_inferred__0/i__carry_n_5 ),
-        .I1(\addr0_inferred__0/i__carry_n_4 ),
-        .I2(\addr0_inferred__0/i__carry_n_6 ),
-        .I3(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I4(\addr0_inferred__0/i__carry_n_7 ),
-        .O(player_data[1]));
-  LUT6 #(
-    .INIT(64'h90A090A0A02FA020)) 
-    vga_to_hdmi_i_280
-       (.I0(\addr0_inferred__0/i__carry_n_5 ),
-        .I1(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I2(\addr0_inferred__0/i__carry_n_4 ),
-        .I3(\addr0_inferred__0/i__carry_n_7 ),
-        .I4(\addr0_inferred__0/i__carry__0_n_6 ),
-        .I5(\addr0_inferred__0/i__carry_n_6 ),
-        .O(player_data[3]));
-  LUT6 #(
-    .INIT(64'hAFEFEFEFAAEEEEFE)) 
-    vga_to_hdmi_i_281
-       (.I0(\addr0_inferred__0/i__carry_n_4 ),
-        .I1(\addr0_inferred__0/i__carry__0_n_6 ),
-        .I2(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I3(\addr0_inferred__0/i__carry_n_7 ),
-        .I4(\addr0_inferred__0/i__carry_n_6 ),
-        .I5(\addr0_inferred__0/i__carry_n_5 ),
-        .O(player_data[12]));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFDCDCCECF)) 
-    vga_to_hdmi_i_282
-       (.I0(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I1(\addr0_inferred__0/i__carry_n_4 ),
-        .I2(\addr0_inferred__0/i__carry_n_6 ),
-        .I3(\addr0_inferred__0/i__carry_n_7 ),
-        .I4(\addr0_inferred__0/i__carry_n_5 ),
-        .I5(\addr0_inferred__0/i__carry__0_n_6 ),
-        .O(player_data[14]));
-  LUT6 #(
-    .INIT(64'hAEFFAEAEAEAEEFEE)) 
-    vga_to_hdmi_i_283
-       (.I0(\addr0_inferred__0/i__carry_n_4 ),
-        .I1(\addr0_inferred__0/i__carry__0_n_6 ),
-        .I2(\addr0_inferred__0/i__carry_n_7 ),
-        .I3(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I4(\addr0_inferred__0/i__carry_n_5 ),
-        .I5(\addr0_inferred__0/i__carry_n_6 ),
-        .O(player_data[13]));
-  (* SOFT_HLUTNM = "soft_lutpair78" *) 
-  LUT5 #(
-    .INIT(32'hF0F7FBFF)) 
-    vga_to_hdmi_i_284
-       (.I0(\addr0_inferred__0/i__carry_n_6 ),
-        .I1(\addr0_inferred__0/i__carry_n_7 ),
-        .I2(\addr0_inferred__0/i__carry_n_4 ),
-        .I3(\addr0_inferred__0/i__carry_n_5 ),
-        .I4(\addr0_inferred__0/i__carry__0_n_7 ),
-        .O(player_data[15]));
-  LUT6 #(
-    .INIT(64'h77707777FFF3FFFF)) 
-    vga_to_hdmi_i_353
-       (.I0(\addr0_inferred__0/i__carry__0_n_6 ),
-        .I1(\addr0_inferred__0/i__carry_n_7 ),
-        .I2(\addr0_inferred__0/i__carry_n_4 ),
-        .I3(\addr0_inferred__0/i__carry_n_5 ),
-        .I4(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I5(\addr0_inferred__0/i__carry_n_6 ),
-        .O(player_data[17]));
-  LUT5 #(
-    .INIT(32'hFFFFFFFE)) 
-    vga_to_hdmi_i_354
-       (.I0(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I1(\addr0_inferred__0/i__carry__0_n_6 ),
-        .I2(\addr0_inferred__0/i__carry_n_5 ),
-        .I3(\addr0_inferred__0/i__carry_n_6 ),
-        .I4(\addr0_inferred__0/i__carry_n_4 ),
-        .O(player_data[16]));
-  LUT6 #(
-    .INIT(64'hEEEE66EEFFFEEEFE)) 
-    vga_to_hdmi_i_355
-       (.I0(\addr0_inferred__0/i__carry_n_4 ),
-        .I1(\addr0_inferred__0/i__carry_n_5 ),
-        .I2(\addr0_inferred__0/i__carry__0_n_6 ),
-        .I3(\addr0_inferred__0/i__carry_n_6 ),
-        .I4(\addr0_inferred__0/i__carry__0_n_7 ),
-        .I5(\addr0_inferred__0/i__carry_n_7 ),
-        .O(player_data[19]));
-  LUT5 #(
-    .INIT(32'hFFFFF6FF)) 
-    vga_to_hdmi_i_356
-       (.I0(\addr0_inferred__0/i__carry__0_n_6 ),
-        .I1(\addr0_inferred__0/i__carry_n_6 ),
-        .I2(\addr0_inferred__0/i__carry_n_5 ),
-        .I3(\addr0_inferred__0/i__carry_n_7 ),
-        .I4(\addr0_inferred__0/i__carry_n_4 ),
-        .O(player_data[18]));
-  LUT6 #(
-    .INIT(64'hD000D000FF000000)) 
-    vga_to_hdmi_i_60
-       (.I0(vga_to_hdmi_i_151_n_0),
-        .I1(vga_to_hdmi_i_152_n_0),
-        .I2(\addr0_inferred__0/i__carry_n_4 ),
-        .I3(vga_to_hdmi_i_16),
-        .I4(vga_to_hdmi_i_153_n_0),
-        .I5(vga_to_hdmi_i_16_0),
-        .O(\vc_reg[0] ));
-  LUT6 #(
-    .INIT(64'h0002000000000000)) 
-    vga_to_hdmi_i_63
-       (.I0(vga_to_hdmi_i_16_1),
-        .I1(\button_press4_inferred__0/i__carry__0_n_6 ),
-        .I2(\button_press4_inferred__0/i__carry__0_n_5 ),
-        .I3(\button_press4_inferred__0/i__carry__0_n_4 ),
-        .I4(vga_to_hdmi_i_160_n_0),
-        .I5(vga_to_hdmi_i_161_n_0),
-        .O(\hc_reg[7] ));
+    .INIT(16'h0002)) 
+    temp_i_1
+       (.I0(temp_reg_0),
+        .I1(temp_reg_n_0),
+        .I2(player_pos[16]),
+        .I3(player_pos[17]),
+        .O(temp_i_1_n_0));
+  FDRE temp_reg
+       (.C(axi_aclk),
+        .CE(1'b1),
+        .D(temp_i_1_n_0),
+        .Q(temp_reg_n_0),
+        .R(1'b0));
 endmodule
 
 (* ORIG_REF_NAME = "encode" *) 
@@ -15240,6 +13942,871 @@ module microblaze_GameIP_0_0_hdmi_tx_v1_0
         .pix_clk(pix_clk));
 endmodule
 
+(* ORIG_REF_NAME = "reg12we" *) 
+module microblaze_GameIP_0_0_reg12we
+   (Q,
+    \hc_reg[6] ,
+    \vc_reg[6] ,
+    \vc_reg[6]_0 ,
+    Hardware_to_software,
+    out,
+    g0_b0__4_i_6_0,
+    vga_to_hdmi_i_135,
+    vga_to_hdmi_i_263_0,
+    vga_to_hdmi_i_263_1,
+    g0_b0__4_0,
+    g0_b0__4_1,
+    g0_b0__4_2,
+    g0_b0__5_0,
+    g0_b0__6_0,
+    g0_b0__6_1,
+    g0_b0__6_2,
+    player_pos,
+    \state_reg[1] ,
+    \state_reg[2] ,
+    \state_reg[1]_0 ,
+    \state_reg[1]_1 ,
+    save_sig,
+    \state_reg[1]_2 ,
+    \Hardware_to_software[6]_INST_0_i_1_0 ,
+    \state_reg[1]_3 ,
+    \state_reg[2]_0 ,
+    \state_reg[2]_1 ,
+    \state_reg[2]_2 ,
+    \state_reg[2]_3 ,
+    button_press,
+    player_pos_2,
+    SR,
+    axi_aclk,
+    \Dout_reg[3]_0 ,
+    code_ld,
+    sel,
+    vga_to_hdmi_i_297_0,
+    vga_to_hdmi_i_298_0);
+  output [11:0]Q;
+  output \hc_reg[6] ;
+  output \vc_reg[6] ;
+  output \vc_reg[6]_0 ;
+  output [1:0]Hardware_to_software;
+  output [2:0]out;
+  input [5:0]g0_b0__4_i_6_0;
+  input vga_to_hdmi_i_135;
+  input [1:0]vga_to_hdmi_i_263_0;
+  input vga_to_hdmi_i_263_1;
+  input g0_b0__4_0;
+  input g0_b0__4_1;
+  input g0_b0__4_2;
+  input g0_b0__5_0;
+  input g0_b0__6_0;
+  input g0_b0__6_1;
+  input g0_b0__6_2;
+  input [3:0]player_pos;
+  input \state_reg[1] ;
+  input [3:0]\state_reg[2] ;
+  input \state_reg[1]_0 ;
+  input \state_reg[1]_1 ;
+  input save_sig;
+  input \state_reg[1]_2 ;
+  input [1:0]\Hardware_to_software[6]_INST_0_i_1_0 ;
+  input \state_reg[1]_3 ;
+  input \state_reg[2]_0 ;
+  input \state_reg[2]_1 ;
+  input \state_reg[2]_2 ;
+  input \state_reg[2]_3 ;
+  input button_press;
+  input [1:0]player_pos_2;
+  input [0:0]SR;
+  input axi_aclk;
+  input [1:0]\Dout_reg[3]_0 ;
+  input code_ld;
+  input [0:0]sel;
+  input [0:0]vga_to_hdmi_i_297_0;
+  input [0:0]vga_to_hdmi_i_298_0;
+
+  wire [3:1]Din1;
+  wire \Dout[11]_i_1_n_0 ;
+  wire \Dout[3]_i_1_n_0 ;
+  wire \Dout[7]_i_1_n_0 ;
+  wire [1:0]\Dout_reg[3]_0 ;
+  wire [1:0]Hardware_to_software;
+  wire \Hardware_to_software[5]_INST_0_i_3_n_0 ;
+  wire \Hardware_to_software[5]_INST_0_i_5_n_0 ;
+  wire \Hardware_to_software[5]_INST_0_i_8_n_0 ;
+  wire \Hardware_to_software[5]_INST_0_i_9_n_0 ;
+  wire [1:0]\Hardware_to_software[6]_INST_0_i_1_0 ;
+  wire \Hardware_to_software[6]_INST_0_i_1_n_0 ;
+  wire \Hardware_to_software[6]_INST_0_i_5_n_0 ;
+  wire [11:0]Q;
+  wire [0:0]SR;
+  wire axi_aclk;
+  wire button_press;
+  wire code_ld;
+  wire [5:1]\color_instance/sel ;
+  wire g0_b0__4_0;
+  wire g0_b0__4_1;
+  wire g0_b0__4_2;
+  wire g0_b0__4_i_10_n_0;
+  wire g0_b0__4_i_12_n_0;
+  wire [5:0]g0_b0__4_i_6_0;
+  wire g0_b0__4_i_9_n_0;
+  wire g0_b0__5_0;
+  wire g0_b0__5_i_10_n_0;
+  wire g0_b0__5_i_11_n_0;
+  wire g0_b0__5_i_2_n_0;
+  wire g0_b0__5_i_3_n_0;
+  wire g0_b0__5_i_4_n_0;
+  wire g0_b0__5_i_5_n_0;
+  wire g0_b0__5_i_6_n_0;
+  wire g0_b0__5_i_7_n_0;
+  wire g0_b0__5_i_9_n_0;
+  wire g0_b0__5_n_0;
+  wire g0_b0__6_0;
+  wire g0_b0__6_1;
+  wire g0_b0__6_2;
+  wire g0_b0__6_i_10_n_0;
+  wire g0_b0__6_i_12_n_0;
+  wire g0_b0__6_i_2_n_0;
+  wire g0_b0__6_i_3_n_0;
+  wire g0_b0__6_i_4_n_0;
+  wire g0_b0__6_i_5_n_0;
+  wire g0_b0__6_i_6_n_0;
+  wire g0_b0__6_i_9_n_0;
+  wire g0_b0__6_n_0;
+  wire g0_b1__5_n_0;
+  wire g0_b1__6_n_0;
+  wire g0_b2__5_n_0;
+  wire g0_b2__6_n_0;
+  wire \hc_reg[6] ;
+  wire [2:0]out;
+  wire [3:0]player_pos;
+  wire [1:0]player_pos_2;
+  wire save_sig;
+  wire [0:0]sel;
+  wire \state_reg[1] ;
+  wire \state_reg[1]_0 ;
+  wire \state_reg[1]_1 ;
+  wire \state_reg[1]_2 ;
+  wire \state_reg[1]_3 ;
+  wire [3:0]\state_reg[2] ;
+  wire \state_reg[2]_0 ;
+  wire \state_reg[2]_1 ;
+  wire \state_reg[2]_2 ;
+  wire \state_reg[2]_3 ;
+  wire \vc_reg[6] ;
+  wire \vc_reg[6]_0 ;
+  wire vga_to_hdmi_i_135;
+  wire [1:0]vga_to_hdmi_i_263_0;
+  wire vga_to_hdmi_i_263_1;
+  wire [0:0]vga_to_hdmi_i_297_0;
+  wire vga_to_hdmi_i_297_n_0;
+  wire [0:0]vga_to_hdmi_i_298_0;
+  wire vga_to_hdmi_i_298_n_0;
+
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \Dout[10]_i_1 
+       (.I0(player_pos[1]),
+        .I1(player_pos[2]),
+        .O(Din1[2]));
+  LUT3 #(
+    .INIT(8'h08)) 
+    \Dout[11]_i_1 
+       (.I0(\Dout_reg[3]_0 [1]),
+        .I1(code_ld),
+        .I2(\Dout_reg[3]_0 [0]),
+        .O(\Dout[11]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  LUT3 #(
+    .INIT(8'h6A)) 
+    \Dout[11]_i_2 
+       (.I0(player_pos[3]),
+        .I1(player_pos[2]),
+        .I2(player_pos[1]),
+        .O(Din1[3]));
+  LUT3 #(
+    .INIT(8'h04)) 
+    \Dout[3]_i_1 
+       (.I0(\Dout_reg[3]_0 [0]),
+        .I1(code_ld),
+        .I2(\Dout_reg[3]_0 [1]),
+        .O(\Dout[3]_i_1_n_0 ));
+  LUT3 #(
+    .INIT(8'h08)) 
+    \Dout[7]_i_1 
+       (.I0(code_ld),
+        .I1(\Dout_reg[3]_0 [0]),
+        .I2(\Dout_reg[3]_0 [1]),
+        .O(\Dout[7]_i_1_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \Dout[9]_i_1 
+       (.I0(player_pos[1]),
+        .O(Din1[1]));
+  FDRE \Dout_reg[0] 
+       (.C(axi_aclk),
+        .CE(\Dout[3]_i_1_n_0 ),
+        .D(player_pos[0]),
+        .Q(Q[0]),
+        .R(SR));
+  FDRE \Dout_reg[10] 
+       (.C(axi_aclk),
+        .CE(\Dout[11]_i_1_n_0 ),
+        .D(Din1[2]),
+        .Q(Q[10]),
+        .R(SR));
+  FDRE \Dout_reg[11] 
+       (.C(axi_aclk),
+        .CE(\Dout[11]_i_1_n_0 ),
+        .D(Din1[3]),
+        .Q(Q[11]),
+        .R(SR));
+  FDRE \Dout_reg[1] 
+       (.C(axi_aclk),
+        .CE(\Dout[3]_i_1_n_0 ),
+        .D(Din1[1]),
+        .Q(Q[1]),
+        .R(SR));
+  FDRE \Dout_reg[2] 
+       (.C(axi_aclk),
+        .CE(\Dout[3]_i_1_n_0 ),
+        .D(Din1[2]),
+        .Q(Q[2]),
+        .R(SR));
+  FDRE \Dout_reg[3] 
+       (.C(axi_aclk),
+        .CE(\Dout[3]_i_1_n_0 ),
+        .D(Din1[3]),
+        .Q(Q[3]),
+        .R(SR));
+  FDRE \Dout_reg[4] 
+       (.C(axi_aclk),
+        .CE(\Dout[7]_i_1_n_0 ),
+        .D(player_pos[0]),
+        .Q(Q[4]),
+        .R(SR));
+  FDRE \Dout_reg[5] 
+       (.C(axi_aclk),
+        .CE(\Dout[7]_i_1_n_0 ),
+        .D(Din1[1]),
+        .Q(Q[5]),
+        .R(SR));
+  FDRE \Dout_reg[6] 
+       (.C(axi_aclk),
+        .CE(\Dout[7]_i_1_n_0 ),
+        .D(Din1[2]),
+        .Q(Q[6]),
+        .R(SR));
+  FDRE \Dout_reg[7] 
+       (.C(axi_aclk),
+        .CE(\Dout[7]_i_1_n_0 ),
+        .D(Din1[3]),
+        .Q(Q[7]),
+        .R(SR));
+  FDRE \Dout_reg[8] 
+       (.C(axi_aclk),
+        .CE(\Dout[11]_i_1_n_0 ),
+        .D(player_pos[0]),
+        .Q(Q[8]),
+        .R(SR));
+  FDRE \Dout_reg[9] 
+       (.C(axi_aclk),
+        .CE(\Dout[11]_i_1_n_0 ),
+        .D(Din1[1]),
+        .Q(Q[9]),
+        .R(SR));
+  LUT6 #(
+    .INIT(64'h00000000AAAA0002)) 
+    \Hardware_to_software[5]_INST_0 
+       (.I0(\state_reg[1] ),
+        .I1(\state_reg[2] [2]),
+        .I2(\state_reg[1]_0 ),
+        .I3(\Hardware_to_software[5]_INST_0_i_3_n_0 ),
+        .I4(\state_reg[1]_1 ),
+        .I5(save_sig),
+        .O(Hardware_to_software[0]));
+  LUT6 #(
+    .INIT(64'h000700070000000F)) 
+    \Hardware_to_software[5]_INST_0_i_3 
+       (.I0(\state_reg[2] [1]),
+        .I1(\Hardware_to_software[5]_INST_0_i_5_n_0 ),
+        .I2(\state_reg[2] [0]),
+        .I3(\state_reg[1]_2 ),
+        .I4(\Hardware_to_software[6]_INST_0_i_1_0 [0]),
+        .I5(\state_reg[1]_3 ),
+        .O(\Hardware_to_software[5]_INST_0_i_3_n_0 ));
+  LUT5 #(
+    .INIT(32'hFEFFFFFF)) 
+    \Hardware_to_software[5]_INST_0_i_5 
+       (.I0(\Hardware_to_software[5]_INST_0_i_8_n_0 ),
+        .I1(\Hardware_to_software[5]_INST_0_i_9_n_0 ),
+        .I2(player_pos_2[0]),
+        .I3(Q[1]),
+        .I4(Q[8]),
+        .O(\Hardware_to_software[5]_INST_0_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFD)) 
+    \Hardware_to_software[5]_INST_0_i_8 
+       (.I0(Q[4]),
+        .I1(Q[0]),
+        .I2(Q[7]),
+        .I3(Q[3]),
+        .I4(Q[11]),
+        .I5(Q[10]),
+        .O(\Hardware_to_software[5]_INST_0_i_8_n_0 ));
+  LUT4 #(
+    .INIT(16'hEFFF)) 
+    \Hardware_to_software[5]_INST_0_i_9 
+       (.I0(Q[2]),
+        .I1(Q[9]),
+        .I2(Q[6]),
+        .I3(Q[5]),
+        .O(\Hardware_to_software[5]_INST_0_i_9_n_0 ));
+  LUT6 #(
+    .INIT(64'h00AA00AA000000EA)) 
+    \Hardware_to_software[6]_INST_0 
+       (.I0(\Hardware_to_software[6]_INST_0_i_1_n_0 ),
+        .I1(\state_reg[2]_0 ),
+        .I2(\state_reg[2] [3]),
+        .I3(\state_reg[2]_1 ),
+        .I4(\state_reg[2]_2 ),
+        .I5(\state_reg[2]_3 ),
+        .O(Hardware_to_software[1]));
+  LUT6 #(
+    .INIT(64'hAABAAABBAAAAAAAA)) 
+    \Hardware_to_software[6]_INST_0_i_1 
+       (.I0(\state_reg[2] [2]),
+        .I1(\state_reg[2] [3]),
+        .I2(button_press),
+        .I3(\state_reg[2] [1]),
+        .I4(\state_reg[2] [0]),
+        .I5(\Hardware_to_software[6]_INST_0_i_5_n_0 ),
+        .O(\Hardware_to_software[6]_INST_0_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF1515FF00)) 
+    \Hardware_to_software[6]_INST_0_i_5 
+       (.I0(\Hardware_to_software[5]_INST_0_i_5_n_0 ),
+        .I1(player_pos_2[1]),
+        .I2(player_pos_2[0]),
+        .I3(\Hardware_to_software[6]_INST_0_i_1_0 [1]),
+        .I4(\state_reg[1]_3 ),
+        .I5(\state_reg[2] [0]),
+        .O(\Hardware_to_software[6]_INST_0_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'h0007FFFFF7BFFDFE)) 
+    g0_b0__4
+       (.I0(sel),
+        .I1(\color_instance/sel [1]),
+        .I2(\color_instance/sel [2]),
+        .I3(\color_instance/sel [3]),
+        .I4(\color_instance/sel [4]),
+        .I5(\color_instance/sel [5]),
+        .O(out[0]));
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  LUT5 #(
+    .INIT(32'h6999FFFF)) 
+    g0_b0__4_i_10
+       (.I0(Q[3]),
+        .I1(Q[1]),
+        .I2(Q[0]),
+        .I3(Q[2]),
+        .I4(g0_b0__4_i_6_0[3]),
+        .O(g0_b0__4_i_10_n_0));
+  LUT6 #(
+    .INIT(64'hF1E58F8F0E1A7070)) 
+    g0_b0__4_i_12
+       (.I0(g0_b0__4_i_6_0[4]),
+        .I1(Q[1]),
+        .I2(Q[3]),
+        .I3(Q[0]),
+        .I4(Q[2]),
+        .I5(g0_b0__4_i_6_0[5]),
+        .O(g0_b0__4_i_12_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  LUT5 #(
+    .INIT(32'h96696969)) 
+    g0_b0__4_i_14
+       (.I0(g0_b0__4_i_6_0[3]),
+        .I1(Q[3]),
+        .I2(Q[1]),
+        .I3(Q[0]),
+        .I4(Q[2]),
+        .O(\vc_reg[6] ));
+  LUT4 #(
+    .INIT(16'h1EE1)) 
+    g0_b0__4_i_2
+       (.I0(Q[0]),
+        .I1(g0_b0__4_i_6_0[0]),
+        .I2(Q[1]),
+        .I3(g0_b0__4_i_6_0[1]),
+        .O(\color_instance/sel [1]));
+  LUT6 #(
+    .INIT(64'h9699696969696966)) 
+    g0_b0__4_i_3
+       (.I0(Q[2]),
+        .I1(g0_b0__4_i_6_0[2]),
+        .I2(Q[0]),
+        .I3(g0_b0__4_i_6_0[0]),
+        .I4(Q[1]),
+        .I5(g0_b0__4_i_6_0[1]),
+        .O(\color_instance/sel [2]));
+  LUT6 #(
+    .INIT(64'h7887877887787887)) 
+    g0_b0__4_i_4
+       (.I0(Q[2]),
+        .I1(Q[0]),
+        .I2(Q[1]),
+        .I3(Q[3]),
+        .I4(g0_b0__4_i_6_0[3]),
+        .I5(g0_b0__4_2),
+        .O(\color_instance/sel [3]));
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  LUT3 #(
+    .INIT(8'h96)) 
+    g0_b0__4_i_5
+       (.I0(g0_b0__4_0),
+        .I1(g0_b0__4_i_9_n_0),
+        .I2(g0_b0__4_i_10_n_0),
+        .O(\color_instance/sel [4]));
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  LUT5 #(
+    .INIT(32'h70758F8A)) 
+    g0_b0__4_i_6
+       (.I0(g0_b0__4_i_10_n_0),
+        .I1(g0_b0__4_0),
+        .I2(g0_b0__4_i_9_n_0),
+        .I3(g0_b0__4_1),
+        .I4(g0_b0__4_i_12_n_0),
+        .O(\color_instance/sel [5]));
+  LUT5 #(
+    .INIT(32'hA9956A6A)) 
+    g0_b0__4_i_9
+       (.I0(g0_b0__4_i_6_0[4]),
+        .I1(Q[1]),
+        .I2(Q[3]),
+        .I3(Q[0]),
+        .I4(Q[2]),
+        .O(g0_b0__4_i_9_n_0));
+  LUT6 #(
+    .INIT(64'h0007FFFFF7BFFDFE)) 
+    g0_b0__5
+       (.I0(vga_to_hdmi_i_297_0),
+        .I1(g0_b0__5_i_2_n_0),
+        .I2(g0_b0__5_i_3_n_0),
+        .I3(g0_b0__5_i_4_n_0),
+        .I4(g0_b0__5_i_5_n_0),
+        .I5(g0_b0__5_i_6_n_0),
+        .O(g0_b0__5_n_0));
+  LUT3 #(
+    .INIT(8'h60)) 
+    g0_b0__5_i_10
+       (.I0(Q[6]),
+        .I1(Q[4]),
+        .I2(g0_b0__4_i_6_0[2]),
+        .O(g0_b0__5_i_10_n_0));
+  LUT6 #(
+    .INIT(64'hF1E58F8F0E1A7070)) 
+    g0_b0__5_i_11
+       (.I0(g0_b0__4_i_6_0[4]),
+        .I1(Q[5]),
+        .I2(Q[7]),
+        .I3(Q[4]),
+        .I4(Q[6]),
+        .I5(g0_b0__4_i_6_0[5]),
+        .O(g0_b0__5_i_11_n_0));
+  LUT4 #(
+    .INIT(16'h1EE1)) 
+    g0_b0__5_i_2
+       (.I0(Q[4]),
+        .I1(g0_b0__4_i_6_0[0]),
+        .I2(Q[5]),
+        .I3(g0_b0__4_i_6_0[1]),
+        .O(g0_b0__5_i_2_n_0));
+  LUT6 #(
+    .INIT(64'h9699696969696966)) 
+    g0_b0__5_i_3
+       (.I0(Q[6]),
+        .I1(g0_b0__4_i_6_0[2]),
+        .I2(Q[4]),
+        .I3(g0_b0__4_i_6_0[0]),
+        .I4(Q[5]),
+        .I5(g0_b0__4_i_6_0[1]),
+        .O(g0_b0__5_i_3_n_0));
+  LUT6 #(
+    .INIT(64'h6996966969696969)) 
+    g0_b0__5_i_4
+       (.I0(g0_b0__5_i_7_n_0),
+        .I1(g0_b0__4_i_6_0[3]),
+        .I2(g0_b0__5_0),
+        .I3(Q[6]),
+        .I4(Q[4]),
+        .I5(g0_b0__4_i_6_0[2]),
+        .O(g0_b0__5_i_4_n_0));
+  LUT5 #(
+    .INIT(32'h56956A56)) 
+    g0_b0__5_i_5
+       (.I0(g0_b0__5_i_9_n_0),
+        .I1(g0_b0__5_0),
+        .I2(g0_b0__5_i_10_n_0),
+        .I3(g0_b0__5_i_7_n_0),
+        .I4(g0_b0__4_i_6_0[3]),
+        .O(g0_b0__5_i_5_n_0));
+  LUT6 #(
+    .INIT(64'hFBB22000044DDFFF)) 
+    g0_b0__5_i_6
+       (.I0(g0_b0__4_i_6_0[3]),
+        .I1(g0_b0__5_i_7_n_0),
+        .I2(g0_b0__5_i_10_n_0),
+        .I3(g0_b0__5_0),
+        .I4(g0_b0__5_i_9_n_0),
+        .I5(g0_b0__5_i_11_n_0),
+        .O(g0_b0__5_i_6_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
+  LUT4 #(
+    .INIT(16'h7887)) 
+    g0_b0__5_i_7
+       (.I0(Q[6]),
+        .I1(Q[4]),
+        .I2(Q[5]),
+        .I3(Q[7]),
+        .O(g0_b0__5_i_7_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
+  LUT5 #(
+    .INIT(32'hA9956A6A)) 
+    g0_b0__5_i_9
+       (.I0(g0_b0__4_i_6_0[4]),
+        .I1(Q[5]),
+        .I2(Q[7]),
+        .I3(Q[4]),
+        .I4(Q[6]),
+        .O(g0_b0__5_i_9_n_0));
+  LUT6 #(
+    .INIT(64'h0007FFFFF7BFFDFE)) 
+    g0_b0__6
+       (.I0(vga_to_hdmi_i_298_0),
+        .I1(g0_b0__6_i_2_n_0),
+        .I2(g0_b0__6_i_3_n_0),
+        .I3(g0_b0__6_i_4_n_0),
+        .I4(g0_b0__6_i_5_n_0),
+        .I5(g0_b0__6_i_6_n_0),
+        .O(g0_b0__6_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  LUT5 #(
+    .INIT(32'h6999FFFF)) 
+    g0_b0__6_i_10
+       (.I0(Q[11]),
+        .I1(Q[9]),
+        .I2(Q[8]),
+        .I3(Q[10]),
+        .I4(g0_b0__4_i_6_0[3]),
+        .O(g0_b0__6_i_10_n_0));
+  LUT6 #(
+    .INIT(64'hF1E58F8F0E1A7070)) 
+    g0_b0__6_i_12
+       (.I0(g0_b0__4_i_6_0[4]),
+        .I1(Q[9]),
+        .I2(Q[11]),
+        .I3(Q[8]),
+        .I4(Q[10]),
+        .I5(g0_b0__4_i_6_0[5]),
+        .O(g0_b0__6_i_12_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  LUT5 #(
+    .INIT(32'h96696969)) 
+    g0_b0__6_i_14
+       (.I0(g0_b0__4_i_6_0[3]),
+        .I1(Q[11]),
+        .I2(Q[9]),
+        .I3(Q[8]),
+        .I4(Q[10]),
+        .O(\vc_reg[6]_0 ));
+  LUT4 #(
+    .INIT(16'h1EE1)) 
+    g0_b0__6_i_2
+       (.I0(Q[8]),
+        .I1(g0_b0__4_i_6_0[0]),
+        .I2(Q[9]),
+        .I3(g0_b0__4_i_6_0[1]),
+        .O(g0_b0__6_i_2_n_0));
+  LUT6 #(
+    .INIT(64'h9699696969696966)) 
+    g0_b0__6_i_3
+       (.I0(Q[10]),
+        .I1(g0_b0__4_i_6_0[2]),
+        .I2(Q[8]),
+        .I3(g0_b0__4_i_6_0[0]),
+        .I4(Q[9]),
+        .I5(g0_b0__4_i_6_0[1]),
+        .O(g0_b0__6_i_3_n_0));
+  LUT6 #(
+    .INIT(64'h7887877887787887)) 
+    g0_b0__6_i_4
+       (.I0(Q[10]),
+        .I1(Q[8]),
+        .I2(Q[9]),
+        .I3(Q[11]),
+        .I4(g0_b0__4_i_6_0[3]),
+        .I5(g0_b0__6_2),
+        .O(g0_b0__6_i_4_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  LUT3 #(
+    .INIT(8'h96)) 
+    g0_b0__6_i_5
+       (.I0(g0_b0__6_0),
+        .I1(g0_b0__6_i_9_n_0),
+        .I2(g0_b0__6_i_10_n_0),
+        .O(g0_b0__6_i_5_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  LUT5 #(
+    .INIT(32'h70758F8A)) 
+    g0_b0__6_i_6
+       (.I0(g0_b0__6_i_10_n_0),
+        .I1(g0_b0__6_0),
+        .I2(g0_b0__6_i_9_n_0),
+        .I3(g0_b0__6_1),
+        .I4(g0_b0__6_i_12_n_0),
+        .O(g0_b0__6_i_6_n_0));
+  LUT5 #(
+    .INIT(32'hA9956A6A)) 
+    g0_b0__6_i_9
+       (.I0(g0_b0__4_i_6_0[4]),
+        .I1(Q[9]),
+        .I2(Q[11]),
+        .I3(Q[8]),
+        .I4(Q[10]),
+        .O(g0_b0__6_i_9_n_0));
+  LUT6 #(
+    .INIT(64'h00044B50D6A4AD40)) 
+    g0_b1__4
+       (.I0(sel),
+        .I1(\color_instance/sel [1]),
+        .I2(\color_instance/sel [2]),
+        .I3(\color_instance/sel [3]),
+        .I4(\color_instance/sel [4]),
+        .I5(\color_instance/sel [5]),
+        .O(out[1]));
+  LUT6 #(
+    .INIT(64'h00044B50D6A4AD40)) 
+    g0_b1__5
+       (.I0(vga_to_hdmi_i_297_0),
+        .I1(g0_b0__5_i_2_n_0),
+        .I2(g0_b0__5_i_3_n_0),
+        .I3(g0_b0__5_i_4_n_0),
+        .I4(g0_b0__5_i_5_n_0),
+        .I5(g0_b0__5_i_6_n_0),
+        .O(g0_b1__5_n_0));
+  LUT6 #(
+    .INIT(64'h00044B50D6A4AD40)) 
+    g0_b1__6
+       (.I0(vga_to_hdmi_i_298_0),
+        .I1(g0_b0__6_i_2_n_0),
+        .I2(g0_b0__6_i_3_n_0),
+        .I3(g0_b0__6_i_4_n_0),
+        .I4(g0_b0__6_i_5_n_0),
+        .I5(g0_b0__6_i_6_n_0),
+        .O(g0_b1__6_n_0));
+  LUT6 #(
+    .INIT(64'h0007CFF0FEE7AF40)) 
+    g0_b2__4
+       (.I0(sel),
+        .I1(\color_instance/sel [1]),
+        .I2(\color_instance/sel [2]),
+        .I3(\color_instance/sel [3]),
+        .I4(\color_instance/sel [4]),
+        .I5(\color_instance/sel [5]),
+        .O(out[2]));
+  LUT6 #(
+    .INIT(64'h0007CFF0FEE7AF40)) 
+    g0_b2__5
+       (.I0(vga_to_hdmi_i_297_0),
+        .I1(g0_b0__5_i_2_n_0),
+        .I2(g0_b0__5_i_3_n_0),
+        .I3(g0_b0__5_i_4_n_0),
+        .I4(g0_b0__5_i_5_n_0),
+        .I5(g0_b0__5_i_6_n_0),
+        .O(g0_b2__5_n_0));
+  LUT6 #(
+    .INIT(64'h0007CFF0FEE7AF40)) 
+    g0_b2__6
+       (.I0(vga_to_hdmi_i_298_0),
+        .I1(g0_b0__6_i_2_n_0),
+        .I2(g0_b0__6_i_3_n_0),
+        .I3(g0_b0__6_i_4_n_0),
+        .I4(g0_b0__6_i_5_n_0),
+        .I5(g0_b0__6_i_6_n_0),
+        .O(g0_b2__6_n_0));
+  MUXF7 vga_to_hdmi_i_263
+       (.I0(vga_to_hdmi_i_297_n_0),
+        .I1(vga_to_hdmi_i_298_n_0),
+        .O(\hc_reg[6] ),
+        .S(vga_to_hdmi_i_135));
+  LUT5 #(
+    .INIT(32'hACFFAC00)) 
+    vga_to_hdmi_i_297
+       (.I0(g0_b2__5_n_0),
+        .I1(g0_b0__5_n_0),
+        .I2(vga_to_hdmi_i_263_0[0]),
+        .I3(vga_to_hdmi_i_263_0[1]),
+        .I4(g0_b1__5_n_0),
+        .O(vga_to_hdmi_i_297_n_0));
+  LUT6 #(
+    .INIT(64'h00000000FE3EC202)) 
+    vga_to_hdmi_i_298
+       (.I0(g0_b2__6_n_0),
+        .I1(vga_to_hdmi_i_263_0[1]),
+        .I2(vga_to_hdmi_i_263_0[0]),
+        .I3(g0_b0__6_n_0),
+        .I4(g0_b1__6_n_0),
+        .I5(vga_to_hdmi_i_263_1),
+        .O(vga_to_hdmi_i_298_n_0));
+endmodule
+
+(* ORIG_REF_NAME = "reg4" *) 
+module microblaze_GameIP_0_0_reg4
+   (Hardware_to_software,
+    save_sig,
+    Q,
+    \state_reg[0] ,
+    player_pos_2,
+    \state_reg[3] ,
+    \state_reg[3]_0 ,
+    \state_reg[3]_1 ,
+    \state_reg[3]_2 ,
+    player_pos,
+    menu_sig,
+    SR,
+    axi_aclk);
+  output [5:0]Hardware_to_software;
+  output save_sig;
+  input [3:0]Q;
+  input \state_reg[0] ;
+  input [1:0]player_pos_2;
+  input \state_reg[3] ;
+  input \state_reg[3]_0 ;
+  input \state_reg[3]_1 ;
+  input \state_reg[3]_2 ;
+  input [7:0]player_pos;
+  input menu_sig;
+  input [0:0]SR;
+  input axi_aclk;
+
+  wire \Dout[3]_i_2_n_0 ;
+  wire [5:0]Hardware_to_software;
+  wire \Hardware_to_software[4]_INST_0_i_1_n_0 ;
+  wire \Hardware_to_software[4]_INST_0_i_3_n_0 ;
+  wire \Hardware_to_software[4]_INST_0_i_4_n_0 ;
+  wire \Hardware_to_software[7]_INST_0_i_3_n_0 ;
+  wire [3:0]Q;
+  wire [0:0]SR;
+  wire axi_aclk;
+  wire menu_sig;
+  wire [7:0]player_pos;
+  wire [1:0]player_pos_2;
+  wire save_sig;
+  wire \state_reg[0] ;
+  wire \state_reg[3] ;
+  wire \state_reg[3]_0 ;
+  wire \state_reg[3]_1 ;
+  wire \state_reg[3]_2 ;
+
+  LUT6 #(
+    .INIT(64'h0000000000000100)) 
+    \Dout[3]_i_1 
+       (.I0(player_pos[4]),
+        .I1(player_pos[2]),
+        .I2(player_pos[1]),
+        .I3(player_pos[0]),
+        .I4(\Dout[3]_i_2_n_0 ),
+        .I5(menu_sig),
+        .O(save_sig));
+  LUT4 #(
+    .INIT(16'hEFFF)) 
+    \Dout[3]_i_2 
+       (.I0(player_pos[6]),
+        .I1(player_pos[7]),
+        .I2(player_pos[5]),
+        .I3(player_pos[3]),
+        .O(\Dout[3]_i_2_n_0 ));
+  FDRE \Dout_reg[0] 
+       (.C(axi_aclk),
+        .CE(save_sig),
+        .D(Q[0]),
+        .Q(Hardware_to_software[2]),
+        .R(SR));
+  FDRE \Dout_reg[1] 
+       (.C(axi_aclk),
+        .CE(save_sig),
+        .D(Q[1]),
+        .Q(Hardware_to_software[3]),
+        .R(SR));
+  FDRE \Dout_reg[2] 
+       (.C(axi_aclk),
+        .CE(save_sig),
+        .D(Q[2]),
+        .Q(Hardware_to_software[4]),
+        .R(SR));
+  FDRE \Dout_reg[3] 
+       (.C(axi_aclk),
+        .CE(save_sig),
+        .D(Q[3]),
+        .Q(Hardware_to_software[5]),
+        .R(SR));
+  LUT2 #(
+    .INIT(4'h2)) 
+    \Hardware_to_software[4]_INST_0 
+       (.I0(\Hardware_to_software[4]_INST_0_i_1_n_0 ),
+        .I1(save_sig),
+        .O(Hardware_to_software[0]));
+  LUT6 #(
+    .INIT(64'hFF55F755FA05F700)) 
+    \Hardware_to_software[4]_INST_0_i_1 
+       (.I0(Q[2]),
+        .I1(Q[1]),
+        .I2(\state_reg[0] ),
+        .I3(Q[0]),
+        .I4(Q[3]),
+        .I5(\Hardware_to_software[4]_INST_0_i_3_n_0 ),
+        .O(\Hardware_to_software[4]_INST_0_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'h0300000001010101)) 
+    \Hardware_to_software[4]_INST_0_i_3 
+       (.I0(\Hardware_to_software[4]_INST_0_i_4_n_0 ),
+        .I1(Q[3]),
+        .I2(Q[1]),
+        .I3(player_pos_2[0]),
+        .I4(player_pos_2[1]),
+        .I5(\state_reg[3] ),
+        .O(\Hardware_to_software[4]_INST_0_i_3_n_0 ));
+  LUT4 #(
+    .INIT(16'h5554)) 
+    \Hardware_to_software[4]_INST_0_i_4 
+       (.I0(Hardware_to_software[2]),
+        .I1(Hardware_to_software[3]),
+        .I2(Hardware_to_software[5]),
+        .I3(Hardware_to_software[4]),
+        .O(\Hardware_to_software[4]_INST_0_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'h000000000000BBFB)) 
+    \Hardware_to_software[7]_INST_0 
+       (.I0(\state_reg[3]_0 ),
+        .I1(Q[3]),
+        .I2(Q[2]),
+        .I3(\state_reg[3]_1 ),
+        .I4(\Hardware_to_software[7]_INST_0_i_3_n_0 ),
+        .I5(save_sig),
+        .O(Hardware_to_software[1]));
+  LUT6 #(
+    .INIT(64'h00000000FFFFFEFF)) 
+    \Hardware_to_software[7]_INST_0_i_3 
+       (.I0(\state_reg[3] ),
+        .I1(Q[2]),
+        .I2(Q[1]),
+        .I3(Hardware_to_software[5]),
+        .I4(Q[0]),
+        .I5(\state_reg[3]_2 ),
+        .O(\Hardware_to_software[7]_INST_0_i_3_n_0 ));
+endmodule
+
 (* ORIG_REF_NAME = "serdes_10_to_1" *) 
 module microblaze_GameIP_0_0_serdes_10_to_1
    (iob_data_out,
@@ -16400,22 +15967,22 @@ endmodule
 
 (* ORIG_REF_NAME = "sync" *) 
 module microblaze_GameIP_0_0_sync
-   (reset_s,
+   (SR,
     reset_ah,
     axi_aclk);
-  output reset_s;
+  output [0:0]SR;
   input reset_ah;
   input axi_aclk;
 
+  wire [0:0]SR;
   wire axi_aclk;
   wire reset_ah;
-  wire reset_s;
 
   FDRE q_reg
        (.C(axi_aclk),
         .CE(1'b1),
         .D(reset_ah),
-        .Q(reset_s),
+        .Q(SR),
         .R(1'b0));
 endmodule
 
@@ -16423,249 +15990,186 @@ endmodule
 module microblaze_GameIP_0_0_vga_controller
    (hsync,
     vsync,
-    \vc_reg[5]_0 ,
+    \vc_reg[4]_0 ,
     Q,
+    \vc_reg[4]_1 ,
     DI,
-    \vc_reg[5]_1 ,
-    \vc_reg[5]_2 ,
-    \vc_reg[2]_0 ,
-    \vc_reg[0]_0 ,
+    \hc_reg[9]_0 ,
+    \vc_reg[6]_0 ,
     \vc_reg[7]_0 ,
     \vc_reg[9]_0 ,
+    \vc_reg[2]_0 ,
+    sel,
     \vc_reg[3]_0 ,
-    \hc_reg[9]_0 ,
-    \hc_reg[9]_1 ,
-    \hc_reg[7]_0 ,
-    \hc_reg[3]_0 ,
-    \hc_reg[0]_0 ,
-    block_addr1,
     \vc_reg[3]_1 ,
-    \vc_reg[0]_1 ,
-    \vc_reg[0]_2 ,
-    \vc_reg[0]_3 ,
-    \vc_reg[0]_4 ,
-    \vc_reg[0]_5 ,
-    \vc_reg[0]_6 ,
-    \vc_reg[0]_7 ,
-    \vc_reg[0]_8 ,
-    \vc_reg[0]_9 ,
-    \vc_reg[0]_10 ,
-    \vc_reg[0]_11 ,
-    \vc_reg[0]_12 ,
-    \vc_reg[0]_13 ,
-    \vc_reg[0]_14 ,
-    \vc_reg[0]_15 ,
-    \vc_reg[0]_16 ,
-    \vc_reg[0]_17 ,
-    \vc_reg[0]_18 ,
-    \vc_reg[0]_19 ,
-    \vc_reg[0]_20 ,
-    \FSM_sequential_state_reg[0] ,
-    button_press017_out,
-    blue,
-    Red144_out,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ,
+    \hc_reg[6]_0 ,
+    red,
     green,
-    \FSM_sequential_state_reg[1] ,
-    \vc_reg[5]_3 ,
+    \vc_reg[8]_0 ,
+    \vc_reg[4]_2 ,
+    \hc_reg[2]_0 ,
+    blue,
+    \hc_reg[3]_0 ,
+    \vc_reg[0]_0 ,
+    \state_reg[0] ,
+    \vc_reg[9]_1 ,
+    \hc_reg[6]_1 ,
+    \hc_reg[8]_0 ,
+    \vc_reg[5]_0 ,
     \vc_reg[3]_2 ,
-    player_pos_20_sp_1,
-    \player_pos[20]_0 ,
-    \player_pos[20]_1 ,
-    \hc_reg[0]_1 ,
-    \vc_reg[6]_0 ,
-    \vc_reg[6]_1 ,
-    \vc_reg[6]_2 ,
-    \vc_reg[6]_3 ,
-    \vc_reg[6]_4 ,
-    \vc_reg[6]_5 ,
+    \vc_reg[5]_1 ,
+    \vc_reg[5]_2 ,
+    \vc_reg[5]_3 ,
+    \vc_reg[3]_3 ,
     \vc_reg[5]_4 ,
-    \vc_reg[6]_6 ,
-    \vc_reg[7]_1 ,
-    \vc_reg[5]_5 ,
-    \vc_reg[5]_6 ,
+    \vc_reg[4]_3 ,
+    \vc_reg[4]_4 ,
+    \vc_reg[4]_5 ,
+    \vc_reg[4]_6 ,
+    \vc_reg[4]_7 ,
+    \vc_reg[6]_1 ,
     vde,
-    bot_red318_in,
-    \player_pos[20]_2 ,
-    \vc_reg[7]_2 ,
-    \vc_reg[5]_7 ,
     O,
     addrb,
     CLK,
     reset_ah,
-    \BOTTOM_NUM1_inferred__0/i__carry ,
     \BOTTOM_NUM1_inferred__1/i__carry ,
-    \BOTTOM_NUM1_inferred__2/i__carry ,
+    \BOTTOM_NUM1_inferred__0/i__carry__0 ,
+    \BOTTOM_NUM1_inferred__0/i__carry__0_0 ,
+    \BOTTOM_NUM1_inferred__0/i__carry__0_1 ,
+    g0_b0__6_i_6,
     player_pos,
-    state,
-    \BOTTOM_NUM1_inferred__2/i__carry_0 ,
-    ball_on_reg_i_3_0,
-    button_press121_out,
-    \srl[30].srl16_i ,
-    \srl[39].srl16_i ,
-    \srl[39].srl16_i_0 ,
-    Red10_out,
-    ball_on,
-    doutb,
+    \srl[28].srl16_i ,
     \srl[23].srl16_i ,
     \srl[23].srl16_i_0 ,
-    vga_to_hdmi_i_16_0,
-    vga_to_hdmi_i_16_1,
-    vga_to_hdmi_i_16_2,
-    vga_to_hdmi_i_16_3,
-    ball_on_reg,
-    ball_on_reg_0,
-    ball_on_reg_i_3_1,
-    ball_on_reg_i_3_2,
-    ball_on_reg_i_3_3,
-    ball_on_reg_i_3_4,
-    ball_on_reg_i_7_0,
-    ball_on_reg_i_7_1,
-    ball_on_reg_i_7_2,
-    ball_on_reg_i_7_3,
-    \srl[39].srl16_i_1 ,
+    \srl[31].srl16_i ,
+    \BOTTOM_NUM1_inferred__4/i__carry ,
+    \srl[28].srl16_i_0 ,
+    \srl[29].srl16_i ,
+    \srl[36].srl16_i ,
+    \srl[37].srl16_i ,
+    \srl[38].srl16_i ,
+    \srl[39].srl16_i ,
+    \srl[30].srl16_i ,
+    \srl[20].srl16_i ,
+    \srl[21].srl16_i ,
+    \srl[22].srl16_i ,
+    ball_on_reg_i_6_0,
+    mouse_sig,
+    menu_sig,
+    vga_to_hdmi_i_85_0,
+    vga_to_hdmi_i_85_1,
     button_press0,
-    \addr0_inferred__0/i__carry__0 ,
-    anim_sig,
-    vga_to_hdmi_i_148_0,
-    bot_red21_in,
-    vga_to_hdmi_i_124_0,
-    bot_red29_in,
-    bot_red25_in,
     out,
-    vga_to_hdmi_i_63,
-    vga_to_hdmi_i_63_0,
-    vga_to_hdmi_i_63_1,
-    vga_to_hdmi_i_63_2,
+    vga_to_hdmi_i_42_0,
+    vga_to_hdmi_i_43_0,
+    vga_to_hdmi_i_43_1,
+    vga_to_hdmi_i_42_1,
+    vga_to_hdmi_i_42_2,
+    g0_b0__4_i_6,
+    g0_b0__6_i_6_0,
+    button_press_reg_i_41_0,
+    anim_sig,
+    button_press_reg_i_30_0,
     S,
+    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ,
     \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ,
-    \addr0_inferred__0/i__carry );
+    ball_on_reg_i_12_0,
+    ball_on_reg_i_12_1);
   output hsync;
   output vsync;
-  output [0:0]\vc_reg[5]_0 ;
-  output [9:0]Q;
-  output [0:0]DI;
-  output [0:0]\vc_reg[5]_1 ;
-  output [1:0]\vc_reg[5]_2 ;
-  output [2:0]\vc_reg[2]_0 ;
-  output [0:0]\vc_reg[0]_0 ;
-  output [3:0]\vc_reg[7]_0 ;
-  output [1:0]\vc_reg[9]_0 ;
-  output [3:0]\vc_reg[3]_0 ;
-  output [1:0]\hc_reg[9]_0 ;
-  output [9:0]\hc_reg[9]_1 ;
-  output [3:0]\hc_reg[7]_0 ;
-  output [3:0]\hc_reg[3]_0 ;
-  output \hc_reg[0]_0 ;
-  output block_addr1;
-  output [3:0]\vc_reg[3]_1 ;
-  output \vc_reg[0]_1 ;
-  output \vc_reg[0]_2 ;
-  output \vc_reg[0]_3 ;
-  output \vc_reg[0]_4 ;
-  output \vc_reg[0]_5 ;
-  output \vc_reg[0]_6 ;
-  output \vc_reg[0]_7 ;
-  output \vc_reg[0]_8 ;
-  output \vc_reg[0]_9 ;
-  output \vc_reg[0]_10 ;
-  output \vc_reg[0]_11 ;
-  output \vc_reg[0]_12 ;
-  output \vc_reg[0]_13 ;
-  output \vc_reg[0]_14 ;
-  output \vc_reg[0]_15 ;
-  output \vc_reg[0]_16 ;
-  output \vc_reg[0]_17 ;
-  output \vc_reg[0]_18 ;
-  output \vc_reg[0]_19 ;
-  output \vc_reg[0]_20 ;
-  output \FSM_sequential_state_reg[0] ;
-  output button_press017_out;
+  output [0:0]\vc_reg[4]_0 ;
+  output [6:0]Q;
+  output [0:0]\vc_reg[4]_1 ;
+  output [2:0]DI;
+  output [6:0]\hc_reg[9]_0 ;
+  output \vc_reg[6]_0 ;
+  output \vc_reg[7]_0 ;
+  output \vc_reg[9]_0 ;
+  output [0:0]\vc_reg[2]_0 ;
+  output [0:0]sel;
+  output [0:0]\vc_reg[3]_0 ;
+  output [0:0]\vc_reg[3]_1 ;
+  output \hc_reg[6]_0 ;
+  output [3:0]red;
+  output [3:0]green;
+  output \vc_reg[8]_0 ;
+  output [0:0]\vc_reg[4]_2 ;
+  output \hc_reg[2]_0 ;
   output [3:0]blue;
-  output Red144_out;
-  output \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
-  output [2:0]green;
-  output \FSM_sequential_state_reg[1] ;
-  output \vc_reg[5]_3 ;
+  output \hc_reg[3]_0 ;
+  output \vc_reg[0]_0 ;
+  output \state_reg[0] ;
+  output \vc_reg[9]_1 ;
+  output \hc_reg[6]_1 ;
+  output \hc_reg[8]_0 ;
+  output \vc_reg[5]_0 ;
   output \vc_reg[3]_2 ;
-  output player_pos_20_sp_1;
-  output \player_pos[20]_0 ;
-  output \player_pos[20]_1 ;
-  output \hc_reg[0]_1 ;
-  output [0:0]\vc_reg[6]_0 ;
-  output [0:0]\vc_reg[6]_1 ;
-  output [0:0]\vc_reg[6]_2 ;
-  output [0:0]\vc_reg[6]_3 ;
-  output [0:0]\vc_reg[6]_4 ;
-  output [0:0]\vc_reg[6]_5 ;
+  output \vc_reg[5]_1 ;
+  output \vc_reg[5]_2 ;
+  output \vc_reg[5]_3 ;
+  output \vc_reg[3]_3 ;
   output \vc_reg[5]_4 ;
-  output \vc_reg[6]_6 ;
-  output \vc_reg[7]_1 ;
-  output \vc_reg[5]_5 ;
-  output [1:0]\vc_reg[5]_6 ;
+  output [0:0]\vc_reg[4]_3 ;
+  output [0:0]\vc_reg[4]_4 ;
+  output [0:0]\vc_reg[4]_5 ;
+  output [0:0]\vc_reg[4]_6 ;
+  output [0:0]\vc_reg[4]_7 ;
+  output [0:0]\vc_reg[6]_1 ;
   output vde;
-  output bot_red318_in;
-  output \player_pos[20]_2 ;
-  output \vc_reg[7]_2 ;
-  output \vc_reg[5]_7 ;
   output [1:0]O;
   output [6:0]addrb;
   input CLK;
   input reset_ah;
-  input \BOTTOM_NUM1_inferred__0/i__carry ;
   input \BOTTOM_NUM1_inferred__1/i__carry ;
-  input \BOTTOM_NUM1_inferred__2/i__carry ;
+  input \BOTTOM_NUM1_inferred__0/i__carry__0 ;
+  input \BOTTOM_NUM1_inferred__0/i__carry__0_0 ;
+  input \BOTTOM_NUM1_inferred__0/i__carry__0_1 ;
+  input [8:0]g0_b0__6_i_6;
   input [20:0]player_pos;
-  input [1:0]state;
-  input \BOTTOM_NUM1_inferred__2/i__carry_0 ;
-  input [2:0]ball_on_reg_i_3_0;
-  input button_press121_out;
-  input [12:0]\srl[30].srl16_i ;
-  input \srl[39].srl16_i ;
-  input \srl[39].srl16_i_0 ;
-  input Red10_out;
-  input ball_on;
-  input [1:0]doutb;
+  input \srl[28].srl16_i ;
   input \srl[23].srl16_i ;
   input \srl[23].srl16_i_0 ;
-  input vga_to_hdmi_i_16_0;
-  input vga_to_hdmi_i_16_1;
-  input vga_to_hdmi_i_16_2;
-  input vga_to_hdmi_i_16_3;
-  input ball_on_reg;
-  input ball_on_reg_0;
-  input ball_on_reg_i_3_1;
-  input ball_on_reg_i_3_2;
-  input ball_on_reg_i_3_3;
-  input ball_on_reg_i_3_4;
-  input ball_on_reg_i_7_0;
-  input ball_on_reg_i_7_1;
-  input ball_on_reg_i_7_2;
-  input ball_on_reg_i_7_3;
-  input \srl[39].srl16_i_1 ;
+  input \srl[31].srl16_i ;
+  input \BOTTOM_NUM1_inferred__4/i__carry ;
+  input \srl[28].srl16_i_0 ;
+  input \srl[29].srl16_i ;
+  input \srl[36].srl16_i ;
+  input \srl[37].srl16_i ;
+  input \srl[38].srl16_i ;
+  input \srl[39].srl16_i ;
+  input \srl[30].srl16_i ;
+  input \srl[20].srl16_i ;
+  input \srl[21].srl16_i ;
+  input \srl[22].srl16_i ;
+  input ball_on_reg_i_6_0;
+  input mouse_sig;
+  input menu_sig;
+  input vga_to_hdmi_i_85_0;
+  input vga_to_hdmi_i_85_1;
   input button_press0;
-  input \addr0_inferred__0/i__carry__0 ;
-  input anim_sig;
-  input [2:0]vga_to_hdmi_i_148_0;
-  input bot_red21_in;
-  input vga_to_hdmi_i_124_0;
-  input bot_red29_in;
-  input bot_red25_in;
   input [2:0]out;
-  input [1:0]vga_to_hdmi_i_63;
-  input [1:0]vga_to_hdmi_i_63_0;
-  input [0:0]vga_to_hdmi_i_63_1;
-  input [0:0]vga_to_hdmi_i_63_2;
+  input vga_to_hdmi_i_42_0;
+  input vga_to_hdmi_i_43_0;
+  input vga_to_hdmi_i_43_1;
+  input vga_to_hdmi_i_42_1;
+  input vga_to_hdmi_i_42_2;
+  input g0_b0__4_i_6;
+  input g0_b0__6_i_6_0;
+  input [1:0]button_press_reg_i_41_0;
+  input anim_sig;
+  input button_press_reg_i_30_0;
   input [2:0]S;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
-  input [2:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ;
-  input \addr0_inferred__0/i__carry ;
+  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
+  input [2:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
+  input ball_on_reg_i_12_0;
+  input ball_on_reg_i_12_1;
 
-  wire \BOTTOM_NUM1_inferred__0/i__carry ;
+  wire \BOTTOM_NUM1_inferred__0/i__carry__0 ;
+  wire \BOTTOM_NUM1_inferred__0/i__carry__0_0 ;
+  wire \BOTTOM_NUM1_inferred__0/i__carry__0_1 ;
   wire \BOTTOM_NUM1_inferred__1/i__carry ;
-  wire \BOTTOM_NUM1_inferred__2/i__carry ;
-  wire \BOTTOM_NUM1_inferred__2/i__carry_0 ;
+  wire \BOTTOM_NUM1_inferred__4/i__carry ;
   wire BRAM_i_14_n_2;
   wire BRAM_i_14_n_3;
   wire BRAM_i_15_n_0;
@@ -16678,84 +16182,104 @@ module microblaze_GameIP_0_0_vga_controller
   wire BRAM_i_17_n_2;
   wire BRAM_i_17_n_3;
   wire CLK;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
-  wire [2:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 ;
-  wire [0:0]DI;
-  wire \FSM_sequential_state_reg[0] ;
-  wire \FSM_sequential_state_reg[1] ;
+  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ;
+  wire [2:0]\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 ;
+  wire [2:0]DI;
   wire [1:0]O;
-  wire [9:0]Q;
-  wire Red10_out;
-  wire Red144_out;
+  wire [6:0]Q;
   wire [2:0]S;
-  wire \addr0_inferred__0/i__carry ;
-  wire \addr0_inferred__0/i__carry__0 ;
   wire [6:0]addrb;
   wire [9:6]addrb2;
   wire anim_sig;
-  wire ball_on;
-  wire ball_on_reg;
-  wire ball_on_reg_0;
   wire ball_on_reg_i_10_n_0;
   wire ball_on_reg_i_11_n_0;
+  wire ball_on_reg_i_12_0;
+  wire ball_on_reg_i_12_1;
   wire ball_on_reg_i_12_n_0;
+  wire ball_on_reg_i_13_n_0;
+  wire ball_on_reg_i_14_n_0;
   wire ball_on_reg_i_15_n_0;
-  wire ball_on_reg_i_18_n_0;
-  wire ball_on_reg_i_19_n_0;
-  wire ball_on_reg_i_20_n_0;
-  wire ball_on_reg_i_21_n_0;
-  wire ball_on_reg_i_22_n_0;
-  wire ball_on_reg_i_23_n_0;
-  wire ball_on_reg_i_24_n_0;
-  wire ball_on_reg_i_25_n_0;
-  wire ball_on_reg_i_26_n_0;
-  wire [2:0]ball_on_reg_i_3_0;
-  wire ball_on_reg_i_3_1;
-  wire ball_on_reg_i_3_2;
-  wire ball_on_reg_i_3_3;
-  wire ball_on_reg_i_3_4;
+  wire ball_on_reg_i_16_n_0;
+  wire ball_on_reg_i_17_n_0;
   wire ball_on_reg_i_3_n_0;
+  wire ball_on_reg_i_4_n_0;
   wire ball_on_reg_i_5_n_0;
-  wire ball_on_reg_i_7_0;
-  wire ball_on_reg_i_7_1;
-  wire ball_on_reg_i_7_2;
-  wire ball_on_reg_i_7_3;
+  wire ball_on_reg_i_6_0;
+  wire ball_on_reg_i_6_n_0;
   wire ball_on_reg_i_7_n_0;
   wire ball_on_reg_i_8_n_0;
   wire ball_on_reg_i_9_n_0;
-  wire block_addr1;
   wire [3:0]blue;
-  wire bot_red21_in;
-  wire bot_red25_in;
-  wire bot_red29_in;
-  wire bot_red318_in;
   wire button_press0;
-  wire button_press017_out;
-  wire button_press121_out;
-  wire button_press431_in;
-  wire button_press538_in;
+  wire button_press_reg_i_10_n_0;
   wire button_press_reg_i_11_n_0;
   wire button_press_reg_i_12_n_0;
   wire button_press_reg_i_13_n_0;
+  wire button_press_reg_i_14_n_0;
   wire button_press_reg_i_15_n_0;
   wire button_press_reg_i_16_n_0;
   wire button_press_reg_i_17_n_0;
   wire button_press_reg_i_18_n_0;
   wire button_press_reg_i_19_n_0;
   wire button_press_reg_i_20_n_0;
-  wire button_press_reg_i_26_n_0;
+  wire button_press_reg_i_21_n_0;
+  wire button_press_reg_i_21_n_1;
+  wire button_press_reg_i_21_n_2;
+  wire button_press_reg_i_21_n_3;
+  wire button_press_reg_i_21_n_4;
+  wire button_press_reg_i_21_n_5;
+  wire button_press_reg_i_21_n_6;
+  wire button_press_reg_i_21_n_7;
+  wire button_press_reg_i_22_n_0;
+  wire button_press_reg_i_22_n_1;
+  wire button_press_reg_i_22_n_2;
+  wire button_press_reg_i_22_n_3;
+  wire button_press_reg_i_22_n_4;
+  wire button_press_reg_i_22_n_5;
+  wire button_press_reg_i_22_n_6;
+  wire button_press_reg_i_22_n_7;
+  wire button_press_reg_i_23_n_0;
+  wire button_press_reg_i_24_n_0;
+  wire button_press_reg_i_24_n_1;
+  wire button_press_reg_i_24_n_2;
+  wire button_press_reg_i_24_n_3;
+  wire button_press_reg_i_24_n_4;
+  wire button_press_reg_i_24_n_5;
+  wire button_press_reg_i_24_n_6;
+  wire button_press_reg_i_24_n_7;
+  wire button_press_reg_i_25_n_1;
+  wire button_press_reg_i_25_n_3;
+  wire button_press_reg_i_25_n_6;
+  wire button_press_reg_i_25_n_7;
+  wire button_press_reg_i_26_n_1;
+  wire button_press_reg_i_26_n_3;
+  wire button_press_reg_i_26_n_6;
+  wire button_press_reg_i_26_n_7;
   wire button_press_reg_i_27_n_0;
   wire button_press_reg_i_28_n_0;
   wire button_press_reg_i_29_n_0;
+  wire button_press_reg_i_30_0;
   wire button_press_reg_i_30_n_0;
-  wire button_press_reg_i_31_n_0;
+  wire button_press_reg_i_30_n_1;
+  wire button_press_reg_i_30_n_2;
+  wire button_press_reg_i_30_n_3;
+  wire button_press_reg_i_30_n_4;
+  wire button_press_reg_i_30_n_5;
+  wire button_press_reg_i_30_n_6;
+  wire button_press_reg_i_30_n_7;
+  wire button_press_reg_i_31_n_3;
+  wire button_press_reg_i_31_n_6;
+  wire button_press_reg_i_31_n_7;
   wire button_press_reg_i_32_n_0;
   wire button_press_reg_i_33_n_0;
   wire button_press_reg_i_34_n_0;
   wire button_press_reg_i_35_n_0;
   wire button_press_reg_i_36_n_0;
   wire button_press_reg_i_37_n_0;
+  wire button_press_reg_i_38_n_0;
+  wire button_press_reg_i_39_n_0;
+  wire button_press_reg_i_40_n_0;
+  wire [1:0]button_press_reg_i_41_0;
   wire button_press_reg_i_41_n_0;
   wire button_press_reg_i_42_n_0;
   wire button_press_reg_i_43_n_0;
@@ -16763,66 +16287,130 @@ module microblaze_GameIP_0_0_vga_controller
   wire button_press_reg_i_45_n_0;
   wire button_press_reg_i_46_n_0;
   wire button_press_reg_i_47_n_0;
+  wire button_press_reg_i_48_n_0;
+  wire button_press_reg_i_49_n_0;
+  wire button_press_reg_i_50_n_0;
+  wire button_press_reg_i_51_n_0;
+  wire button_press_reg_i_51_n_1;
+  wire button_press_reg_i_51_n_2;
+  wire button_press_reg_i_51_n_3;
+  wire button_press_reg_i_52_n_0;
+  wire button_press_reg_i_53_n_0;
+  wire button_press_reg_i_54_n_0;
+  wire button_press_reg_i_55_n_0;
+  wire button_press_reg_i_56_n_0;
+  wire button_press_reg_i_57_n_0;
+  wire button_press_reg_i_58_n_0;
+  wire button_press_reg_i_59_n_0;
+  wire button_press_reg_i_60_n_0;
+  wire button_press_reg_i_61_n_0;
+  wire button_press_reg_i_62_n_0;
+  wire button_press_reg_i_63_n_0;
+  wire button_press_reg_i_64_n_0;
+  wire button_press_reg_i_65_n_0;
+  wire button_press_reg_i_69_n_0;
+  wire button_press_reg_i_6_n_0;
+  wire button_press_reg_i_70_n_0;
+  wire button_press_reg_i_71_n_0;
+  wire button_press_reg_i_7_n_0;
+  wire button_press_reg_i_85_n_0;
+  wire button_press_reg_i_86_n_0;
+  wire button_press_reg_i_87_n_0;
+  wire button_press_reg_i_88_n_0;
   wire button_press_reg_i_8_n_0;
-  wire \color_instance/bot_draw/bot_red115_out ;
-  wire \color_instance/bot_draw/bot_red122_out ;
-  wire [3:0]\color_instance/sel ;
-  wire [6:4]data0;
-  wire [1:0]doutb;
-  wire g0_b0__3_n_0;
+  wire button_press_reg_i_90_n_0;
+  wire button_press_reg_i_9_n_0;
+  wire [19:3]\color_instance/player_data ;
+  wire [2:0]drawX;
+  wire [2:0]drawY;
+  wire g0_b0__4_i_13_n_0;
+  wire g0_b0__4_i_6;
+  wire g0_b0__6_i_13_n_0;
+  wire [8:0]g0_b0__6_i_6;
+  wire g0_b0__6_i_6_0;
+  wire g0_b0__7_i_1_n_0;
+  wire g0_b0__7_i_2_n_0;
+  wire g0_b0__7_i_3_n_0;
+  wire g0_b0__7_i_4_n_0;
+  wire g0_b0__7_n_0;
+  wire g0_b0__8_i_1_n_0;
+  wire g0_b0__8_i_2_n_0;
+  wire g0_b0__8_i_3_n_0;
+  wire g0_b0__8_n_0;
+  wire g0_b10_n_0;
+  wire g0_b11_n_0;
+  wire g0_b12_n_0;
+  wire g0_b13_n_0;
+  wire g0_b14_n_0;
   wire g0_b15_n_0;
+  wire g0_b1__7_n_0;
+  wire g0_b2__7_n_0;
+  wire g0_b2__8_n_0;
+  wire g0_b3_n_0;
+  wire g0_b4_n_0;
+  wire g0_b5_n_0;
+  wire g0_b6_n_0;
   wire g0_b7_n_0;
   wire g0_b8_n_0;
   wire g1_b0_n_0;
+  wire g1_b10_n_0;
+  wire g1_b11_n_0;
+  wire g1_b12_n_0;
+  wire g1_b13_n_0;
+  wire g1_b15_n_0;
   wire g1_b1_n_0;
+  wire g1_b2_n_0;
+  wire g1_b3_n_0;
+  wire g1_b4_n_0;
+  wire g1_b5_n_0;
+  wire g1_b6_n_0;
   wire g1_b7_n_0;
   wire g1_b9_n_0;
-  wire [2:0]green;
+  wire [3:0]green;
   wire [9:0]hc;
-  wire \hc[7]_i_2_n_0 ;
+  wire \hc[4]_i_1_n_0 ;
   wire \hc[9]_i_2_n_0 ;
-  wire \hc[9]_i_3_n_0 ;
-  wire \hc[9]_i_4_n_0 ;
-  wire \hc[9]_i_5_n_0 ;
-  wire \hc_reg[0]_0 ;
-  wire \hc_reg[0]_1 ;
-  wire [3:0]\hc_reg[3]_0 ;
-  wire [3:0]\hc_reg[7]_0 ;
-  wire [1:0]\hc_reg[9]_0 ;
-  wire [9:0]\hc_reg[9]_1 ;
+  wire \hc_reg[2]_0 ;
+  wire \hc_reg[3]_0 ;
+  wire \hc_reg[6]_0 ;
+  wire \hc_reg[6]_1 ;
+  wire \hc_reg[8]_0 ;
+  wire [6:0]\hc_reg[9]_0 ;
+  wire hs_i_1_n_0;
   wire hs_i_2_n_0;
   wire hs_i_3_n_0;
-  wire hs_i_7_n_0;
+  wire hs_i_4_n_0;
   wire hsync;
-  wire i__carry__0_i_4__2_n_0;
-  wire i__carry__0_i_6_n_0;
-  wire i__carry_i_9__2_n_0;
+  wire menu_sig;
+  wire mouse_sig;
   wire [2:0]out;
-  wire p_0_in__0;
   wire [20:0]player_pos;
-  wire \player_pos[20]_0 ;
-  wire \player_pos[20]_1 ;
-  wire \player_pos[20]_2 ;
-  wire player_pos_20_sn_1;
+  wire [3:0]red;
   wire reset_ah;
+  wire [0:0]sel;
+  wire \srl[20].srl16_i ;
+  wire \srl[21].srl16_i ;
+  wire \srl[22].srl16_i ;
   wire \srl[23].srl16_i ;
   wire \srl[23].srl16_i_0 ;
-  wire [12:0]\srl[30].srl16_i ;
+  wire \srl[28].srl16_i ;
+  wire \srl[28].srl16_i_0 ;
+  wire \srl[29].srl16_i ;
+  wire \srl[30].srl16_i ;
+  wire \srl[31].srl16_i ;
+  wire \srl[36].srl16_i ;
+  wire \srl[37].srl16_i ;
+  wire \srl[38].srl16_i ;
   wire \srl[39].srl16_i ;
-  wire \srl[39].srl16_i_0 ;
-  wire \srl[39].srl16_i_1 ;
-  wire [1:0]state;
+  wire \state_reg[0] ;
   wire vc;
   wire \vc[0]_i_1_n_0 ;
-  wire \vc[0]_i_2_n_0 ;
-  wire \vc[0]_i_3_n_0 ;
-  wire \vc[0]_i_4_n_0 ;
   wire \vc[1]_i_1_n_0 ;
   wire \vc[2]_i_1_n_0 ;
   wire \vc[3]_i_1_n_0 ;
+  wire \vc[3]_i_2_n_0 ;
   wire \vc[4]_i_1_n_0 ;
   wire \vc[5]_i_1_n_0 ;
-  wire \vc[5]_i_2_n_0 ;
   wire \vc[6]_i_1_n_0 ;
   wire \vc[7]_i_1_n_0 ;
   wire \vc[8]_i_1_n_0 ;
@@ -16830,187 +16418,250 @@ module microblaze_GameIP_0_0_vga_controller
   wire \vc[9]_i_3_n_0 ;
   wire \vc[9]_i_4_n_0 ;
   wire \vc[9]_i_5_n_0 ;
-  wire [0:0]\vc_reg[0]_0 ;
-  wire \vc_reg[0]_1 ;
-  wire \vc_reg[0]_10 ;
-  wire \vc_reg[0]_11 ;
-  wire \vc_reg[0]_12 ;
-  wire \vc_reg[0]_13 ;
-  wire \vc_reg[0]_14 ;
-  wire \vc_reg[0]_15 ;
-  wire \vc_reg[0]_16 ;
-  wire \vc_reg[0]_17 ;
-  wire \vc_reg[0]_18 ;
-  wire \vc_reg[0]_19 ;
-  wire \vc_reg[0]_2 ;
-  wire \vc_reg[0]_20 ;
-  wire \vc_reg[0]_3 ;
-  wire \vc_reg[0]_4 ;
-  wire \vc_reg[0]_5 ;
-  wire \vc_reg[0]_6 ;
-  wire \vc_reg[0]_7 ;
-  wire \vc_reg[0]_8 ;
-  wire \vc_reg[0]_9 ;
-  wire [2:0]\vc_reg[2]_0 ;
-  wire [3:0]\vc_reg[3]_0 ;
-  wire [3:0]\vc_reg[3]_1 ;
+  wire \vc_reg[0]_0 ;
+  wire [0:0]\vc_reg[2]_0 ;
+  wire [0:0]\vc_reg[3]_0 ;
+  wire [0:0]\vc_reg[3]_1 ;
   wire \vc_reg[3]_2 ;
-  wire [0:0]\vc_reg[5]_0 ;
-  wire [0:0]\vc_reg[5]_1 ;
-  wire [1:0]\vc_reg[5]_2 ;
+  wire \vc_reg[3]_3 ;
+  wire [0:0]\vc_reg[4]_0 ;
+  wire [0:0]\vc_reg[4]_1 ;
+  wire [0:0]\vc_reg[4]_2 ;
+  wire [0:0]\vc_reg[4]_3 ;
+  wire [0:0]\vc_reg[4]_4 ;
+  wire [0:0]\vc_reg[4]_5 ;
+  wire [0:0]\vc_reg[4]_6 ;
+  wire [0:0]\vc_reg[4]_7 ;
+  wire \vc_reg[5]_0 ;
+  wire \vc_reg[5]_1 ;
+  wire \vc_reg[5]_2 ;
   wire \vc_reg[5]_3 ;
   wire \vc_reg[5]_4 ;
-  wire \vc_reg[5]_5 ;
-  wire [1:0]\vc_reg[5]_6 ;
-  wire \vc_reg[5]_7 ;
-  wire [0:0]\vc_reg[6]_0 ;
+  wire \vc_reg[6]_0 ;
   wire [0:0]\vc_reg[6]_1 ;
-  wire [0:0]\vc_reg[6]_2 ;
-  wire [0:0]\vc_reg[6]_3 ;
-  wire [0:0]\vc_reg[6]_4 ;
-  wire [0:0]\vc_reg[6]_5 ;
-  wire \vc_reg[6]_6 ;
-  wire [3:0]\vc_reg[7]_0 ;
-  wire \vc_reg[7]_1 ;
-  wire \vc_reg[7]_2 ;
-  wire [1:0]\vc_reg[9]_0 ;
+  wire \vc_reg[7]_0 ;
+  wire \vc_reg[8]_0 ;
+  wire \vc_reg[9]_0 ;
+  wire \vc_reg[9]_1 ;
   wire vde;
-  wire vga_to_hdmi_i_106_n_0;
-  wire vga_to_hdmi_i_107_n_0;
-  wire vga_to_hdmi_i_108_n_0;
-  wire vga_to_hdmi_i_124_0;
+  wire vga_to_hdmi_i_100_n_0;
+  wire vga_to_hdmi_i_101_n_0;
+  wire vga_to_hdmi_i_102_n_0;
+  wire vga_to_hdmi_i_103_n_0;
+  wire vga_to_hdmi_i_104_n_0;
+  wire vga_to_hdmi_i_117_n_0;
+  wire vga_to_hdmi_i_119_n_0;
+  wire vga_to_hdmi_i_120_n_0;
+  wire vga_to_hdmi_i_121_n_0;
+  wire vga_to_hdmi_i_122_n_0;
+  wire vga_to_hdmi_i_123_n_0;
   wire vga_to_hdmi_i_124_n_0;
   wire vga_to_hdmi_i_125_n_0;
-  wire vga_to_hdmi_i_130_n_0;
-  wire vga_to_hdmi_i_140_n_0;
-  wire vga_to_hdmi_i_147_n_0;
-  wire [2:0]vga_to_hdmi_i_148_0;
-  wire vga_to_hdmi_i_148_n_0;
-  wire vga_to_hdmi_i_149_n_0;
-  wire vga_to_hdmi_i_16_0;
-  wire vga_to_hdmi_i_16_1;
-  wire vga_to_hdmi_i_16_2;
-  wire vga_to_hdmi_i_16_3;
-  wire vga_to_hdmi_i_171_n_0;
-  wire vga_to_hdmi_i_172_n_0;
-  wire vga_to_hdmi_i_173_n_0;
-  wire vga_to_hdmi_i_174_n_0;
-  wire vga_to_hdmi_i_195_n_0;
-  wire vga_to_hdmi_i_196_n_0;
-  wire vga_to_hdmi_i_197_n_0;
-  wire vga_to_hdmi_i_198_n_0;
-  wire vga_to_hdmi_i_215_n_0;
-  wire vga_to_hdmi_i_216_n_0;
-  wire vga_to_hdmi_i_217_n_0;
+  wire vga_to_hdmi_i_126_n_0;
+  wire vga_to_hdmi_i_135_n_0;
+  wire vga_to_hdmi_i_136_n_0;
+  wire vga_to_hdmi_i_137_n_0;
+  wire vga_to_hdmi_i_138_n_0;
+  wire vga_to_hdmi_i_139_n_0;
+  wire vga_to_hdmi_i_14_n_0;
+  wire vga_to_hdmi_i_164_n_0;
+  wire vga_to_hdmi_i_165_n_0;
+  wire vga_to_hdmi_i_166_n_0;
+  wire vga_to_hdmi_i_167_n_0;
+  wire vga_to_hdmi_i_168_n_0;
+  wire vga_to_hdmi_i_169_n_0;
+  wire vga_to_hdmi_i_16_n_0;
+  wire vga_to_hdmi_i_170_n_0;
+  wire vga_to_hdmi_i_18_n_0;
+  wire vga_to_hdmi_i_219_n_0;
+  wire vga_to_hdmi_i_22_n_0;
+  wire vga_to_hdmi_i_230_n_0;
+  wire vga_to_hdmi_i_232_n_0;
+  wire vga_to_hdmi_i_235_n_0;
+  wire vga_to_hdmi_i_236_n_0;
+  wire vga_to_hdmi_i_237_n_0;
+  wire vga_to_hdmi_i_238_n_0;
   wire vga_to_hdmi_i_239_n_0;
   wire vga_to_hdmi_i_240_n_0;
-  wire vga_to_hdmi_i_250_n_0;
+  wire vga_to_hdmi_i_241_n_0;
+  wire vga_to_hdmi_i_242_n_0;
+  wire vga_to_hdmi_i_243_n_0;
+  wire vga_to_hdmi_i_244_n_0;
+  wire vga_to_hdmi_i_245_n_0;
+  wire vga_to_hdmi_i_246_n_0;
+  wire vga_to_hdmi_i_251_n_0;
+  wire vga_to_hdmi_i_252_n_0;
+  wire vga_to_hdmi_i_253_n_0;
+  wire vga_to_hdmi_i_254_n_0;
+  wire vga_to_hdmi_i_255_n_0;
+  wire vga_to_hdmi_i_256_n_0;
   wire vga_to_hdmi_i_257_n_0;
   wire vga_to_hdmi_i_258_n_0;
   wire vga_to_hdmi_i_259_n_0;
+  wire vga_to_hdmi_i_25_n_0;
   wire vga_to_hdmi_i_260_n_0;
   wire vga_to_hdmi_i_261_n_0;
   wire vga_to_hdmi_i_262_n_0;
-  wire vga_to_hdmi_i_263_n_0;
   wire vga_to_hdmi_i_264_n_0;
+  wire vga_to_hdmi_i_265_n_0;
   wire vga_to_hdmi_i_266_n_0;
+  wire vga_to_hdmi_i_267_n_0;
   wire vga_to_hdmi_i_268_n_0;
+  wire vga_to_hdmi_i_269_n_0;
+  wire vga_to_hdmi_i_270_n_0;
   wire vga_to_hdmi_i_271_n_0;
+  wire vga_to_hdmi_i_272_n_0;
+  wire vga_to_hdmi_i_273_n_0;
+  wire vga_to_hdmi_i_274_n_0;
+  wire vga_to_hdmi_i_275_n_0;
+  wire vga_to_hdmi_i_276_n_0;
+  wire vga_to_hdmi_i_277_n_0;
+  wire vga_to_hdmi_i_278_n_0;
+  wire vga_to_hdmi_i_279_n_0;
+  wire vga_to_hdmi_i_27_n_0;
+  wire vga_to_hdmi_i_280_n_0;
+  wire vga_to_hdmi_i_281_n_0;
+  wire vga_to_hdmi_i_282_n_0;
+  wire vga_to_hdmi_i_283_n_0;
+  wire vga_to_hdmi_i_284_n_0;
+  wire vga_to_hdmi_i_285_n_0;
+  wire vga_to_hdmi_i_286_n_0;
+  wire vga_to_hdmi_i_287_n_0;
   wire vga_to_hdmi_i_288_n_0;
   wire vga_to_hdmi_i_289_n_0;
   wire vga_to_hdmi_i_290_n_0;
+  wire vga_to_hdmi_i_291_n_0;
+  wire vga_to_hdmi_i_292_n_0;
+  wire vga_to_hdmi_i_293_n_0;
+  wire vga_to_hdmi_i_294_n_0;
+  wire vga_to_hdmi_i_295_n_0;
+  wire vga_to_hdmi_i_299_n_0;
+  wire vga_to_hdmi_i_29_n_0;
+  wire vga_to_hdmi_i_300_n_0;
+  wire vga_to_hdmi_i_301_n_0;
+  wire vga_to_hdmi_i_302_n_0;
+  wire vga_to_hdmi_i_303_n_0;
+  wire vga_to_hdmi_i_304_n_0;
+  wire vga_to_hdmi_i_305_n_0;
   wire vga_to_hdmi_i_306_n_0;
   wire vga_to_hdmi_i_307_n_0;
   wire vga_to_hdmi_i_308_n_0;
-  wire vga_to_hdmi_i_337_n_0;
-  wire vga_to_hdmi_i_338_n_0;
-  wire vga_to_hdmi_i_339_n_0;
+  wire vga_to_hdmi_i_309_n_0;
+  wire vga_to_hdmi_i_310_n_0;
+  wire vga_to_hdmi_i_311_n_0;
+  wire vga_to_hdmi_i_312_n_0;
+  wire vga_to_hdmi_i_313_n_0;
+  wire vga_to_hdmi_i_314_n_0;
+  wire vga_to_hdmi_i_315_n_0;
+  wire vga_to_hdmi_i_316_n_0;
+  wire vga_to_hdmi_i_317_n_0;
+  wire vga_to_hdmi_i_318_n_0;
+  wire vga_to_hdmi_i_320_n_0;
+  wire vga_to_hdmi_i_321_n_0;
+  wire vga_to_hdmi_i_322_n_0;
+  wire vga_to_hdmi_i_323_n_0;
   wire vga_to_hdmi_i_33_n_0;
-  wire vga_to_hdmi_i_340_n_0;
-  wire vga_to_hdmi_i_341_n_0;
-  wire vga_to_hdmi_i_342_n_0;
-  wire vga_to_hdmi_i_343_n_0;
-  wire vga_to_hdmi_i_344_n_0;
-  wire vga_to_hdmi_i_346_n_0;
-  wire vga_to_hdmi_i_348_n_0;
-  wire vga_to_hdmi_i_350_n_0;
-  wire vga_to_hdmi_i_351_n_0;
-  wire vga_to_hdmi_i_358_n_0;
-  wire vga_to_hdmi_i_359_n_0;
-  wire vga_to_hdmi_i_367_n_0;
-  wire vga_to_hdmi_i_368_n_0;
-  wire vga_to_hdmi_i_369_n_0;
-  wire vga_to_hdmi_i_36_n_0;
-  wire vga_to_hdmi_i_370_n_0;
-  wire vga_to_hdmi_i_371_n_0;
-  wire vga_to_hdmi_i_372_n_0;
-  wire vga_to_hdmi_i_373_n_0;
-  wire vga_to_hdmi_i_374_n_0;
-  wire vga_to_hdmi_i_39_n_0;
+  wire vga_to_hdmi_i_34_n_0;
+  wire vga_to_hdmi_i_35_n_0;
+  wire vga_to_hdmi_i_38_n_0;
+  wire vga_to_hdmi_i_40_n_0;
+  wire vga_to_hdmi_i_41_n_0;
+  wire vga_to_hdmi_i_42_0;
+  wire vga_to_hdmi_i_42_1;
+  wire vga_to_hdmi_i_42_2;
+  wire vga_to_hdmi_i_42_n_0;
+  wire vga_to_hdmi_i_43_0;
+  wire vga_to_hdmi_i_43_1;
   wire vga_to_hdmi_i_43_n_0;
   wire vga_to_hdmi_i_44_n_0;
-  wire vga_to_hdmi_i_47_n_0;
-  wire vga_to_hdmi_i_49_n_0;
-  wire vga_to_hdmi_i_51_n_0;
+  wire vga_to_hdmi_i_45_n_0;
+  wire vga_to_hdmi_i_46_n_0;
+  wire vga_to_hdmi_i_48_n_0;
   wire vga_to_hdmi_i_53_n_0;
   wire vga_to_hdmi_i_54_n_0;
+  wire vga_to_hdmi_i_55_n_0;
+  wire vga_to_hdmi_i_56_n_0;
   wire vga_to_hdmi_i_57_n_0;
-  wire vga_to_hdmi_i_58_n_0;
-  wire vga_to_hdmi_i_59_n_0;
-  wire vga_to_hdmi_i_61_n_0;
-  wire vga_to_hdmi_i_62_n_0;
-  wire [1:0]vga_to_hdmi_i_63;
-  wire [1:0]vga_to_hdmi_i_63_0;
-  wire [0:0]vga_to_hdmi_i_63_1;
-  wire [0:0]vga_to_hdmi_i_63_2;
+  wire vga_to_hdmi_i_60_n_0;
+  wire vga_to_hdmi_i_67_n_0;
+  wire vga_to_hdmi_i_68_n_0;
+  wire vga_to_hdmi_i_69_n_0;
+  wire vga_to_hdmi_i_70_n_0;
+  wire vga_to_hdmi_i_71_n_0;
+  wire vga_to_hdmi_i_72_n_0;
+  wire vga_to_hdmi_i_85_0;
+  wire vga_to_hdmi_i_85_1;
+  wire vga_to_hdmi_i_85_n_0;
+  wire vga_to_hdmi_i_88_n_0;
+  wire vga_to_hdmi_i_89_n_0;
+  wire vga_to_hdmi_i_90_n_0;
+  wire vga_to_hdmi_i_91_n_0;
+  wire vga_to_hdmi_i_92_n_0;
+  wire vga_to_hdmi_i_93_n_0;
+  wire vga_to_hdmi_i_94_n_0;
+  wire vga_to_hdmi_i_95_n_0;
   wire vga_to_hdmi_i_96_n_0;
   wire vga_to_hdmi_i_97_n_0;
+  wire vga_to_hdmi_i_99_n_0;
   wire vs_i_1_n_0;
   wire vs_i_2_n_0;
-  wire vs_i_3_n_0;
-  wire vs_i_4_n_0;
-  wire vs_i_5_n_0;
   wire vsync;
   wire [3:2]NLW_BRAM_i_14_CO_UNCONNECTED;
   wire [3:3]NLW_BRAM_i_14_O_UNCONNECTED;
   wire [3:1]NLW_BRAM_i_16_CO_UNCONNECTED;
   wire [3:2]NLW_BRAM_i_16_O_UNCONNECTED;
+  wire [3:1]NLW_button_press_reg_i_25_CO_UNCONNECTED;
+  wire [3:2]NLW_button_press_reg_i_25_O_UNCONNECTED;
+  wire [3:1]NLW_button_press_reg_i_26_CO_UNCONNECTED;
+  wire [3:2]NLW_button_press_reg_i_26_O_UNCONNECTED;
+  wire [3:1]NLW_button_press_reg_i_31_CO_UNCONNECTED;
+  wire [3:2]NLW_button_press_reg_i_31_O_UNCONNECTED;
+  wire [3:0]NLW_button_press_reg_i_51_O_UNCONNECTED;
 
-  assign player_pos_20_sp_1 = player_pos_20_sn_1;
-  (* SOFT_HLUTNM = "soft_lutpair86" *) 
+  (* SOFT_HLUTNM = "soft_lutpair77" *) 
   LUT4 #(
-    .INIT(16'h01FE)) 
-    BOTTOM_NUM1_carry__0_i_4
-       (.I0(Q[6]),
-        .I1(Q[4]),
-        .I2(Q[5]),
-        .I3(Q[7]),
-        .O(\vc_reg[6]_6 ));
-  (* SOFT_HLUTNM = "soft_lutpair86" *) 
+    .INIT(16'h5556)) 
+    BOTTOM_NUM1_carry__0_i_8
+       (.I0(Q[4]),
+        .I1(Q[3]),
+        .I2(Q[1]),
+        .I3(Q[2]),
+        .O(\vc_reg[7]_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair77" *) 
   LUT5 #(
-    .INIT(32'h5557AAA8)) 
-    BOTTOM_NUM1_carry__0_i_5
-       (.I0(Q[7]),
-        .I1(Q[5]),
-        .I2(Q[4]),
-        .I3(Q[6]),
-        .I4(Q[8]),
-        .O(\vc_reg[7]_1 ));
-  (* SOFT_HLUTNM = "soft_lutpair116" *) 
-  LUT3 #(
-    .INIT(8'h1E)) 
-    BOTTOM_NUM1_carry_i_13
+    .INIT(32'h5556AAAA)) 
+    BOTTOM_NUM1_carry__0_i_9
        (.I0(Q[5]),
-        .I1(Q[4]),
-        .I2(Q[6]),
-        .O(\vc_reg[5]_5 ));
+        .I1(Q[2]),
+        .I2(Q[1]),
+        .I3(Q[3]),
+        .I4(Q[4]),
+        .O(\vc_reg[8]_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    BOTTOM_NUM1_carry_i_1
+       (.I0(DI[1]),
+        .O(DI[2]));
   (* HLUTNM = "lutpair0" *) 
   LUT2 #(
     .INIT(4'h6)) 
     BOTTOM_NUM1_carry_i_2
-       (.I0(Q[4]),
-        .I1(Q[5]),
-        .O(DI));
+       (.I0(Q[1]),
+        .I1(Q[2]),
+        .O(DI[1]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    BOTTOM_NUM1_carry_i_3
+       (.I0(Q[1]),
+        .O(\vc_reg[4]_3 ));
+  (* SOFT_HLUTNM = "soft_lutpair76" *) 
+  LUT3 #(
+    .INIT(8'h56)) 
+    BOTTOM_NUM1_carry_i_8
+       (.I0(Q[3]),
+        .I1(Q[2]),
+        .I2(Q[1]),
+        .O(\vc_reg[6]_0 ));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 BRAM_i_14
        (.CI(BRAM_i_15_n_0),
@@ -17024,2659 +16675,3370 @@ module microblaze_GameIP_0_0_vga_controller
        (.CI(1'b0),
         .CO({BRAM_i_15_n_0,BRAM_i_15_n_1,BRAM_i_15_n_2,BRAM_i_15_n_3}),
         .CYINIT(1'b0),
-        .DI({1'b0,O,Q[4]}),
+        .DI({1'b0,O,Q[1]}),
         .O(addrb[3:0]),
-        .S({addrb2[6],\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_1 }));
+        .S({addrb2[6],\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 }));
   CARRY4 BRAM_i_16
        (.CI(BRAM_i_17_n_0),
         .CO({NLW_BRAM_i_16_CO_UNCONNECTED[3:1],BRAM_i_16_n_3}),
         .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,Q[9]}),
+        .DI({1'b0,1'b0,1'b0,Q[6]}),
         .O({NLW_BRAM_i_16_O_UNCONNECTED[3:2],addrb2[9:8]}),
-        .S({1'b0,1'b0,Q[8],\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram_0 }));
+        .S({1'b0,1'b0,Q[5],\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram }));
   CARRY4 BRAM_i_17
        (.CI(1'b0),
         .CO({BRAM_i_17_n_0,BRAM_i_17_n_1,BRAM_i_17_n_2,BRAM_i_17_n_3}),
         .CYINIT(1'b0),
-        .DI({Q[8:6],1'b0}),
+        .DI({Q[5:3],1'b0}),
         .O({addrb2[7:6],O}),
-        .S({S,Q[5]}));
+        .S({S,Q[2]}));
   LUT6 #(
-    .INIT(64'hFAAAEAAAAAAAEAAA)) 
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     ball_on_reg_i_1
        (.I0(ball_on_reg_i_3_n_0),
-        .I1(ball_on_reg),
+        .I1(ball_on_reg_i_4_n_0),
         .I2(ball_on_reg_i_5_n_0),
-        .I3(\hc_reg[9]_1 [0]),
-        .I4(\hc_reg[9]_1 [1]),
-        .I5(ball_on_reg_0),
-        .O(\hc_reg[0]_1 ));
+        .I3(ball_on_reg_i_6_n_0),
+        .I4(ball_on_reg_i_7_n_0),
+        .I5(ball_on_reg_i_8_n_0),
+        .O(\hc_reg[3]_0 ));
   LUT6 #(
-    .INIT(64'h000000B800000000)) 
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     ball_on_reg_i_10
-       (.I0(g1_b7_n_0),
-        .I1(ball_on_reg_i_3_0[2]),
-        .I2(g0_b7_n_0),
-        .I3(\hc_reg[9]_1 [1]),
-        .I4(\hc_reg[9]_1 [0]),
-        .I5(ball_on_reg_i_19_n_0),
+       (.I0(g1_b4_n_0),
+        .I1(g0_b4_n_0),
+        .I2(drawX[0]),
+        .I3(g1_b3_n_0),
+        .I4(ball_on_reg_i_6_0),
+        .I5(g0_b3_n_0),
         .O(ball_on_reg_i_10_n_0));
   LUT6 #(
-    .INIT(64'hFFFFFFFF88800080)) 
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     ball_on_reg_i_11
-       (.I0(ball_on_reg_i_19_n_0),
-        .I1(ball_on_reg_i_20_n_0),
-        .I2(g0_b8_n_0),
-        .I3(ball_on_reg_i_3_0[2]),
-        .I4(\vc_reg[0]_15 ),
-        .I5(ball_on_reg_i_21_n_0),
+       (.I0(g1_b6_n_0),
+        .I1(g0_b6_n_0),
+        .I2(drawX[0]),
+        .I3(g1_b5_n_0),
+        .I4(ball_on_reg_i_6_0),
+        .I5(g0_b5_n_0),
         .O(ball_on_reg_i_11_n_0));
   LUT6 #(
-    .INIT(64'hF0CA00CA00CA00CA)) 
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     ball_on_reg_i_12
-       (.I0(ball_on_reg_i_22_n_0),
-        .I1(ball_on_reg_i_23_n_0),
-        .I2(ball_on_reg_i_24_n_0),
-        .I3(ball_on_reg_i_25_n_0),
-        .I4(ball_on_reg_i_26_n_0),
-        .I5(ball_on_reg_i_3_1),
+       (.I0(g1_b0_n_0),
+        .I1(g0_b0__7_n_0),
+        .I2(drawX[0]),
+        .I3(g1_b15_n_0),
+        .I4(ball_on_reg_i_6_0),
+        .I5(g0_b15_n_0),
         .O(ball_on_reg_i_12_n_0));
   LUT6 #(
-    .INIT(64'hCFAFC0AFCFA0C0A0)) 
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    ball_on_reg_i_13
+       (.I0(g1_b2_n_0),
+        .I1(g0_b2__7_n_0),
+        .I2(drawX[0]),
+        .I3(g1_b1_n_0),
+        .I4(ball_on_reg_i_6_0),
+        .I5(g0_b0__7_n_0),
+        .O(ball_on_reg_i_13_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    ball_on_reg_i_14
+       (.I0(g1_b12_n_0),
+        .I1(g0_b12_n_0),
+        .I2(drawX[0]),
+        .I3(g1_b11_n_0),
+        .I4(ball_on_reg_i_6_0),
+        .I5(g0_b11_n_0),
+        .O(ball_on_reg_i_14_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     ball_on_reg_i_15
-       (.I0(ball_on_reg_i_7_0),
-        .I1(ball_on_reg_i_7_1),
-        .I2(\hc_reg[9]_1 [0]),
-        .I3(\hc_reg[9]_1 [1]),
-        .I4(ball_on_reg_i_7_2),
-        .I5(ball_on_reg_i_7_3),
+       (.I0(g1_b15_n_0),
+        .I1(g0_b14_n_0),
+        .I2(drawX[0]),
+        .I3(g1_b13_n_0),
+        .I4(ball_on_reg_i_6_0),
+        .I5(g0_b13_n_0),
         .O(ball_on_reg_i_15_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair109" *) 
-  LUT4 #(
-    .INIT(16'h8881)) 
-    ball_on_reg_i_18
-       (.I0(\hc_reg[9]_1 [3]),
-        .I1(\hc_reg[9]_1 [2]),
-        .I2(\hc_reg[9]_1 [0]),
-        .I3(\hc_reg[9]_1 [1]),
-        .O(ball_on_reg_i_18_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair110" *) 
-  LUT4 #(
-    .INIT(16'h4442)) 
-    ball_on_reg_i_19
-       (.I0(\hc_reg[9]_1 [3]),
-        .I1(\hc_reg[9]_1 [2]),
-        .I2(\hc_reg[9]_1 [0]),
-        .I3(\hc_reg[9]_1 [1]),
-        .O(ball_on_reg_i_19_n_0));
   LUT6 #(
-    .INIT(64'h0000000001FFFFFF)) 
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    ball_on_reg_i_16
+       (.I0(g1_b6_n_0),
+        .I1(g0_b8_n_0),
+        .I2(drawX[0]),
+        .I3(g1_b7_n_0),
+        .I4(ball_on_reg_i_6_0),
+        .I5(g0_b7_n_0),
+        .O(ball_on_reg_i_16_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    ball_on_reg_i_17
+       (.I0(g1_b10_n_0),
+        .I1(g0_b10_n_0),
+        .I2(drawX[0]),
+        .I3(g1_b9_n_0),
+        .I4(ball_on_reg_i_6_0),
+        .I5(g0_b7_n_0),
+        .O(ball_on_reg_i_17_n_0));
+  LUT6 #(
+    .INIT(64'h1515151515151555)) 
     ball_on_reg_i_2
-       (.I0(Q[5]),
-        .I1(Q[4]),
-        .I2(Q[6]),
-        .I3(Q[8]),
-        .I4(Q[7]),
-        .I5(Q[9]),
-        .O(block_addr1));
-  (* SOFT_HLUTNM = "soft_lutpair83" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    ball_on_reg_i_20
-       (.I0(\hc_reg[9]_1 [1]),
-        .I1(\hc_reg[9]_1 [0]),
-        .O(ball_on_reg_i_20_n_0));
-  LUT6 #(
-    .INIT(64'hB800000000000000)) 
-    ball_on_reg_i_21
-       (.I0(g1_b0_n_0),
-        .I1(ball_on_reg_i_3_0[2]),
-        .I2(g0_b0__3_n_0),
-        .I3(\hc_reg[9]_1 [1]),
-        .I4(\hc_reg[9]_1 [0]),
-        .I5(ball_on_reg_i_18_n_0),
-        .O(ball_on_reg_i_21_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair83" *) 
-  LUT5 #(
-    .INIT(32'h44400040)) 
-    ball_on_reg_i_22
-       (.I0(\hc_reg[9]_1 [0]),
-        .I1(\hc_reg[9]_1 [1]),
-        .I2(g0_b0__3_n_0),
-        .I3(ball_on_reg_i_3_0[2]),
-        .I4(g1_b1_n_0),
-        .O(ball_on_reg_i_22_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair84" *) 
-  LUT5 #(
-    .INIT(32'h44400040)) 
-    ball_on_reg_i_23
-       (.I0(\hc_reg[9]_1 [0]),
-        .I1(\hc_reg[9]_1 [1]),
-        .I2(g0_b7_n_0),
-        .I3(ball_on_reg_i_3_0[2]),
-        .I4(g1_b9_n_0),
-        .O(ball_on_reg_i_23_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair110" *) 
-  LUT4 #(
-    .INIT(16'h01FE)) 
-    ball_on_reg_i_24
-       (.I0(\hc_reg[9]_1 [2]),
-        .I1(\hc_reg[9]_1 [0]),
-        .I2(\hc_reg[9]_1 [1]),
-        .I3(\hc_reg[9]_1 [3]),
-        .O(ball_on_reg_i_24_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair112" *) 
-  LUT3 #(
-    .INIT(8'h1E)) 
-    ball_on_reg_i_25
-       (.I0(\hc_reg[9]_1 [1]),
-        .I1(\hc_reg[9]_1 [0]),
-        .I2(\hc_reg[9]_1 [2]),
-        .O(ball_on_reg_i_25_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair84" *) 
-  LUT2 #(
-    .INIT(4'h1)) 
-    ball_on_reg_i_26
-       (.I0(\hc_reg[9]_1 [1]),
-        .I1(\hc_reg[9]_1 [0]),
-        .O(ball_on_reg_i_26_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFE)) 
-    ball_on_reg_i_3
-       (.I0(ball_on_reg_i_7_n_0),
-        .I1(ball_on_reg_i_8_n_0),
-        .I2(ball_on_reg_i_9_n_0),
-        .I3(ball_on_reg_i_10_n_0),
-        .I4(ball_on_reg_i_11_n_0),
-        .I5(ball_on_reg_i_12_n_0),
-        .O(ball_on_reg_i_3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair109" *) 
-  LUT4 #(
-    .INIT(16'h1114)) 
-    ball_on_reg_i_5
-       (.I0(\hc_reg[9]_1 [3]),
-        .I1(\hc_reg[9]_1 [2]),
-        .I2(\hc_reg[9]_1 [0]),
-        .I3(\hc_reg[9]_1 [1]),
-        .O(ball_on_reg_i_5_n_0));
-  LUT6 #(
-    .INIT(64'h000000C0C0C0CA00)) 
-    ball_on_reg_i_7
-       (.I0(ball_on_reg_i_3_4),
-        .I1(ball_on_reg_i_15_n_0),
-        .I2(\hc_reg[9]_1 [3]),
-        .I3(\hc_reg[9]_1 [1]),
-        .I4(\hc_reg[9]_1 [0]),
-        .I5(\hc_reg[9]_1 [2]),
-        .O(ball_on_reg_i_7_n_0));
-  LUT6 #(
-    .INIT(64'h0000E00000002000)) 
-    ball_on_reg_i_8
-       (.I0(ball_on_reg_i_3_2),
-        .I1(\hc_reg[9]_1 [3]),
-        .I2(\hc_reg[9]_1 [2]),
-        .I3(\hc_reg[9]_1 [0]),
-        .I4(\hc_reg[9]_1 [1]),
-        .I5(ball_on_reg_i_3_3),
-        .O(ball_on_reg_i_8_n_0));
-  LUT6 #(
-    .INIT(64'h000000B800000000)) 
-    ball_on_reg_i_9
-       (.I0(\vc_reg[0]_20 ),
-        .I1(ball_on_reg_i_3_0[2]),
-        .I2(g0_b15_n_0),
-        .I3(\hc_reg[9]_1 [1]),
-        .I4(\hc_reg[9]_1 [0]),
-        .I5(ball_on_reg_i_18_n_0),
-        .O(ball_on_reg_i_9_n_0));
-  LUT2 #(
-    .INIT(4'h9)) 
-    button_press4_carry__0_i_1
-       (.I0(Q[7]),
-        .I1(player_pos[7]),
-        .O(\vc_reg[7]_0 [3]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    button_press4_carry__0_i_2
        (.I0(Q[6]),
-        .I1(player_pos[6]),
-        .O(\vc_reg[7]_0 [2]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    button_press4_carry__0_i_3
-       (.I0(Q[5]),
-        .I1(player_pos[5]),
-        .O(\vc_reg[7]_0 [1]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    button_press4_carry__0_i_4
-       (.I0(Q[4]),
-        .I1(player_pos[4]),
-        .O(\vc_reg[7]_0 [0]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    button_press4_carry__1_i_1
-       (.I0(Q[9]),
-        .I1(player_pos[9]),
-        .O(\vc_reg[9]_0 [1]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    button_press4_carry__1_i_2
-       (.I0(Q[8]),
-        .I1(player_pos[8]),
-        .O(\vc_reg[9]_0 [0]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    button_press4_carry_i_1
-       (.I0(Q[3]),
-        .I1(player_pos[3]),
-        .O(\vc_reg[3]_0 [3]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    button_press4_carry_i_2
-       (.I0(Q[2]),
-        .I1(player_pos[2]),
-        .O(\vc_reg[3]_0 [2]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    button_press4_carry_i_3
-       (.I0(Q[1]),
-        .I1(player_pos[1]),
-        .O(\vc_reg[3]_0 [1]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    button_press4_carry_i_4
-       (.I0(Q[0]),
-        .I1(player_pos[0]),
-        .O(\vc_reg[3]_0 [0]));
-  LUT6 #(
-    .INIT(64'h0000000800000000)) 
-    button_press_reg_i_11
-       (.I0(button_press538_in),
-        .I1(Q[6]),
-        .I2(button_press_reg_i_26_n_0),
-        .I3(button_press_reg_i_27_n_0),
-        .I4(button_press_reg_i_28_n_0),
-        .I5(button_press_reg_i_29_n_0),
-        .O(button_press_reg_i_11_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFF00015555)) 
-    button_press_reg_i_12
-       (.I0(Q[4]),
-        .I1(Q[0]),
-        .I2(Q[1]),
-        .I3(Q[2]),
-        .I4(Q[3]),
-        .I5(\vc[9]_i_5_n_0 ),
-        .O(button_press_reg_i_12_n_0));
-  LUT6 #(
-    .INIT(64'h0002000002000000)) 
-    button_press_reg_i_13
-       (.I0(button_press_reg_i_30_n_0),
-        .I1(button_press_reg_i_26_n_0),
-        .I2(button_press_reg_i_31_n_0),
-        .I3(\hc_reg[9]_1 [5]),
-        .I4(\hc_reg[9]_1 [6]),
-        .I5(\hc_reg[9]_1 [4]),
-        .O(button_press_reg_i_13_n_0));
-  LUT6 #(
-    .INIT(64'hAAAAAAAAFFFEEEEE)) 
-    button_press_reg_i_14
-       (.I0(button_press_reg_i_26_n_0),
-        .I1(Q[4]),
-        .I2(i__carry_i_9__2_n_0),
-        .I3(Q[2]),
-        .I4(Q[3]),
-        .I5(\vc[9]_i_5_n_0 ),
-        .O(button_press431_in));
-  (* SOFT_HLUTNM = "soft_lutpair95" *) 
-  LUT5 #(
-    .INIT(32'h02002222)) 
-    button_press_reg_i_15
-       (.I0(button_press_reg_i_32_n_0),
-        .I1(Q[9]),
-        .I2(Q[7]),
-        .I3(vga_to_hdmi_i_239_n_0),
-        .I4(Q[8]),
-        .O(button_press_reg_i_15_n_0));
-  LUT6 #(
-    .INIT(64'h0000000000000800)) 
-    button_press_reg_i_16
-       (.I0(button_press_reg_i_33_n_0),
-        .I1(button_press_reg_i_34_n_0),
-        .I2(button_press_reg_i_35_n_0),
-        .I3(\hc_reg[9]_1 [9]),
-        .I4(button_press_reg_i_36_n_0),
-        .I5(button_press_reg_i_37_n_0),
-        .O(button_press_reg_i_16_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair94" *) 
-  LUT4 #(
-    .INIT(16'hFFF8)) 
-    button_press_reg_i_17
-       (.I0(Q[6]),
-        .I1(Q[7]),
-        .I2(Q[8]),
-        .I3(Q[9]),
-        .O(button_press_reg_i_17_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair111" *) 
-  LUT4 #(
-    .INIT(16'h001F)) 
-    button_press_reg_i_18
-       (.I0(\hc_reg[9]_1 [6]),
-        .I1(\hc_reg[9]_1 [7]),
-        .I2(\hc_reg[9]_1 [8]),
-        .I3(\hc_reg[9]_1 [9]),
-        .O(button_press_reg_i_18_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair122" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    button_press_reg_i_19
-       (.I0(Q[3]),
-        .I1(Q[4]),
-        .O(button_press_reg_i_19_n_0));
-  LUT6 #(
-    .INIT(64'h0000000054000000)) 
-    button_press_reg_i_2
-       (.I0(button_press_reg_i_8_n_0),
-        .I1(state[0]),
-        .I2(state[1]),
-        .I3(block_addr1),
-        .I4(button_press017_out),
-        .I5(button_press121_out),
-        .O(\FSM_sequential_state_reg[0] ));
-  LUT6 #(
-    .INIT(64'h000F010F000F0F0F)) 
-    button_press_reg_i_20
-       (.I0(\hc_reg[9]_1 [5]),
-        .I1(\hc_reg[9]_1 [4]),
-        .I2(\hc_reg[9]_1 [9]),
-        .I3(\hc_reg[9]_1 [8]),
-        .I4(\hc_reg[9]_1 [7]),
-        .I5(\hc_reg[9]_1 [6]),
-        .O(button_press_reg_i_20_n_0));
-  LUT5 #(
-    .INIT(32'h4BB4B44B)) 
-    button_press_reg_i_22
-       (.I0(button_press_reg_i_41_n_0),
-        .I1(player_pos[20]),
-        .I2(button_press_reg_i_42_n_0),
-        .I3(player_pos[13]),
-        .I4(\hc_reg[9]_1 [3]),
-        .O(\player_pos[20]_1 ));
-  LUT6 #(
-    .INIT(64'h8FF77008088FF770)) 
-    button_press_reg_i_24
-       (.I0(button_press_reg_i_41_n_0),
-        .I1(player_pos[20]),
-        .I2(button_press_reg_i_42_n_0),
-        .I3(\hc_reg[9]_1 [3]),
-        .I4(button_press_reg_i_43_n_0),
-        .I5(player_pos[13]),
-        .O(player_pos_20_sn_1));
-  LUT6 #(
-    .INIT(64'hFAFAFAFAFAAAEAAA)) 
-    button_press_reg_i_25
-       (.I0(button_press_reg_i_31_n_0),
-        .I1(\hc_reg[9]_1 [2]),
-        .I2(\hc_reg[9]_1 [6]),
-        .I3(\hc_reg[9]_1 [4]),
-        .I4(\hc_reg[9]_1 [3]),
-        .I5(\hc_reg[9]_1 [5]),
-        .O(button_press538_in));
-  (* SOFT_HLUTNM = "soft_lutpair95" *) 
-  LUT3 #(
-    .INIT(8'hFE)) 
-    button_press_reg_i_26
-       (.I0(Q[7]),
-        .I1(Q[8]),
-        .I2(Q[9]),
-        .O(button_press_reg_i_26_n_0));
-  LUT6 #(
-    .INIT(64'h8080000080000000)) 
-    button_press_reg_i_27
-       (.I0(\hc_reg[9]_1 [3]),
-        .I1(\hc_reg[9]_1 [5]),
-        .I2(\hc_reg[9]_1 [6]),
-        .I3(\hc_reg[9]_1 [1]),
-        .I4(\hc_reg[9]_1 [2]),
-        .I5(\hc_reg[9]_1 [0]),
-        .O(button_press_reg_i_27_n_0));
-  LUT6 #(
-    .INIT(64'hFFFEFEFEFEFEFEFE)) 
-    button_press_reg_i_28
-       (.I0(\hc_reg[9]_1 [9]),
-        .I1(\hc_reg[9]_1 [8]),
-        .I2(\hc_reg[9]_1 [7]),
-        .I3(\hc_reg[9]_1 [5]),
-        .I4(\hc_reg[9]_1 [6]),
-        .I5(\hc_reg[9]_1 [4]),
-        .O(button_press_reg_i_28_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair116" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
-    button_press_reg_i_29
-       (.I0(Q[4]),
         .I1(Q[5]),
-        .O(button_press_reg_i_29_n_0));
-  LUT6 #(
-    .INIT(64'hFFFF0001FFFFFFFF)) 
-    button_press_reg_i_30
-       (.I0(Q[0]),
-        .I1(Q[1]),
-        .I2(Q[3]),
-        .I3(Q[2]),
-        .I4(\vc[9]_i_5_n_0 ),
-        .I5(Q[4]),
-        .O(button_press_reg_i_30_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair117" *) 
-  LUT3 #(
-    .INIT(8'hFE)) 
-    button_press_reg_i_31
-       (.I0(\hc_reg[9]_1 [7]),
-        .I1(\hc_reg[9]_1 [8]),
-        .I2(\hc_reg[9]_1 [9]),
-        .O(button_press_reg_i_31_n_0));
-  LUT6 #(
-    .INIT(64'h0000000020000000)) 
-    button_press_reg_i_32
-       (.I0(button_press_reg_i_44_n_0),
-        .I1(button_press_reg_i_45_n_0),
-        .I2(\hc_reg[9]_1 [9]),
-        .I3(vga_to_hdmi_i_171_n_0),
-        .I4(button_press_reg_i_46_n_0),
-        .I5(button_press_reg_i_36_n_0),
-        .O(button_press_reg_i_32_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair90" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    button_press_reg_i_33
-       (.I0(\hc_reg[9]_1 [5]),
-        .I1(\hc_reg[9]_1 [6]),
-        .O(button_press_reg_i_33_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair92" *) 
-  LUT5 #(
-    .INIT(32'h88888880)) 
-    button_press_reg_i_34
-       (.I0(Q[8]),
-        .I1(Q[6]),
         .I2(Q[4]),
         .I3(Q[3]),
-        .I4(Q[2]),
-        .O(button_press_reg_i_34_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair94" *) 
+        .I4(Q[1]),
+        .I5(Q[2]),
+        .O(\vc_reg[9]_0 ));
+  MUXF7 ball_on_reg_i_3
+       (.I0(ball_on_reg_i_10_n_0),
+        .I1(ball_on_reg_i_11_n_0),
+        .O(ball_on_reg_i_3_n_0),
+        .S(ball_on_reg_i_9_n_0));
+  MUXF7 ball_on_reg_i_4
+       (.I0(ball_on_reg_i_12_n_0),
+        .I1(ball_on_reg_i_13_n_0),
+        .O(ball_on_reg_i_4_n_0),
+        .S(ball_on_reg_i_9_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair99" *) 
+  LUT4 #(
+    .INIT(16'hAAA9)) 
+    ball_on_reg_i_5
+       (.I0(\hc_reg[9]_0 [0]),
+        .I1(drawX[2]),
+        .I2(drawX[0]),
+        .I3(drawX[1]),
+        .O(ball_on_reg_i_5_n_0));
+  MUXF7 ball_on_reg_i_6
+       (.I0(ball_on_reg_i_14_n_0),
+        .I1(ball_on_reg_i_15_n_0),
+        .O(ball_on_reg_i_6_n_0),
+        .S(ball_on_reg_i_9_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair83" *) 
+  LUT3 #(
+    .INIT(8'h56)) 
+    ball_on_reg_i_7
+       (.I0(drawX[2]),
+        .I1(drawX[0]),
+        .I2(drawX[1]),
+        .O(ball_on_reg_i_7_n_0));
+  MUXF7 ball_on_reg_i_8
+       (.I0(ball_on_reg_i_16_n_0),
+        .I1(ball_on_reg_i_17_n_0),
+        .O(ball_on_reg_i_8_n_0),
+        .S(ball_on_reg_i_9_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    ball_on_reg_i_9
+       (.I0(drawX[1]),
+        .I1(drawX[0]),
+        .O(ball_on_reg_i_9_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFEFFFFFFFF)) 
+    button_press_reg_i_10
+       (.I0(button_press_reg_i_23_n_0),
+        .I1(button_press_reg_i_24_n_6),
+        .I2(button_press_reg_i_24_n_5),
+        .I3(button_press_reg_i_25_n_6),
+        .I4(button_press_reg_i_26_n_6),
+        .I5(button_press_reg_i_25_n_1),
+        .O(button_press_reg_i_10_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFD)) 
+    button_press_reg_i_11
+       (.I0(button_press_reg_i_26_n_1),
+        .I1(button_press_reg_i_21_n_6),
+        .I2(button_press_reg_i_24_n_4),
+        .I3(button_press_reg_i_21_n_5),
+        .I4(button_press_reg_i_26_n_7),
+        .I5(button_press_reg_i_24_n_7),
+        .O(button_press_reg_i_11_n_0));
+  LUT6 #(
+    .INIT(64'h559A65559AAA559A)) 
+    button_press_reg_i_12
+       (.I0(button_press_reg_i_27_n_0),
+        .I1(button_press_reg_i_28_n_0),
+        .I2(player_pos[20]),
+        .I3(player_pos[13]),
+        .I4(\hc_reg[9]_0 [0]),
+        .I5(button_press_reg_i_29_n_0),
+        .O(button_press_reg_i_12_n_0));
+  LUT6 #(
+    .INIT(64'hA82AFFFFA82A0000)) 
+    button_press_reg_i_13
+       (.I0(button_press_reg_i_30_n_4),
+        .I1(button_press_reg_i_30_n_6),
+        .I2(button_press_reg_i_30_n_5),
+        .I3(button_press_reg_i_31_n_7),
+        .I4(button_press_reg_i_19_n_0),
+        .I5(button_press_reg_i_32_n_0),
+        .O(button_press_reg_i_13_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair82" *) 
+  LUT3 #(
+    .INIT(8'hEF)) 
+    button_press_reg_i_14
+       (.I0(\hc_reg[9]_0 [4]),
+        .I1(\hc_reg[9]_0 [6]),
+        .I2(\hc_reg[9]_0 [5]),
+        .O(button_press_reg_i_14_n_0));
+  MUXF8 button_press_reg_i_15
+       (.I0(button_press_reg_i_34_n_0),
+        .I1(button_press_reg_i_35_n_0),
+        .O(button_press_reg_i_15_n_0),
+        .S(button_press_reg_i_33_n_0));
+  MUXF8 button_press_reg_i_16
+       (.I0(button_press_reg_i_36_n_0),
+        .I1(button_press_reg_i_37_n_0),
+        .O(button_press_reg_i_16_n_0),
+        .S(button_press_reg_i_33_n_0));
   LUT5 #(
-    .INIT(32'hFFFFF080)) 
-    button_press_reg_i_35
-       (.I0(Q[6]),
-        .I1(Q[5]),
-        .I2(Q[8]),
-        .I3(Q[7]),
-        .I4(Q[9]),
-        .O(button_press_reg_i_35_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair123" *) 
+    .INIT(32'h69969696)) 
+    button_press_reg_i_17
+       (.I0(button_press_reg_i_29_n_0),
+        .I1(\hc_reg[9]_0 [0]),
+        .I2(player_pos[13]),
+        .I3(button_press_reg_i_28_n_0),
+        .I4(player_pos[20]),
+        .O(button_press_reg_i_17_n_0));
+  MUXF8 button_press_reg_i_18
+       (.I0(button_press_reg_i_38_n_0),
+        .I1(button_press_reg_i_39_n_0),
+        .O(button_press_reg_i_18_n_0),
+        .S(button_press_reg_i_33_n_0));
+  LUT6 #(
+    .INIT(64'h9655559655555555)) 
+    button_press_reg_i_19
+       (.I0(button_press_reg_i_40_n_0),
+        .I1(player_pos[10]),
+        .I2(drawX[0]),
+        .I3(drawX[1]),
+        .I4(player_pos[11]),
+        .I5(player_pos[20]),
+        .O(button_press_reg_i_19_n_0));
+  LUT3 #(
+    .INIT(8'h80)) 
+    button_press_reg_i_2
+       (.I0(button_press_reg_i_6_n_0),
+        .I1(button_press_reg_i_7_n_0),
+        .I2(\srl[28].srl16_i ),
+        .O(\hc_reg[6]_0 ));
+  MUXF7 button_press_reg_i_20
+       (.I0(button_press_reg_i_41_n_0),
+        .I1(button_press_reg_i_42_n_0),
+        .O(button_press_reg_i_20_n_0),
+        .S(button_press_reg_i_33_n_0));
+  CARRY4 button_press_reg_i_21
+       (.CI(button_press_reg_i_22_n_0),
+        .CO({button_press_reg_i_21_n_0,button_press_reg_i_21_n_1,button_press_reg_i_21_n_2,button_press_reg_i_21_n_3}),
+        .CYINIT(1'b0),
+        .DI(\hc_reg[9]_0 [4:1]),
+        .O({button_press_reg_i_21_n_4,button_press_reg_i_21_n_5,button_press_reg_i_21_n_6,button_press_reg_i_21_n_7}),
+        .S({button_press_reg_i_43_n_0,button_press_reg_i_44_n_0,button_press_reg_i_45_n_0,button_press_reg_i_46_n_0}));
+  CARRY4 button_press_reg_i_22
+       (.CI(1'b0),
+        .CO({button_press_reg_i_22_n_0,button_press_reg_i_22_n_1,button_press_reg_i_22_n_2,button_press_reg_i_22_n_3}),
+        .CYINIT(1'b1),
+        .DI({\hc_reg[9]_0 [0],drawX}),
+        .O({button_press_reg_i_22_n_4,button_press_reg_i_22_n_5,button_press_reg_i_22_n_6,button_press_reg_i_22_n_7}),
+        .S({button_press_reg_i_47_n_0,button_press_reg_i_48_n_0,button_press_reg_i_49_n_0,button_press_reg_i_50_n_0}));
   LUT2 #(
     .INIT(4'hE)) 
-    button_press_reg_i_36
-       (.I0(\hc_reg[9]_1 [8]),
-        .I1(\hc_reg[9]_1 [7]),
-        .O(button_press_reg_i_36_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair90" *) 
-  LUT5 #(
-    .INIT(32'hEAAAAAAA)) 
-    button_press_reg_i_37
-       (.I0(button_press_reg_i_47_n_0),
-        .I1(\hc_reg[9]_1 [4]),
-        .I2(\hc_reg[9]_1 [6]),
-        .I3(\hc_reg[9]_1 [5]),
-        .I4(\hc_reg[9]_1 [9]),
-        .O(button_press_reg_i_37_n_0));
-  LUT5 #(
-    .INIT(32'h3C69963C)) 
-    button_press_reg_i_39
-       (.I0(player_pos[20]),
-        .I1(\hc_reg[9]_1 [1]),
-        .I2(player_pos[11]),
-        .I3(\hc_reg[9]_1 [0]),
-        .I4(player_pos[10]),
-        .O(\player_pos[20]_2 ));
+    button_press_reg_i_23
+       (.I0(button_press_reg_i_25_n_7),
+        .I1(button_press_reg_i_21_n_4),
+        .O(button_press_reg_i_23_n_0));
+  CARRY4 button_press_reg_i_24
+       (.CI(button_press_reg_i_51_n_0),
+        .CO({button_press_reg_i_24_n_0,button_press_reg_i_24_n_1,button_press_reg_i_24_n_2,button_press_reg_i_24_n_3}),
+        .CYINIT(1'b0),
+        .DI(Q[4:1]),
+        .O({button_press_reg_i_24_n_4,button_press_reg_i_24_n_5,button_press_reg_i_24_n_6,button_press_reg_i_24_n_7}),
+        .S({button_press_reg_i_52_n_0,button_press_reg_i_53_n_0,button_press_reg_i_54_n_0,button_press_reg_i_55_n_0}));
+  CARRY4 button_press_reg_i_25
+       (.CI(button_press_reg_i_21_n_0),
+        .CO({NLW_button_press_reg_i_25_CO_UNCONNECTED[3],button_press_reg_i_25_n_1,NLW_button_press_reg_i_25_CO_UNCONNECTED[1],button_press_reg_i_25_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,\hc_reg[9]_0 [6:5]}),
+        .O({NLW_button_press_reg_i_25_O_UNCONNECTED[3:2],button_press_reg_i_25_n_6,button_press_reg_i_25_n_7}),
+        .S({1'b0,1'b1,button_press_reg_i_56_n_0,button_press_reg_i_57_n_0}));
+  CARRY4 button_press_reg_i_26
+       (.CI(button_press_reg_i_24_n_0),
+        .CO({NLW_button_press_reg_i_26_CO_UNCONNECTED[3],button_press_reg_i_26_n_1,NLW_button_press_reg_i_26_CO_UNCONNECTED[1],button_press_reg_i_26_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,Q[6:5]}),
+        .O({NLW_button_press_reg_i_26_O_UNCONNECTED[3:2],button_press_reg_i_26_n_6,button_press_reg_i_26_n_7}),
+        .S({1'b0,1'b1,button_press_reg_i_58_n_0,button_press_reg_i_59_n_0}));
+  (* SOFT_HLUTNM = "soft_lutpair115" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_27
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(player_pos[14]),
+        .O(button_press_reg_i_27_n_0));
   LUT6 #(
-    .INIT(64'hF66699F69F66999F)) 
-    button_press_reg_i_41
-       (.I0(\hc_reg[9]_1 [2]),
-        .I1(player_pos[12]),
-        .I2(\hc_reg[9]_1 [0]),
-        .I3(\hc_reg[9]_1 [1]),
-        .I4(player_pos[11]),
+    .INIT(64'h2F0240F440F42F02)) 
+    button_press_reg_i_28
+       (.I0(player_pos[10]),
+        .I1(drawX[0]),
+        .I2(drawX[1]),
+        .I3(player_pos[11]),
+        .I4(drawX[2]),
+        .I5(player_pos[12]),
+        .O(button_press_reg_i_28_n_0));
+  LUT6 #(
+    .INIT(64'h2F02FFFF00002F02)) 
+    button_press_reg_i_29
+       (.I0(player_pos[10]),
+        .I1(drawX[0]),
+        .I2(drawX[1]),
+        .I3(player_pos[11]),
+        .I4(drawX[2]),
+        .I5(player_pos[12]),
+        .O(button_press_reg_i_29_n_0));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 button_press_reg_i_30
+       (.CI(1'b0),
+        .CO({button_press_reg_i_30_n_0,button_press_reg_i_30_n_1,button_press_reg_i_30_n_2,button_press_reg_i_30_n_3}),
+        .CYINIT(1'b0),
+        .DI({button_press_reg_i_60_n_0,button_press_reg_i_61_n_0,\vc[1]_i_1_n_0 ,drawY[0]}),
+        .O({button_press_reg_i_30_n_4,button_press_reg_i_30_n_5,button_press_reg_i_30_n_6,button_press_reg_i_30_n_7}),
+        .S({button_press_reg_i_62_n_0,button_press_reg_i_63_n_0,button_press_reg_i_64_n_0,button_press_reg_i_65_n_0}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 button_press_reg_i_31
+       (.CI(button_press_reg_i_30_n_0),
+        .CO({NLW_button_press_reg_i_31_CO_UNCONNECTED[3:1],button_press_reg_i_31_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,\vc_reg[2]_0 }),
+        .O({NLW_button_press_reg_i_31_O_UNCONNECTED[3:2],button_press_reg_i_31_n_6,button_press_reg_i_31_n_7}),
+        .S({1'b0,1'b0,button_press_reg_i_41_0}));
+  MUXF8 button_press_reg_i_32
+       (.I0(button_press_reg_i_69_n_0),
+        .I1(button_press_reg_i_70_n_0),
+        .O(button_press_reg_i_32_n_0),
+        .S(button_press_reg_i_33_n_0));
+  LUT5 #(
+    .INIT(32'h66966966)) 
+    button_press_reg_i_33
+       (.I0(drawX[1]),
+        .I1(player_pos[11]),
+        .I2(drawX[0]),
+        .I3(player_pos[10]),
+        .I4(player_pos[20]),
+        .O(button_press_reg_i_33_n_0));
+  MUXF7 button_press_reg_i_34
+       (.I0(\color_instance/player_data [13]),
+        .I1(\color_instance/player_data [12]),
+        .O(button_press_reg_i_34_n_0),
+        .S(button_press_reg_i_71_n_0));
+  MUXF7 button_press_reg_i_35
+       (.I0(\color_instance/player_data [15]),
+        .I1(\color_instance/player_data [14]),
+        .O(button_press_reg_i_35_n_0),
+        .S(button_press_reg_i_71_n_0));
+  MUXF7 button_press_reg_i_36
+       (.I0(\color_instance/player_data [9]),
+        .I1(\color_instance/player_data [8]),
+        .O(button_press_reg_i_36_n_0),
+        .S(button_press_reg_i_71_n_0));
+  MUXF7 button_press_reg_i_37
+       (.I0(\color_instance/player_data [11]),
+        .I1(\color_instance/player_data [10]),
+        .O(button_press_reg_i_37_n_0),
+        .S(button_press_reg_i_71_n_0));
+  MUXF7 button_press_reg_i_38
+       (.I0(\color_instance/player_data [5]),
+        .I1(\color_instance/player_data [4]),
+        .O(button_press_reg_i_38_n_0),
+        .S(button_press_reg_i_71_n_0));
+  MUXF7 button_press_reg_i_39
+       (.I0(\color_instance/player_data [7]),
+        .I1(\color_instance/player_data [6]),
+        .O(button_press_reg_i_39_n_0),
+        .S(button_press_reg_i_71_n_0));
+  LUT6 #(
+    .INIT(64'h9969696699699969)) 
+    button_press_reg_i_40
+       (.I0(player_pos[12]),
+        .I1(drawX[2]),
+        .I2(player_pos[11]),
+        .I3(drawX[1]),
+        .I4(drawX[0]),
         .I5(player_pos[10]),
+        .O(button_press_reg_i_40_n_0));
+  LUT6 #(
+    .INIT(64'h18601814A06014A0)) 
+    button_press_reg_i_41
+       (.I0(button_press_reg_i_71_n_0),
+        .I1(button_press_reg_i_30_n_5),
+        .I2(button_press_reg_i_30_n_4),
+        .I3(button_press_reg_i_30_n_6),
+        .I4(button_press_reg_i_31_n_7),
+        .I5(button_press_reg_i_30_n_7),
         .O(button_press_reg_i_41_n_0));
   LUT6 #(
-    .INIT(64'hD5FDF5FF40545055)) 
+    .INIT(64'h8828FFFF88280000)) 
     button_press_reg_i_42
-       (.I0(player_pos[12]),
-        .I1(\hc_reg[9]_1 [0]),
-        .I2(\hc_reg[9]_1 [1]),
-        .I3(player_pos[11]),
-        .I4(player_pos[10]),
-        .I5(\hc_reg[9]_1 [2]),
+       (.I0(button_press_reg_i_30_n_4),
+        .I1(button_press_reg_i_30_n_5),
+        .I2(button_press_reg_i_30_n_6),
+        .I3(button_press_reg_i_31_n_7),
+        .I4(button_press_reg_i_71_n_0),
+        .I5(\color_instance/player_data [3]),
         .O(button_press_reg_i_42_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair119" *) 
   LUT2 #(
     .INIT(4'h9)) 
     button_press_reg_i_43
-       (.I0(\hc_reg[9]_1 [4]),
-        .I1(player_pos[14]),
+       (.I0(\hc_reg[9]_0 [4]),
+        .I1(player_pos[17]),
         .O(button_press_reg_i_43_n_0));
-  LUT6 #(
-    .INIT(64'h00000001FFFFFFFF)) 
+  LUT2 #(
+    .INIT(4'h9)) 
     button_press_reg_i_44
-       (.I0(\hc_reg[9]_1 [1]),
-        .I1(\hc_reg[9]_1 [0]),
-        .I2(\hc_reg[9]_1 [2]),
-        .I3(\hc_reg[9]_1 [3]),
-        .I4(\hc_reg[9]_1 [4]),
-        .I5(button_press_reg_i_33_n_0),
+       (.I0(\hc_reg[9]_0 [3]),
+        .I1(player_pos[16]),
         .O(button_press_reg_i_44_n_0));
-  LUT6 #(
-    .INIT(64'h01010101010101FF)) 
+  LUT2 #(
+    .INIT(4'h9)) 
     button_press_reg_i_45
-       (.I0(Q[6]),
-        .I1(Q[7]),
-        .I2(Q[9]),
-        .I3(\hc_reg[9]_1 [6]),
-        .I4(\hc_reg[9]_1 [8]),
-        .I5(\hc_reg[9]_1 [7]),
+       (.I0(\hc_reg[9]_0 [2]),
+        .I1(player_pos[15]),
         .O(button_press_reg_i_45_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair101" *) 
-  LUT3 #(
-    .INIT(8'hF8)) 
+  LUT2 #(
+    .INIT(4'h9)) 
     button_press_reg_i_46
-       (.I0(\hc_reg[9]_1 [4]),
-        .I1(\hc_reg[9]_1 [3]),
-        .I2(\hc_reg[9]_1 [5]),
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(player_pos[14]),
         .O(button_press_reg_i_46_n_0));
-  LUT6 #(
-    .INIT(64'h8000000000000000)) 
+  LUT2 #(
+    .INIT(4'h9)) 
     button_press_reg_i_47
-       (.I0(i__carry_i_9__2_n_0),
-        .I1(Q[3]),
-        .I2(Q[4]),
-        .I3(Q[2]),
-        .I4(Q[6]),
-        .I5(Q[8]),
+       (.I0(\hc_reg[9]_0 [0]),
+        .I1(player_pos[13]),
         .O(button_press_reg_i_47_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_48
+       (.I0(drawX[2]),
+        .I1(player_pos[12]),
+        .O(button_press_reg_i_48_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_49
+       (.I0(drawX[1]),
+        .I1(player_pos[11]),
+        .O(button_press_reg_i_49_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_50
+       (.I0(drawX[0]),
+        .I1(player_pos[10]),
+        .O(button_press_reg_i_50_n_0));
+  CARRY4 button_press_reg_i_51
+       (.CI(1'b0),
+        .CO({button_press_reg_i_51_n_0,button_press_reg_i_51_n_1,button_press_reg_i_51_n_2,button_press_reg_i_51_n_3}),
+        .CYINIT(1'b1),
+        .DI({Q[0],drawY}),
+        .O(NLW_button_press_reg_i_51_O_UNCONNECTED[3:0]),
+        .S({button_press_reg_i_85_n_0,button_press_reg_i_86_n_0,button_press_reg_i_87_n_0,button_press_reg_i_88_n_0}));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_52
+       (.I0(Q[4]),
+        .I1(player_pos[7]),
+        .O(button_press_reg_i_52_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_53
+       (.I0(Q[3]),
+        .I1(player_pos[6]),
+        .O(button_press_reg_i_53_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_54
+       (.I0(Q[2]),
+        .I1(player_pos[5]),
+        .O(button_press_reg_i_54_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_55
+       (.I0(Q[1]),
+        .I1(player_pos[4]),
+        .O(button_press_reg_i_55_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_56
+       (.I0(\hc_reg[9]_0 [6]),
+        .I1(player_pos[19]),
+        .O(button_press_reg_i_56_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_57
+       (.I0(\hc_reg[9]_0 [5]),
+        .I1(player_pos[18]),
+        .O(button_press_reg_i_57_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_58
+       (.I0(Q[6]),
+        .I1(player_pos[9]),
+        .O(button_press_reg_i_58_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_59
+       (.I0(Q[5]),
+        .I1(player_pos[8]),
+        .O(button_press_reg_i_59_n_0));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFF888)) 
+    .INIT(64'hFFFDFFFCFFFDFFFF)) 
+    button_press_reg_i_6
+       (.I0(button_press_reg_i_8_n_0),
+        .I1(button_press_reg_i_9_n_0),
+        .I2(button_press_reg_i_10_n_0),
+        .I3(button_press_reg_i_11_n_0),
+        .I4(button_press_reg_i_12_n_0),
+        .I5(button_press_reg_i_13_n_0),
+        .O(button_press_reg_i_6_n_0));
+  LUT4 #(
+    .INIT(16'h01FE)) 
+    button_press_reg_i_60
+       (.I0(drawY[0]),
+        .I1(drawY[2]),
+        .I2(drawY[1]),
+        .I3(Q[0]),
+        .O(button_press_reg_i_60_n_0));
+  LUT3 #(
+    .INIT(8'h1E)) 
+    button_press_reg_i_61
+       (.I0(drawY[0]),
+        .I1(drawY[1]),
+        .I2(drawY[2]),
+        .O(button_press_reg_i_61_n_0));
+  LUT6 #(
+    .INIT(64'h5556AAA9AAA95556)) 
+    button_press_reg_i_62
+       (.I0(Q[0]),
+        .I1(drawY[1]),
+        .I2(drawY[2]),
+        .I3(drawY[0]),
+        .I4(button_press_reg_i_30_0),
+        .I5(player_pos[3]),
+        .O(button_press_reg_i_62_n_0));
+  LUT6 #(
+    .INIT(64'h9996966666696999)) 
+    button_press_reg_i_63
+       (.I0(drawY[2]),
+        .I1(button_press_reg_i_90_n_0),
+        .I2(player_pos[0]),
+        .I3(anim_sig),
+        .I4(player_pos[1]),
+        .I5(player_pos[2]),
+        .O(button_press_reg_i_63_n_0));
+  LUT4 #(
+    .INIT(16'h6996)) 
+    button_press_reg_i_64
+       (.I0(\vc[1]_i_1_n_0 ),
+        .I1(player_pos[1]),
+        .I2(anim_sig),
+        .I3(player_pos[0]),
+        .O(button_press_reg_i_64_n_0));
+  (* HLUTNM = "lutpair1" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_65
+       (.I0(drawY[0]),
+        .I1(player_pos[0]),
+        .O(button_press_reg_i_65_n_0));
+  LUT5 #(
+    .INIT(32'h0001FFFE)) 
+    button_press_reg_i_66
+       (.I0(drawY[2]),
+        .I1(Q[0]),
+        .I2(drawY[1]),
+        .I3(drawY[0]),
+        .I4(Q[1]),
+        .O(\vc_reg[2]_0 ));
+  MUXF7 button_press_reg_i_69
+       (.I0(\color_instance/player_data [17]),
+        .I1(\color_instance/player_data [16]),
+        .O(button_press_reg_i_69_n_0),
+        .S(button_press_reg_i_71_n_0));
+  LUT6 #(
+    .INIT(64'h0000000000000008)) 
+    button_press_reg_i_7
+       (.I0(vga_to_hdmi_i_69_n_0),
+        .I1(\hc_reg[9]_0 [3]),
+        .I2(\hc_reg[9]_0 [1]),
+        .I3(\hc_reg[9]_0 [2]),
+        .I4(button_press_reg_i_14_n_0),
+        .I5(vga_to_hdmi_i_71_n_0),
+        .O(button_press_reg_i_7_n_0));
+  MUXF7 button_press_reg_i_70
+       (.I0(\color_instance/player_data [19]),
+        .I1(\color_instance/player_data [18]),
+        .O(button_press_reg_i_70_n_0),
+        .S(button_press_reg_i_71_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_71
+       (.I0(drawX[0]),
+        .I1(player_pos[10]),
+        .O(button_press_reg_i_71_n_0));
+  LUT6 #(
+    .INIT(64'hAEFFAEAEAEAEEFEE)) 
+    button_press_reg_i_72
+       (.I0(button_press_reg_i_30_n_4),
+        .I1(button_press_reg_i_31_n_6),
+        .I2(button_press_reg_i_30_n_7),
+        .I3(button_press_reg_i_31_n_7),
+        .I4(button_press_reg_i_30_n_5),
+        .I5(button_press_reg_i_30_n_6),
+        .O(\color_instance/player_data [13]));
+  LUT6 #(
+    .INIT(64'hAFEFEFEFAAEEEEFE)) 
+    button_press_reg_i_73
+       (.I0(button_press_reg_i_30_n_4),
+        .I1(button_press_reg_i_31_n_6),
+        .I2(button_press_reg_i_31_n_7),
+        .I3(button_press_reg_i_30_n_7),
+        .I4(button_press_reg_i_30_n_6),
+        .I5(button_press_reg_i_30_n_5),
+        .O(\color_instance/player_data [12]));
+  LUT5 #(
+    .INIT(32'hF0F7FBFF)) 
+    button_press_reg_i_74
+       (.I0(button_press_reg_i_30_n_6),
+        .I1(button_press_reg_i_30_n_7),
+        .I2(button_press_reg_i_30_n_4),
+        .I3(button_press_reg_i_30_n_5),
+        .I4(button_press_reg_i_31_n_7),
+        .O(\color_instance/player_data [15]));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFDCDCCECF)) 
+    button_press_reg_i_75
+       (.I0(button_press_reg_i_31_n_7),
+        .I1(button_press_reg_i_30_n_4),
+        .I2(button_press_reg_i_30_n_6),
+        .I3(button_press_reg_i_30_n_7),
+        .I4(button_press_reg_i_30_n_5),
+        .I5(button_press_reg_i_31_n_6),
+        .O(\color_instance/player_data [14]));
+  LUT6 #(
+    .INIT(64'hFCFDEEEFFCFFEFFE)) 
+    button_press_reg_i_76
+       (.I0(button_press_reg_i_31_n_6),
+        .I1(button_press_reg_i_30_n_4),
+        .I2(button_press_reg_i_30_n_5),
+        .I3(button_press_reg_i_31_n_7),
+        .I4(button_press_reg_i_30_n_6),
+        .I5(button_press_reg_i_30_n_7),
+        .O(\color_instance/player_data [9]));
+  LUT6 #(
+    .INIT(64'hFFFEFFF4FFAEFF0E)) 
+    button_press_reg_i_77
+       (.I0(button_press_reg_i_31_n_7),
+        .I1(button_press_reg_i_31_n_6),
+        .I2(button_press_reg_i_30_n_5),
+        .I3(button_press_reg_i_30_n_4),
+        .I4(button_press_reg_i_30_n_7),
+        .I5(button_press_reg_i_30_n_6),
+        .O(\color_instance/player_data [8]));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF655F755E)) 
+    button_press_reg_i_78
+       (.I0(button_press_reg_i_31_n_7),
+        .I1(button_press_reg_i_30_n_5),
+        .I2(button_press_reg_i_30_n_6),
+        .I3(button_press_reg_i_30_n_7),
+        .I4(button_press_reg_i_31_n_6),
+        .I5(button_press_reg_i_30_n_4),
+        .O(\color_instance/player_data [11]));
+  LUT6 #(
+    .INIT(64'hFFFFFFA5FFFFFF7E)) 
+    button_press_reg_i_79
+       (.I0(button_press_reg_i_30_n_7),
+        .I1(button_press_reg_i_31_n_6),
+        .I2(button_press_reg_i_30_n_6),
+        .I3(button_press_reg_i_30_n_5),
+        .I4(button_press_reg_i_30_n_4),
+        .I5(button_press_reg_i_31_n_7),
+        .O(\color_instance/player_data [10]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     button_press_reg_i_8
-       (.I0(button_press_reg_i_11_n_0),
-        .I1(button_press_reg_i_12_n_0),
-        .I2(button_press_reg_i_13_n_0),
-        .I3(button_press431_in),
-        .I4(button_press_reg_i_15_n_0),
-        .I5(button_press_reg_i_16_n_0),
+       (.I0(button_press_reg_i_15_n_0),
+        .I1(button_press_reg_i_16_n_0),
+        .I2(button_press_reg_i_17_n_0),
+        .I3(button_press_reg_i_18_n_0),
+        .I4(button_press_reg_i_19_n_0),
+        .I5(button_press_reg_i_20_n_0),
         .O(button_press_reg_i_8_n_0));
   LUT6 #(
-    .INIT(64'h1000000000000000)) 
+    .INIT(64'hC0EAF0EAEAABEEEE)) 
+    button_press_reg_i_80
+       (.I0(button_press_reg_i_31_n_6),
+        .I1(button_press_reg_i_30_n_5),
+        .I2(button_press_reg_i_30_n_4),
+        .I3(button_press_reg_i_30_n_7),
+        .I4(button_press_reg_i_31_n_7),
+        .I5(button_press_reg_i_30_n_6),
+        .O(\color_instance/player_data [5]));
+  LUT6 #(
+    .INIT(64'hF4D0F0FFF4D00000)) 
+    button_press_reg_i_81
+       (.I0(button_press_reg_i_31_n_7),
+        .I1(button_press_reg_i_30_n_7),
+        .I2(button_press_reg_i_30_n_5),
+        .I3(button_press_reg_i_30_n_6),
+        .I4(button_press_reg_i_30_n_4),
+        .I5(button_press_reg_i_31_n_6),
+        .O(\color_instance/player_data [4]));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFEEB6)) 
+    button_press_reg_i_82
+       (.I0(button_press_reg_i_31_n_7),
+        .I1(button_press_reg_i_30_n_6),
+        .I2(button_press_reg_i_30_n_7),
+        .I3(button_press_reg_i_30_n_5),
+        .I4(button_press_reg_i_31_n_6),
+        .I5(button_press_reg_i_30_n_4),
+        .O(\color_instance/player_data [7]));
+  LUT6 #(
+    .INIT(64'hDFDDEFEFFDFFCEFE)) 
+    button_press_reg_i_83
+       (.I0(button_press_reg_i_30_n_7),
+        .I1(button_press_reg_i_31_n_6),
+        .I2(button_press_reg_i_31_n_7),
+        .I3(button_press_reg_i_30_n_4),
+        .I4(button_press_reg_i_30_n_5),
+        .I5(button_press_reg_i_30_n_6),
+        .O(\color_instance/player_data [6]));
+  LUT6 #(
+    .INIT(64'h90A090A0A02FA020)) 
+    button_press_reg_i_84
+       (.I0(button_press_reg_i_30_n_5),
+        .I1(button_press_reg_i_31_n_7),
+        .I2(button_press_reg_i_30_n_4),
+        .I3(button_press_reg_i_30_n_7),
+        .I4(button_press_reg_i_31_n_6),
+        .I5(button_press_reg_i_30_n_6),
+        .O(\color_instance/player_data [3]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_85
+       (.I0(Q[0]),
+        .I1(player_pos[3]),
+        .O(button_press_reg_i_85_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_86
+       (.I0(drawY[2]),
+        .I1(player_pos[2]),
+        .O(button_press_reg_i_86_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_87
+       (.I0(drawY[1]),
+        .I1(player_pos[1]),
+        .O(button_press_reg_i_87_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    button_press_reg_i_88
+       (.I0(drawY[0]),
+        .I1(player_pos[0]),
+        .O(button_press_reg_i_88_n_0));
+  LUT5 #(
+    .INIT(32'hAAA88888)) 
     button_press_reg_i_9
-       (.I0(button_press_reg_i_17_n_0),
-        .I1(button_press_reg_i_18_n_0),
-        .I2(button_press_reg_i_19_n_0),
-        .I3(Q[5]),
-        .I4(Q[7]),
-        .I5(button_press_reg_i_20_n_0),
-        .O(button_press017_out));
+       (.I0(button_press_reg_i_21_n_7),
+        .I1(button_press_reg_i_22_n_4),
+        .I2(button_press_reg_i_22_n_6),
+        .I3(button_press_reg_i_22_n_7),
+        .I4(button_press_reg_i_22_n_5),
+        .O(button_press_reg_i_9_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair109" *) 
+  LUT2 #(
+    .INIT(4'h1)) 
+    button_press_reg_i_90
+       (.I0(drawY[1]),
+        .I1(drawY[0]),
+        .O(button_press_reg_i_90_n_0));
+  LUT6 #(
+    .INIT(64'h77707777FFF3FFFF)) 
+    button_press_reg_i_92
+       (.I0(button_press_reg_i_31_n_6),
+        .I1(button_press_reg_i_30_n_7),
+        .I2(button_press_reg_i_30_n_4),
+        .I3(button_press_reg_i_30_n_5),
+        .I4(button_press_reg_i_31_n_7),
+        .I5(button_press_reg_i_30_n_6),
+        .O(\color_instance/player_data [17]));
+  LUT5 #(
+    .INIT(32'hFFFFFFFE)) 
+    button_press_reg_i_93
+       (.I0(button_press_reg_i_31_n_7),
+        .I1(button_press_reg_i_31_n_6),
+        .I2(button_press_reg_i_30_n_5),
+        .I3(button_press_reg_i_30_n_6),
+        .I4(button_press_reg_i_30_n_4),
+        .O(\color_instance/player_data [16]));
+  LUT6 #(
+    .INIT(64'hEEEE66EEFFFEEEFE)) 
+    button_press_reg_i_94
+       (.I0(button_press_reg_i_30_n_4),
+        .I1(button_press_reg_i_30_n_5),
+        .I2(button_press_reg_i_31_n_6),
+        .I3(button_press_reg_i_30_n_6),
+        .I4(button_press_reg_i_31_n_7),
+        .I5(button_press_reg_i_30_n_7),
+        .O(\color_instance/player_data [19]));
+  LUT5 #(
+    .INIT(32'hFFFFF6FF)) 
+    button_press_reg_i_95
+       (.I0(button_press_reg_i_31_n_6),
+        .I1(button_press_reg_i_30_n_6),
+        .I2(button_press_reg_i_30_n_5),
+        .I3(button_press_reg_i_30_n_7),
+        .I4(button_press_reg_i_30_n_4),
+        .O(\color_instance/player_data [18]));
+  (* SOFT_HLUTNM = "soft_lutpair112" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
+    g0_b0__4_i_1
+       (.I0(Q[0]),
+        .I1(g0_b0__6_i_6[0]),
+        .O(sel));
+  LUT6 #(
+    .INIT(64'hFFFF7FFF3FFFFFFF)) 
+    g0_b0__4_i_11
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .I2(g0_b0__6_i_6[1]),
+        .I3(Q[2]),
+        .I4(g0_b0__6_i_6[0]),
+        .I5(g0_b0__6_i_6[2]),
+        .O(\vc_reg[3]_2 ));
+  LUT6 #(
+    .INIT(64'hFF969696F6969690)) 
+    g0_b0__4_i_13
+       (.I0(Q[2]),
+        .I1(g0_b0__6_i_6[2]),
+        .I2(g0_b0__6_i_6[0]),
+        .I3(g0_b0__6_i_6[1]),
+        .I4(Q[1]),
+        .I5(Q[0]),
+        .O(g0_b0__4_i_13_n_0));
+  LUT6 #(
+    .INIT(64'h2841414121414147)) 
+    g0_b0__4_i_7
+       (.I0(Q[2]),
+        .I1(g0_b0__6_i_6[2]),
+        .I2(g0_b0__6_i_6[0]),
+        .I3(g0_b0__6_i_6[1]),
+        .I4(Q[1]),
+        .I5(Q[0]),
+        .O(\vc_reg[5]_1 ));
+  LUT6 #(
+    .INIT(64'hA2A2A0A2A0A2A2A2)) 
+    g0_b0__4_i_8
+       (.I0(\vc_reg[3]_2 ),
+        .I1(g0_b0__4_i_13_n_0),
+        .I2(g0_b0__4_i_6),
+        .I3(Q[2]),
+        .I4(g0_b0__6_i_6[0]),
+        .I5(g0_b0__6_i_6[2]),
+        .O(\vc_reg[5]_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair112" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
+    g0_b0__5_i_1
+       (.I0(Q[0]),
+        .I1(g0_b0__6_i_6[3]),
+        .O(\vc_reg[3]_0 ));
+  LUT6 #(
+    .INIT(64'hFFF6969696969690)) 
+    g0_b0__5_i_8
+       (.I0(Q[2]),
+        .I1(g0_b0__6_i_6[5]),
+        .I2(g0_b0__6_i_6[3]),
+        .I3(Q[0]),
+        .I4(g0_b0__6_i_6[4]),
+        .I5(Q[1]),
+        .O(\vc_reg[5]_2 ));
+  (* SOFT_HLUTNM = "soft_lutpair113" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
+    g0_b0__6_i_1
+       (.I0(Q[0]),
+        .I1(g0_b0__6_i_6[6]),
+        .O(\vc_reg[3]_1 ));
+  LUT6 #(
+    .INIT(64'hFFFF7FFF3FFFFFFF)) 
+    g0_b0__6_i_11
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .I2(g0_b0__6_i_6[7]),
+        .I3(Q[2]),
+        .I4(g0_b0__6_i_6[6]),
+        .I5(g0_b0__6_i_6[8]),
+        .O(\vc_reg[3]_3 ));
+  LUT6 #(
+    .INIT(64'hFF969696F6969690)) 
+    g0_b0__6_i_13
+       (.I0(Q[2]),
+        .I1(g0_b0__6_i_6[8]),
+        .I2(g0_b0__6_i_6[6]),
+        .I3(g0_b0__6_i_6[7]),
+        .I4(Q[1]),
+        .I5(Q[0]),
+        .O(g0_b0__6_i_13_n_0));
+  LUT6 #(
+    .INIT(64'h2841414121414147)) 
+    g0_b0__6_i_7
+       (.I0(Q[2]),
+        .I1(g0_b0__6_i_6[8]),
+        .I2(g0_b0__6_i_6[6]),
+        .I3(g0_b0__6_i_6[7]),
+        .I4(Q[1]),
+        .I5(Q[0]),
+        .O(\vc_reg[5]_4 ));
+  LUT6 #(
+    .INIT(64'hA2A2A0A2A0A2A2A2)) 
+    g0_b0__6_i_8
+       (.I0(\vc_reg[3]_3 ),
+        .I1(g0_b0__6_i_13_n_0),
+        .I2(g0_b0__6_i_6_0),
+        .I3(Q[2]),
+        .I4(g0_b0__6_i_6[6]),
+        .I5(g0_b0__6_i_6[8]),
+        .O(\vc_reg[5]_3 ));
   LUT6 #(
     .INIT(64'h000000800000FFFF)) 
-    g0_b0__3
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(g0_b0__3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair121" *) 
+    g0_b0__7
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g0_b0__7_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair110" *) 
   LUT2 #(
     .INIT(4'h8)) 
-    g0_b0__3_i_1
-       (.I0(block_addr1),
+    g0_b0__7_i_1
+       (.I0(\vc_reg[9]_0 ),
+        .I1(drawY[0]),
+        .O(g0_b0__7_i_1_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair110" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    g0_b0__7_i_2
+       (.I0(\vc_reg[9]_0 ),
+        .I1(drawY[1]),
+        .O(g0_b0__7_i_2_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair111" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    g0_b0__7_i_3
+       (.I0(\vc_reg[9]_0 ),
+        .I1(drawY[2]),
+        .O(g0_b0__7_i_3_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair111" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    g0_b0__7_i_4
+       (.I0(\vc_reg[9]_0 ),
         .I1(Q[0]),
-        .O(\color_instance/sel [0]));
-  (* SOFT_HLUTNM = "soft_lutpair120" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    g0_b0__3_i_2
-       (.I0(block_addr1),
+        .O(g0_b0__7_i_4_n_0));
+  LUT6 #(
+    .INIT(64'h0024FFFFE7FFBFFF)) 
+    g0_b0__8
+       (.I0(Q[0]),
         .I1(Q[1]),
-        .O(\color_instance/sel [1]));
-  (* SOFT_HLUTNM = "soft_lutpair120" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    g0_b0__3_i_3
-       (.I0(block_addr1),
-        .I1(Q[2]),
-        .O(\color_instance/sel [2]));
-  (* SOFT_HLUTNM = "soft_lutpair105" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    g0_b0__3_i_4
-       (.I0(block_addr1),
+        .I2(DI[1]),
+        .I3(g0_b0__8_i_1_n_0),
+        .I4(g0_b0__8_i_2_n_0),
+        .I5(g0_b0__8_i_3_n_0),
+        .O(g0_b0__8_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair86" *) 
+  LUT5 #(
+    .INIT(32'h3396CCC3)) 
+    g0_b0__8_i_1
+       (.I0(Q[0]),
         .I1(Q[3]),
-        .O(\color_instance/sel [3]));
+        .I2(Q[2]),
+        .I3(Q[1]),
+        .I4(DI[1]),
+        .O(g0_b0__8_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h33170003CCE8FFFC)) 
+    g0_b0__8_i_2
+       (.I0(Q[0]),
+        .I1(Q[3]),
+        .I2(Q[2]),
+        .I3(Q[1]),
+        .I4(DI[1]),
+        .I5(Q[4]),
+        .O(g0_b0__8_i_2_n_0));
+  LUT6 #(
+    .INIT(64'hFFFF00004FFFB000)) 
+    g0_b0__8_i_3
+       (.I0(Q[1]),
+        .I1(Q[0]),
+        .I2(DI[1]),
+        .I3(\vc_reg[6]_0 ),
+        .I4(\vc_reg[8]_0 ),
+        .I5(\vc_reg[7]_0 ),
+        .O(g0_b0__8_i_3_n_0));
   LUT6 #(
     .INIT(64'hFFE00FF80000FFFF)) 
     g0_b10
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_6 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g0_b10_n_0));
   LUT6 #(
     .INIT(64'hFF800FF80000FFFF)) 
     g0_b11
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_7 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g0_b11_n_0));
   LUT6 #(
     .INIT(64'hFC001FFC0000FFFF)) 
     g0_b12
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_8 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g0_b12_n_0));
   LUT6 #(
     .INIT(64'hF0003FFE0000FFFF)) 
     g0_b13
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_9 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g0_b13_n_0));
   LUT6 #(
     .INIT(64'hE0003FFE0000FFFF)) 
     g0_b14
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_10 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g0_b14_n_0));
   LUT6 #(
     .INIT(64'h00003FF60000FFFF)) 
     g0_b15
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
         .O(g0_b15_n_0));
   LUT6 #(
+    .INIT(64'h00007A29C5859A22)) 
+    g0_b1__7
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .I2(DI[1]),
+        .I3(g0_b0__8_i_1_n_0),
+        .I4(g0_b0__8_i_2_n_0),
+        .I5(g0_b0__8_i_3_n_0),
+        .O(g0_b1__7_n_0));
+  LUT6 #(
     .INIT(64'hE00001C00000FFFF)) 
-    g0_b2__3
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_1 ));
+    g0_b2__7
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g0_b2__7_n_0));
+  LUT6 #(
+    .INIT(64'h0000FF2DDDC7DA2F)) 
+    g0_b2__8
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .I2(DI[1]),
+        .I3(g0_b0__8_i_1_n_0),
+        .I4(g0_b0__8_i_2_n_0),
+        .I5(g0_b0__8_i_3_n_0),
+        .O(g0_b2__8_n_0));
   LUT6 #(
     .INIT(64'hF00001C00000FFFF)) 
     g0_b3
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_2 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g0_b3_n_0));
   LUT6 #(
     .INIT(64'hFC0001C00000FFFF)) 
     g0_b4
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_3 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g0_b4_n_0));
   LUT6 #(
     .INIT(64'hFF8003E00000FFFF)) 
     g0_b5
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_4 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g0_b5_n_0));
   LUT6 #(
     .INIT(64'hFFE003E00000FFFF)) 
     g0_b6
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_5 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g0_b6_n_0));
   LUT6 #(
     .INIT(64'hFFFC07F00000FFFF)) 
     g0_b7
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
         .O(g0_b7_n_0));
   LUT6 #(
     .INIT(64'hFFFF07F00000FFFF)) 
     g0_b8
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
         .O(g0_b8_n_0));
   LUT6 #(
     .INIT(64'h0000000000007FFC)) 
     g1_b0
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
         .O(g1_b0_n_0));
   LUT6 #(
     .INIT(64'h0000000000077FFC)) 
     g1_b1
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
         .O(g1_b1_n_0));
   LUT6 #(
     .INIT(64'h0000000001FF07C0)) 
     g1_b10
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_16 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g1_b10_n_0));
   LUT6 #(
     .INIT(64'h00000000003F0380)) 
     g1_b11
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_17 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g1_b11_n_0));
   LUT6 #(
     .INIT(64'h00000000000F0380)) 
     g1_b12
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_18 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g1_b12_n_0));
   LUT6 #(
     .INIT(64'h0000000000070380)) 
     g1_b13
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_19 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g1_b13_n_0));
   LUT6 #(
     .INIT(64'h0000000000000100)) 
     g1_b15
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_20 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g1_b15_n_0));
   LUT6 #(
     .INIT(64'h00000000000F7FFC)) 
     g1_b2
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_11 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g1_b2_n_0));
   LUT6 #(
     .INIT(64'h00000000003F3FF8)) 
     g1_b3
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_12 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g1_b3_n_0));
   LUT6 #(
     .INIT(64'h0000000001FF1FF0)) 
     g1_b4
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_13 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g1_b4_n_0));
   LUT6 #(
     .INIT(64'h0000000007FF1FF0)) 
     g1_b5
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_14 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g1_b5_n_0));
   LUT6 #(
     .INIT(64'h000000003FFF0FE0)) 
     g1_b6
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
-        .O(\vc_reg[0]_15 ));
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
+        .O(g1_b6_n_0));
   LUT6 #(
     .INIT(64'h00000000FFFF0FE0)) 
     g1_b7
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
         .O(g1_b7_n_0));
   LUT6 #(
     .INIT(64'h0000000007FF07C0)) 
     g1_b9
-       (.I0(\color_instance/sel [0]),
-        .I1(\color_instance/sel [1]),
-        .I2(\color_instance/sel [2]),
-        .I3(\color_instance/sel [3]),
-        .I4(ball_on_reg_i_3_0[0]),
-        .I5(ball_on_reg_i_3_0[1]),
+       (.I0(g0_b0__7_i_1_n_0),
+        .I1(g0_b0__7_i_2_n_0),
+        .I2(g0_b0__7_i_3_n_0),
+        .I3(g0_b0__7_i_4_n_0),
+        .I4(ball_on_reg_i_12_0),
+        .I5(ball_on_reg_i_12_1),
         .O(g1_b9_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair118" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+  LUT1 #(
+    .INIT(2'h1)) 
     \hc[0]_i_1 
-       (.I0(\hc[9]_i_2_n_0 ),
-        .I1(\hc_reg[9]_1 [0]),
+       (.I0(drawX[0]),
         .O(hc[0]));
-  (* SOFT_HLUTNM = "soft_lutpair118" *) 
-  LUT3 #(
-    .INIT(8'h28)) 
+  (* SOFT_HLUTNM = "soft_lutpair105" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
     \hc[1]_i_1 
-       (.I0(\hc[9]_i_2_n_0 ),
-        .I1(\hc_reg[9]_1 [1]),
-        .I2(\hc_reg[9]_1 [0]),
+       (.I0(drawX[0]),
+        .I1(drawX[1]),
         .O(hc[1]));
-  (* SOFT_HLUTNM = "soft_lutpair97" *) 
-  LUT4 #(
-    .INIT(16'h2888)) 
+  (* SOFT_HLUTNM = "soft_lutpair84" *) 
+  LUT3 #(
+    .INIT(8'h6A)) 
     \hc[2]_i_1 
-       (.I0(\hc[9]_i_2_n_0 ),
-        .I1(\hc_reg[9]_1 [2]),
-        .I2(\hc_reg[9]_1 [0]),
-        .I3(\hc_reg[9]_1 [1]),
+       (.I0(drawX[2]),
+        .I1(drawX[0]),
+        .I2(drawX[1]),
         .O(hc[2]));
-  (* SOFT_HLUTNM = "soft_lutpair97" *) 
-  LUT5 #(
-    .INIT(32'h28888888)) 
-    \hc[3]_i_1 
-       (.I0(\hc[9]_i_2_n_0 ),
-        .I1(\hc_reg[9]_1 [3]),
-        .I2(\hc_reg[9]_1 [2]),
-        .I3(\hc_reg[9]_1 [1]),
-        .I4(\hc_reg[9]_1 [0]),
-        .O(hc[3]));
-  LUT6 #(
-    .INIT(64'h2888888888888888)) 
-    \hc[4]_i_1 
-       (.I0(\hc[9]_i_2_n_0 ),
-        .I1(\hc_reg[9]_1 [4]),
-        .I2(\hc_reg[9]_1 [3]),
-        .I3(\hc_reg[9]_1 [0]),
-        .I4(\hc_reg[9]_1 [1]),
-        .I5(\hc_reg[9]_1 [2]),
-        .O(hc[4]));
-  (* SOFT_HLUTNM = "soft_lutpair98" *) 
-  LUT4 #(
-    .INIT(16'h2888)) 
-    \hc[5]_i_1 
-       (.I0(\hc[9]_i_2_n_0 ),
-        .I1(\hc_reg[9]_1 [5]),
-        .I2(\hc[7]_i_2_n_0 ),
-        .I3(\hc_reg[9]_1 [4]),
-        .O(hc[5]));
-  (* SOFT_HLUTNM = "soft_lutpair98" *) 
-  LUT5 #(
-    .INIT(32'h28888888)) 
-    \hc[6]_i_1 
-       (.I0(\hc[9]_i_2_n_0 ),
-        .I1(\hc_reg[9]_1 [6]),
-        .I2(\hc_reg[9]_1 [5]),
-        .I3(\hc_reg[9]_1 [4]),
-        .I4(\hc[7]_i_2_n_0 ),
-        .O(hc[6]));
-  LUT6 #(
-    .INIT(64'h2888888888888888)) 
-    \hc[7]_i_1 
-       (.I0(\hc[9]_i_2_n_0 ),
-        .I1(\hc_reg[9]_1 [7]),
-        .I2(\hc[7]_i_2_n_0 ),
-        .I3(\hc_reg[9]_1 [4]),
-        .I4(\hc_reg[9]_1 [5]),
-        .I5(\hc_reg[9]_1 [6]),
-        .O(hc[7]));
-  (* SOFT_HLUTNM = "soft_lutpair112" *) 
-  LUT4 #(
-    .INIT(16'h8000)) 
-    \hc[7]_i_2 
-       (.I0(\hc_reg[9]_1 [3]),
-        .I1(\hc_reg[9]_1 [0]),
-        .I2(\hc_reg[9]_1 [1]),
-        .I3(\hc_reg[9]_1 [2]),
-        .O(\hc[7]_i_2_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair99" *) 
+  LUT4 #(
+    .INIT(16'h6AAA)) 
+    \hc[3]_i_1 
+       (.I0(\hc_reg[9]_0 [0]),
+        .I1(drawX[1]),
+        .I2(drawX[0]),
+        .I3(drawX[2]),
+        .O(hc[3]));
+  (* SOFT_HLUTNM = "soft_lutpair74" *) 
   LUT5 #(
-    .INIT(32'h82888888)) 
+    .INIT(32'h6AAAAAAA)) 
+    \hc[4]_i_1 
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(\hc_reg[9]_0 [0]),
+        .I2(drawX[1]),
+        .I3(drawX[0]),
+        .I4(drawX[2]),
+        .O(\hc[4]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000FFFFFFF70000)) 
+    \hc[5]_i_1 
+       (.I0(\hc_reg[9]_0 [6]),
+        .I1(\hc_reg[9]_0 [5]),
+        .I2(\hc_reg[9]_0 [4]),
+        .I3(\hc_reg[9]_0 [3]),
+        .I4(\hc[9]_i_2_n_0 ),
+        .I5(\hc_reg[9]_0 [2]),
+        .O(hc[5]));
+  (* SOFT_HLUTNM = "soft_lutpair104" *) 
+  LUT3 #(
+    .INIT(8'h6A)) 
+    \hc[6]_i_1 
+       (.I0(\hc_reg[9]_0 [3]),
+        .I1(\hc[9]_i_2_n_0 ),
+        .I2(\hc_reg[9]_0 [2]),
+        .O(hc[6]));
+  (* SOFT_HLUTNM = "soft_lutpair104" *) 
+  LUT4 #(
+    .INIT(16'h6AAA)) 
+    \hc[7]_i_1 
+       (.I0(\hc_reg[9]_0 [4]),
+        .I1(\hc_reg[9]_0 [2]),
+        .I2(\hc_reg[9]_0 [3]),
+        .I3(\hc[9]_i_2_n_0 ),
+        .O(hc[7]));
+  LUT6 #(
+    .INIT(64'h6AAAAAA26AAAAAAA)) 
     \hc[8]_i_1 
-       (.I0(\hc[9]_i_2_n_0 ),
-        .I1(\hc_reg[9]_1 [8]),
-        .I2(\hc[9]_i_3_n_0 ),
-        .I3(\hc_reg[9]_1 [7]),
-        .I4(\hc_reg[9]_1 [6]),
+       (.I0(\hc_reg[9]_0 [5]),
+        .I1(\hc[9]_i_2_n_0 ),
+        .I2(\hc_reg[9]_0 [3]),
+        .I3(\hc_reg[9]_0 [2]),
+        .I4(\hc_reg[9]_0 [4]),
+        .I5(\hc_reg[9]_0 [6]),
         .O(hc[8]));
   LUT6 #(
-    .INIT(64'h8888288888888888)) 
+    .INIT(64'h6AAAAAAAAAA2AAAA)) 
     \hc[9]_i_1 
-       (.I0(\hc[9]_i_2_n_0 ),
-        .I1(\hc_reg[9]_1 [9]),
-        .I2(\hc_reg[9]_1 [6]),
-        .I3(\hc_reg[9]_1 [7]),
-        .I4(\hc[9]_i_3_n_0 ),
-        .I5(\hc_reg[9]_1 [8]),
+       (.I0(\hc_reg[9]_0 [6]),
+        .I1(\hc_reg[9]_0 [5]),
+        .I2(\hc_reg[9]_0 [4]),
+        .I3(\hc_reg[9]_0 [3]),
+        .I4(\hc[9]_i_2_n_0 ),
+        .I5(\hc_reg[9]_0 [2]),
         .O(hc[9]));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFBF)) 
-    \hc[9]_i_2 
-       (.I0(\hc[9]_i_4_n_0 ),
-        .I1(\hc_reg[9]_1 [2]),
-        .I2(\hc_reg[9]_1 [1]),
-        .I3(\hc_reg[9]_1 [7]),
-        .I4(\hc_reg[9]_1 [5]),
-        .I5(\hc[9]_i_5_n_0 ),
-        .O(\hc[9]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'h7FFFFFFFFFFFFFFF)) 
-    \hc[9]_i_3 
-       (.I0(\hc_reg[9]_1 [5]),
-        .I1(\hc_reg[9]_1 [4]),
-        .I2(\hc_reg[9]_1 [2]),
-        .I3(\hc_reg[9]_1 [1]),
-        .I4(\hc_reg[9]_1 [0]),
-        .I5(\hc_reg[9]_1 [3]),
-        .O(\hc[9]_i_3_n_0 ));
-  LUT6 #(
-    .INIT(64'h5D5DFF5DFF5DFF5D)) 
-    \hc[9]_i_4 
-       (.I0(\hc_reg[9]_1 [8]),
-        .I1(\hc_reg[9]_1 [6]),
-        .I2(\hc_reg[9]_1 [7]),
-        .I3(\hc_reg[9]_1 [2]),
-        .I4(\hc_reg[9]_1 [0]),
-        .I5(\hc_reg[9]_1 [1]),
-        .O(\hc[9]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair100" *) 
+  (* SOFT_HLUTNM = "soft_lutpair74" *) 
   LUT5 #(
-    .INIT(32'h57FFFFFF)) 
-    \hc[9]_i_5 
-       (.I0(\hc_reg[9]_1 [9]),
-        .I1(\hc_reg[9]_1 [3]),
-        .I2(\hc_reg[9]_1 [5]),
-        .I3(\hc_reg[9]_1 [8]),
-        .I4(\hc_reg[9]_1 [4]),
-        .O(\hc[9]_i_5_n_0 ));
+    .INIT(32'h80000000)) 
+    \hc[9]_i_2 
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(\hc_reg[9]_0 [0]),
+        .I2(drawX[1]),
+        .I3(drawX[0]),
+        .I4(drawX[2]),
+        .O(\hc[9]_i_2_n_0 ));
   FDCE \hc_reg[0] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(reset_ah),
         .D(hc[0]),
-        .Q(\hc_reg[9]_1 [0]));
+        .Q(drawX[0]));
   FDCE \hc_reg[1] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(reset_ah),
         .D(hc[1]),
-        .Q(\hc_reg[9]_1 [1]));
+        .Q(drawX[1]));
   FDCE \hc_reg[2] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(reset_ah),
         .D(hc[2]),
-        .Q(\hc_reg[9]_1 [2]));
+        .Q(drawX[2]));
   FDCE \hc_reg[3] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(reset_ah),
         .D(hc[3]),
-        .Q(\hc_reg[9]_1 [3]));
+        .Q(\hc_reg[9]_0 [0]));
   FDCE \hc_reg[4] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(reset_ah),
-        .D(hc[4]),
-        .Q(\hc_reg[9]_1 [4]));
+        .D(\hc[4]_i_1_n_0 ),
+        .Q(\hc_reg[9]_0 [1]));
   FDCE \hc_reg[5] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(reset_ah),
         .D(hc[5]),
-        .Q(\hc_reg[9]_1 [5]));
+        .Q(\hc_reg[9]_0 [2]));
   FDCE \hc_reg[6] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(reset_ah),
         .D(hc[6]),
-        .Q(\hc_reg[9]_1 [6]));
+        .Q(\hc_reg[9]_0 [3]));
   FDCE \hc_reg[7] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(reset_ah),
         .D(hc[7]),
-        .Q(\hc_reg[9]_1 [7]));
+        .Q(\hc_reg[9]_0 [4]));
   FDCE \hc_reg[8] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(reset_ah),
         .D(hc[8]),
-        .Q(\hc_reg[9]_1 [8]));
+        .Q(\hc_reg[9]_0 [5]));
   FDCE \hc_reg[9] 
        (.C(CLK),
         .CE(1'b1),
         .CLR(reset_ah),
         .D(hc[9]),
-        .Q(\hc_reg[9]_1 [9]));
+        .Q(\hc_reg[9]_0 [6]));
   LUT6 #(
-    .INIT(64'hFFBEBEBEBEBEBEFF)) 
+    .INIT(64'hFFFFFFFF0800F7FF)) 
     hs_i_1
-       (.I0(hs_i_2_n_0),
-        .I1(\hc_reg[9]_1 [9]),
-        .I2(hs_i_3_n_0),
-        .I3(data0[4]),
-        .I4(data0[6]),
-        .I5(data0[5]),
-        .O(p_0_in__0));
-  LUT6 #(
-    .INIT(64'hEBBBBBBBBBBBBBBB)) 
-    hs_i_2
-       (.I0(\hc_reg[9]_1 [8]),
-        .I1(\hc_reg[9]_1 [7]),
-        .I2(\hc[7]_i_2_n_0 ),
-        .I3(\hc_reg[9]_1 [4]),
-        .I4(\hc_reg[9]_1 [5]),
-        .I5(\hc_reg[9]_1 [6]),
-        .O(hs_i_2_n_0));
-  LUT6 #(
-    .INIT(64'h7FFFFFFFFFFFFFFF)) 
-    hs_i_3
-       (.I0(\hc_reg[9]_1 [6]),
-        .I1(\hc_reg[9]_1 [7]),
-        .I2(\hc_reg[9]_1 [5]),
-        .I3(\hc_reg[9]_1 [4]),
-        .I4(\hc[7]_i_2_n_0 ),
-        .I5(\hc_reg[9]_1 [8]),
-        .O(hs_i_3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair103" *) 
-  LUT5 #(
-    .INIT(32'h7FFF8000)) 
-    hs_i_4
-       (.I0(\hc_reg[9]_1 [2]),
-        .I1(\hc_reg[9]_1 [1]),
-        .I2(\hc_reg[9]_1 [0]),
-        .I3(\hc_reg[9]_1 [3]),
-        .I4(\hc_reg[9]_1 [4]),
-        .O(data0[4]));
-  LUT6 #(
-    .INIT(64'hFFFF7FFF00008000)) 
-    hs_i_5
-       (.I0(\hc_reg[9]_1 [3]),
-        .I1(\hc_reg[9]_1 [0]),
-        .I2(\hc_reg[9]_1 [1]),
-        .I3(\hc_reg[9]_1 [2]),
-        .I4(hs_i_7_n_0),
-        .I5(\hc_reg[9]_1 [6]),
-        .O(data0[6]));
-  LUT6 #(
-    .INIT(64'h7FFFFFFF80000000)) 
-    hs_i_6
-       (.I0(\hc_reg[9]_1 [4]),
-        .I1(\hc_reg[9]_1 [3]),
-        .I2(\hc_reg[9]_1 [0]),
-        .I3(\hc_reg[9]_1 [1]),
-        .I4(\hc_reg[9]_1 [2]),
-        .I5(\hc_reg[9]_1 [5]),
-        .O(data0[5]));
-  (* SOFT_HLUTNM = "soft_lutpair119" *) 
+       (.I0(\hc_reg[9]_0 [5]),
+        .I1(\hc[9]_i_2_n_0 ),
+        .I2(hs_i_2_n_0),
+        .I3(\hc_reg[9]_0 [4]),
+        .I4(\hc_reg[9]_0 [6]),
+        .I5(hs_i_3_n_0),
+        .O(hs_i_1_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair116" *) 
   LUT2 #(
     .INIT(4'h7)) 
-    hs_i_7
-       (.I0(\hc_reg[9]_1 [4]),
-        .I1(\hc_reg[9]_1 [5]),
-        .O(hs_i_7_n_0));
+    hs_i_2
+       (.I0(\hc_reg[9]_0 [2]),
+        .I1(\hc_reg[9]_0 [3]),
+        .O(hs_i_2_n_0));
+  LUT6 #(
+    .INIT(64'hFDFFDDDDDDDDDFDD)) 
+    hs_i_3
+       (.I0(\hc_reg[9]_0 [4]),
+        .I1(\hc_reg[9]_0 [5]),
+        .I2(\hc_reg[9]_0 [1]),
+        .I3(hs_i_4_n_0),
+        .I4(\hc_reg[9]_0 [2]),
+        .I5(\hc_reg[9]_0 [3]),
+        .O(hs_i_3_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair105" *) 
+  LUT4 #(
+    .INIT(16'h7FFF)) 
+    hs_i_4
+       (.I0(drawX[2]),
+        .I1(drawX[0]),
+        .I2(drawX[1]),
+        .I3(\hc_reg[9]_0 [0]),
+        .O(hs_i_4_n_0));
   FDCE hs_reg
        (.C(CLK),
         .CE(1'b1),
         .CLR(reset_ah),
-        .D(p_0_in__0),
+        .D(hs_i_1_n_0),
         .Q(hsync));
   LUT4 #(
-    .INIT(16'hEEEB)) 
-    i__carry__0_i_1
-       (.I0(\BOTTOM_NUM1_inferred__0/i__carry ),
-        .I1(Q[6]),
-        .I2(Q[4]),
-        .I3(Q[5]),
-        .O(\vc_reg[6]_0 ));
-  LUT4 #(
-    .INIT(16'hEEEB)) 
-    i__carry__0_i_1__0
-       (.I0(\BOTTOM_NUM1_inferred__1/i__carry ),
-        .I1(Q[6]),
-        .I2(Q[4]),
-        .I3(Q[5]),
-        .O(\vc_reg[6]_2 ));
-  LUT4 #(
-    .INIT(16'hEEEB)) 
+    .INIT(16'hFEAB)) 
     i__carry__0_i_1__1
-       (.I0(\BOTTOM_NUM1_inferred__2/i__carry ),
-        .I1(Q[6]),
-        .I2(Q[4]),
-        .I3(Q[5]),
-        .O(\vc_reg[6]_4 ));
-  LUT5 #(
-    .INIT(32'h0001FFFE)) 
-    i__carry__0_i_1__2
-       (.I0(Q[0]),
+       (.I0(\BOTTOM_NUM1_inferred__1/i__carry ),
         .I1(Q[1]),
-        .I2(Q[3]),
-        .I3(Q[2]),
-        .I4(Q[4]),
-        .O(\vc_reg[0]_0 ));
-  LUT2 #(
-    .INIT(4'h9)) 
-    i__carry__0_i_1__3
-       (.I0(\hc_reg[9]_1 [7]),
-        .I1(player_pos[17]),
-        .O(\hc_reg[7]_0 [3]));
+        .I2(Q[2]),
+        .I3(Q[3]),
+        .O(\vc_reg[4]_0 ));
   LUT6 #(
-    .INIT(64'h6996696969699669)) 
-    i__carry__0_i_2__0
-       (.I0(i__carry__0_i_4__2_n_0),
-        .I1(Q[5]),
-        .I2(player_pos[5]),
-        .I3(\addr0_inferred__0/i__carry__0 ),
-        .I4(player_pos[4]),
-        .I5(anim_sig),
-        .O(\vc_reg[5]_6 [1]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    i__carry__0_i_2__1
-       (.I0(\hc_reg[9]_1 [6]),
-        .I1(player_pos[16]),
-        .O(\hc_reg[7]_0 [2]));
-  LUT6 #(
-    .INIT(64'hA95656A956A9A956)) 
-    i__carry__0_i_3__0
-       (.I0(Q[4]),
-        .I1(i__carry__0_i_6_n_0),
-        .I2(i__carry_i_9__2_n_0),
-        .I3(player_pos[4]),
-        .I4(anim_sig),
-        .I5(\addr0_inferred__0/i__carry__0 ),
-        .O(\vc_reg[5]_6 [0]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    i__carry__0_i_3__1
-       (.I0(\hc_reg[9]_1 [5]),
-        .I1(player_pos[15]),
-        .O(\hc_reg[7]_0 [1]));
-  (* SOFT_HLUTNM = "soft_lutpair93" *) 
-  LUT3 #(
-    .INIT(8'hFE)) 
-    i__carry__0_i_4__0
-       (.I0(Q[5]),
-        .I1(Q[4]),
-        .I2(Q[6]),
-        .O(\vc_reg[5]_4 ));
-  (* SOFT_HLUTNM = "soft_lutpair91" *) 
+    .INIT(64'hFFFFFFA6A6A6A6FF)) 
+    i__carry__0_i_1__2
+       (.I0(\BOTTOM_NUM1_inferred__0/i__carry__0 ),
+        .I1(\BOTTOM_NUM1_inferred__0/i__carry__0_0 ),
+        .I2(\BOTTOM_NUM1_inferred__0/i__carry__0_1 ),
+        .I3(Q[1]),
+        .I4(Q[2]),
+        .I5(Q[3]),
+        .O(\vc_reg[4]_1 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry_i_1
+       (.I0(Q[1]),
+        .O(DI[0]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry_i_1__0
+       (.I0(Q[1]),
+        .O(\vc_reg[4]_4 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry_i_1__1
+       (.I0(Q[1]),
+        .O(\vc_reg[4]_5 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry_i_1__2
+       (.I0(Q[1]),
+        .O(\vc_reg[4]_6 ));
   LUT5 #(
-    .INIT(32'hFFFFFFFE)) 
-    i__carry__0_i_4__2
-       (.I0(Q[4]),
+    .INIT(32'h99966669)) 
+    i__carry_i_2__0
+       (.I0(\BOTTOM_NUM1_inferred__1/i__carry ),
         .I1(Q[3]),
         .I2(Q[2]),
         .I3(Q[1]),
-        .I4(Q[0]),
-        .O(i__carry__0_i_4__2_n_0));
-  LUT2 #(
-    .INIT(4'h9)) 
-    i__carry__0_i_4__3
-       (.I0(\hc_reg[9]_1 [4]),
-        .I1(player_pos[14]),
-        .O(\hc_reg[7]_0 [0]));
-  (* SOFT_HLUTNM = "soft_lutpair122" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
-    i__carry__0_i_6
-       (.I0(Q[3]),
-        .I1(Q[2]),
-        .O(i__carry__0_i_6_n_0));
-  LUT2 #(
-    .INIT(4'h9)) 
-    i__carry__1_i_1
-       (.I0(\hc_reg[9]_1 [9]),
-        .I1(player_pos[19]),
-        .O(\hc_reg[9]_0 [1]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    i__carry__1_i_2
-       (.I0(\hc_reg[9]_1 [8]),
-        .I1(player_pos[18]),
-        .O(\hc_reg[9]_0 [0]));
-  LUT4 #(
-    .INIT(16'h9996)) 
-    i__carry_i_1
-       (.I0(\BOTTOM_NUM1_inferred__0/i__carry ),
-        .I1(Q[6]),
-        .I2(Q[4]),
-        .I3(Q[5]),
+        .I4(DI[1]),
         .O(\vc_reg[6]_1 ));
-  LUT4 #(
-    .INIT(16'h9996)) 
-    i__carry_i_1__0
-       (.I0(\BOTTOM_NUM1_inferred__1/i__carry ),
-        .I1(Q[6]),
-        .I2(Q[4]),
-        .I3(Q[5]),
-        .O(\vc_reg[6]_3 ));
-  LUT4 #(
-    .INIT(16'h9996)) 
-    i__carry_i_1__1
-       (.I0(\BOTTOM_NUM1_inferred__2/i__carry ),
-        .I1(Q[6]),
-        .I2(Q[4]),
-        .I3(Q[5]),
-        .O(\vc_reg[6]_5 ));
-  LUT4 #(
-    .INIT(16'h01FE)) 
-    i__carry_i_1__2
-       (.I0(Q[2]),
-        .I1(Q[0]),
-        .I2(Q[1]),
-        .I3(Q[3]),
-        .O(\vc_reg[2]_0 [2]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    i__carry_i_1__3
-       (.I0(\hc_reg[9]_1 [3]),
-        .I1(player_pos[13]),
-        .O(\hc_reg[3]_0 [3]));
   LUT3 #(
-    .INIT(8'h1E)) 
-    i__carry_i_2__2
-       (.I0(Q[1]),
-        .I1(Q[0]),
-        .I2(Q[2]),
-        .O(\vc_reg[2]_0 [1]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    i__carry_i_2__3
-       (.I0(\hc_reg[9]_1 [2]),
-        .I1(player_pos[12]),
-        .O(\hc_reg[3]_0 [2]));
-  LUT5 #(
-    .INIT(32'hE11E1EE1)) 
+    .INIT(8'h69)) 
     i__carry_i_3
-       (.I0(Q[5]),
-        .I1(Q[4]),
-        .I2(Q[6]),
-        .I3(\BOTTOM_NUM1_inferred__0/i__carry ),
-        .I4(DI),
-        .O(\vc_reg[5]_0 ));
-  LUT5 #(
-    .INIT(32'hE11E1EE1)) 
-    i__carry_i_3__0
-       (.I0(Q[5]),
-        .I1(Q[4]),
-        .I2(Q[6]),
-        .I3(\BOTTOM_NUM1_inferred__1/i__carry ),
-        .I4(DI),
-        .O(\vc_reg[5]_1 ));
-  LUT5 #(
-    .INIT(32'hE11E1EE1)) 
-    i__carry_i_3__1
-       (.I0(Q[5]),
-        .I1(Q[4]),
-        .I2(Q[6]),
-        .I3(\BOTTOM_NUM1_inferred__2/i__carry ),
-        .I4(DI),
-        .O(\vc_reg[5]_2 [1]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    i__carry_i_3__2
-       (.I0(\hc_reg[9]_1 [1]),
-        .I1(player_pos[11]),
-        .O(\hc_reg[3]_0 [1]));
-  (* HLUTNM = "lutpair1" *) 
-  LUT2 #(
-    .INIT(4'h6)) 
-    i__carry_i_3__3
-       (.I0(Q[0]),
-        .I1(Q[1]),
-        .O(\vc_reg[2]_0 [0]));
-  LUT6 #(
-    .INIT(64'hAAA955565556AAA9)) 
-    i__carry_i_4
-       (.I0(Q[3]),
-        .I1(Q[1]),
-        .I2(Q[0]),
-        .I3(Q[2]),
-        .I4(player_pos[3]),
-        .I5(\addr0_inferred__0/i__carry ),
-        .O(\vc_reg[3]_1 [3]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    i__carry_i_4__2
-       (.I0(\hc_reg[9]_1 [0]),
-        .I1(player_pos[10]),
-        .O(\hc_reg[3]_0 [0]));
-  LUT6 #(
-    .INIT(64'h6969699669969696)) 
-    i__carry_i_5
-       (.I0(Q[2]),
-        .I1(i__carry_i_9__2_n_0),
-        .I2(player_pos[2]),
-        .I3(player_pos[0]),
-        .I4(player_pos[1]),
-        .I5(anim_sig),
-        .O(\vc_reg[3]_1 [2]));
+       (.I0(DI[1]),
+        .I1(\BOTTOM_NUM1_inferred__0/i__carry__0_1 ),
+        .I2(\BOTTOM_NUM1_inferred__0/i__carry__0_0 ),
+        .O(\vc_reg[4]_7 ));
   (* HLUTNM = "lutpair0" *) 
   LUT2 #(
     .INIT(4'h9)) 
-    i__carry_i_5__2
-       (.I0(Q[4]),
-        .I1(\BOTTOM_NUM1_inferred__2/i__carry_0 ),
-        .O(\vc_reg[5]_2 [0]));
-  LUT4 #(
-    .INIT(16'h6996)) 
-    i__carry_i_6
-       (.I0(\vc_reg[2]_0 [0]),
-        .I1(anim_sig),
-        .I2(player_pos[1]),
-        .I3(player_pos[0]),
-        .O(\vc_reg[3]_1 [1]));
+    i__carry_i_4__2
+       (.I0(Q[1]),
+        .I1(\BOTTOM_NUM1_inferred__4/i__carry ),
+        .O(\vc_reg[4]_2 ));
+  (* SOFT_HLUTNM = "soft_lutpair88" *) 
+  LUT5 #(
+    .INIT(32'h0000FDFF)) 
+    \vc[0]_i_1 
+       (.I0(drawY[2]),
+        .I1(\vc[3]_i_2_n_0 ),
+        .I2(drawY[1]),
+        .I3(Q[6]),
+        .I4(drawY[0]),
+        .O(\vc[0]_i_1_n_0 ));
   (* HLUTNM = "lutpair1" *) 
   LUT2 #(
-    .INIT(4'h9)) 
-    i__carry_i_7__2
-       (.I0(Q[0]),
-        .I1(player_pos[0]),
-        .O(\vc_reg[3]_1 [0]));
-  (* SOFT_HLUTNM = "soft_lutpair115" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
-    i__carry_i_9__2
-       (.I0(Q[0]),
-        .I1(Q[1]),
-        .O(i__carry_i_9__2_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair114" *) 
-  LUT3 #(
-    .INIT(8'h32)) 
-    \vc[0]_i_1 
-       (.I0(\vc[0]_i_2_n_0 ),
-        .I1(Q[0]),
-        .I2(Q[1]),
-        .O(\vc[0]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFBFBFBFFF)) 
-    \vc[0]_i_2 
-       (.I0(\vc[0]_i_3_n_0 ),
-        .I1(Q[9]),
-        .I2(Q[2]),
-        .I3(\vc[0]_i_4_n_0 ),
-        .I4(Q[5]),
-        .I5(\vc_reg[5]_4 ),
-        .O(\vc[0]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair124" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
-    \vc[0]_i_3 
-       (.I0(Q[8]),
-        .I1(Q[7]),
-        .O(\vc[0]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair92" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
-    \vc[0]_i_4 
-       (.I0(Q[3]),
-        .I1(Q[4]),
-        .O(\vc[0]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair115" *) 
-  LUT3 #(
-    .INIT(8'h28)) 
+    .INIT(4'h6)) 
     \vc[1]_i_1 
-       (.I0(\vc[9]_i_3_n_0 ),
-        .I1(Q[1]),
-        .I2(Q[0]),
+       (.I0(drawY[0]),
+        .I1(drawY[1]),
         .O(\vc[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair87" *) 
-  LUT4 #(
-    .INIT(16'h2888)) 
-    \vc[2]_i_1 
-       (.I0(\vc[9]_i_3_n_0 ),
-        .I1(Q[2]),
-        .I2(Q[0]),
-        .I3(Q[1]),
-        .O(\vc[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair87" *) 
+  (* SOFT_HLUTNM = "soft_lutpair88" *) 
   LUT5 #(
-    .INIT(32'h2A80AA00)) 
+    .INIT(32'h6A686A6A)) 
+    \vc[2]_i_1 
+       (.I0(drawY[2]),
+        .I1(drawY[1]),
+        .I2(drawY[0]),
+        .I3(\vc[3]_i_2_n_0 ),
+        .I4(Q[6]),
+        .O(\vc[2]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'h0FFBFFFFF0000000)) 
     \vc[3]_i_1 
-       (.I0(\vc[9]_i_3_n_0 ),
-        .I1(Q[1]),
-        .I2(Q[0]),
-        .I3(Q[3]),
-        .I4(Q[2]),
+       (.I0(\vc[3]_i_2_n_0 ),
+        .I1(Q[6]),
+        .I2(drawY[1]),
+        .I3(drawY[0]),
+        .I4(drawY[2]),
+        .I5(Q[0]),
         .O(\vc[3]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h2888888888888888)) 
-    \vc[4]_i_1 
-       (.I0(\vc[9]_i_3_n_0 ),
+    .INIT(64'hFFFFFFFFFFFFFEFF)) 
+    \vc[3]_i_2 
+       (.I0(Q[5]),
         .I1(Q[4]),
         .I2(Q[3]),
-        .I3(Q[2]),
+        .I3(Q[0]),
+        .I4(Q[2]),
+        .I5(Q[1]),
+        .O(\vc[3]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair80" *) 
+  LUT5 #(
+    .INIT(32'h7FFF8000)) 
+    \vc[4]_i_1 
+       (.I0(drawY[2]),
+        .I1(drawY[0]),
+        .I2(drawY[1]),
+        .I3(Q[0]),
         .I4(Q[1]),
-        .I5(Q[0]),
         .O(\vc[4]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h8288888888888888)) 
+    .INIT(64'h6AAAAAAAAAAAAAAA)) 
     \vc[5]_i_1 
-       (.I0(\vc[9]_i_3_n_0 ),
-        .I1(Q[5]),
-        .I2(\vc[5]_i_2_n_0 ),
-        .I3(Q[2]),
-        .I4(Q[3]),
-        .I5(Q[4]),
+       (.I0(Q[2]),
+        .I1(drawY[2]),
+        .I2(drawY[0]),
+        .I3(drawY[1]),
+        .I4(Q[0]),
+        .I5(Q[1]),
         .O(\vc[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair121" *) 
-  LUT2 #(
-    .INIT(4'h7)) 
-    \vc[5]_i_2 
-       (.I0(Q[0]),
-        .I1(Q[1]),
-        .O(\vc[5]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair88" *) 
-  LUT4 #(
-    .INIT(16'h8288)) 
+  (* SOFT_HLUTNM = "soft_lutpair106" *) 
+  LUT3 #(
+    .INIT(8'h6A)) 
     \vc[6]_i_1 
-       (.I0(\vc[9]_i_3_n_0 ),
-        .I1(Q[6]),
-        .I2(\vc[9]_i_4_n_0 ),
-        .I3(Q[5]),
+       (.I0(Q[3]),
+        .I1(\vc[9]_i_3_n_0 ),
+        .I2(Q[2]),
         .O(\vc[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair88" *) 
-  LUT5 #(
-    .INIT(32'h82888888)) 
+  (* SOFT_HLUTNM = "soft_lutpair106" *) 
+  LUT4 #(
+    .INIT(16'h6AAA)) 
     \vc[7]_i_1 
-       (.I0(\vc[9]_i_3_n_0 ),
-        .I1(Q[7]),
-        .I2(\vc[9]_i_4_n_0 ),
-        .I3(Q[5]),
-        .I4(Q[6]),
+       (.I0(Q[4]),
+        .I1(Q[2]),
+        .I2(\vc[9]_i_3_n_0 ),
+        .I3(Q[3]),
         .O(\vc[7]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h8888888828888888)) 
+  (* SOFT_HLUTNM = "soft_lutpair90" *) 
+  LUT5 #(
+    .INIT(32'h6AAAAAAA)) 
     \vc[8]_i_1 
-       (.I0(\vc[9]_i_3_n_0 ),
-        .I1(Q[8]),
-        .I2(Q[7]),
-        .I3(Q[6]),
-        .I4(Q[5]),
-        .I5(\vc[9]_i_4_n_0 ),
+       (.I0(Q[5]),
+        .I1(Q[3]),
+        .I2(\vc[9]_i_3_n_0 ),
+        .I3(Q[2]),
+        .I4(Q[4]),
         .O(\vc[8]_i_1_n_0 ));
-  LUT1 #(
-    .INIT(2'h1)) 
+  LUT6 #(
+    .INIT(64'h0004000000000000)) 
     \vc[9]_i_1 
-       (.I0(\hc[9]_i_2_n_0 ),
+       (.I0(\hc_reg[9]_0 [2]),
+        .I1(\hc[9]_i_2_n_0 ),
+        .I2(\hc_reg[9]_0 [3]),
+        .I3(\hc_reg[9]_0 [4]),
+        .I4(\hc_reg[9]_0 [5]),
+        .I5(\hc_reg[9]_0 [6]),
         .O(vc));
   LUT6 #(
-    .INIT(64'h8882888888888888)) 
+    .INIT(64'hD2D2D202D2D2D2D2)) 
     \vc[9]_i_2 
        (.I0(\vc[9]_i_3_n_0 ),
-        .I1(Q[9]),
-        .I2(\vc[9]_i_4_n_0 ),
-        .I3(\vc[9]_i_5_n_0 ),
-        .I4(Q[7]),
-        .I5(Q[8]),
+        .I1(vga_to_hdmi_i_41_n_0),
+        .I2(Q[6]),
+        .I3(drawY[0]),
+        .I4(drawY[1]),
+        .I5(\vc[9]_i_4_n_0 ),
         .O(\vc[9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair114" *) 
-  LUT3 #(
-    .INIT(8'hFE)) 
-    \vc[9]_i_3 
-       (.I0(\vc[0]_i_2_n_0 ),
-        .I1(Q[1]),
-        .I2(Q[0]),
-        .O(\vc[9]_i_3_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair91" *) 
   LUT5 #(
-    .INIT(32'h7FFFFFFF)) 
+    .INIT(32'h80000000)) 
+    \vc[9]_i_3 
+       (.I0(Q[1]),
+        .I1(Q[0]),
+        .I2(drawY[1]),
+        .I3(drawY[0]),
+        .I4(drawY[2]),
+        .O(\vc[9]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000000000000080)) 
     \vc[9]_i_4 
-       (.I0(Q[0]),
-        .I1(Q[1]),
-        .I2(Q[2]),
+       (.I0(drawY[2]),
+        .I1(\vc[9]_i_5_n_0 ),
+        .I2(Q[0]),
         .I3(Q[3]),
         .I4(Q[4]),
+        .I5(Q[5]),
         .O(\vc[9]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair108" *) 
   LUT2 #(
-    .INIT(4'h7)) 
+    .INIT(4'h1)) 
     \vc[9]_i_5 
-       (.I0(Q[6]),
-        .I1(Q[5]),
+       (.I0(Q[1]),
+        .I1(Q[2]),
         .O(\vc[9]_i_5_n_0 ));
   FDCE \vc_reg[0] 
        (.C(CLK),
         .CE(vc),
         .CLR(reset_ah),
         .D(\vc[0]_i_1_n_0 ),
-        .Q(Q[0]));
+        .Q(drawY[0]));
   FDCE \vc_reg[1] 
        (.C(CLK),
         .CE(vc),
         .CLR(reset_ah),
         .D(\vc[1]_i_1_n_0 ),
-        .Q(Q[1]));
+        .Q(drawY[1]));
   FDCE \vc_reg[2] 
        (.C(CLK),
         .CE(vc),
         .CLR(reset_ah),
         .D(\vc[2]_i_1_n_0 ),
-        .Q(Q[2]));
+        .Q(drawY[2]));
   FDCE \vc_reg[3] 
        (.C(CLK),
         .CE(vc),
         .CLR(reset_ah),
         .D(\vc[3]_i_1_n_0 ),
-        .Q(Q[3]));
+        .Q(Q[0]));
   FDCE \vc_reg[4] 
        (.C(CLK),
         .CE(vc),
         .CLR(reset_ah),
         .D(\vc[4]_i_1_n_0 ),
-        .Q(Q[4]));
+        .Q(Q[1]));
   FDCE \vc_reg[5] 
        (.C(CLK),
         .CE(vc),
         .CLR(reset_ah),
         .D(\vc[5]_i_1_n_0 ),
-        .Q(Q[5]));
+        .Q(Q[2]));
   FDCE \vc_reg[6] 
        (.C(CLK),
         .CE(vc),
         .CLR(reset_ah),
         .D(\vc[6]_i_1_n_0 ),
-        .Q(Q[6]));
+        .Q(Q[3]));
   FDCE \vc_reg[7] 
        (.C(CLK),
         .CE(vc),
         .CLR(reset_ah),
         .D(\vc[7]_i_1_n_0 ),
-        .Q(Q[7]));
+        .Q(Q[4]));
   FDCE \vc_reg[8] 
        (.C(CLK),
         .CE(vc),
         .CLR(reset_ah),
         .D(\vc[8]_i_1_n_0 ),
-        .Q(Q[8]));
+        .Q(Q[5]));
   FDCE \vc_reg[9] 
        (.C(CLK),
         .CE(vc),
         .CLR(reset_ah),
         .D(\vc[9]_i_2_n_0 ),
-        .Q(Q[9]));
+        .Q(Q[6]));
   LUT6 #(
-    .INIT(64'hFFFFFFFFF0F0FFF8)) 
+    .INIT(64'hFEEEFFFFEEEEEEEE)) 
+    vga_to_hdmi_i_1
+       (.I0(vga_to_hdmi_i_14_n_0),
+        .I1(\srl[23].srl16_i ),
+        .I2(vga_to_hdmi_i_16_n_0),
+        .I3(\srl[23].srl16_i_0 ),
+        .I4(vga_to_hdmi_i_18_n_0),
+        .I5(\srl[28].srl16_i ),
+        .O(red[3]));
+  LUT6 #(
+    .INIT(64'hEEEEFEEEFEFEFEFE)) 
     vga_to_hdmi_i_10
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ),
-        .I1(\srl[30].srl16_i [9]),
-        .I2(vga_to_hdmi_i_43_n_0),
-        .I3(vga_to_hdmi_i_44_n_0),
-        .I4(\srl[39].srl16_i ),
-        .I5(\srl[39].srl16_i_0 ),
-        .O(blue[3]));
-  LUT6 #(
-    .INIT(64'hFFFFFFFF07E00000)) 
-    vga_to_hdmi_i_106
-       (.I0(\hc_reg[9]_1 [1]),
-        .I1(\hc_reg[9]_1 [0]),
-        .I2(\hc_reg[9]_1 [2]),
-        .I3(\hc_reg[9]_1 [3]),
-        .I4(i__carry__0_i_6_n_0),
-        .I5(vga_to_hdmi_i_197_n_0),
-        .O(vga_to_hdmi_i_106_n_0));
-  LUT6 #(
-    .INIT(64'h000000CACACACA00)) 
-    vga_to_hdmi_i_107
-       (.I0(vga_to_hdmi_i_215_n_0),
-        .I1(vga_to_hdmi_i_216_n_0),
-        .I2(\hc_reg[9]_1 [3]),
-        .I3(\hc_reg[9]_1 [1]),
-        .I4(\hc_reg[9]_1 [0]),
-        .I5(\hc_reg[9]_1 [2]),
-        .O(vga_to_hdmi_i_107_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFF20000000)) 
-    vga_to_hdmi_i_108
-       (.I0(\hc_reg[9]_1 [2]),
-        .I1(\hc_reg[9]_1 [0]),
-        .I2(\hc_reg[9]_1 [1]),
-        .I3(vga_to_hdmi_i_217_n_0),
-        .I4(\hc_reg[9]_1 [3]),
-        .I5(button_press0),
-        .O(vga_to_hdmi_i_108_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFF8FFF8FFF8)) 
-    vga_to_hdmi_i_11
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ),
-        .I1(\srl[30].srl16_i [8]),
-        .I2(vga_to_hdmi_i_47_n_0),
-        .I3(vga_to_hdmi_i_44_n_0),
-        .I4(vga_to_hdmi_i_33_n_0),
-        .I5(\srl[30].srl16_i [2]),
+       (.I0(vga_to_hdmi_i_22_n_0),
+        .I1(vga_to_hdmi_i_35_n_0),
+        .I2(\srl[28].srl16_i ),
+        .I3(vga_to_hdmi_i_25_n_0),
+        .I4(\srl[38].srl16_i ),
+        .I5(vga_to_hdmi_i_33_n_0),
         .O(blue[2]));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFF888)) 
-    vga_to_hdmi_i_12
-       (.I0(vga_to_hdmi_i_49_n_0),
-        .I1(\srl[30].srl16_i [1]),
-        .I2(vga_to_hdmi_i_51_n_0),
-        .I3(\srl[30].srl16_i [7]),
-        .I4(vga_to_hdmi_i_53_n_0),
-        .I5(vga_to_hdmi_i_54_n_0),
-        .O(blue[1]));
-  LUT4 #(
-    .INIT(16'hFFA8)) 
-    vga_to_hdmi_i_124
-       (.I0(\color_instance/bot_draw/bot_red122_out ),
-        .I1(vga_to_hdmi_i_149_n_0),
-        .I2(vga_to_hdmi_i_148_n_0),
-        .I3(vga_to_hdmi_i_147_n_0),
-        .O(vga_to_hdmi_i_124_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair105" *) 
-  LUT4 #(
-    .INIT(16'h2220)) 
-    vga_to_hdmi_i_125
-       (.I0(vga_to_hdmi_i_130_n_0),
-        .I1(block_addr1),
-        .I2(state[1]),
-        .I3(state[0]),
-        .O(vga_to_hdmi_i_125_n_0));
+    .INIT(64'h00FF00FF00FE0000)) 
+    vga_to_hdmi_i_100
+       (.I0(drawY[1]),
+        .I1(drawY[2]),
+        .I2(drawY[0]),
+        .I3(vga_to_hdmi_i_97_n_0),
+        .I4(Q[0]),
+        .I5(Q[1]),
+        .O(vga_to_hdmi_i_100_n_0));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFF888)) 
-    vga_to_hdmi_i_13
-       (.I0(vga_to_hdmi_i_49_n_0),
-        .I1(\srl[30].srl16_i [0]),
-        .I2(vga_to_hdmi_i_51_n_0),
-        .I3(\srl[30].srl16_i [6]),
-        .I4(vga_to_hdmi_i_53_n_0),
-        .I5(vga_to_hdmi_i_57_n_0),
+    .INIT(64'hFFFFFFFFFF88FFF3)) 
+    vga_to_hdmi_i_101
+       (.I0(vga_to_hdmi_i_241_n_0),
+        .I1(\hc_reg[9]_0 [4]),
+        .I2(vga_to_hdmi_i_242_n_0),
+        .I3(\hc_reg[9]_0 [6]),
+        .I4(\hc_reg[9]_0 [5]),
+        .I5(vga_to_hdmi_i_243_n_0),
+        .O(vga_to_hdmi_i_101_n_0));
+  LUT6 #(
+    .INIT(64'h0A020A0200020A02)) 
+    vga_to_hdmi_i_102
+       (.I0(vga_to_hdmi_i_244_n_0),
+        .I1(vga_to_hdmi_i_245_n_0),
+        .I2(vga_to_hdmi_i_241_n_0),
+        .I3(Q[3]),
+        .I4(Q[2]),
+        .I5(\vc_reg[0]_0 ),
+        .O(vga_to_hdmi_i_102_n_0));
+  LUT6 #(
+    .INIT(64'h1115555555554444)) 
+    vga_to_hdmi_i_103
+       (.I0(vga_to_hdmi_i_246_n_0),
+        .I1(drawY[2]),
+        .I2(drawY[0]),
+        .I3(drawY[1]),
+        .I4(Q[0]),
+        .I5(Q[1]),
+        .O(vga_to_hdmi_i_103_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair89" *) 
+  LUT3 #(
+    .INIT(8'h10)) 
+    vga_to_hdmi_i_104
+       (.I0(\hc_reg[9]_0 [4]),
+        .I1(\hc_reg[9]_0 [5]),
+        .I2(\hc_reg[9]_0 [6]),
+        .O(vga_to_hdmi_i_104_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFF7550000)) 
+    vga_to_hdmi_i_11
+       (.I0(vga_to_hdmi_i_33_n_0),
+        .I1(\hc_reg[2]_0 ),
+        .I2(\srl[37].srl16_i ),
+        .I3(vga_to_hdmi_i_25_n_0),
+        .I4(\srl[28].srl16_i ),
+        .I5(vga_to_hdmi_i_38_n_0),
+        .O(blue[1]));
+  LUT6 #(
+    .INIT(64'h0000200000000000)) 
+    vga_to_hdmi_i_117
+       (.I0(vga_to_hdmi_i_251_n_0),
+        .I1(vga_to_hdmi_i_54_n_0),
+        .I2(vga_to_hdmi_i_252_n_0),
+        .I3(vga_to_hdmi_i_253_n_0),
+        .I4(vga_to_hdmi_i_254_n_0),
+        .I5(vga_to_hdmi_i_255_n_0),
+        .O(vga_to_hdmi_i_117_n_0));
+  LUT6 #(
+    .INIT(64'hA9A9A989A989A989)) 
+    vga_to_hdmi_i_119
+       (.I0(\hc_reg[9]_0 [0]),
+        .I1(drawX[1]),
+        .I2(drawX[2]),
+        .I3(drawY[1]),
+        .I4(Q[0]),
+        .I5(drawY[2]),
+        .O(vga_to_hdmi_i_119_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFF7550000)) 
+    vga_to_hdmi_i_12
+       (.I0(vga_to_hdmi_i_33_n_0),
+        .I1(\hc_reg[2]_0 ),
+        .I2(\srl[36].srl16_i ),
+        .I3(vga_to_hdmi_i_25_n_0),
+        .I4(\srl[28].srl16_i ),
+        .I5(vga_to_hdmi_i_40_n_0),
         .O(blue[0]));
   LUT6 #(
-    .INIT(64'h2000000000000000)) 
-    vga_to_hdmi_i_130
-       (.I0(vga_to_hdmi_i_239_n_0),
-        .I1(Q[9]),
-        .I2(Q[7]),
-        .I3(Q[8]),
-        .I4(\vc_reg[5]_4 ),
-        .I5(vga_to_hdmi_i_240_n_0),
-        .O(vga_to_hdmi_i_130_n_0));
+    .INIT(64'hCFFFFFCC8F8F8F88)) 
+    vga_to_hdmi_i_120
+       (.I0(drawY[2]),
+        .I1(Q[0]),
+        .I2(drawX[1]),
+        .I3(drawX[2]),
+        .I4(drawX[0]),
+        .I5(drawY[1]),
+        .O(vga_to_hdmi_i_120_n_0));
   LUT6 #(
-    .INIT(64'h0444444444444444)) 
-    vga_to_hdmi_i_14
-       (.I0(Q[9]),
-        .I1(vga_to_hdmi_i_58_n_0),
-        .I2(Q[6]),
-        .I3(Q[5]),
-        .I4(Q[8]),
-        .I5(Q[7]),
-        .O(vde));
+    .INIT(64'hDBDBDB595B5B5959)) 
+    vga_to_hdmi_i_121
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(\hc_reg[9]_0 [0]),
+        .I2(vga_to_hdmi_i_256_n_0),
+        .I3(drawY[2]),
+        .I4(drawY[1]),
+        .I5(Q[0]),
+        .O(vga_to_hdmi_i_121_n_0));
   LUT6 #(
-    .INIT(64'h0001FFFF00000000)) 
-    vga_to_hdmi_i_140
-       (.I0(vga_to_hdmi_i_195_n_0),
-        .I1(vga_to_hdmi_i_196_n_0),
-        .I2(vga_to_hdmi_i_197_n_0),
-        .I3(vga_to_hdmi_i_250_n_0),
-        .I4(vga_to_hdmi_i_97_n_0),
-        .I5(button_press017_out),
-        .O(vga_to_hdmi_i_140_n_0));
-  LUT6 #(
-    .INIT(64'hFFFEFAFAFAFEFAFA)) 
-    vga_to_hdmi_i_147
+    .INIT(64'h000C0F00000F000E)) 
+    vga_to_hdmi_i_122
        (.I0(vga_to_hdmi_i_257_n_0),
         .I1(vga_to_hdmi_i_258_n_0),
         .I2(vga_to_hdmi_i_259_n_0),
-        .I3(\hc_reg[9]_1 [6]),
-        .I4(vga_to_hdmi_i_260_n_0),
-        .I5(vga_to_hdmi_i_261_n_0),
-        .O(vga_to_hdmi_i_147_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair96" *) 
-  LUT5 #(
-    .INIT(32'hF8F8F808)) 
-    vga_to_hdmi_i_148
-       (.I0(vga_to_hdmi_i_262_n_0),
-        .I1(\hc_reg[9]_1 [8]),
-        .I2(\hc_reg[9]_1 [9]),
-        .I3(vga_to_hdmi_i_263_n_0),
-        .I4(vga_to_hdmi_i_264_n_0),
-        .O(vga_to_hdmi_i_148_n_0));
+        .I3(\hc_reg[9]_0 [1]),
+        .I4(vga_to_hdmi_i_256_n_0),
+        .I5(\hc_reg[9]_0 [0]),
+        .O(vga_to_hdmi_i_122_n_0));
   LUT6 #(
-    .INIT(64'hAAAEFFFFAAAAAAAA)) 
-    vga_to_hdmi_i_149
-       (.I0(\color_instance/bot_draw/bot_red115_out ),
-        .I1(hs_i_7_n_0),
-        .I2(vga_to_hdmi_i_266_n_0),
-        .I3(\hc_reg[9]_1 [6]),
-        .I4(button_press_reg_i_31_n_0),
-        .I5(vga_to_hdmi_i_124_0),
-        .O(vga_to_hdmi_i_149_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair104" *) 
+    .INIT(64'h000000001FFFFFF0)) 
+    vga_to_hdmi_i_123
+       (.I0(drawX[0]),
+        .I1(drawX[1]),
+        .I2(drawX[2]),
+        .I3(\hc_reg[9]_0 [2]),
+        .I4(\hc_reg[9]_0 [0]),
+        .I5(vga_to_hdmi_i_254_n_0),
+        .O(vga_to_hdmi_i_123_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFF7)) 
+    vga_to_hdmi_i_124
+       (.I0(vga_to_hdmi_i_255_n_0),
+        .I1(\hc_reg[9]_0 [3]),
+        .I2(vga_to_hdmi_i_260_n_0),
+        .I3(\hc_reg[9]_0 [4]),
+        .I4(\hc_reg[9]_0 [6]),
+        .I5(\hc_reg[9]_0 [5]),
+        .O(vga_to_hdmi_i_124_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair95" *) 
+  LUT4 #(
+    .INIT(16'h0001)) 
+    vga_to_hdmi_i_125
+       (.I0(drawY[0]),
+        .I1(drawY[1]),
+        .I2(Q[0]),
+        .I3(drawY[2]),
+        .O(vga_to_hdmi_i_125_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair97" *) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    vga_to_hdmi_i_126
+       (.I0(\hc_reg[9]_0 [6]),
+        .I1(\hc_reg[9]_0 [5]),
+        .I2(Q[5]),
+        .I3(Q[6]),
+        .O(vga_to_hdmi_i_126_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair89" *) 
+  LUT5 #(
+    .INIT(32'h02020222)) 
+    vga_to_hdmi_i_13
+       (.I0(vga_to_hdmi_i_41_n_0),
+        .I1(Q[6]),
+        .I2(\hc_reg[9]_0 [6]),
+        .I3(\hc_reg[9]_0 [4]),
+        .I4(\hc_reg[9]_0 [5]),
+        .O(vde));
+  LUT6 #(
+    .INIT(64'h757700007577FFFF)) 
+    vga_to_hdmi_i_135
+       (.I0(vga_to_hdmi_i_261_n_0),
+        .I1(vga_to_hdmi_i_262_n_0),
+        .I2(vga_to_hdmi_i_85_0),
+        .I3(vga_to_hdmi_i_264_n_0),
+        .I4(vga_to_hdmi_i_265_n_0),
+        .I5(vga_to_hdmi_i_266_n_0),
+        .O(vga_to_hdmi_i_135_n_0));
+  LUT6 #(
+    .INIT(64'h2BFFE8FF00E8002B)) 
+    vga_to_hdmi_i_136
+       (.I0(\hc_reg[9]_0 [0]),
+        .I1(Q[0]),
+        .I2(vga_to_hdmi_i_85_1),
+        .I3(\hc_reg[9]_0 [1]),
+        .I4(Q[1]),
+        .I5(Q[2]),
+        .O(vga_to_hdmi_i_136_n_0));
+  LUT6 #(
+    .INIT(64'h5155555505F5F5F5)) 
+    vga_to_hdmi_i_137
+       (.I0(Q[4]),
+        .I1(Q[0]),
+        .I2(vga_to_hdmi_i_85_1),
+        .I3(Q[2]),
+        .I4(Q[1]),
+        .I5(Q[3]),
+        .O(vga_to_hdmi_i_137_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFF2FF)) 
+    vga_to_hdmi_i_138
+       (.I0(vga_to_hdmi_i_85_1),
+        .I1(Q[4]),
+        .I2(vga_to_hdmi_i_267_n_0),
+        .I3(vga_to_hdmi_i_253_n_0),
+        .I4(vga_to_hdmi_i_268_n_0),
+        .I5(vga_to_hdmi_i_126_n_0),
+        .O(vga_to_hdmi_i_138_n_0));
+  LUT6 #(
+    .INIT(64'h757577F7F7F7F7F7)) 
+    vga_to_hdmi_i_139
+       (.I0(Q[4]),
+        .I1(Q[3]),
+        .I2(vga_to_hdmi_i_85_1),
+        .I3(Q[0]),
+        .I4(Q[1]),
+        .I5(Q[2]),
+        .O(vga_to_hdmi_i_139_n_0));
+  LUT5 #(
+    .INIT(32'h0000FF0E)) 
+    vga_to_hdmi_i_14
+       (.I0(vga_to_hdmi_i_42_n_0),
+        .I1(vga_to_hdmi_i_43_n_0),
+        .I2(vga_to_hdmi_i_44_n_0),
+        .I3(vga_to_hdmi_i_45_n_0),
+        .I4(vga_to_hdmi_i_46_n_0),
+        .O(vga_to_hdmi_i_14_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair92" *) 
   LUT3 #(
-    .INIT(8'hF8)) 
-    vga_to_hdmi_i_15
-       (.I0(button_press_reg_i_8_n_0),
-        .I1(block_addr1),
-        .I2(vga_to_hdmi_i_59_n_0),
-        .O(\vc_reg[5]_7 ));
-  (* SOFT_HLUTNM = "soft_lutpair85" *) 
-  LUT5 #(
-    .INIT(32'h00028000)) 
-    vga_to_hdmi_i_150
-       (.I0(vga_to_hdmi_i_268_n_0),
-        .I1(\vc_reg[5]_4 ),
-        .I2(Q[8]),
-        .I3(Q[7]),
-        .I4(Q[9]),
-        .O(\color_instance/bot_draw/bot_red122_out ));
-  LUT6 #(
-    .INIT(64'h6AA6AAAAAAAA6AA6)) 
-    vga_to_hdmi_i_154
-       (.I0(vga_to_hdmi_i_271_n_0),
-        .I1(player_pos[20]),
-        .I2(\hc_reg[9]_1 [0]),
-        .I3(player_pos[10]),
-        .I4(player_pos[11]),
-        .I5(\hc_reg[9]_1 [1]),
-        .O(\player_pos[20]_0 ));
-  LUT6 #(
-    .INIT(64'h0001000000000000)) 
-    vga_to_hdmi_i_159
-       (.I0(vga_to_hdmi_i_63[0]),
-        .I1(vga_to_hdmi_i_63[1]),
-        .I2(vga_to_hdmi_i_63_0[0]),
-        .I3(vga_to_hdmi_i_63_0[1]),
-        .I4(vga_to_hdmi_i_63_1),
-        .I5(vga_to_hdmi_i_63_2),
-        .O(\vc_reg[7]_2 ));
-  LUT6 #(
-    .INIT(64'h0001555500000000)) 
+    .INIT(8'h02)) 
     vga_to_hdmi_i_16
-       (.I0(button_press_reg_i_8_n_0),
-        .I1(\srl[23].srl16_i ),
-        .I2(vga_to_hdmi_i_61_n_0),
-        .I3(vga_to_hdmi_i_62_n_0),
-        .I4(\srl[23].srl16_i_0 ),
-        .I5(block_addr1),
-        .O(\vc_reg[5]_3 ));
-  (* SOFT_HLUTNM = "soft_lutpair124" *) 
+       (.I0(button_press_reg_i_6_n_0),
+        .I1(vga_to_hdmi_i_48_n_0),
+        .I2(button_press_reg_i_7_n_0),
+        .O(vga_to_hdmi_i_16_n_0));
+  LUT4 #(
+    .INIT(16'h0002)) 
+    vga_to_hdmi_i_164
+       (.I0(vga_to_hdmi_i_269_n_0),
+        .I1(button_press_reg_i_24_n_5),
+        .I2(button_press_reg_i_24_n_6),
+        .I3(button_press_reg_i_24_n_7),
+        .O(vga_to_hdmi_i_164_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFB)) 
+    vga_to_hdmi_i_165
+       (.I0(button_press_reg_i_25_n_6),
+        .I1(button_press_reg_i_25_n_1),
+        .I2(button_press_reg_i_25_n_7),
+        .I3(button_press_reg_i_21_n_4),
+        .I4(button_press_reg_i_21_n_6),
+        .I5(button_press_reg_i_21_n_5),
+        .O(vga_to_hdmi_i_165_n_0));
+  LUT6 #(
+    .INIT(64'hE0EFE0E0EFEFEFEF)) 
+    vga_to_hdmi_i_166
+       (.I0(vga_to_hdmi_i_270_n_0),
+        .I1(vga_to_hdmi_i_271_n_0),
+        .I2(button_press0),
+        .I3(vga_to_hdmi_i_272_n_0),
+        .I4(ball_on_reg_i_7_n_0),
+        .I5(vga_to_hdmi_i_273_n_0),
+        .O(vga_to_hdmi_i_166_n_0));
+  LUT6 #(
+    .INIT(64'hAAAAAAAAAAABABAB)) 
+    vga_to_hdmi_i_167
+       (.I0(button_press0),
+        .I1(ball_on_reg_i_7_n_0),
+        .I2(Q[0]),
+        .I3(drawY[1]),
+        .I4(drawY[0]),
+        .I5(drawY[2]),
+        .O(vga_to_hdmi_i_167_n_0));
+  LUT6 #(
+    .INIT(64'hFFFABAAFFFFFBAAF)) 
+    vga_to_hdmi_i_168
+       (.I0(vga_to_hdmi_i_274_n_0),
+        .I1(vga_to_hdmi_i_275_n_0),
+        .I2(drawX[1]),
+        .I3(drawX[0]),
+        .I4(drawX[2]),
+        .I5(vga_to_hdmi_i_276_n_0),
+        .O(vga_to_hdmi_i_168_n_0));
+  LUT6 #(
+    .INIT(64'h00020002A8A82828)) 
+    vga_to_hdmi_i_169
+       (.I0(vga_to_hdmi_i_277_n_0),
+        .I1(drawX[0]),
+        .I2(drawX[1]),
+        .I3(vga_to_hdmi_i_278_n_0),
+        .I4(vga_to_hdmi_i_279_n_0),
+        .I5(drawX[2]),
+        .O(vga_to_hdmi_i_169_n_0));
+  LUT6 #(
+    .INIT(64'h5555555555555DDD)) 
+    vga_to_hdmi_i_170
+       (.I0(button_press0),
+        .I1(Q[0]),
+        .I2(drawY[1]),
+        .I3(drawY[0]),
+        .I4(drawY[2]),
+        .I5(ball_on_reg_i_7_n_0),
+        .O(vga_to_hdmi_i_170_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair75" *) 
+  LUT4 #(
+    .INIT(16'h0111)) 
+    vga_to_hdmi_i_18
+       (.I0(vga_to_hdmi_i_48_n_0),
+        .I1(vga_to_hdmi_i_53_n_0),
+        .I2(button_press_reg_i_7_n_0),
+        .I3(button_press_reg_i_6_n_0),
+        .O(vga_to_hdmi_i_18_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFF7550000)) 
+    vga_to_hdmi_i_2
+       (.I0(vga_to_hdmi_i_18_n_0),
+        .I1(\hc_reg[2]_0 ),
+        .I2(\srl[22].srl16_i ),
+        .I3(vga_to_hdmi_i_16_n_0),
+        .I4(\srl[28].srl16_i ),
+        .I5(vga_to_hdmi_i_22_n_0),
+        .O(red[2]));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFEAA)) 
+    vga_to_hdmi_i_20
+       (.I0(vga_to_hdmi_i_54_n_0),
+        .I1(drawX[2]),
+        .I2(drawX[1]),
+        .I3(vga_to_hdmi_i_55_n_0),
+        .I4(vga_to_hdmi_i_56_n_0),
+        .I5(vga_to_hdmi_i_57_n_0),
+        .O(\hc_reg[2]_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFB)) 
+    vga_to_hdmi_i_219
+       (.I0(vga_to_hdmi_i_137_n_0),
+        .I1(vga_to_hdmi_i_280_n_0),
+        .I2(\hc_reg[9]_0 [5]),
+        .I3(\hc_reg[9]_0 [6]),
+        .I4(vga_to_hdmi_i_268_n_0),
+        .I5(vga_to_hdmi_i_281_n_0),
+        .O(vga_to_hdmi_i_219_n_0));
   LUT2 #(
     .INIT(4'hE)) 
-    vga_to_hdmi_i_171
-       (.I0(Q[9]),
-        .I1(Q[8]),
-        .O(vga_to_hdmi_i_171_n_0));
-  LUT6 #(
-    .INIT(64'h8080808080808000)) 
-    vga_to_hdmi_i_172
-       (.I0(Q[7]),
-        .I1(Q[4]),
-        .I2(Q[6]),
-        .I3(Q[1]),
-        .I4(Q[3]),
-        .I5(Q[2]),
-        .O(vga_to_hdmi_i_172_n_0));
-  LUT6 #(
-    .INIT(64'hFFFEF0F0FEFEF0F0)) 
-    vga_to_hdmi_i_173
-       (.I0(vga_to_hdmi_i_288_n_0),
-        .I1(\hc_reg[9]_1 [6]),
-        .I2(\hc_reg[9]_1 [9]),
-        .I3(\hc_reg[9]_1 [3]),
-        .I4(\hc_reg[9]_1 [8]),
-        .I5(\hc_reg[9]_1 [4]),
-        .O(vga_to_hdmi_i_173_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFF888)) 
-    vga_to_hdmi_i_174
-       (.I0(\hc_reg[9]_1 [7]),
-        .I1(\hc_reg[9]_1 [8]),
-        .I2(Q[8]),
-        .I3(\vc_reg[5]_4 ),
-        .I4(vga_to_hdmi_i_289_n_0),
-        .I5(vga_to_hdmi_i_290_n_0),
-        .O(vga_to_hdmi_i_174_n_0));
-  LUT6 #(
-    .INIT(64'h20000000FFFFFFFF)) 
-    vga_to_hdmi_i_195
-       (.I0(\hc_reg[9]_1 [2]),
-        .I1(\hc_reg[9]_1 [0]),
-        .I2(\hc_reg[9]_1 [1]),
-        .I3(vga_to_hdmi_i_306_n_0),
-        .I4(\hc_reg[9]_1 [3]),
-        .I5(button_press0),
-        .O(vga_to_hdmi_i_195_n_0));
-  LUT6 #(
-    .INIT(64'h000000CACACACA00)) 
-    vga_to_hdmi_i_196
-       (.I0(vga_to_hdmi_i_307_n_0),
-        .I1(vga_to_hdmi_i_308_n_0),
-        .I2(\hc_reg[9]_1 [3]),
-        .I3(\hc_reg[9]_1 [1]),
-        .I4(\hc_reg[9]_1 [0]),
-        .I5(\hc_reg[9]_1 [2]),
-        .O(vga_to_hdmi_i_196_n_0));
-  LUT6 #(
-    .INIT(64'h0B00033333300000)) 
-    vga_to_hdmi_i_197
-       (.I0(Q[2]),
-        .I1(\vc[5]_i_2_n_0 ),
-        .I2(\hc_reg[9]_1 [1]),
-        .I3(\hc_reg[9]_1 [0]),
-        .I4(\hc_reg[9]_1 [2]),
-        .I5(\hc_reg[9]_1 [3]),
-        .O(vga_to_hdmi_i_197_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair103" *) 
-  LUT4 #(
-    .INIT(16'h07E0)) 
-    vga_to_hdmi_i_198
-       (.I0(\hc_reg[9]_1 [1]),
-        .I1(\hc_reg[9]_1 [0]),
-        .I2(\hc_reg[9]_1 [2]),
-        .I3(\hc_reg[9]_1 [3]),
-        .O(vga_to_hdmi_i_198_n_0));
-  LUT6 #(
-    .INIT(64'hFFFDD910FFFFD000)) 
-    vga_to_hdmi_i_215
-       (.I0(\hc_reg[9]_1 [0]),
-        .I1(\hc_reg[9]_1 [1]),
-        .I2(Q[0]),
-        .I3(Q[1]),
-        .I4(Q[2]),
-        .I5(Q[3]),
-        .O(vga_to_hdmi_i_215_n_0));
-  LUT6 #(
-    .INIT(64'h9999999099998000)) 
-    vga_to_hdmi_i_216
-       (.I0(\hc_reg[9]_1 [1]),
-        .I1(\hc_reg[9]_1 [0]),
-        .I2(Q[0]),
-        .I3(Q[3]),
-        .I4(Q[2]),
-        .I5(Q[1]),
-        .O(vga_to_hdmi_i_216_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair107" *) 
-  LUT4 #(
-    .INIT(16'hA8AA)) 
-    vga_to_hdmi_i_217
-       (.I0(Q[2]),
-        .I1(Q[0]),
-        .I2(Q[1]),
-        .I3(Q[3]),
-        .O(vga_to_hdmi_i_217_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair104" *) 
-  LUT5 #(
-    .INIT(32'hEAEAEAFF)) 
     vga_to_hdmi_i_22
-       (.I0(vga_to_hdmi_i_59_n_0),
-        .I1(block_addr1),
-        .I2(button_press_reg_i_8_n_0),
-        .I3(state[1]),
-        .I4(state[0]),
-        .O(\FSM_sequential_state_reg[1] ));
+       (.I0(vga_to_hdmi_i_14_n_0),
+        .I1(vga_to_hdmi_i_60_n_0),
+        .O(vga_to_hdmi_i_22_n_0));
   LUT6 #(
-    .INIT(64'hFFFFFFFF00000001)) 
-    vga_to_hdmi_i_239
-       (.I0(Q[1]),
-        .I1(Q[2]),
-        .I2(Q[4]),
+    .INIT(64'hFFFFFFFFFFEFEFFF)) 
+    vga_to_hdmi_i_230
+       (.I0(\hc_reg[9]_0 [5]),
+        .I1(\hc_reg[9]_0 [6]),
+        .I2(\hc_reg[9]_0 [4]),
+        .I3(\hc_reg[9]_0 [2]),
+        .I4(\hc_reg[9]_0 [1]),
+        .I5(\hc_reg[9]_0 [3]),
+        .O(vga_to_hdmi_i_230_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair97" *) 
+  LUT3 #(
+    .INIT(8'hEF)) 
+    vga_to_hdmi_i_232
+       (.I0(\hc_reg[9]_0 [5]),
+        .I1(\hc_reg[9]_0 [6]),
+        .I2(\hc_reg[9]_0 [4]),
+        .O(vga_to_hdmi_i_232_n_0));
+  MUXF7 vga_to_hdmi_i_235
+       (.I0(vga_to_hdmi_i_282_n_0),
+        .I1(vga_to_hdmi_i_283_n_0),
+        .O(vga_to_hdmi_i_235_n_0),
+        .S(\hc_reg[9]_0 [2]));
+  MUXF7 vga_to_hdmi_i_236
+       (.I0(vga_to_hdmi_i_284_n_0),
+        .I1(vga_to_hdmi_i_285_n_0),
+        .O(vga_to_hdmi_i_236_n_0),
+        .S(\hc_reg[9]_0 [2]));
+  LUT6 #(
+    .INIT(64'h0000000000000154)) 
+    vga_to_hdmi_i_237
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .I2(Q[2]),
         .I3(Q[3]),
+        .I4(DI[1]),
+        .I5(\hc_reg[9]_0 [0]),
+        .O(vga_to_hdmi_i_237_n_0));
+  MUXF7 vga_to_hdmi_i_238
+       (.I0(vga_to_hdmi_i_286_n_0),
+        .I1(vga_to_hdmi_i_287_n_0),
+        .O(vga_to_hdmi_i_238_n_0),
+        .S(\hc_reg[9]_0 [3]));
+  (* SOFT_HLUTNM = "soft_lutpair72" *) 
+  LUT5 #(
+    .INIT(32'hFF9FFFFF)) 
+    vga_to_hdmi_i_239
+       (.I0(Q[3]),
+        .I1(Q[2]),
+        .I2(DI[1]),
+        .I3(Q[1]),
         .I4(Q[0]),
-        .I5(\vc[9]_i_5_n_0 ),
         .O(vga_to_hdmi_i_239_n_0));
-  LUT6 #(
-    .INIT(64'h8808888000088880)) 
+  (* SOFT_HLUTNM = "soft_lutpair118" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
     vga_to_hdmi_i_240
-       (.I0(Q[7]),
-        .I1(vga_to_hdmi_i_58_n_0),
-        .I2(Q[5]),
-        .I3(Q[4]),
-        .I4(Q[6]),
-        .I5(DI),
+       (.I0(\hc_reg[9]_0 [3]),
+        .I1(\hc_reg[9]_0 [2]),
         .O(vga_to_hdmi_i_240_n_0));
   LUT6 #(
-    .INIT(64'h0D000DD00DD000D0)) 
-    vga_to_hdmi_i_250
-       (.I0(Q[3]),
-        .I1(Q[2]),
-        .I2(\hc_reg[9]_1 [3]),
-        .I3(\hc_reg[9]_1 [2]),
-        .I4(\hc_reg[9]_1 [0]),
-        .I5(\hc_reg[9]_1 [1]),
-        .O(vga_to_hdmi_i_250_n_0));
-  LUT6 #(
-    .INIT(64'h1111444400004440)) 
-    vga_to_hdmi_i_257
-       (.I0(\hc_reg[9]_1 [9]),
-        .I1(\hc_reg[9]_1 [8]),
-        .I2(vga_to_hdmi_i_337_n_0),
-        .I3(vga_to_hdmi_i_338_n_0),
-        .I4(\hc_reg[9]_1 [7]),
-        .I5(vga_to_hdmi_i_339_n_0),
-        .O(vga_to_hdmi_i_257_n_0));
-  LUT6 #(
-    .INIT(64'hAAABAAAAAEABAAAA)) 
-    vga_to_hdmi_i_258
-       (.I0(vga_to_hdmi_i_340_n_0),
-        .I1(Q[4]),
-        .I2(hs_i_7_n_0),
-        .I3(Q[3]),
-        .I4(vga_to_hdmi_i_341_n_0),
-        .I5(\hc_reg[9]_1 [3]),
-        .O(vga_to_hdmi_i_258_n_0));
-  LUT6 #(
-    .INIT(64'h0000200800000000)) 
-    vga_to_hdmi_i_259
-       (.I0(vga_to_hdmi_i_342_n_0),
-        .I1(\hc_reg[9]_1 [9]),
-        .I2(\hc_reg[9]_1 [8]),
-        .I3(\hc_reg[9]_1 [7]),
-        .I4(Q[3]),
-        .I5(vga_to_hdmi_i_341_n_0),
-        .O(vga_to_hdmi_i_259_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair111" *) 
-  LUT3 #(
-    .INIT(8'hA9)) 
-    vga_to_hdmi_i_260
-       (.I0(\hc_reg[9]_1 [9]),
-        .I1(\hc_reg[9]_1 [8]),
-        .I2(\hc_reg[9]_1 [7]),
-        .O(vga_to_hdmi_i_260_n_0));
-  LUT6 #(
-    .INIT(64'hAFAAAEAAABAAAAAA)) 
-    vga_to_hdmi_i_261
-       (.I0(vga_to_hdmi_i_343_n_0),
-        .I1(\hc_reg[9]_1 [4]),
-        .I2(\hc_reg[9]_1 [5]),
-        .I3(\hc_reg[9]_1 [3]),
-        .I4(vga_to_hdmi_i_344_n_0),
-        .I5(vga_to_hdmi_i_268_n_0),
-        .O(vga_to_hdmi_i_261_n_0));
-  LUT6 #(
-    .INIT(64'h88888888F8888888)) 
-    vga_to_hdmi_i_262
-       (.I0(bot_red29_in),
-        .I1(vga_to_hdmi_i_346_n_0),
-        .I2(bot_red25_in),
-        .I3(\hc_reg[9]_1 [7]),
-        .I4(\hc_reg[9]_1 [6]),
-        .I5(\hc_reg[9]_1 [5]),
-        .O(vga_to_hdmi_i_262_n_0));
-  LUT6 #(
-    .INIT(64'hAA8AA08A0A800080)) 
-    vga_to_hdmi_i_263
-       (.I0(vga_to_hdmi_i_348_n_0),
-        .I1(vga_to_hdmi_i_148_0[2]),
-        .I2(\hc_reg[9]_1 [4]),
-        .I3(\hc_reg[9]_1 [3]),
-        .I4(vga_to_hdmi_i_148_0[0]),
-        .I5(vga_to_hdmi_i_148_0[1]),
-        .O(vga_to_hdmi_i_263_n_0));
-  LUT6 #(
-    .INIT(64'h000200A8AAAAAAA8)) 
-    vga_to_hdmi_i_264
-       (.I0(bot_red21_in),
-        .I1(\hc_reg[9]_1 [4]),
-        .I2(\hc_reg[9]_1 [3]),
-        .I3(vga_to_hdmi_i_350_n_0),
-        .I4(\hc_reg[9]_1 [5]),
-        .I5(\hc_reg[9]_1 [9]),
-        .O(vga_to_hdmi_i_264_n_0));
-  LUT6 #(
-    .INIT(64'hA8AAA80008AA0800)) 
-    vga_to_hdmi_i_265
-       (.I0(vga_to_hdmi_i_351_n_0),
-        .I1(out[0]),
-        .I2(\hc_reg[9]_1 [3]),
-        .I3(\hc_reg[9]_1 [4]),
-        .I4(out[1]),
-        .I5(out[2]),
-        .O(\color_instance/bot_draw/bot_red115_out ));
-  (* SOFT_HLUTNM = "soft_lutpair96" *) 
+    .INIT(64'h8888888888888808)) 
+    vga_to_hdmi_i_241
+       (.I0(\hc_reg[9]_0 [2]),
+        .I1(\hc_reg[9]_0 [3]),
+        .I2(vga_to_hdmi_i_288_n_0),
+        .I3(drawX[1]),
+        .I4(drawX[0]),
+        .I5(drawX[2]),
+        .O(vga_to_hdmi_i_241_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair116" *) 
   LUT2 #(
-    .INIT(4'hE)) 
-    vga_to_hdmi_i_266
-       (.I0(\hc_reg[9]_1 [9]),
-        .I1(\hc_reg[9]_1 [8]),
-        .O(vga_to_hdmi_i_266_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair89" *) 
-  LUT5 #(
-    .INIT(32'h000B33B0)) 
-    vga_to_hdmi_i_268
-       (.I0(Q[3]),
-        .I1(DI),
-        .I2(Q[5]),
-        .I3(Q[4]),
-        .I4(Q[6]),
-        .O(vga_to_hdmi_i_268_n_0));
+    .INIT(4'h1)) 
+    vga_to_hdmi_i_242
+       (.I0(\hc_reg[9]_0 [3]),
+        .I1(\hc_reg[9]_0 [2]),
+        .O(vga_to_hdmi_i_242_n_0));
   LUT6 #(
-    .INIT(64'h0C8EF371F3710C8E)) 
-    vga_to_hdmi_i_271
-       (.I0(player_pos[10]),
-        .I1(player_pos[11]),
-        .I2(\hc_reg[9]_1 [1]),
-        .I3(\hc_reg[9]_1 [0]),
-        .I4(player_pos[12]),
-        .I5(\hc_reg[9]_1 [2]),
-        .O(vga_to_hdmi_i_271_n_0));
-  LUT2 #(
-    .INIT(4'h9)) 
-    vga_to_hdmi_i_274
-       (.I0(\hc_reg[9]_1 [0]),
-        .I1(player_pos[10]),
-        .O(\hc_reg[0]_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair123" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
-    vga_to_hdmi_i_288
-       (.I0(\hc_reg[9]_1 [5]),
-        .I1(\hc_reg[9]_1 [7]),
-        .O(vga_to_hdmi_i_288_n_0));
-  LUT6 #(
-    .INIT(64'hF800000000000000)) 
-    vga_to_hdmi_i_289
-       (.I0(vga_to_hdmi_i_358_n_0),
-        .I1(\hc_reg[9]_1 [3]),
-        .I2(\hc_reg[9]_1 [4]),
-        .I3(\hc_reg[9]_1 [8]),
-        .I4(\hc_reg[9]_1 [5]),
-        .I5(\hc_reg[9]_1 [6]),
-        .O(vga_to_hdmi_i_289_n_0));
-  LUT6 #(
-    .INIT(64'h0440040404404040)) 
-    vga_to_hdmi_i_29
-       (.I0(button_press017_out),
-        .I1(\vc_reg[5]_3 ),
-        .I2(ball_on),
-        .I3(doutb[1]),
-        .I4(\hc_reg[9]_1 [4]),
-        .I5(doutb[0]),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ));
-  LUT6 #(
-    .INIT(64'hEFEEEEEEEEEEEEEE)) 
-    vga_to_hdmi_i_290
-       (.I0(vga_to_hdmi_i_359_n_0),
-        .I1(\hc_reg[9]_1 [9]),
-        .I2(\vc[5]_i_2_n_0 ),
-        .I3(Q[3]),
-        .I4(Q[2]),
-        .I5(Q[8]),
-        .O(vga_to_hdmi_i_290_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair107" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
-    vga_to_hdmi_i_306
-       (.I0(Q[2]),
-        .I1(Q[3]),
-        .I2(Q[0]),
-        .I3(Q[1]),
-        .O(vga_to_hdmi_i_306_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFD000FFFDD910)) 
-    vga_to_hdmi_i_307
-       (.I0(\hc_reg[9]_1 [0]),
-        .I1(\hc_reg[9]_1 [1]),
-        .I2(Q[0]),
-        .I3(Q[1]),
-        .I4(Q[2]),
-        .I5(Q[3]),
-        .O(vga_to_hdmi_i_307_n_0));
-  LUT6 #(
-    .INIT(64'h9999909999990080)) 
-    vga_to_hdmi_i_308
-       (.I0(\hc_reg[9]_1 [1]),
-        .I1(\hc_reg[9]_1 [0]),
-        .I2(Q[0]),
-        .I3(Q[3]),
-        .I4(Q[2]),
-        .I5(Q[1]),
-        .O(vga_to_hdmi_i_308_n_0));
-  LUT5 #(
-    .INIT(32'hFFFF7000)) 
-    vga_to_hdmi_i_31
-       (.I0(vga_to_hdmi_i_96_n_0),
-        .I1(vga_to_hdmi_i_97_n_0),
-        .I2(button_press017_out),
-        .I3(\vc_reg[5]_3 ),
-        .I4(vga_to_hdmi_i_59_n_0),
-        .O(\vc_reg[3]_2 ));
-  LUT6 #(
-    .INIT(64'h0000E21D00000000)) 
-    vga_to_hdmi_i_33
-       (.I0(doutb[0]),
-        .I1(\hc_reg[9]_1 [4]),
-        .I2(doutb[1]),
-        .I3(ball_on),
-        .I4(button_press017_out),
-        .I5(\vc_reg[5]_3 ),
-        .O(vga_to_hdmi_i_33_n_0));
-  LUT6 #(
-    .INIT(64'hAAAAAAAAAEAAAAAA)) 
-    vga_to_hdmi_i_337
-       (.I0(vga_to_hdmi_i_367_n_0),
-        .I1(vga_to_hdmi_i_341_n_0),
-        .I2(\hc_reg[9]_1 [6]),
-        .I3(Q[3]),
-        .I4(Q[4]),
-        .I5(vga_to_hdmi_i_368_n_0),
-        .O(vga_to_hdmi_i_337_n_0));
-  LUT6 #(
-    .INIT(64'hAAEEAEEAAAAAAAAA)) 
-    vga_to_hdmi_i_338
-       (.I0(vga_to_hdmi_i_369_n_0),
-        .I1(\hc_reg[9]_1 [3]),
-        .I2(\hc_reg[9]_1 [6]),
-        .I3(\hc_reg[9]_1 [5]),
-        .I4(\hc_reg[9]_1 [4]),
-        .I5(vga_to_hdmi_i_268_n_0),
-        .O(vga_to_hdmi_i_338_n_0));
-  LUT6 #(
-    .INIT(64'h4000000000000000)) 
-    vga_to_hdmi_i_339
-       (.I0(vga_to_hdmi_i_368_n_0),
-        .I1(\hc_reg[9]_1 [6]),
-        .I2(\hc_reg[9]_1 [7]),
-        .I3(DI),
-        .I4(\vc[0]_i_4_n_0 ),
-        .I5(\vc_reg[5]_5 ),
-        .O(vga_to_hdmi_i_339_n_0));
-  LUT6 #(
-    .INIT(64'hBBAABAAAABAAAAAA)) 
-    vga_to_hdmi_i_340
-       (.I0(vga_to_hdmi_i_370_n_0),
-        .I1(\hc_reg[9]_1 [4]),
-        .I2(\hc_reg[9]_1 [5]),
-        .I3(\hc_reg[9]_1 [3]),
-        .I4(vga_to_hdmi_i_268_n_0),
-        .I5(vga_to_hdmi_i_344_n_0),
-        .O(vga_to_hdmi_i_340_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair106" *) 
-  LUT4 #(
-    .INIT(16'h0056)) 
-    vga_to_hdmi_i_341
-       (.I0(Q[6]),
-        .I1(Q[4]),
-        .I2(Q[5]),
-        .I3(DI),
-        .O(vga_to_hdmi_i_341_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair102" *) 
-  LUT5 #(
-    .INIT(32'h08000100)) 
-    vga_to_hdmi_i_342
-       (.I0(\hc_reg[9]_1 [5]),
-        .I1(\hc_reg[9]_1 [4]),
-        .I2(\hc_reg[9]_1 [3]),
-        .I3(\hc_reg[9]_1 [7]),
-        .I4(\hc_reg[9]_1 [6]),
-        .O(vga_to_hdmi_i_342_n_0));
-  LUT6 #(
-    .INIT(64'h0606C00100000000)) 
-    vga_to_hdmi_i_343
+    .INIT(64'h0001010101010101)) 
+    vga_to_hdmi_i_243
        (.I0(Q[4]),
-        .I1(\hc_reg[9]_1 [5]),
-        .I2(\hc_reg[9]_1 [4]),
-        .I3(\hc_reg[9]_1 [3]),
-        .I4(Q[3]),
-        .I5(vga_to_hdmi_i_341_n_0),
-        .O(vga_to_hdmi_i_343_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair89" *) 
-  LUT5 #(
-    .INIT(32'h02200C0C)) 
-    vga_to_hdmi_i_344
-       (.I0(Q[3]),
-        .I1(Q[4]),
-        .I2(Q[6]),
-        .I3(Q[5]),
-        .I4(DI),
-        .O(vga_to_hdmi_i_344_n_0));
-  LUT6 #(
-    .INIT(64'h444444444CCCC000)) 
-    vga_to_hdmi_i_346
-       (.I0(\hc_reg[9]_1 [8]),
-        .I1(\hc_reg[9]_1 [7]),
-        .I2(\hc_reg[9]_1 [3]),
-        .I3(\hc_reg[9]_1 [4]),
-        .I4(\hc_reg[9]_1 [5]),
-        .I5(\hc_reg[9]_1 [6]),
-        .O(vga_to_hdmi_i_346_n_0));
-  LUT6 #(
-    .INIT(64'h55555557555555C0)) 
-    vga_to_hdmi_i_348
-       (.I0(\hc_reg[9]_1 [9]),
-        .I1(\hc_reg[9]_1 [4]),
-        .I2(\hc_reg[9]_1 [5]),
-        .I3(\hc_reg[9]_1 [7]),
-        .I4(\hc_reg[9]_1 [8]),
-        .I5(\hc_reg[9]_1 [6]),
-        .O(vga_to_hdmi_i_348_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair99" *) 
-  LUT3 #(
-    .INIT(8'hFE)) 
-    vga_to_hdmi_i_350
-       (.I0(\hc_reg[9]_1 [7]),
-        .I1(\hc_reg[9]_1 [8]),
-        .I2(\hc_reg[9]_1 [6]),
-        .O(vga_to_hdmi_i_350_n_0));
-  LUT6 #(
-    .INIT(64'h0000002A00008000)) 
-    vga_to_hdmi_i_351
-       (.I0(\hc_reg[9]_1 [7]),
-        .I1(\hc_reg[9]_1 [3]),
-        .I2(\hc_reg[9]_1 [4]),
-        .I3(\hc_reg[9]_1 [5]),
-        .I4(vga_to_hdmi_i_266_n_0),
-        .I5(\hc_reg[9]_1 [6]),
-        .O(vga_to_hdmi_i_351_n_0));
-  LUT6 #(
-    .INIT(64'hFFFCFFFCFFFCFEFC)) 
-    vga_to_hdmi_i_352
-       (.I0(\hc_reg[9]_1 [6]),
-        .I1(\hc_reg[9]_1 [9]),
-        .I2(\hc_reg[9]_1 [8]),
-        .I3(\hc_reg[9]_1 [7]),
-        .I4(\hc_reg[9]_1 [4]),
-        .I5(\hc_reg[9]_1 [5]),
-        .O(bot_red318_in));
-  LUT3 #(
-    .INIT(8'hFE)) 
-    vga_to_hdmi_i_358
-       (.I0(\hc_reg[9]_1 [1]),
-        .I1(\hc_reg[9]_1 [0]),
-        .I2(\hc_reg[9]_1 [2]),
-        .O(vga_to_hdmi_i_358_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair85" *) 
-  LUT3 #(
-    .INIT(8'hEA)) 
-    vga_to_hdmi_i_359
-       (.I0(Q[9]),
-        .I1(Q[7]),
-        .I2(Q[8]),
-        .O(vga_to_hdmi_i_359_n_0));
-  LUT6 #(
-    .INIT(64'h0000000888888888)) 
-    vga_to_hdmi_i_36
-       (.I0(\vc_reg[5]_3 ),
-        .I1(button_press017_out),
-        .I2(vga_to_hdmi_i_106_n_0),
-        .I3(vga_to_hdmi_i_107_n_0),
-        .I4(vga_to_hdmi_i_108_n_0),
-        .I5(vga_to_hdmi_i_96_n_0),
-        .O(vga_to_hdmi_i_36_n_0));
-  LUT6 #(
-    .INIT(64'h00000000000080B0)) 
-    vga_to_hdmi_i_367
-       (.I0(\vc[0]_i_4_n_0 ),
-        .I1(DI),
-        .I2(\vc_reg[5]_5 ),
-        .I3(\hc_reg[9]_1 [3]),
-        .I4(vga_to_hdmi_i_371_n_0),
-        .I5(\hc_reg[9]_1 [6]),
-        .O(vga_to_hdmi_i_367_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair100" *) 
-  LUT3 #(
-    .INIT(8'h7F)) 
-    vga_to_hdmi_i_368
-       (.I0(\hc_reg[9]_1 [5]),
-        .I1(\hc_reg[9]_1 [4]),
-        .I2(\hc_reg[9]_1 [3]),
-        .O(vga_to_hdmi_i_368_n_0));
-  LUT6 #(
-    .INIT(64'hFFE0202020202020)) 
-    vga_to_hdmi_i_369
-       (.I0(vga_to_hdmi_i_372_n_0),
-        .I1(Q[3]),
-        .I2(vga_to_hdmi_i_341_n_0),
-        .I3(vga_to_hdmi_i_373_n_0),
-        .I4(vga_to_hdmi_i_374_n_0),
-        .I5(\hc_reg[9]_1 [6]),
-        .O(vga_to_hdmi_i_369_n_0));
-  LUT6 #(
-    .INIT(64'h00008C0000008000)) 
-    vga_to_hdmi_i_370
-       (.I0(\hc_reg[9]_1 [3]),
-        .I1(vga_to_hdmi_i_341_n_0),
-        .I2(\hc_reg[9]_1 [5]),
-        .I3(\hc_reg[9]_1 [4]),
-        .I4(Q[4]),
-        .I5(Q[3]),
-        .O(vga_to_hdmi_i_370_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair102" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
-    vga_to_hdmi_i_371
-       (.I0(\hc_reg[9]_1 [4]),
-        .I1(\hc_reg[9]_1 [5]),
-        .O(vga_to_hdmi_i_371_n_0));
+        .I1(Q[6]),
+        .I2(Q[5]),
+        .I3(Q[3]),
+        .I4(Q[2]),
+        .I5(vga_to_hdmi_i_289_n_0),
+        .O(vga_to_hdmi_i_243_n_0));
   (* SOFT_HLUTNM = "soft_lutpair101" *) 
-  LUT5 #(
-    .INIT(32'h10020000)) 
-    vga_to_hdmi_i_372
-       (.I0(\hc_reg[9]_1 [6]),
-        .I1(\hc_reg[9]_1 [3]),
-        .I2(\hc_reg[9]_1 [4]),
-        .I3(\hc_reg[9]_1 [5]),
-        .I4(Q[4]),
-        .O(vga_to_hdmi_i_372_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair106" *) 
   LUT4 #(
-    .INIT(16'h0208)) 
-    vga_to_hdmi_i_373
-       (.I0(Q[3]),
+    .INIT(16'hAA80)) 
+    vga_to_hdmi_i_244
+       (.I0(\hc_reg[9]_0 [3]),
+        .I1(\hc_reg[9]_0 [1]),
+        .I2(\hc_reg[9]_0 [0]),
+        .I3(\hc_reg[9]_0 [2]),
+        .O(vga_to_hdmi_i_244_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    vga_to_hdmi_i_245
+       (.I0(Q[4]),
+        .I1(Q[6]),
+        .O(vga_to_hdmi_i_245_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair85" *) 
+  LUT5 #(
+    .INIT(32'hEFFFFFFF)) 
+    vga_to_hdmi_i_246
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(Q[2]),
+        .I2(Q[3]),
+        .I3(\hc_reg[9]_0 [3]),
+        .I4(\hc_reg[9]_0 [2]),
+        .O(vga_to_hdmi_i_246_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair92" *) 
+  LUT4 #(
+    .INIT(16'h0010)) 
+    vga_to_hdmi_i_25
+       (.I0(button_press_reg_i_7_n_0),
+        .I1(vga_to_hdmi_i_48_n_0),
+        .I2(button_press_reg_i_6_n_0),
+        .I3(vga_to_hdmi_i_53_n_0),
+        .O(vga_to_hdmi_i_25_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair73" *) 
+  LUT5 #(
+    .INIT(32'h01555555)) 
+    vga_to_hdmi_i_251
+       (.I0(\hc_reg[9]_0 [2]),
+        .I1(drawX[2]),
+        .I2(drawX[1]),
+        .I3(\hc_reg[9]_0 [1]),
+        .I4(\hc_reg[9]_0 [0]),
+        .O(vga_to_hdmi_i_251_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    vga_to_hdmi_i_252
+       (.I0(\hc_reg[9]_0 [5]),
+        .I1(\hc_reg[9]_0 [6]),
+        .O(vga_to_hdmi_i_252_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair118" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    vga_to_hdmi_i_253
+       (.I0(\hc_reg[9]_0 [4]),
+        .I1(\hc_reg[9]_0 [3]),
+        .O(vga_to_hdmi_i_253_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair86" *) 
+  LUT3 #(
+    .INIT(8'h1F)) 
+    vga_to_hdmi_i_254
+       (.I0(Q[2]),
+        .I1(Q[1]),
+        .I2(Q[3]),
+        .O(vga_to_hdmi_i_254_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair78" *) 
+  LUT3 #(
+    .INIT(8'h01)) 
+    vga_to_hdmi_i_255
+       (.I0(Q[5]),
         .I1(Q[6]),
         .I2(Q[4]),
-        .I3(Q[5]),
-        .O(vga_to_hdmi_i_373_n_0));
+        .O(vga_to_hdmi_i_255_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair73" *) 
+  LUT2 #(
+    .INIT(4'h1)) 
+    vga_to_hdmi_i_256
+       (.I0(drawX[2]),
+        .I1(drawX[1]),
+        .O(vga_to_hdmi_i_256_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair107" *) 
+  LUT3 #(
+    .INIT(8'h15)) 
+    vga_to_hdmi_i_257
+       (.I0(drawY[1]),
+        .I1(Q[0]),
+        .I2(drawY[2]),
+        .O(vga_to_hdmi_i_257_n_0));
+  LUT6 #(
+    .INIT(64'h0200110002001500)) 
+    vga_to_hdmi_i_258
+       (.I0(drawX[2]),
+        .I1(Q[0]),
+        .I2(drawY[2]),
+        .I3(drawX[0]),
+        .I4(drawX[1]),
+        .I5(drawY[1]),
+        .O(vga_to_hdmi_i_258_n_0));
+  LUT6 #(
+    .INIT(64'hD8D8D800000000D8)) 
+    vga_to_hdmi_i_259
+       (.I0(drawY[2]),
+        .I1(Q[0]),
+        .I2(drawY[1]),
+        .I3(drawX[2]),
+        .I4(drawX[1]),
+        .I5(\hc_reg[9]_0 [0]),
+        .O(vga_to_hdmi_i_259_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair114" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
+    vga_to_hdmi_i_260
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(\hc_reg[9]_0 [2]),
+        .O(vga_to_hdmi_i_260_n_0));
+  LUT6 #(
+    .INIT(64'hAEAEAAAEFFFFFFFF)) 
+    vga_to_hdmi_i_261
+       (.I0(vga_to_hdmi_i_290_n_0),
+        .I1(vga_to_hdmi_i_291_n_0),
+        .I2(vga_to_hdmi_i_289_n_0),
+        .I3(vga_to_hdmi_i_292_n_0),
+        .I4(Q[2]),
+        .I5(vga_to_hdmi_i_293_n_0),
+        .O(vga_to_hdmi_i_261_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFF0FFEFEF)) 
+    vga_to_hdmi_i_262
+       (.I0(Q[3]),
+        .I1(vga_to_hdmi_i_294_n_0),
+        .I2(Q[5]),
+        .I3(vga_to_hdmi_i_295_n_0),
+        .I4(Q[4]),
+        .I5(Q[6]),
+        .O(vga_to_hdmi_i_262_n_0));
+  LUT6 #(
+    .INIT(64'h575557F5F75FF7FF)) 
+    vga_to_hdmi_i_264
+       (.I0(vga_to_hdmi_i_299_n_0),
+        .I1(out[0]),
+        .I2(\hc_reg[9]_0 [1]),
+        .I3(\hc_reg[9]_0 [0]),
+        .I4(out[2]),
+        .I5(out[1]),
+        .O(vga_to_hdmi_i_264_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFDF)) 
+    vga_to_hdmi_i_265
+       (.I0(vga_to_hdmi_i_300_n_0),
+        .I1(vga_to_hdmi_i_301_n_0),
+        .I2(Q[4]),
+        .I3(Q[3]),
+        .I4(Q[5]),
+        .I5(Q[6]),
+        .O(vga_to_hdmi_i_265_n_0));
+  LUT6 #(
+    .INIT(64'hFFFF0000AAFEAAFE)) 
+    vga_to_hdmi_i_266
+       (.I0(vga_to_hdmi_i_302_n_0),
+        .I1(vga_to_hdmi_i_303_n_0),
+        .I2(vga_to_hdmi_i_260_n_0),
+        .I3(vga_to_hdmi_i_304_n_0),
+        .I4(vga_to_hdmi_i_305_n_0),
+        .I5(vga_to_hdmi_i_291_n_0),
+        .O(vga_to_hdmi_i_266_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair114" *) 
+  LUT2 #(
+    .INIT(4'h1)) 
+    vga_to_hdmi_i_267
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(\hc_reg[9]_0 [2]),
+        .O(vga_to_hdmi_i_267_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair85" *) 
+  LUT3 #(
+    .INIT(8'h80)) 
+    vga_to_hdmi_i_268
+       (.I0(\hc_reg[9]_0 [2]),
+        .I1(\hc_reg[9]_0 [3]),
+        .I2(\hc_reg[9]_0 [1]),
+        .O(vga_to_hdmi_i_268_n_0));
+  LUT4 #(
+    .INIT(16'h0004)) 
+    vga_to_hdmi_i_269
+       (.I0(button_press_reg_i_26_n_6),
+        .I1(button_press_reg_i_26_n_1),
+        .I2(button_press_reg_i_24_n_4),
+        .I3(button_press_reg_i_26_n_7),
+        .O(vga_to_hdmi_i_269_n_0));
+  LUT6 #(
+    .INIT(64'h0000000000000010)) 
+    vga_to_hdmi_i_27
+       (.I0(vga_to_hdmi_i_67_n_0),
+        .I1(vga_to_hdmi_i_68_n_0),
+        .I2(vga_to_hdmi_i_69_n_0),
+        .I3(vga_to_hdmi_i_70_n_0),
+        .I4(vga_to_hdmi_i_71_n_0),
+        .I5(vga_to_hdmi_i_72_n_0),
+        .O(vga_to_hdmi_i_27_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair83" *) 
+  LUT5 #(
+    .INIT(32'h0EA00000)) 
+    vga_to_hdmi_i_270
+       (.I0(vga_to_hdmi_i_306_n_0),
+        .I1(vga_to_hdmi_i_307_n_0),
+        .I2(drawX[1]),
+        .I3(drawX[0]),
+        .I4(drawX[2]),
+        .O(vga_to_hdmi_i_270_n_0));
+  LUT6 #(
+    .INIT(64'h0003141400035454)) 
+    vga_to_hdmi_i_271
+       (.I0(vga_to_hdmi_i_308_n_0),
+        .I1(drawX[1]),
+        .I2(drawX[0]),
+        .I3(vga_to_hdmi_i_279_n_0),
+        .I4(drawX[2]),
+        .I5(vga_to_hdmi_i_309_n_0),
+        .O(vga_to_hdmi_i_271_n_0));
+  LUT6 #(
+    .INIT(64'h00000019000F00FF)) 
+    vga_to_hdmi_i_272
+       (.I0(drawX[1]),
+        .I1(drawX[0]),
+        .I2(drawY[0]),
+        .I3(drawY[2]),
+        .I4(drawY[1]),
+        .I5(Q[0]),
+        .O(vga_to_hdmi_i_272_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair84" *) 
+  LUT5 #(
+    .INIT(32'hFF2FAFFF)) 
+    vga_to_hdmi_i_273
+       (.I0(vga_to_hdmi_i_310_n_0),
+        .I1(vga_to_hdmi_i_307_n_0),
+        .I2(drawX[2]),
+        .I3(drawX[1]),
+        .I4(drawX[0]),
+        .O(vga_to_hdmi_i_273_n_0));
+  LUT6 #(
+    .INIT(64'h5400AA805500AA80)) 
+    vga_to_hdmi_i_274
+       (.I0(drawX[1]),
+        .I1(drawY[1]),
+        .I2(drawY[0]),
+        .I3(drawY[2]),
+        .I4(drawX[0]),
+        .I5(Q[0]),
+        .O(vga_to_hdmi_i_274_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair94" *) 
+  LUT4 #(
+    .INIT(16'h0313)) 
+    vga_to_hdmi_i_275
+       (.I0(drawY[0]),
+        .I1(drawY[2]),
+        .I2(drawY[1]),
+        .I3(Q[0]),
+        .O(vga_to_hdmi_i_275_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair94" *) 
+  LUT4 #(
+    .INIT(16'h0115)) 
+    vga_to_hdmi_i_276
+       (.I0(drawY[2]),
+        .I1(drawY[0]),
+        .I2(drawY[1]),
+        .I3(Q[0]),
+        .O(vga_to_hdmi_i_276_n_0));
+  LUT6 #(
+    .INIT(64'hAAFF557FABFF557F)) 
+    vga_to_hdmi_i_277
+       (.I0(drawX[1]),
+        .I1(drawY[1]),
+        .I2(drawY[0]),
+        .I3(drawY[2]),
+        .I4(drawX[0]),
+        .I5(Q[0]),
+        .O(vga_to_hdmi_i_277_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair95" *) 
+  LUT4 #(
+    .INIT(16'hEAFE)) 
+    vga_to_hdmi_i_278
+       (.I0(drawY[2]),
+        .I1(drawY[0]),
+        .I2(drawY[1]),
+        .I3(Q[0]),
+        .O(vga_to_hdmi_i_278_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair91" *) 
+  LUT4 #(
+    .INIT(16'h1303)) 
+    vga_to_hdmi_i_279
+       (.I0(drawY[0]),
+        .I1(drawY[2]),
+        .I2(drawY[1]),
+        .I3(Q[0]),
+        .O(vga_to_hdmi_i_279_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair98" *) 
+  LUT2 #(
+    .INIT(4'h1)) 
+    vga_to_hdmi_i_280
+       (.I0(Q[6]),
+        .I1(Q[5]),
+        .O(vga_to_hdmi_i_280_n_0));
+  LUT6 #(
+    .INIT(64'h777FFFFF777F777F)) 
+    vga_to_hdmi_i_281
+       (.I0(\hc_reg[9]_0 [4]),
+        .I1(\hc_reg[9]_0 [3]),
+        .I2(\hc_reg[9]_0 [1]),
+        .I3(\hc_reg[9]_0 [2]),
+        .I4(Q[4]),
+        .I5(vga_to_hdmi_i_85_1),
+        .O(vga_to_hdmi_i_281_n_0));
+  LUT6 #(
+    .INIT(64'h1711000002000000)) 
+    vga_to_hdmi_i_282
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(DI[1]),
+        .I2(Q[1]),
+        .I3(Q[0]),
+        .I4(\vc_reg[6]_0 ),
+        .I5(\hc_reg[9]_0 [0]),
+        .O(vga_to_hdmi_i_282_n_0));
+  LUT6 #(
+    .INIT(64'h00006040400080A0)) 
+    vga_to_hdmi_i_283
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(\hc_reg[9]_0 [0]),
+        .I2(\vc_reg[6]_0 ),
+        .I3(Q[0]),
+        .I4(DI[1]),
+        .I5(Q[1]),
+        .O(vga_to_hdmi_i_283_n_0));
+  LUT6 #(
+    .INIT(64'h30E0302010000010)) 
+    vga_to_hdmi_i_284
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(DI[1]),
+        .I2(\vc_reg[6]_0 ),
+        .I3(Q[1]),
+        .I4(Q[0]),
+        .I5(\hc_reg[9]_0 [0]),
+        .O(vga_to_hdmi_i_284_n_0));
+  LUT6 #(
+    .INIT(64'h0000030008000800)) 
+    vga_to_hdmi_i_285
+       (.I0(\hc_reg[9]_0 [0]),
+        .I1(\hc_reg[9]_0 [1]),
+        .I2(DI[1]),
+        .I3(\vc_reg[6]_0 ),
+        .I4(Q[1]),
+        .I5(Q[0]),
+        .O(vga_to_hdmi_i_285_n_0));
+  LUT6 #(
+    .INIT(64'hB888C030B888F330)) 
+    vga_to_hdmi_i_286
+       (.I0(vga_to_hdmi_i_311_n_0),
+        .I1(\hc_reg[9]_0 [2]),
+        .I2(vga_to_hdmi_i_92_n_0),
+        .I3(\hc_reg[9]_0 [0]),
+        .I4(\hc_reg[9]_0 [1]),
+        .I5(vga_to_hdmi_i_239_n_0),
+        .O(vga_to_hdmi_i_286_n_0));
+  LUT5 #(
+    .INIT(32'hFFF100F1)) 
+    vga_to_hdmi_i_287
+       (.I0(vga_to_hdmi_i_312_n_0),
+        .I1(\hc_reg[9]_0 [1]),
+        .I2(vga_to_hdmi_i_313_n_0),
+        .I3(\hc_reg[9]_0 [2]),
+        .I4(vga_to_hdmi_i_314_n_0),
+        .O(vga_to_hdmi_i_287_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair101" *) 
+  LUT2 #(
+    .INIT(4'h1)) 
+    vga_to_hdmi_i_288
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(\hc_reg[9]_0 [0]),
+        .O(vga_to_hdmi_i_288_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair113" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    vga_to_hdmi_i_289
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .O(vga_to_hdmi_i_289_n_0));
+  LUT3 #(
+    .INIT(8'h10)) 
+    vga_to_hdmi_i_29
+       (.I0(vga_to_hdmi_i_48_n_0),
+        .I1(vga_to_hdmi_i_53_n_0),
+        .I2(vga_to_hdmi_i_72_n_0),
+        .O(vga_to_hdmi_i_29_n_0));
+  LUT6 #(
+    .INIT(64'h0000000000077FF0)) 
+    vga_to_hdmi_i_290
+       (.I0(vga_to_hdmi_i_315_n_0),
+        .I1(vga_to_hdmi_i_316_n_0),
+        .I2(\hc_reg[9]_0 [3]),
+        .I3(vga_to_hdmi_i_317_n_0),
+        .I4(\hc_reg[9]_0 [4]),
+        .I5(vga_to_hdmi_i_318_n_0),
+        .O(vga_to_hdmi_i_290_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair100" *) 
+  LUT4 #(
+    .INIT(16'hAA95)) 
+    vga_to_hdmi_i_291
+       (.I0(\hc_reg[9]_0 [4]),
+        .I1(\hc_reg[9]_0 [1]),
+        .I2(\hc_reg[9]_0 [2]),
+        .I3(\hc_reg[9]_0 [3]),
+        .O(vga_to_hdmi_i_291_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair117" *) 
   LUT2 #(
     .INIT(4'h2)) 
-    vga_to_hdmi_i_374
-       (.I0(\hc_reg[9]_1 [5]),
-        .I1(\hc_reg[9]_1 [4]),
-        .O(vga_to_hdmi_i_374_n_0));
+    vga_to_hdmi_i_292
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(\hc_reg[9]_0 [0]),
+        .O(vga_to_hdmi_i_292_n_0));
   LUT6 #(
-    .INIT(64'hEEEEFEEEFEEEFEEE)) 
-    vga_to_hdmi_i_39
-       (.I0(\srl[39].srl16_i ),
-        .I1(vga_to_hdmi_i_59_n_0),
-        .I2(\vc_reg[5]_3 ),
-        .I3(button_press017_out),
-        .I4(vga_to_hdmi_i_97_n_0),
-        .I5(vga_to_hdmi_i_96_n_0),
-        .O(vga_to_hdmi_i_39_n_0));
+    .INIT(64'h2800000008000000)) 
+    vga_to_hdmi_i_293
+       (.I0(vga_to_hdmi_i_300_n_0),
+        .I1(Q[3]),
+        .I2(Q[2]),
+        .I3(Q[4]),
+        .I4(vga_to_hdmi_i_280_n_0),
+        .I5(vga_to_hdmi_i_289_n_0),
+        .O(vga_to_hdmi_i_293_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair96" *) 
+  LUT3 #(
+    .INIT(8'hEA)) 
+    vga_to_hdmi_i_294
+       (.I0(Q[2]),
+        .I1(Q[1]),
+        .I2(Q[0]),
+        .O(vga_to_hdmi_i_294_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair108" *) 
+  LUT3 #(
+    .INIT(8'h80)) 
+    vga_to_hdmi_i_295
+       (.I0(Q[1]),
+        .I1(Q[2]),
+        .I2(Q[3]),
+        .O(vga_to_hdmi_i_295_n_0));
   LUT6 #(
-    .INIT(64'hEFEFEFFEAAAAAAAA)) 
+    .INIT(64'hEFFFFBBBABBBBBBB)) 
+    vga_to_hdmi_i_296
+       (.I0(button_press_reg_i_14_n_0),
+        .I1(\hc_reg[9]_0 [3]),
+        .I2(\hc_reg[9]_0 [1]),
+        .I3(\hc_reg[9]_0 [0]),
+        .I4(\hc_reg[9]_0 [2]),
+        .I5(\hc_reg[9]_0 [5]),
+        .O(\hc_reg[6]_1 ));
+  LUT6 #(
+    .INIT(64'h0000000200020000)) 
+    vga_to_hdmi_i_299
+       (.I0(\hc_reg[9]_0 [5]),
+        .I1(\hc_reg[9]_0 [6]),
+        .I2(\hc_reg[9]_0 [4]),
+        .I3(\hc_reg[9]_0 [3]),
+        .I4(\hc_reg[9]_0 [1]),
+        .I5(\hc_reg[9]_0 [2]),
+        .O(vga_to_hdmi_i_299_n_0));
+  LUT6 #(
+    .INIT(64'hFFBFBBBBAAAAAAAA)) 
+    vga_to_hdmi_i_3
+       (.I0(vga_to_hdmi_i_22_n_0),
+        .I1(vga_to_hdmi_i_18_n_0),
+        .I2(\hc_reg[2]_0 ),
+        .I3(\srl[21].srl16_i ),
+        .I4(vga_to_hdmi_i_16_n_0),
+        .I5(\srl[28].srl16_i ),
+        .O(red[1]));
+  LUT6 #(
+    .INIT(64'h0004040444444440)) 
+    vga_to_hdmi_i_300
+       (.I0(\hc_reg[9]_0 [6]),
+        .I1(\hc_reg[9]_0 [5]),
+        .I2(\hc_reg[9]_0 [3]),
+        .I3(\hc_reg[9]_0 [1]),
+        .I4(\hc_reg[9]_0 [2]),
+        .I5(\hc_reg[9]_0 [4]),
+        .O(vga_to_hdmi_i_300_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair79" *) 
+  LUT3 #(
+    .INIT(8'hA8)) 
+    vga_to_hdmi_i_301
+       (.I0(Q[2]),
+        .I1(Q[1]),
+        .I2(Q[0]),
+        .O(vga_to_hdmi_i_301_n_0));
+  LUT6 #(
+    .INIT(64'h2220222222222222)) 
+    vga_to_hdmi_i_302
+       (.I0(vga_to_hdmi_i_320_n_0),
+        .I1(vga_to_hdmi_i_321_n_0),
+        .I2(vga_to_hdmi_i_260_n_0),
+        .I3(\hc_reg[9]_0 [0]),
+        .I4(\vc[9]_i_5_n_0 ),
+        .I5(Q[0]),
+        .O(vga_to_hdmi_i_302_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFCF5FFF0FF05)) 
+    vga_to_hdmi_i_303
+       (.I0(DI[1]),
+        .I1(Q[1]),
+        .I2(Q[0]),
+        .I3(\hc_reg[9]_0 [1]),
+        .I4(\hc_reg[9]_0 [0]),
+        .I5(Q[2]),
+        .O(vga_to_hdmi_i_303_n_0));
+  LUT6 #(
+    .INIT(64'hFF00005044FFFFFF)) 
+    vga_to_hdmi_i_304
+       (.I0(vga_to_hdmi_i_301_n_0),
+        .I1(\hc_reg[9]_0 [0]),
+        .I2(Q[2]),
+        .I3(\hc_reg[9]_0 [1]),
+        .I4(\hc_reg[9]_0 [2]),
+        .I5(\hc_reg[9]_0 [3]),
+        .O(vga_to_hdmi_i_304_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair79" *) 
+  LUT5 #(
+    .INIT(32'hEEAEEA8E)) 
+    vga_to_hdmi_i_305
+       (.I0(Q[2]),
+        .I1(Q[0]),
+        .I2(\hc_reg[9]_0 [1]),
+        .I3(\hc_reg[9]_0 [0]),
+        .I4(Q[1]),
+        .O(vga_to_hdmi_i_305_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair102" *) 
+  LUT4 #(
+    .INIT(16'hFE00)) 
+    vga_to_hdmi_i_306
+       (.I0(Q[0]),
+        .I1(drawY[1]),
+        .I2(drawY[0]),
+        .I3(drawY[2]),
+        .O(vga_to_hdmi_i_306_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair109" *) 
+  LUT3 #(
+    .INIT(8'hEA)) 
+    vga_to_hdmi_i_307
+       (.I0(drawY[2]),
+        .I1(drawY[0]),
+        .I2(drawY[1]),
+        .O(vga_to_hdmi_i_307_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair103" *) 
+  LUT4 #(
+    .INIT(16'h002A)) 
+    vga_to_hdmi_i_308
+       (.I0(Q[0]),
+        .I1(drawY[1]),
+        .I2(drawY[0]),
+        .I3(drawY[2]),
+        .O(vga_to_hdmi_i_308_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair107" *) 
+  LUT3 #(
+    .INIT(8'h01)) 
+    vga_to_hdmi_i_309
+       (.I0(drawY[1]),
+        .I1(drawY[2]),
+        .I2(drawY[0]),
+        .O(vga_to_hdmi_i_309_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair102" *) 
+  LUT4 #(
+    .INIT(16'h02FF)) 
+    vga_to_hdmi_i_310
+       (.I0(Q[0]),
+        .I1(drawY[1]),
+        .I2(drawY[0]),
+        .I3(drawY[2]),
+        .O(vga_to_hdmi_i_310_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair87" *) 
+  LUT5 #(
+    .INIT(32'h02000100)) 
+    vga_to_hdmi_i_311
+       (.I0(\hc_reg[9]_0 [0]),
+        .I1(DI[1]),
+        .I2(Q[3]),
+        .I3(Q[1]),
+        .I4(Q[0]),
+        .O(vga_to_hdmi_i_311_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair87" *) 
+  LUT5 #(
+    .INIT(32'hFFFFFEFF)) 
+    vga_to_hdmi_i_312
+       (.I0(\hc_reg[9]_0 [0]),
+        .I1(DI[1]),
+        .I2(Q[3]),
+        .I3(Q[1]),
+        .I4(Q[0]),
+        .O(vga_to_hdmi_i_312_n_0));
+  LUT6 #(
+    .INIT(64'h0075314400000000)) 
+    vga_to_hdmi_i_313
+       (.I0(DI[1]),
+        .I1(Q[1]),
+        .I2(Q[0]),
+        .I3(Q[3]),
+        .I4(Q[2]),
+        .I5(\hc_reg[9]_0 [0]),
+        .O(vga_to_hdmi_i_313_n_0));
+  LUT6 #(
+    .INIT(64'h0004040000044440)) 
+    vga_to_hdmi_i_314
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(Q[0]),
+        .I2(Q[1]),
+        .I3(Q[2]),
+        .I4(Q[3]),
+        .I5(DI[1]),
+        .O(vga_to_hdmi_i_314_n_0));
+  LUT6 #(
+    .INIT(64'h406AFFFFFFFF80AA)) 
+    vga_to_hdmi_i_315
+       (.I0(\hc_reg[9]_0 [0]),
+        .I1(Q[0]),
+        .I2(Q[1]),
+        .I3(Q[2]),
+        .I4(\hc_reg[9]_0 [2]),
+        .I5(\hc_reg[9]_0 [1]),
+        .O(vga_to_hdmi_i_315_n_0));
+  LUT6 #(
+    .INIT(64'hEFAAEFAA5555DF55)) 
+    vga_to_hdmi_i_316
+       (.I0(\hc_reg[9]_0 [2]),
+        .I1(Q[1]),
+        .I2(Q[2]),
+        .I3(Q[0]),
+        .I4(\hc_reg[9]_0 [0]),
+        .I5(\hc_reg[9]_0 [1]),
+        .O(vga_to_hdmi_i_316_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair115" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    vga_to_hdmi_i_317
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(\hc_reg[9]_0 [2]),
+        .O(vga_to_hdmi_i_317_n_0));
+  LUT6 #(
+    .INIT(64'h30CC0CCC10000440)) 
+    vga_to_hdmi_i_318
+       (.I0(Q[2]),
+        .I1(\hc_reg[9]_0 [3]),
+        .I2(\hc_reg[9]_0 [2]),
+        .I3(\hc_reg[9]_0 [1]),
+        .I4(\hc_reg[9]_0 [0]),
+        .I5(vga_to_hdmi_i_289_n_0),
+        .O(vga_to_hdmi_i_318_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair81" *) 
+  LUT5 #(
+    .INIT(32'hFDFFFFFF)) 
+    vga_to_hdmi_i_319
+       (.I0(\hc_reg[9]_0 [5]),
+        .I1(\hc_reg[9]_0 [6]),
+        .I2(\hc_reg[9]_0 [4]),
+        .I3(\hc_reg[9]_0 [2]),
+        .I4(\hc_reg[9]_0 [3]),
+        .O(\hc_reg[8]_0 ));
+  LUT6 #(
+    .INIT(64'hFF7F7F77FFFF7FF7)) 
+    vga_to_hdmi_i_320
+       (.I0(\hc_reg[9]_0 [2]),
+        .I1(\hc_reg[9]_0 [1]),
+        .I2(\hc_reg[9]_0 [0]),
+        .I3(Q[0]),
+        .I4(Q[2]),
+        .I5(DI[1]),
+        .O(vga_to_hdmi_i_320_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00004600)) 
+    vga_to_hdmi_i_321
+       (.I0(Q[2]),
+        .I1(Q[1]),
+        .I2(Q[0]),
+        .I3(vga_to_hdmi_i_55_n_0),
+        .I4(\hc_reg[9]_0 [2]),
+        .I5(vga_to_hdmi_i_322_n_0),
+        .O(vga_to_hdmi_i_321_n_0));
+  LUT6 #(
+    .INIT(64'hAAAAAAAAAAAAABAA)) 
+    vga_to_hdmi_i_322
+       (.I0(vga_to_hdmi_i_323_n_0),
+        .I1(Q[1]),
+        .I2(\hc_reg[9]_0 [1]),
+        .I3(\hc_reg[9]_0 [0]),
+        .I4(Q[2]),
+        .I5(Q[0]),
+        .O(vga_to_hdmi_i_322_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair100" *) 
+  LUT3 #(
+    .INIT(8'h6A)) 
+    vga_to_hdmi_i_323
+       (.I0(\hc_reg[9]_0 [3]),
+        .I1(\hc_reg[9]_0 [2]),
+        .I2(\hc_reg[9]_0 [1]),
+        .O(vga_to_hdmi_i_323_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair75" *) 
+  LUT5 #(
+    .INIT(32'hFFEFEEEE)) 
+    vga_to_hdmi_i_33
+       (.I0(vga_to_hdmi_i_48_n_0),
+        .I1(vga_to_hdmi_i_53_n_0),
+        .I2(button_press_reg_i_7_n_0),
+        .I3(vga_to_hdmi_i_72_n_0),
+        .I4(button_press_reg_i_6_n_0),
+        .O(vga_to_hdmi_i_33_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair76" *) 
+  LUT5 #(
+    .INIT(32'hABABABBA)) 
+    vga_to_hdmi_i_34
+       (.I0(\srl[23].srl16_i ),
+        .I1(vga_to_hdmi_i_46_n_0),
+        .I2(Q[3]),
+        .I3(Q[2]),
+        .I4(Q[1]),
+        .O(vga_to_hdmi_i_34_n_0));
+  LUT2 #(
+    .INIT(4'h2)) 
+    vga_to_hdmi_i_35
+       (.I0(DI[1]),
+        .I1(vga_to_hdmi_i_46_n_0),
+        .O(vga_to_hdmi_i_35_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair93" *) 
+  LUT4 #(
+    .INIT(16'hFFAE)) 
+    vga_to_hdmi_i_38
+       (.I0(vga_to_hdmi_i_14_n_0),
+        .I1(Q[1]),
+        .I2(vga_to_hdmi_i_46_n_0),
+        .I3(vga_to_hdmi_i_85_n_0),
+        .O(vga_to_hdmi_i_38_n_0));
+  LUT6 #(
+    .INIT(64'hFFBFBBBBAAAAAAAA)) 
+    vga_to_hdmi_i_4
+       (.I0(vga_to_hdmi_i_22_n_0),
+        .I1(vga_to_hdmi_i_18_n_0),
+        .I2(\hc_reg[2]_0 ),
+        .I3(\srl[20].srl16_i ),
+        .I4(vga_to_hdmi_i_16_n_0),
+        .I5(\srl[28].srl16_i ),
+        .O(red[0]));
+  (* SOFT_HLUTNM = "soft_lutpair93" *) 
+  LUT4 #(
+    .INIT(16'hFFAB)) 
+    vga_to_hdmi_i_40
+       (.I0(vga_to_hdmi_i_14_n_0),
+        .I1(Q[0]),
+        .I2(vga_to_hdmi_i_46_n_0),
+        .I3(vga_to_hdmi_i_85_n_0),
+        .O(vga_to_hdmi_i_40_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair90" *) 
+  LUT4 #(
+    .INIT(16'h7FFF)) 
+    vga_to_hdmi_i_41
+       (.I0(Q[5]),
+        .I1(Q[4]),
+        .I2(Q[3]),
+        .I3(Q[2]),
+        .O(vga_to_hdmi_i_41_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFF0100)) 
+    vga_to_hdmi_i_42
+       (.I0(vga_to_hdmi_i_88_n_0),
+        .I1(\hc_reg[9]_0 [4]),
+        .I2(\hc_reg[9]_0 [5]),
+        .I3(\hc_reg[9]_0 [6]),
+        .I4(vga_to_hdmi_i_89_n_0),
+        .I5(vga_to_hdmi_i_90_n_0),
+        .O(vga_to_hdmi_i_42_n_0));
+  LUT6 #(
+    .INIT(64'h0000200020002000)) 
     vga_to_hdmi_i_43
-       (.I0(\srl[39].srl16_i_1 ),
-        .I1(vga_to_hdmi_i_124_n_0),
+       (.I0(vga_to_hdmi_i_91_n_0),
+        .I1(\hc_reg[9]_0 [6]),
+        .I2(\hc_reg[9]_0 [4]),
+        .I3(\hc_reg[9]_0 [5]),
+        .I4(\hc_reg[9]_0 [3]),
+        .I5(\hc_reg[9]_0 [2]),
+        .O(vga_to_hdmi_i_43_n_0));
+  LUT6 #(
+    .INIT(64'hBFFFBFFFFFF7BFFF)) 
+    vga_to_hdmi_i_44
+       (.I0(Q[6]),
+        .I1(vga_to_hdmi_i_92_n_0),
+        .I2(Q[5]),
+        .I3(Q[4]),
+        .I4(\vc[9]_i_5_n_0 ),
+        .I5(Q[3]),
+        .O(vga_to_hdmi_i_44_n_0));
+  LUT6 #(
+    .INIT(64'hBBBE8882BBBE8BB2)) 
+    vga_to_hdmi_i_45
+       (.I0(vga_to_hdmi_i_93_n_0),
+        .I1(\hc_reg[9]_0 [6]),
+        .I2(\hc_reg[9]_0 [4]),
+        .I3(\hc_reg[9]_0 [5]),
+        .I4(vga_to_hdmi_i_94_n_0),
+        .I5(vga_to_hdmi_i_95_n_0),
+        .O(vga_to_hdmi_i_45_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFAAAAAAEA)) 
+    vga_to_hdmi_i_46
+       (.I0(vga_to_hdmi_i_96_n_0),
+        .I1(Q[5]),
+        .I2(Q[4]),
+        .I3(vga_to_hdmi_i_97_n_0),
+        .I4(\vc_reg[0]_0 ),
+        .I5(vga_to_hdmi_i_99_n_0),
+        .O(vga_to_hdmi_i_46_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair78" *) 
+  LUT5 #(
+    .INIT(32'h00000155)) 
+    vga_to_hdmi_i_47
+       (.I0(Q[6]),
+        .I1(Q[4]),
+        .I2(vga_to_hdmi_i_100_n_0),
+        .I3(Q[5]),
+        .I4(vga_to_hdmi_i_101_n_0),
+        .O(\vc_reg[9]_1 ));
+  LUT6 #(
+    .INIT(64'h000E000000000000)) 
+    vga_to_hdmi_i_48
+       (.I0(vga_to_hdmi_i_102_n_0),
+        .I1(vga_to_hdmi_i_103_n_0),
         .I2(Q[6]),
         .I3(Q[4]),
         .I4(Q[5]),
-        .I5(vga_to_hdmi_i_125_n_0),
-        .O(vga_to_hdmi_i_43_n_0));
+        .I5(vga_to_hdmi_i_104_n_0),
+        .O(vga_to_hdmi_i_48_n_0));
   LUT6 #(
-    .INIT(64'h00FF007000000000)) 
-    vga_to_hdmi_i_44
-       (.I0(vga_to_hdmi_i_96_n_0),
-        .I1(vga_to_hdmi_i_97_n_0),
-        .I2(button_press017_out),
-        .I3(button_press_reg_i_8_n_0),
-        .I4(button_press121_out),
-        .I5(block_addr1),
-        .O(vga_to_hdmi_i_44_n_0));
+    .INIT(64'hFFFFFEEEEEEEEEEE)) 
+    vga_to_hdmi_i_5
+       (.I0(vga_to_hdmi_i_14_n_0),
+        .I1(\srl[23].srl16_i ),
+        .I2(vga_to_hdmi_i_25_n_0),
+        .I3(\srl[31].srl16_i ),
+        .I4(vga_to_hdmi_i_27_n_0),
+        .I5(\srl[28].srl16_i ),
+        .O(green[3]));
   LUT6 #(
-    .INIT(64'h222022202220FFFF)) 
-    vga_to_hdmi_i_47
-       (.I0(vga_to_hdmi_i_130_n_0),
-        .I1(block_addr1),
-        .I2(vga_to_hdmi_i_124_n_0),
-        .I3(DI),
-        .I4(state[1]),
-        .I5(state[0]),
-        .O(vga_to_hdmi_i_47_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair82" *) 
-  LUT5 #(
-    .INIT(32'h02020200)) 
-    vga_to_hdmi_i_49
-       (.I0(\vc_reg[5]_3 ),
-        .I1(button_press017_out),
-        .I2(Red10_out),
-        .I3(state[1]),
-        .I4(state[0]),
-        .O(vga_to_hdmi_i_49_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair82" *) 
-  LUT5 #(
-    .INIT(32'h08080800)) 
-    vga_to_hdmi_i_51
-       (.I0(Red10_out),
-        .I1(\vc_reg[5]_3 ),
-        .I2(button_press017_out),
-        .I3(state[1]),
-        .I4(state[0]),
-        .O(vga_to_hdmi_i_51_n_0));
+    .INIT(64'hFFFFFFFF77777FFF)) 
+    vga_to_hdmi_i_52
+       (.I0(vga_to_hdmi_i_117_n_0),
+        .I1(mouse_sig),
+        .I2(vga_to_hdmi_i_119_n_0),
+        .I3(vga_to_hdmi_i_120_n_0),
+        .I4(vga_to_hdmi_i_121_n_0),
+        .I5(vga_to_hdmi_i_122_n_0),
+        .O(\state_reg[0] ));
   LUT6 #(
-    .INIT(64'h88BB88B888888888)) 
+    .INIT(64'h0E0E0E0E0E000E0E)) 
     vga_to_hdmi_i_53
-       (.I0(Red144_out),
-        .I1(\srl[39].srl16_i ),
-        .I2(vga_to_hdmi_i_140_n_0),
-        .I3(button_press_reg_i_8_n_0),
-        .I4(button_press121_out),
-        .I5(block_addr1),
+       (.I0(vga_to_hdmi_i_123_n_0),
+        .I1(vga_to_hdmi_i_100_n_0),
+        .I2(vga_to_hdmi_i_124_n_0),
+        .I3(vga_to_hdmi_i_97_n_0),
+        .I4(Q[1]),
+        .I5(vga_to_hdmi_i_125_n_0),
         .O(vga_to_hdmi_i_53_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair113" *) 
-  LUT3 #(
-    .INIT(8'hA8)) 
+  LUT6 #(
+    .INIT(64'hAAAAAAAA80808000)) 
     vga_to_hdmi_i_54
-       (.I0(vga_to_hdmi_i_125_n_0),
-        .I1(Q[4]),
-        .I2(vga_to_hdmi_i_124_n_0),
+       (.I0(Q[3]),
+        .I1(Q[1]),
+        .I2(Q[0]),
+        .I3(drawY[1]),
+        .I4(drawY[2]),
+        .I5(Q[2]),
         .O(vga_to_hdmi_i_54_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair113" *) 
-  LUT3 #(
-    .INIT(8'hA2)) 
-    vga_to_hdmi_i_57
-       (.I0(vga_to_hdmi_i_125_n_0),
-        .I1(Q[3]),
-        .I2(vga_to_hdmi_i_124_n_0),
-        .O(vga_to_hdmi_i_57_n_0));
   (* SOFT_HLUTNM = "soft_lutpair117" *) 
-  LUT3 #(
-    .INIT(8'h1F)) 
-    vga_to_hdmi_i_58
-       (.I0(\hc_reg[9]_1 [7]),
-        .I1(\hc_reg[9]_1 [8]),
-        .I2(\hc_reg[9]_1 [9]),
-        .O(vga_to_hdmi_i_58_n_0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    vga_to_hdmi_i_55
+       (.I0(\hc_reg[9]_0 [1]),
+        .I1(\hc_reg[9]_0 [0]),
+        .O(vga_to_hdmi_i_55_n_0));
   LUT6 #(
-    .INIT(64'h00000000AAA88888)) 
-    vga_to_hdmi_i_59
-       (.I0(vga_to_hdmi_i_130_n_0),
-        .I1(vga_to_hdmi_i_147_n_0),
-        .I2(vga_to_hdmi_i_148_n_0),
-        .I3(vga_to_hdmi_i_149_n_0),
-        .I4(\color_instance/bot_draw/bot_red122_out ),
-        .I5(block_addr1),
-        .O(vga_to_hdmi_i_59_n_0));
-  LUT5 #(
-    .INIT(32'h00004540)) 
-    vga_to_hdmi_i_61
-       (.I0(player_pos_20_sn_1),
-        .I1(vga_to_hdmi_i_16_0),
-        .I2(\player_pos[20]_0 ),
-        .I3(vga_to_hdmi_i_16_1),
-        .I4(\player_pos[20]_1 ),
-        .O(vga_to_hdmi_i_61_n_0));
-  LUT5 #(
-    .INIT(32'h45400000)) 
-    vga_to_hdmi_i_62
-       (.I0(player_pos_20_sn_1),
-        .I1(vga_to_hdmi_i_16_2),
-        .I2(\player_pos[20]_0 ),
-        .I3(vga_to_hdmi_i_16_3),
-        .I4(\player_pos[20]_1 ),
-        .O(vga_to_hdmi_i_62_n_0));
-  LUT6 #(
-    .INIT(64'h00000000FFAE0000)) 
-    vga_to_hdmi_i_69
-       (.I0(vga_to_hdmi_i_171_n_0),
-        .I1(Q[7]),
-        .I2(\vc[9]_i_5_n_0 ),
-        .I3(vga_to_hdmi_i_172_n_0),
-        .I4(vga_to_hdmi_i_173_n_0),
-        .I5(vga_to_hdmi_i_174_n_0),
-        .O(Red144_out));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFF888)) 
-    vga_to_hdmi_i_7
-       (.I0(vga_to_hdmi_i_33_n_0),
-        .I1(\srl[30].srl16_i [5]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ),
-        .I3(\srl[30].srl16_i [12]),
-        .I4(\FSM_sequential_state_reg[1] ),
-        .I5(vga_to_hdmi_i_36_n_0),
-        .O(green[2]));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_8
-       (.I0(vga_to_hdmi_i_33_n_0),
-        .I1(\srl[30].srl16_i [4]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ),
-        .I3(\srl[30].srl16_i [11]),
-        .I4(vga_to_hdmi_i_39_n_0),
-        .O(green[1]));
-  LUT5 #(
-    .INIT(32'hFFFFF888)) 
-    vga_to_hdmi_i_9
-       (.I0(vga_to_hdmi_i_33_n_0),
-        .I1(\srl[30].srl16_i [3]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram ),
-        .I3(\srl[30].srl16_i [10]),
-        .I4(vga_to_hdmi_i_39_n_0),
-        .O(green[0]));
-  LUT6 #(
-    .INIT(64'hFFFFFEFFFEFEFEFE)) 
-    vga_to_hdmi_i_96
-       (.I0(vga_to_hdmi_i_195_n_0),
-        .I1(vga_to_hdmi_i_196_n_0),
-        .I2(vga_to_hdmi_i_197_n_0),
-        .I3(Q[3]),
-        .I4(Q[2]),
-        .I5(vga_to_hdmi_i_198_n_0),
-        .O(vga_to_hdmi_i_96_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFEFEFEFEFE)) 
-    vga_to_hdmi_i_97
-       (.I0(vga_to_hdmi_i_108_n_0),
-        .I1(vga_to_hdmi_i_107_n_0),
-        .I2(vga_to_hdmi_i_197_n_0),
-        .I3(Q[2]),
-        .I4(Q[3]),
-        .I5(vga_to_hdmi_i_198_n_0),
-        .O(vga_to_hdmi_i_97_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFDDF)) 
-    vs_i_1
-       (.I0(\vc_reg[2]_0 [0]),
-        .I1(vs_i_2_n_0),
-        .I2(Q[8]),
-        .I3(vs_i_3_n_0),
-        .I4(Q[9]),
-        .I5(vs_i_4_n_0),
-        .O(vs_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair93" *) 
-  LUT5 #(
-    .INIT(32'hDFF7FFFF)) 
-    vs_i_2
-       (.I0(Q[6]),
-        .I1(Q[5]),
-        .I2(vs_i_5_n_0),
+    .INIT(64'h0000000000000057)) 
+    vga_to_hdmi_i_56
+       (.I0(Q[3]),
+        .I1(Q[1]),
+        .I2(Q[2]),
         .I3(Q[4]),
-        .I4(Q[7]),
-        .O(vs_i_2_n_0));
+        .I4(Q[6]),
+        .I5(Q[5]),
+        .O(vga_to_hdmi_i_56_n_0));
   LUT6 #(
-    .INIT(64'h0200000000000000)) 
-    vs_i_3
-       (.I0(Q[7]),
-        .I1(\vc[9]_i_5_n_0 ),
-        .I2(\vc[5]_i_2_n_0 ),
-        .I3(Q[2]),
-        .I4(Q[3]),
-        .I5(Q[4]),
-        .O(vs_i_3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair108" *) 
-  LUT4 #(
-    .INIT(16'hF78F)) 
-    vs_i_4
-       (.I0(Q[1]),
-        .I1(Q[0]),
-        .I2(Q[3]),
-        .I3(Q[2]),
-        .O(vs_i_4_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair108" *) 
+    .INIT(64'hFFEFFFFFFFFFFFFF)) 
+    vga_to_hdmi_i_57
+       (.I0(vga_to_hdmi_i_126_n_0),
+        .I1(\hc_reg[9]_0 [2]),
+        .I2(mouse_sig),
+        .I3(Q[4]),
+        .I4(\hc_reg[9]_0 [4]),
+        .I5(\hc_reg[9]_0 [3]),
+        .O(vga_to_hdmi_i_57_n_0));
+  LUT6 #(
+    .INIT(64'hEAEAEAFFAAAAAAAA)) 
+    vga_to_hdmi_i_6
+       (.I0(vga_to_hdmi_i_22_n_0),
+        .I1(\srl[30].srl16_i ),
+        .I2(vga_to_hdmi_i_16_n_0),
+        .I3(vga_to_hdmi_i_29_n_0),
+        .I4(vga_to_hdmi_i_18_n_0),
+        .I5(\srl[28].srl16_i ),
+        .O(green[2]));
+  LUT6 #(
+    .INIT(64'h5554555500000000)) 
+    vga_to_hdmi_i_60
+       (.I0(vga_to_hdmi_i_135_n_0),
+        .I1(vga_to_hdmi_i_136_n_0),
+        .I2(vga_to_hdmi_i_137_n_0),
+        .I3(vga_to_hdmi_i_138_n_0),
+        .I4(vga_to_hdmi_i_139_n_0),
+        .I5(menu_sig),
+        .O(vga_to_hdmi_i_60_n_0));
+  LUT6 #(
+    .INIT(64'h0000000000008A80)) 
+    vga_to_hdmi_i_67
+       (.I0(vga_to_hdmi_i_164_n_0),
+        .I1(button_press_reg_i_8_n_0),
+        .I2(button_press_reg_i_12_n_0),
+        .I3(button_press_reg_i_13_n_0),
+        .I4(vga_to_hdmi_i_165_n_0),
+        .I5(button_press_reg_i_9_n_0),
+        .O(vga_to_hdmi_i_67_n_0));
+  LUT6 #(
+    .INIT(64'hFFFEEEEEAAAAAAAA)) 
+    vga_to_hdmi_i_68
+       (.I0(\hc_reg[9]_0 [6]),
+        .I1(\hc_reg[9]_0 [4]),
+        .I2(\hc_reg[9]_0 [1]),
+        .I3(\hc_reg[9]_0 [2]),
+        .I4(\hc_reg[9]_0 [3]),
+        .I5(\hc_reg[9]_0 [5]),
+        .O(vga_to_hdmi_i_68_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair96" *) 
   LUT4 #(
     .INIT(16'h8000)) 
-    vs_i_5
+    vga_to_hdmi_i_69
+       (.I0(Q[1]),
+        .I1(Q[0]),
+        .I2(Q[2]),
+        .I3(Q[4]),
+        .O(vga_to_hdmi_i_69_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFEEAEAAAAAAAA)) 
+    vga_to_hdmi_i_7
+       (.I0(vga_to_hdmi_i_22_n_0),
+        .I1(vga_to_hdmi_i_25_n_0),
+        .I2(\hc_reg[2]_0 ),
+        .I3(\srl[29].srl16_i ),
+        .I4(vga_to_hdmi_i_27_n_0),
+        .I5(\srl[28].srl16_i ),
+        .O(green[1]));
+  (* SOFT_HLUTNM = "soft_lutpair81" *) 
+  LUT4 #(
+    .INIT(16'h0155)) 
+    vga_to_hdmi_i_70
+       (.I0(\hc_reg[9]_0 [6]),
+        .I1(\hc_reg[9]_0 [4]),
+        .I2(\hc_reg[9]_0 [3]),
+        .I3(\hc_reg[9]_0 [5]),
+        .O(vga_to_hdmi_i_70_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair98" *) 
+  LUT4 #(
+    .INIT(16'hFFF8)) 
+    vga_to_hdmi_i_71
+       (.I0(Q[3]),
+        .I1(Q[4]),
+        .I2(Q[5]),
+        .I3(Q[6]),
+        .O(vga_to_hdmi_i_71_n_0));
+  LUT6 #(
+    .INIT(64'h8B888B888B88BBBB)) 
+    vga_to_hdmi_i_72
+       (.I0(vga_to_hdmi_i_166_n_0),
+        .I1(ball_on_reg_i_5_n_0),
+        .I2(vga_to_hdmi_i_167_n_0),
+        .I3(vga_to_hdmi_i_168_n_0),
+        .I4(vga_to_hdmi_i_169_n_0),
+        .I5(vga_to_hdmi_i_170_n_0),
+        .O(vga_to_hdmi_i_72_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFEEAEAAAAAAAA)) 
+    vga_to_hdmi_i_8
+       (.I0(vga_to_hdmi_i_22_n_0),
+        .I1(vga_to_hdmi_i_25_n_0),
+        .I2(\hc_reg[2]_0 ),
+        .I3(\srl[28].srl16_i_0 ),
+        .I4(vga_to_hdmi_i_27_n_0),
+        .I5(\srl[28].srl16_i ),
+        .O(green[0]));
+  LUT6 #(
+    .INIT(64'h0000000088888808)) 
+    vga_to_hdmi_i_85
+       (.I0(\vc_reg[9]_1 ),
+        .I1(menu_sig),
+        .I2(vga_to_hdmi_i_139_n_0),
+        .I3(vga_to_hdmi_i_219_n_0),
+        .I4(vga_to_hdmi_i_136_n_0),
+        .I5(vga_to_hdmi_i_135_n_0),
+        .O(vga_to_hdmi_i_85_n_0));
+  LUT6 #(
+    .INIT(64'hF5FCFF5CF5FCFC5F)) 
+    vga_to_hdmi_i_88
+       (.I0(vga_to_hdmi_i_42_1),
+        .I1(vga_to_hdmi_i_42_2),
+        .I2(\hc_reg[9]_0 [3]),
+        .I3(\hc_reg[9]_0 [2]),
+        .I4(\hc_reg[9]_0 [1]),
+        .I5(\hc_reg[9]_0 [0]),
+        .O(vga_to_hdmi_i_88_n_0));
+  LUT6 #(
+    .INIT(64'h00000000EFE32C20)) 
+    vga_to_hdmi_i_89
+       (.I0(g0_b0__8_n_0),
+        .I1(\hc_reg[9]_0 [1]),
+        .I2(\hc_reg[9]_0 [0]),
+        .I3(g0_b2__8_n_0),
+        .I4(g0_b1__7_n_0),
+        .I5(vga_to_hdmi_i_230_n_0),
+        .O(vga_to_hdmi_i_89_n_0));
+  LUT5 #(
+    .INIT(32'hFFFF8F00)) 
+    vga_to_hdmi_i_9
+       (.I0(\srl[39].srl16_i ),
+        .I1(vga_to_hdmi_i_25_n_0),
+        .I2(vga_to_hdmi_i_33_n_0),
+        .I3(\srl[28].srl16_i ),
+        .I4(vga_to_hdmi_i_34_n_0),
+        .O(blue[3]));
+  LUT6 #(
+    .INIT(64'h0000000002228000)) 
+    vga_to_hdmi_i_90
+       (.I0(vga_to_hdmi_i_42_0),
+        .I1(\hc_reg[9]_0 [2]),
+        .I2(\hc_reg[9]_0 [0]),
+        .I3(\hc_reg[9]_0 [1]),
+        .I4(\hc_reg[9]_0 [3]),
+        .I5(vga_to_hdmi_i_232_n_0),
+        .O(vga_to_hdmi_i_90_n_0));
+  LUT6 #(
+    .INIT(64'hAAABABABABAAAAAA)) 
+    vga_to_hdmi_i_91
+       (.I0(vga_to_hdmi_i_43_0),
+        .I1(vga_to_hdmi_i_43_1),
+        .I2(\hc_reg[9]_0 [3]),
+        .I3(\hc_reg[9]_0 [1]),
+        .I4(\hc_reg[9]_0 [0]),
+        .I5(\hc_reg[9]_0 [2]),
+        .O(vga_to_hdmi_i_91_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair72" *) 
+  LUT5 #(
+    .INIT(32'h00603366)) 
+    vga_to_hdmi_i_92
+       (.I0(Q[2]),
+        .I1(Q[3]),
+        .I2(Q[0]),
+        .I3(Q[1]),
+        .I4(DI[1]),
+        .O(vga_to_hdmi_i_92_n_0));
+  MUXF8 vga_to_hdmi_i_93
+       (.I0(vga_to_hdmi_i_235_n_0),
+        .I1(vga_to_hdmi_i_236_n_0),
+        .O(vga_to_hdmi_i_93_n_0),
+        .S(\hc_reg[9]_0 [3]));
+  LUT6 #(
+    .INIT(64'h8000000000000080)) 
+    vga_to_hdmi_i_94
+       (.I0(vga_to_hdmi_i_237_n_0),
+        .I1(\hc_reg[9]_0 [5]),
+        .I2(\hc_reg[9]_0 [4]),
+        .I3(\hc_reg[9]_0 [3]),
+        .I4(\hc_reg[9]_0 [1]),
+        .I5(\hc_reg[9]_0 [2]),
+        .O(vga_to_hdmi_i_94_n_0));
+  LUT6 #(
+    .INIT(64'hCFFF5555FFFF5555)) 
+    vga_to_hdmi_i_95
+       (.I0(vga_to_hdmi_i_238_n_0),
+        .I1(vga_to_hdmi_i_239_n_0),
+        .I2(vga_to_hdmi_i_240_n_0),
+        .I3(\hc_reg[9]_0 [1]),
+        .I4(\hc_reg[9]_0 [4]),
+        .I5(\hc_reg[9]_0 [0]),
+        .O(vga_to_hdmi_i_95_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair82" *) 
+  LUT5 #(
+    .INIT(32'hFFFFFFE0)) 
+    vga_to_hdmi_i_96
+       (.I0(\hc_reg[9]_0 [5]),
+        .I1(\hc_reg[9]_0 [4]),
+        .I2(\hc_reg[9]_0 [6]),
+        .I3(menu_sig),
+        .I4(Q[6]),
+        .O(vga_to_hdmi_i_96_n_0));
+  LUT2 #(
+    .INIT(4'h7)) 
+    vga_to_hdmi_i_97
        (.I0(Q[3]),
         .I1(Q[2]),
-        .I2(Q[1]),
+        .O(vga_to_hdmi_i_97_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair80" *) 
+  LUT5 #(
+    .INIT(32'h00000001)) 
+    vga_to_hdmi_i_98
+       (.I0(drawY[0]),
+        .I1(drawY[1]),
+        .I2(drawY[2]),
         .I3(Q[0]),
-        .O(vs_i_5_n_0));
+        .I4(Q[1]),
+        .O(\vc_reg[0]_0 ));
+  LUT6 #(
+    .INIT(64'h7F3FFF3F7F3F3FFF)) 
+    vga_to_hdmi_i_99
+       (.I0(DI[1]),
+        .I1(Q[5]),
+        .I2(Q[4]),
+        .I3(Q[3]),
+        .I4(Q[1]),
+        .I5(Q[2]),
+        .O(vga_to_hdmi_i_99_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFB)) 
+    vs_i_1
+       (.I0(vs_i_2_n_0),
+        .I1(\vc[1]_i_1_n_0 ),
+        .I2(drawY[2]),
+        .I3(Q[6]),
+        .I4(Q[1]),
+        .I5(vga_to_hdmi_i_41_n_0),
+        .O(vs_i_1_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair103" *) 
+  LUT4 #(
+    .INIT(16'h9555)) 
+    vs_i_2
+       (.I0(Q[0]),
+        .I1(drawY[2]),
+        .I2(drawY[0]),
+        .I3(drawY[1]),
+        .O(vs_i_2_n_0));
   FDCE vs_reg
        (.C(CLK),
         .CE(1'b1),
@@ -19786,520 +20148,463 @@ BUwA+E9949sQgyOagFZbLVle2ESbwBaoxcAPn2gxfRHlT0leqyLgUGDZLsfArzGzw9BTGzyEG2TR
 XOrKFNYRfMXMrnGsBM7acIelY4LdAMgsKgDH/A==
 
 `pragma protect data_method = "AES128-CBC"
-`pragma protect encoding = (enctype = "BASE64", line_length = 76, bytes = 29136)
+`pragma protect encoding = (enctype = "BASE64", line_length = 76, bytes = 25888)
 `pragma protect data_block
-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
-a9pJJIACQt+h
+J5Ybd0L5/MiWUXXqGvWhiiq8ItBbfxJ3LRgedlVLDKyCY1cXc3SURxZ1rgKGSrEA4573cgtjA88e
+tzVtZJuPGWNWxw7MCFv2eKQt1Ga1guNAIbuUIwt6Z/k4XTPviubuCZgN7boTJfMFSikBgptsJka9
+lvqS2esyhTYeoQrm1Cpb5AGe2oiEmoP7iPgB4TYklFjLy6MPr3QSs1sbpzuGU4fLTfa/85KjA3K5
+Xwo9LpGAjYRPGnqE+ZeV+W172gObgGYPF0y/PM0OkQvQrxDtZe0WXMEZEYg6yBVGk7UUAlwl1GU5
+0jWuLaObBadrdIcyaBKjjw6Uzr89iywlrEyZSdOneoUfTe1P9SPO3GMW5lbNC5KknqplL0Dwbb8e
+zkTXpvzdsFs2DVStcHUGecjfJwS6AocLHVIb7RKGN6CKoFNp/XINEI34VjiM96j4YcOsxlplV3SL
+rmtGBiKy36D2KQ2XJWkz0dDV9qfnhP+RTLCHk3O1KVIxBgD34Mt8Qq6mPAo97gNt4owJ8yX6TfBu
+kWUUjaLCCkPFKuoBJHpJX49wgJ845t4P1cjMpo5kwZeOj3hyfQn+Pr72T+hIM/rwyxjiPNCetAuU
+vg4I+jae+/VF+NvTG2vk/XPLUPrnR3qnn9DUb7jWx40KoIjH0lQv8+n3ICwrN11ESQC7BPm+Kstw
+abXArPLy+kvmnp3THDWlnMFWtz4Fr3Bqa7la8apDK8goYgTMRxCB6ru8j9YIkM5JzAhR0yvidVC7
+baL2tLILwq3fY8rXhkRaFdeUkUzwSkq4K/WsAAwA4UyJW09k3p0oq31Gnv9+W5alNEDfwX8q3EoQ
+QEZLv2gXhTL1uHbvxEBsWqH3JsZfVYRS7ENEMMFnXWLnEhqFwlQi/uKGCqNzzI7WbH0kzPxZXzrL
++NwFVFQKtOggWJraxX1EEcO06mzPQNejq3eE3iXi02MZ8udT+tkX59WhRL2BpX/ccqEjGuiimkbV
+NdOQZqRdlGiFNPnGpqEz1aeklKcFPu/KrkF3/UurKHTocBPQhp0xnn06XD/tYawVKMtmfUrp9sWJ
+dx7KX4xAqDEgGtomcRJgtiyj426kHnJU12cs8WUiNkSCi4YEeJLDA0wbd2MTcRia7hDNJrEfhex0
+GMpMuCnPz/xXqrxzcl1D1LpYRm8xB7MrOKU2AyIHMvUN6eZRtO2Vb+5WI8sL4gXsEAX1ZJq3gNRS
+5G6+lrOC7yrXWtwokl3izRCFjHd+AmnhD0oV1PpDduSzN9li4YV8XKGv+P66ikG5unt8EmO1Fj1X
+bHEgwBEJ5PocdkiKd64qoqJ7QyvH8N1CG0xc6fETwCRhU936CzZxq0YYZomLtNR41I6KZ9jeux00
+1Zr6C4PJ3lF5CBtA77aFEhLf+hdSx9gDKVdazxoiURy8swSOwvbsIbXU1JPmep+TDsSHviGx9FkL
+jzfPe1gDI3lrSExBSbV0bub1YZDDFULP1HPus0Xiy4OhOcl9vjPYjlLLquY/H43oCYkRFsRcR9Ro
+TfTiwuSx0qO4lgPRSG6PgNKF95WdU+Sh2/hqf5SaJWhMCeiKWcJMBjdnSu9hbf0U+1ydiEnf4HRl
+2xhsIVfbLp/3Qg6vdPd/ECGADHges3dquj9Ev4CKwyaDZb5b4ws5NQfjHIBiFWlzwJj2fW8sS4Ba
+0xGUMxCFKFiM+pl+qIgqKTtUFeacernGbUtl4Zbk2XgFe8AyhGkzJZ2gXtOaFgQvNIOjiRHN3pcZ
+gXIAdTOEb7M9nAVsDtmo2Hzr0Wj577wcG5NyAcevY3ISL624P7/iK3tvFEXgBS3te0BoqoDJMXyl
+nwWa78g3E0QjjwukE8u3KVoiZzOt+h6rAl2VOW6dElyg9p8Z2aiRNMZKuZxovAihVmS+GMwx6v9a
+qprHGrdTt3mAn4a/m3q4TQcJad82jSZloeCD5B07AduS2N/hzmdi7c2u5z6PDvQ9PbJzZ4/oHs29
+rXVKq57B/sDm70rxWqIfXih+SVDO6onST1zUhtXodwNZCfxwh6RRPvWF8TqWMtcmXRKrWOM+cCIc
+8FOUeW31uvxXtmS/ymNwNoF2xnUM9R9qkCUpBZyl61D19BE/o5oYA1/w9Upbx0KW6s9e+sYF11sJ
+FGUk5vy+SvHczouew2WQPocsGTuPkU5r/w7oVOas0A6/aFMLr++iEn8+OCknx7KEOlvNJ8xCUWTR
+UQKjlG939P/Ak8DBU48UpKmCJ7+qQmaUkRrc45iDdgaKd8J/7ZRCGPOAYOOy9GVu6Ba9htVhS/6V
+106UVfqEg31q0ttICVhpICaBgQejGq9IgQ9t+OzwykZt19jSh5o9KXHgEocYD4tQzNhyXPVZJRVM
+pIeAi4v7TaAIz1UyiiJyLZJIUCopKrpkqpoX3ZSnLU5ZbTlyvMJ6ulfppQt+yhyN2TIFGS8HlpT3
+c9Yhp9ThUgFqIwTELAjHhZmkYGTSU9TsyuRywMPYFWg6wbUcv3woQGkO01WdhSen/eZWtVC9PRrm
+UwZA1uMNeMdqc1Bc6hcZ9KsVJNOg0U0+36BDGkh5NZ6avwrg/SwGfiE6VKBr8mvT9OG3D8tnm7b2
+mr8jH+mIf19egYk4nbsB1SVtqEWswsQCkToQ2sM8JIZkDC8V+cJAHF7QCjW1a3J9RfHb/kNfjYko
+1kYcxbH9mZrMX6ylMKmXH2KRa7at5MqMVzY06k6v1zreQEtE5+JRkm9jWRi7VDEs/TKCQfZuuskf
+lCfIIrg993ZLbd/NwHCR+IHGRgCEMzV9NzI4Pux+DOWfu9H8otP6zX8EznweV5kmJAOijdHMip9F
+2WUEA33TGqt++ROKU5aJ9OCSpgFIzUL8SAjzqpFbo3xWF2Jj+RuKEss1Nb03CvhLISyxPiOw2Vsv
+0F5tdjhYg4mtJAn5wCSSESx8HshmLINvA3+70GFAvCzNRG0UdxraHzA235pXoGH+nx3OUG5YOUel
+Hefcg0bQsrWyuqn7UcHUWp4qms6xWpUks1qwqqvbACFpv00y5M9EKW1+Yge5p6DqmIb94JE4aaE5
+hfUoTODPa5shaIcVJ4jQoXMS9jUmDyFXazYojGMl6EnKrA/91MvJa9QR5nUOffqZzkI1YmHLQK5c
+CpT3PT2vIJozmhW8NklO5vvY9G3H6yvDR75d0qHNd0Ox3Lgtd+Z+W1fmfqxSjm57mUSt6oJSGeJL
+mYnVp0e29Z4JM6NuGXaqappbFj5sqvdTLybw0UgeUpsGo44EU994eAb1kgi5fg9TosAiJsoVCebt
++TNu0EDNM6XCIuUipUv5vjziDeQsIzKfT5HW94rrl2UxzA8HPhQYP/MnTgRL0l39Um4W2BDsBzmI
+PhsBQeXIY3jZ+pljnvC6Lw345aRzJKdL9ne7mmZEDC63P/EXrSdMQ0rYtyZSFtnW11OMG3JhaELN
+5h1lSNisMjshDXCS8Pn7ErZ+rqGzNcWw4aQoygVkK5KCUaXwvUgzOdGK/kWbLz+zFK410r6/IO4t
+/Gb1UHzQ2wh+ytUySpXVBTwTgZQJTz+t8EW3oxd4UkEK4iSqO4dlpAmpMsPqLO++plb1KyOXcqkQ
+oCu9t0ySHGMvpu9AARt9x80kHIe3+0tFK1s7i8rNXZhpEAfpp1eoQ/PL3PCgm6tk9SvJWn4dRmU1
+JLv8lYCsopsNxuaz/D+96VaHEUtAowNTQeejI3nP7GtvC8zQFaTiV7GC7JQtUfm5aqDViYuywOLk
+lmy4+AfNhVeR7xuRF4UuxKksrYKIdVqHtQAILM+PUENm7BIvCRmtYUhb5skt+NZedoWIsE2VsnRG
+HRlsE3aWGn7fM9aqZY6Z9Lcz4F7ZbeDMrksvK+bb9VNNgLJt64hG92y18h9fLLs5nqCsZ3Lw+QyU
+CNcfLbiw5ICifcFXugv74TzALqc0gYxlzQF/3HaMsGhuitvRsKsIxP/94WWULrMHuUkTgc6RYG5b
+hMIc7/CNePt/z+5pHVNSDFQNguopzQovIuNEQ5X05ngCBt6yIb+PoR75V/b7H6JPTuF5o//TbF4x
++kn1TdZgl0MuHENP8J0br/EWN90Eak7OIG91n9wxi4sJ7/w02y5OJAlcZR6JtLpjhNXL7Z6iqMQQ
++0ZGa4HdQZtPczsUP4i8uTsW9dWphEUkH6vKynx/xmpKLv3j/t00Ty8pwX+wZlz8XJm7G3MfjQAE
+CQpn5BdlAwe53kU7FrHfb1dXY2LrC+4Il0UXMzjWFx3mXlXsraJobGO8VJ1u9Y7VcKB0jW4yQa8O
+izRRxDZ6ZpH3DD4p5o1f9skK2yoo7NzeEPm53O4i9R7lTpubGnoGAZGTvhIqFmJ4J7cmBvNIy1rE
+Oj/gIaVHYUBupQdjDBmG9rGm1WeLe4s+ZliQONFlGqgSH47YIgW5I3mqP3zEy6vLfnTxulBwBwcC
+eroQd0rMkBQe53Ec/kSCYDXyNZ5FHJVXjIwFdKg+q38o0PNVZiggHqV7ewBIde4s+dqdOlazAuif
+NlHEFmdHMw3/TSJkmc8tmeDr9tNVPPCI/gixq937v6BLkSvo3EZM5jbR/XvL2kDBeCqo+rU9rNf1
+as2oiKzou1PyANOgeTYmRexbv2yLiApE+t+qmt0IxRwrDgDkFnMj8uNpzTaRG5BnU9fQdQH4Hjtl
+M42XJ4ZBx020ichR5NAhe+nqAeMREFoAqOOmz7KmfXt1gQE0FG+8yejFjiVM5x8N+LToaIDdBJUn
+ZbtPaXygCGMcbc4OBU9s0AExmnZKUlyhUrEFDd/ggVCPybGC2iHmlPgPLkrNn4ndBO/8TVJGvWr3
+s7Z57a/XykGy8jCaSfC9Qi85CUKdiTiScsMyx0OjGI794lIRYD5/L09cI8WwbhScy2K2aTru+kp8
+CrMgL+UBEV6HDtvP7XcvjaEdfdxH4nxffczsaR/paT0Jn/6Wr8B962dsBaxdLICRky3PeJmWb8g+
+379foNzU9KBihMrRygnQqY8MBzw9BOEkFpyz+hWn5d2ei7Ig3MwiBLImIAXZltBE8s6o1bG0byh6
+awNds63eTQi35X/umaotyxYtJdI/HrzhGZEAPzK366UUzEPuppLu+8TarfvHjop+pDelfmOrCsHv
+nWAng9TSuU5PE6Sr3CiJurx00qBubWkztAcMKVPGmLIrpNNlcEMw2EyPgTinpK2vmEfw0DTzHKQW
+eFUam6WxXpV25GEHq8P8cvMmnnMprkHn3Q9bD8cy7CjuwrdD7AoNozsFiHqBL72NgbsTUABLTWwZ
+7GGRsuAxnLeUi1t/3AAb1fxAmXUtyn3e0bWpJ/rv9Jr15Mrc6Xy4DD39hUfftC5ikM+2DxLTEk9+
+umgmpWIZRqYqcIx25Ju01StF8NNYXPUYanRD9ltSAa6a/Nk5PIsnQK/OO6jdFiGrlYzqOAQtCc/+
+NiMxzbhSd7gKQQZeMa9tGfv4CZNaMqORyFQSNK23aeOy+BjDPH89JwB7uPcEzPDsoV67zF6trDTp
+/VFyKIjAMRKcYknDXKCeNev1mj5dz4sUkFwpKuMt7xI4PFkgZOFwhf4lbhigX0LY8cIHhO6LeG6y
+90HBK/I9zEBE4nBMmD/n69wPFWY9MaMPjH39TMUlKyoZeNXA/AL380t1RlIasHEJu/x9NvE+ntny
+XpM540ryLGZqsvuqQQo3qQONTR/or2YwTkQVTBXYMg7TosjKwmuSNYMnjEwwxN3DDy707OYRT3YY
+qeWZTo7dpm2OyXSuysVIFOJlfdSRIXimpiTaG1blwTwV5M1WkJTfcYlbnoPNehlapvA7G/9rybtD
+kymwOKooYp3hNYt+RTo1CkhQNEra++jtrito6ecpSXNDrD7s8Vln1r+Hjse+wG4QuEzNNVF5DYfa
+aVkd4xh7NVSat6qb2eKmiuehbO6Y3nFx9ZGBodujbsWdR/kgKG3S9+1T2qBp3YokNgZqQ0TnYQA6
+LK7WEZ/PioOCwShfLMktjzqsFRkQzCKZvO61hJOe5i7/MYJ9k6PUqSez0acP9YCgv+/Otz1xeOmt
+DctcyDbasSCTCGm6iaNUwMKAK/aDsNH6yVXbS6B8sWPf8xbbyH9uoTtvCDvDxRdU3YPoLuWX98uE
+qvpYeCr4on7x6jO/NI7kI0jrYurj5st6cXci5zksq2LB325fxsMypmKOzEMqns4/8PyNFsgdGh5F
+YdBs7j50dIAGKAE7K/NjB6zVPeOzXQ1p3hMUwDqOXN7zcw3Ez2WzpHtBkZvtHxDnqhbxI/amJoan
+Csh80A9D9YfB7a+i8RaOAE/fs56AtfzGqf58w27UFn4MCOdwGBGGPeDQr9wC91mbq181IBnQSmqz
++FosCP0LoQGQCbGMsUnN9AdaMC4bch6Yv2C1/lXpm2yd/OXpXfE8p8u0Z0RGBb0bs9EUgijxbt58
+OIG1WcCvoHRtaLR4cQZGv3qSjFpWMnQbS1UILuAeJ0t/c4AOEjd3R4m/HJp81xpYvEtMJiKrLAUd
+NB9idhnPl2XTRWaaz4VPUiODO21WsS8u3lalOC9Dhs3IYhcr5655fWg1yQSy9ahlJyHAP7RUSajT
+spsmdpU3x/V8I4aADEXwF/bWnINzy22bI55nEOGW2ArKwQ7Z/d0UYzaUHzfcWEJgeGOPsU+6P6Iz
+A+vlgH8oI57FY3hrwO6XlyhYB8rl9uy3ciSYOY6nfyf/AjkKQWb191em5S8hpJcrq9EFGPncWQ07
+aUbB3azGlWVO76BhqMi4wrL6i7rAnzqQUhimo5ZjwBosUjkr4ktdoXQi9YY6lzG6QBktHNZsHH+i
+l+mCjuVzCi4tJHR6iyXxU6oIz4fp4kUtmt7QBHcpac8eKJMP8AjwqRfXHdsKIYR9p87tpk2LbuQm
+/U87dYegr4mHoMk1cxfhwfadCerOUTHV6VOP5weuMtW8hHakDVDVLV4BIIZGuRO96Ctk9rq8cLI3
+mY4lPJiC7/JsdE7xvNeEjJsXsBM9/SQggWyGGEni87E+CB2MxYG5ZpwmoNFoUG82ZCWAiVb3F9Gy
+RXLpoarvAY7DkiFYoehdVnRVRSriCUowpA6g7B8TU665J0Nm6IBL9VHgzVYrI5fP+idmHqbrGKrn
+A4LSJnsL3WdRiqmTnZELp8UlZnIH/gt1oJxGgCUb7MBlLHGHZVVr5DV37FjKTRj9Xg+GCc/O0sAg
+z6dyL5Xt2ZmVHG1eEWuCJElAabDQyRBIRv9g7RJyrfM1tEM3paPbvwxz7SxAA4Y5C2FUi8EsaDCe
+SJDeh42W3pejL7mYgbHDjYw1OF5gwnTIP2RpfMH2iFFWk7rvYUbvhjIWQKmvKjuVvvykYVEeyB4N
+lv32oJWSs940ex0zucV05PJb1cy9dEuw4GjYAQt0R136ATzQZpbwvWUn53YxkkZDB6CFtlYL9Q0Q
+LIaO1fSod6srBHQ697Ziy3NXcHLhHYUezMO5GEhUuqDUGALXlo6uimH8ZoRfQ9KUdqu+Pzn8ecHO
+067SNYbZpRuR8Jtg1D8CHnvgJ7QXskYQrTOs/zHtFRGWc3/uG4m/a0Dx7okWxEEeAHfCsf9/7T/Y
+SwRcO/oalRS/15rEjER2NcHDPlk0tZVgosGUDMrYj2GStOfnWivWxCY8Ng2VBVGTpDmms1tPUzry
+t4ZqbHkprNtGlxhgzBOyj6kWbT2GjH55nMnwLDJztS3MujXmvtw/vXRVB5BHbqEnwVbXEXVVuVW6
+kin2JpLJz2jIoCu/+q/UU/BDEYYJ+M0l5nb+JgvvX1fB6PlX2Vc28HzTLww+oYSbdVbbDqieuUSI
+qWyRtyQI6llTRzL5TZBi4BqUxPsgdqiEak7ey03qZP9QXGudRBzIgFQ3VlytMEoedPosYrokCZmR
+h/2XNea3qFE1wofKwZCsQihK/7TXnHFuI0Er8ZoWTbmLndxe4JJ+I8dbdb5M6i9qIwwIs6Uhia17
+t3m83X18dd+asBBfLP2Q4v0uoOgmCRqctn0BFJVbC6/UHJyqjTouVPhHW3ewWUgzXfHdjj6vIxzI
+nQXj6iZLjnDqTMACXbu/9iyjMhDwegRwNoMtddLxMtRPvWt9XLpy734lUcqs1hRbbdAd+k8UgryS
+S0zLIMPZ5AteuHlmNAeIgWsbx3CmeyCszeiybXaS05EP1bpaeu4ZBWcCJA4+0p51y+B/s7iV5HRa
+9HDdAXw4b6meqD8tg8udYf9kD7yJ5p98hrcY7g9Xp/MdIiA6XlDnZlKHXtlXyWnP6vPV+CwDJoKR
+pnnFTYqrkWgyczVYMGLVmaUzmYEDHt31mOJ9+HqIpgU2UXFkrWMwrg+V7Utj/jAUO5zx+MD6xgyf
+0HWUgGOz83Kekapay+Ucv6q3R5BW7uS+VHNQGoWGButwAzfy5gGYFJEVpIvGwMsrIr4JtsciMa4r
+tAEAis8Cq1pCHXZgGiIr5dGyKjzz12bmm67fWDE1b/+RE7PEOk2meK4umMBZd5RiIvZ0XRea0fd1
+ez5XOTEHwgaaXQsAFHQJ/4dBGuRIVB4YEII2GfD1LCl+aiVXfk/4orY5KoSvpyw0xsXCcDn+IKBD
+Blr9+t1QRhfMUWo01IO5Q3bcLykkF5Lo6154kcuCY2azrqbukhBIGDkyr01mqN7VphookWj4qgua
+bnwuWF5Sh0GqFQkgwR5siYdHU5cVissaz99vJR/KVPBU+z5TTgsfIjv1jZlJkODP/L4KrV/LyPyo
+MEoP0I0AnBE9Ymr46950qbamq/pzE2EoRYCENr53r2rrDVwYsL2Pz9WyjGF0OXwiIQcZQj0mKTlk
+UjgjRg2IRiTmXhi1WTqsAgnStOE2C4xvi/TQL0G1iJvL+oHoAo7trPmUvKsdElferSFD6Fqa3FKL
+HNgP16i5vYWP54eeX795SODWWLV2CefWlDOYC1zBGEbxNr+PzkengArKr2E9ZD6FbpQV/vHME+XX
+KcMnXz69yt4qpA5z9obtLlhr97F2zRzFEAu9pCB9u3kMV51RRLuwa80zU78Y9t5Crsmi6+j1DcMW
+YJwCatCVWr1WGPQNHDaImk5gt5K6Jic4BswSwK8VAY0YOhSGZZaEu43bAHPGfYP2AWZxT5aN4Hjr
+RpR7qL6bc0v19DLIieDgBND1+v0Bh/7aLgIzMaslevC5Dv7XEHRLOZS93PnqQnyAcUEsWX6cKjMw
+YqMBzILmzlLpvlEhCGKdTJvNAEJHMqb/nitBRRhSVqyNqjv9BTvLVTt+jQplu/VxnYIdM/rI8HF+
+hHgs/lC/Vw0c9+t1+cwmN3lwLaah70vrufpIf1rGOTSRGRgmWkOOYMqn2Bb2dAWhUrMME5Jx+2+z
+VgyCWA0RJICsa5ENcDTjy+NtR8i8aEqFCZBhZG44NqWIY0E2pPhO3DHKsCKNXXTD8kK5uesFtudf
+1gVUKQC9j6tmuQtdSMJbv/sCtAvytwKyJ/jyQEOtjWKzrvn65tBOl6OSQV6gCZf9/L2yVe567/Lf
+gZBMpm/5fcz4XmMCURgYEq1vjp6cMuNUdhIOD3Wde8xX0EBFwa80+8aIsw95t/QCo7USaULvLh/L
+qUjfkrU0rcpyRUTlXhwuwpKScgJ6mnc8URrHyNE8GzmmYnIBqo8mAuCFN2+LOjhSCMf8poI8aw0m
+xQd85hmQjN+Zzpdr4FDYYPqHAKfzI+nZNnAG8avuS3kJJ5XbjDac5VDm8qcVJHgUOlO9nufLh9FV
+O2XJ53O/Mui/q5PUxeo1P4hd6MdI+NlVJxRam1/QcSvrziS/p2IGoA3X2ogNX7HmDD1H8Bm0hbYD
+FXLFZukaiEbUZtdt4xYnO6rdX6MhuXFtILqBZCAtWSLHes2hqsP86rcul27JV6LxsfgHszeB24SP
+zaAlOmQjn9QRTM5JyDSwV8tIP/pVl5MxVgQbFvE1cj9gY6irnqCbBE+rw614dy4YVAqBtubSYH73
+7F3dq6fscBgKoxG0RQUm/VLBgelAbBAHo5YkHzqRrFlb+7OCXv/wmEz6+tCBaHH9dQ8RmR6UXqhs
+TRsYnel/OdY6qPBIIFtztNyF5bETB8YxvRRe8ABYq8s0pqSoZNiRB69TfBwRdvkyMRnAEn3IdDkY
+fd49X3I4hdymvIl+zvZsTkV3YuxhYURZv/8VfTk84AZN3Mb3e+gpJ1ak2cubDfkg3uIkfHuCVLSs
+UZ/WmnZ7yYwkjf8yWLnIxS9qs+MxW66nrjE+gcPDRX4ZfYgKz9xOeneL3mqq7tg7JG0C66JU/Udn
+6LGSoTNoSIXDd475brPZPIDlygQyEB+5RMa8XvpGcSpEGMseCNN/rhS8J0u5+zva1TlMsNnVqlzl
+9T+qN4LwYq0alS88TALm/dqFdt5aKpxvDzlLX/NyH629ViYkqjxxIRZXEtKLh5WxJ3PgjLfjZh3m
+dPB5UiJv/ki2SPjpyzPMCPAjPCjPqyq4z6E6HDIKpJTR6T7ZIh/VzPWwUGVuo2EsavbbegcAj9/O
+PHMS2573e/jxI41sv6u8H2gTxaXzGp82NqaQ77suMon83FXgwwVWK8PmCcJN7XjlUDYWo5qrjO6m
+sQoNmg5rnWxbkW0dXWWGOcwiSIHyo+xqAfTicLl8b0vDxc1b3zMNsgN7xgYTuN7qydCsjj8Dwg8w
+TObSpL9N8Jx1FyAWDD9gvos2XBYwkNfTS+67zQBA/iXnjeGiqZ4HHcGlpnaI1FhYcYI8y46CwTOY
+8REXQqai/aauPny2Njxm4fFKPURnQyPPD6AA4zUwrR2iZ0f1+oeJI0zK7Sz8NyWCJNBCjF2L5Bpn
+emyP75X2zlQDGtCjvTMVxghuawQJCIHFrIF0QWLwUKreNh+eotWIQpOSBma1vuBRPQikgVwaUFBz
+npPY78H38rUS+ZODhi9rMeeofDs8gmfRZtoRheALPL5HdnxfDf0vgvf0kjTgMKcdZQXvPJCZY3Yh
+PeyKafnzQLz2k3iAIM9Jagycsbh4DGz0uA6ljHGkGQKZ9G6YEQjRrkOHl80FwKrvtQxGV/aCiqZY
+Ib9E7ahbvSdne3dIe5C5tODMiuZ7arvur87xkw2zFXLPQI2bN8S8fH7N0bjmzi0ylsM7iQuXwGfG
+fwCDRtLAuHJCerepg13yKexeP5JcVE7oRCGeH/I49ALirrxVeBI/s1Kz1E2RbeTp9rFy2Q++JQwH
+WfyIFWaDI4JGyvTo1TVsHS1n1Ws6EHiT4PCMWyzV3b18G+2kZr4HhabJx//U3CweRqa1FW4LWKDc
+g7c5SIimztffL+WAsvsK4Rp5ImlAC4LERpyTnUbzFg8RElaknT0uHwKrISqnhEJEdGZJMi/QcDNp
+m88sEUPVXwuErSXBdDZfnNAxecA+DPIy0FwKlRihBGBuDZfIJOvCuwNbJ8eMQH2sxXjzsUGxq5ZS
+Lb8LDEViSslCO/lVKKOaTWS4MsbTrcG4DsUMl9AwHdP/DGZo9qlZNTQ9HZFucmQgy9Bs09P1l5bZ
+DYYXyUdGc1MTiVAdhN/hhU+ayi9gXCu8eCgOvAMShvAqgvigou8pTEe+Fk0phNaYm5HRyqwEMcJE
+vyXhG78HLdPOMSVFgmITFMGdWpOxNv05O2exVGzxkBL1doCypYRw/+ThfhUswUHovRmfNnYsAdTD
+AyXqHO5L6GLG7HIJg4NLJzrPkin/j2dbznp4fG+gstYBvi5wLjkKLezndcUt8ZT6nCigt8ZBYA3v
+q6g3SpXGHSxGmPta0DnNs7ltxZegHhebJ9RL5DKkb/0nZxSAy2VQqk/xhifHzOi94Ove8ZO02aIA
+bwIMtzetVoiygy+x0pTCwxOOBaPUY2ZFECItMAndeIFgwPa/M+ibQwtXB1IPOPWGdeGllElN0G6T
+4Tizh7cK0Pg9DJ37DAWHE5NFB8Up7uqmj0QdfMm4urXjMz20MRu+eHUnm20JID4MPcG07L14xtiq
+QnkZhp8aP3qhmuvmgSlkFsDAOECHu9K/vSq+UtdyUTnB9+y9xwdQ1RyHkHuzwOtOUJNeceBLEIwG
+4u5dYXtSQEbEiR63XX1+45uMhIU0jOMwRVq9Z5BjMgoiZR8E/Swkpzo6vNdNeg4LcKsc6jrkTRHG
+ei0JY/7ViHkDJmxbGYeUFnXCsfhFFd3oCDYy4xuCkNcXUeqZv11uSFGj5xf/0pSQsaOG48++h2vt
+LJhJpw97+b9P9JR86+sWoBGYu9aQ0WHq0JBT+XCidlpy99eSpBhe67sWzHsJI6/gXJ3rePvjt4sh
+bZmsICe3rOM2pC6zIs67pmvBMWUe14JJqaUBPbIEB0UEhCn+lRSP0RcNp0YSq8QJFrRCeR+ReSMr
+BNwyclvCrZj9qKaVgdBCWiM+0k81g2NCGvzr15E5h+k+w5emVxK3JXbAjOCvvg5VSLSkdbiskdY9
+iB7I10EnpdXkHQyM+/OOEiR5Ep/Fp3ml6o8w8l9ej6IXxdDLl7S98/CFn3AZNUy4UX7klaGi1PIC
+A2pGSRjRLa4N172A2hk/ZTTpgoOJ4OJ+dwtomoP3pIgIG1CrremSIT8vVJKZjcyqRTVKDBfuyqLJ
+2nkg0wvqw7g8Y4ZMM8xotKmtiEmAKYDVI9MuALd6UgDGNzeoMmGkF7a0pbskAembEIw4WhlvGxC1
+6+K/+Yja7MlChe+DcIb4MnzvxIrpWu2kG/vEDtPixwY2xRYa/LWJO8uZEnlx9i1/SugXvXBwRhaH
+dw6ROxGKIw/BrLKeZctI4QIIdWpi5BCooHIQnhlWyBtS8pB+kNsinv2lSUYwr+o2V8RVY+Fp+mGR
+g2l0YsKG43oNwgwfPrv47b24BgjtOKkDaz7675UhbBpjw7eiXmVmtaq3S2bevJVuVKXB8jfjRxDt
+bN4Ij0wsywbrDm3p++poEk18URXACpYfn7740cKRpExWJhBBwK8nXk7TpX4c1ybu7qYIyhet3Pm4
+d45hR35jziPORFAgXFNVF5vqlKVMfYWLMUtCSobgMQkOWNfhKkB30uXY1ZAHYpM0d6oFvhlHQGGE
++7r8El0F8yHJk5mhN2bwdFKAYELWpFv6+/Ir/cRl4k0hVxa5LhypHvubRVXV7nYiuLcfk4e9yJUd
+g5AjxG4W7FKCClgvbcx2iMBC7RIoghQsLPEOWhJnCp7sZvAIZYt6ZsZmwaQM7lCp50+y6m2mjPoc
+P0IiA0U/bgL2QCiKHECQ57o39lanVcNDQOnU/9oRr1CssRupVEOsO7xQyvX831hR7KAOJr5Kw7gR
+fmlhO9bR/onwgeklJg1LAl+XYVyFRAKwZnw54Ya5j5Gl9tGFoxl+g8A+jOPLzkQEANtk/2kH/TQe
+PVy8d+foG0ZTi2JiMGuB+Rm1lDm6h8GHwWYQGhxMUshS336hnJq9FTqmNVffARszjyMxOq50ZwD0
+B3Q9y4QZsE+lg5KXIHAuSAhfpL3Hpxd29Nu69zURtSvhrPecamtSm5eHTu+jDSpqbkFxvVa+S6ne
+NVFD4o6FtiCPRBIdC9zEW0CUl4DydpyobqkXLwXoUxCCsuS03yGPDUyYeOXtrJQNEM/KsSuOOEan
+m+r2zvEgV0bMvWinTmgyfH25Gvaz71AmO9v+Nim7mRz+4j9oXRZlXap7fRet8SGYjGMFeX/WmMuu
+Xg2Rvb4VSVVn9ZN8h5sUt5b6uZrG+Vn/ecsxEUItWpwXpbVbc9ZumDIUBmKe2YdiZX9uX25wdpQO
+6VY8e4rvFwauY+IPvvVkc72CIoI6tySknQU0sCpaWkyW+Himnkxon/WduuqT3+C3zyQkkMv7fqp6
+4tvxbCPKOw2Hd1uq6p5483VjYDs7tJtuNtkUhbp47Z/ZOgJ4mUe5VdQQ+t+cihG1P4K9LzSycobd
+6kfRpjpLUDKLh8vS3o0szzWTBYHtVUOjvGET0LRMQnVCdty9Zy7HQUrUOAMGEZPWeqC9uLmpXSvQ
+A1WWXD+ipOddjwJbQusVk6s3p+RxNBf3XOWHZQPZjvhrpqC726EPLyQ7Vyd/Z4NAVuXKEA7+1Ctn
+Jj0rE6Eok5c1KDhQ/LDULQNw3B1IRTn6sW2wca82ZGQ8Yt8Ktcn2viptdb6zBvIVUYVvKDFWjaYq
+IwtSqig1nbVNNDQbu1RFussYuO8Yt0gMAJnDjmb4JOPLzlhI7TWEsRh5NNu5x8AA8Q47JR5gfhtW
+zjWNof4xR85th3/+j907+po/0kYP+t8z5NASl8KMdkDz7EwfikZ930/svjuzaSSKrgDurVqj9lSq
+uC38WConNuStfUv/jKVPy1r7Fmo+1lZQBrVsvECNrxxKdXJwG1HGolBD5VPCzTw1bzDyXC5rboV2
+0G8UNFsAWy2HZYo1syCS/wC+LmnPkPAlB0eFk6DzvJNMdjKx+W6duWlLOoJs2Y89IAiVPQH9KHjO
+ad3lU4raGKuWjdtCjvg5BrH9JQLiQ+iSmwl+G01wQHDybejMy4OE5b+XcHqmKnfY+wsaaysB9Rs/
+fII41Br7yv/kGYMkPIOlO6c3tqjaSpMk3orwo/3hGTm7zHZ1h9guD+ABsTBrf6wFWeLWePR4ySns
+TFmyZJkdfeJj1ERAclvAQgZ6q9ZvUuhHQ9P+7LPA76/eHHuU4AX7Wq2VtH0HO7Y2XwNGku5qWyBP
+39bPBTVe1Xerp7zxyAG+faBxRNRoNsjzoS3tExnbYIfmsByY3I66RXYaf/3wFuW3OLzeajQeklkQ
+Mm2dNjIY+EaHaFuVHRvzQTkMfxncvDjci4PkHS3IQe9vUI6ooayihehxYzMptBuZj5BpZcgaedsd
+xVkueqaOH0mmyXny16PALnMhl+9lYu1OhGUKntUHeUFnH2gEhgoO2296XW2HFHhg17sl2BczHj2U
+9i4/VZfGoGnZVL6CpFeYkuSVP/3LcfxOWGaMILCMtmy85tWbdmzaQT1NR5mkYIygQtWcLTw4KJXi
+VaPwoqvYzPqt6ydW3kagkriGQDPiSrQNO3gnomDUX72Fxt5NfvT4PZ8bPi8AHK7hrAYf+3ylFJ1k
+kOKO2qdx1Utzelr4NM49+2u56YNekwxZvnmCfVgncNEpDys9XN8KLJBjj6AHpOpJU6DAVQtml3kw
+vMuApe7QLNKXJi3cNsSLPT045CBVQv6KbyVp2IjH2qEjsp+CdlsDpeUf9ZDXyH81kOq8Rpq4Jm/R
+azI2UkpcTm06OFxK5mUyMXouEUgemtsqnpohEoNNYR4cgA8HCYbeh5fNlx/npq5v27jE5TcFlmfj
+a+Z9WFyIAw0rLUb1j/PcgeHoOx5orHBiColkf6cBRQwt/AlTgzcu4EtZqPNxRy+9wahL5UQDo6EJ
+Zuzsqijl2JglVTpGybPVoGYP3+pAF4TDwQ+SHnC9DI/48uSePh/hrDc7y/OvOxZGu4La0VVEgIqN
+z6IZ2SMn2D5q5M/kyNNWYCopHPaqxTVWMmmCM5Ch9PgQwe+EDMty3suVxCPuKdZqxbzOyAcJP9O0
+viqpyMfC79Gu+/fHYKdFNsTJG71iDRChdv01/fzlU+dMfh2yAZWMHXityQimcMjXfMkpUFotBXzZ
+ZStlCX3Xi36WWPtEByF5nwc8WpuqUAKNAqPIubIurvkp35El9p9/ntRSAy44FJilBMdXRVXdv1IS
+kdqW5dXSCQckMeLhTz5MXLGQkfDXZNpLgZOx0Jp+B6Xpg0uhUYuqPxdmczfowGDKk2p45Zo+rAby
+aMGZfuiSzFOFiECB4trSufaWaSnYRrOerq/kafE5IQf08uT+gA9RhFjUIRhA12ExaEi1kpbOzTtG
+5PjL45hT/h99yVQhPiqaP5k/7Bz+P/0tKg6rMcm/WlBbifSh4i+tqeLOhc3dZMjdkrZCpYbhjC/e
+uhvtVWX5Qt5ihl1iqrXT3n3+ELvGNpwY1i8Jhj0GurBygGToVE5ZB6rmktr9mr7x3JQt3/9EPiOn
+VYbqWH08RXpYIfKzxbf2g9ZLqWjZZ0tTM0mCzGCUNVVf/4ymUOcGYseF1jBS7zQAl7mwB4eyaAdV
+rO2dZEVL27ll+VDlgiIY4gQG9FFf5Y5Iw6aRpYMNcDzxYsmowyBfHIKKvX/3SPl64c8suHnqv+AX
+SEUQU/eOIleE6JQVgABjggL98o/uf+y0boaoXDTZEWP5vlZdhYOXIZX98JHpYImOxzrd5AlTFj/e
+WWxXNV3ew9O7wms21boI3mdUhzHF+3nQ0fIUSAj8guVMhqWFGdRw2qKSV+dUS+LTLWkXhOsMFaxw
+FwBpTfvGbtb9+NWDhaLLS/S5o0dQyDh2BngP67Oxijvlz7BBeHx5IADdFf28UT3TWjgn+OBiiZNQ
+RuO/kxj8iH7kaq8CiV+0ab/uUuXwuDDQDW9lVuYg15xxB8vhSJrZQdXDoCYaa8YnSu9knQ09TMjS
+CywF6kWauW+1XKypenBZpYLBjo4hgpKYMWHQhhV49it22wGumejheIbq+33NXupRL7j7eAHyJN2V
+F2WajvXaBI5F6uFPGWxuXqCuT6aM7StYC7v1nFbfqLiZhceKiAHh+3L0NFPiiZMvjoD6eEOqnd7f
+5YtCSMBqSuKvwkIkFwFJjTv8Kbc6LZOQy+XyF2E+UP6bZhTFi96o1Otpo6IREgkv2c+7wRQMqMy9
+kzPs/k3JyvYQlHmx1lc6TCRpyLh24AhLStp+rqQpPyHNcNPxhUMWB1/kKjP7MG4SRyOonQaPifN9
+0dgXCfOh2FCghmQsyV4kmis6wlUKM3kYecyGWoo1FJSdPc6rYZlw5riJ2hDEXyHLRbdRv1uvryE6
+Ig68bsCq5HGNUV7UZ9N9s7Qz8iHflNilwRn5FaBZzWMohVbHrmtGlQ9s8eW01h49E9DxLFWBfJl4
++2VYDIHfimykhQb6TGRg7qTcgxEFEtFWsOxCsgurU2az4lvZ1BGUqJmWFadxTCJmDhks9RxqiZnq
+dw0jPROHW7g8zbgTVFPKagu4s0Xv7IDXJ9rLjHuZ957A1K7faFX1p7JEmJlf00sTHxtVuWUwwOg8
+gNWh0iQspp5RxRTR+JPrFmqfWMneSL8KTQOozzm3QXvDk1oVcPjOJjIhadu6dWtgSbVWinnAmQGH
+tOps4zI5aeQiS/3RUkZeHJcejRozFNFcqg7qcjOQjGjjV/L1PwFq2DrORckOAgukJTLhFhzPcNNX
+/2KXTDLVlw/oY9bMRD4qC9bSRzlQV/X8xnA18ulRniRJgbiKIPmrs3nuXiphW8gupUfwHv44tAeV
+R9bhNSKxhCIUE/TkJRkOAYqez6ertBCnFM0nTxyJ/aP7Is8rFld0InnRxm4EQrcit8w8OcGpqLxQ
+DC3fiODK7eROcNWQk04Qi4VYIyUfrn4obbVejHQ7BwraMfjv5dtaFmArbVTLslzLMy4/VDcBoeut
+vwed/7w6JSljp0MBHWFSQ1TBlyfObdMUHI3ye5kU2Td388mETYt8mSLvArm0HPB63qj98L+rgTV3
+KW2CR97hRWhVaXTQ1jqv3xEKXEnxGyM34whHloyZJc/bXGzgMsWlfbLX8NrkHp/IP4CGcTlZWKqN
+AO8uwQaKEZCHs529P74ChBeL4ohFySkFVMTwowwUxd0ZA/lpoND8ql1Q7GUuidfSZyK/AXnSAY8B
+tEa81jKN/m925eCpEcU/DBdJl+eJJykTJQ1etFrFJHTbn1TqwZzlEEjz8dJvbphHEjIs7BV7Mzvk
+3hZ1REI5j+uE2Y3PC+qDNkZ+3Fw/w+QarqAavVvBYl/f+32x9ol10t4TC9u15JPDPcWc93GO3Prq
+IgVLnz64AN7Q/qQJMw30bJKnkWE/hbEF8odl6z8vLE+cwuqJoSRvUIwDleRCqGiY5pfaCmqY101J
+jvHO3t0DJL0FyXZcPGAMZPQ++zqau8Hp5f4T6TVcxAgeoYLLlqeDsInqVD9JGp5BmG3ELE1td5SE
+uW3MXNoJ3Pw07bT8DQTA+w/xNhTt0G6SJtnGJ1fm0I0xgQ1YGSsFoS/4qdX5OvtkfvvzcQGEVEMV
+qJrvQOeuU7ihXCCDY/O8IDATR67P8Mlcj1cKB1T62+W2gIgiSyAPZpZ2+Xye5iewHJvssgVwADvP
+tsnfx+LSQj8wJq8happRL7KnOjVN+ElP79YX1xLhUqwdnfRWEfzQXobCt9OajT7lR1/6isfIYdka
+X3sXSbL7P5ZQyPwAekSWtiKVoqhvvH9C4jGeqf4veMQl+Bq80eekMgHBSq6Al+kVtS3bgIqxocM9
+lWBkqNSsGYsPM+447nZtyMYWZ4ljITb+WibNXyZQZ6rH4tL1WptLm02hr64OcYlKO9ncYmGDJ+9C
+tj6fiUzNDZeWRXdxbVPIuSaUfm2XgyKfSlETyLG+tXPOawfbQB4WLjj5i1XwbVvNyUVuPE6pXL3H
+a3wVUF7l0bvCzAR4twQy4I4cCdmQHtyBsoBcCowxDSZajrA1rdjvjzfHSPvIWy6+m357A17G3G4n
+MN+Oqk4x5H27fXAtXW+GQrT0rRyLqeE3eb0/uV0Beovk8Sz6fPXfh78657krgzub8bI7Hp6EQpUZ
+9MwNlkAOMbO+kGWxURBFxBpIZPqYf0HWsRDAw4w9Jubp7dSRgseQTfjLGyGu5fLT1CxrRQ3fedz5
+HkoHP7V8o5tgWMAbK7//7Xd5JN5LsYkKgOKyerooueMl7N/Zzy63F3ZhaqXBNRJ3jQOCpOPNt1lA
+lpo2Y5bv6zp5FD1BHOlrdXvXD6qFq02Yv74IySisvCBKXKwhb9FqCF+PntLN1mQgme3uvlFo3tFI
+6EVrqzMs2HB0/a7T7IATWCc7TIa/egFOU4S+BYJTuiz3nX9fBYjvqTRzQzWRcpH8sNj73SjhjY+9
+Zrb+Z7J5ys3GsW4urEEjmaNdmew5GMHCObKqTRRGCvwyHKfq+qj1AfM1Qm9SLoThuwexgt8DT3pD
+ldNb3ALAFQcUPZnAtUU+9XCzIqQl4ec2BZxyLpuuCyA3hcW/KCiBaV3lNuy3+kRZPeKi3CThPwhj
+EwpBlJmQMLt4/8JmpQxebdsxR5kJF9Ut+x1EhUB+tDiXWIiJoqHhVvlIKewUWV+ss9FpjiHbexwH
+pM/LlRlizs0C0yPxeNDP7ZTY+SlY3jP5hiug5vf8+jjcu1ZLkzKbnZkErZ3TZgly/r/MwKps4MJe
+2cJplp+nCEPGz93HljsFiHTOp8EDA2zrT5/ywXlim6f/iEv/NWBAXIaJ3CfU26k0lFG36Qzfiftj
+y+PsT6fTUgV3kygIiA+A1oyDWurtH1f2GIxRtnS6IYWP38ClAVCqjdpiR7qGiaGkY8GoEJymHPNP
+dw9FwNH0Y2OKZJNKEtLpNzv07aEnj1G3Eo09HcFtbmA0xVJ5QpVmdmv72GsVp4B/bXWOijexqnHQ
+BbxUTL2XfxC6jFZjKq1AdVX2af+dPeRVX7p7Dho1McWqyC2AVv+rVywZwnVkMeq6axn2Rl1tMfKX
+DVS7TBif/JhYUq/UwKgnMF/aLiIlzimbIFU5+iEMwpBbYvYRiap1pmRhFC55Mu90G8GASX3zlyRv
+tGmR9FPToPZHraK64PHh4i2MY/n67h4Td7upfPl0y8T8yplD4lUUKa49BeTl5WJyUlNAa7isd/GD
+oRpSIMjrkux2co6E+HOEvCqPTgzaAfpMIYujLXUihT8riZ9WBptomCcSW8EpM23ljB/lJSa0JO3o
+szAaLbTMyvglpUw5ZlxMsN3ocO0PotMAaP4+bBw4F0M7gsP2Zc0G46g0zcfZKAs8PQ4U4MxKRE+2
+5RFFTqtXe1qXn4pB5+4Cmf8Xcb7splt4OdxyvOA6Yar5DvNJOdB+Tt2oCf/Nprj+gFzjeFUrefu4
+zr4xyeeHgWEJf/LxhZ8/Y6D16lu81G8qB/TlPhO8yX5pHZT/teTAKQHO4tajLi2mE+6Qwc1PqHU8
+7jKR4qj7e6rUBhIxe0iB7I3qRIaFH0qxx8ID1tMfNMZ0AbW5dHYohCz4uMsDWq7cb/qQAayCf5G8
+PvTlxl5Fqym4cFBK8zkqenRQ9vBbZCgu3n/ZP2/kECmBFI2+M4fago9ErllmJzYwcMtov67nXAyx
+ak3NSIZC2PcRDsOtuFb9N0lGDMm8nOp3P8zvRe5yoPaeq9MX08nO2VSNhDHf5vj6aEml6+YByYq2
+XwfBGglZk1uucHh4Lj/dTEya4fBaExdvPmoD3CUwjycL6Q6nt4W+IU4C0sfqWR9FSq1grnNzschU
+HwRzONTePsFnPuBBQDi5Ymn427wchNMCQClqIIcG8oEe+1SsfILv15C708DN/8qQOw7n4w4RFGzS
+W56GNbXx1TGQGzqbUqHp1hCic/GWd8EReshvLP/SI8JVcc/77pPzLIcmmVTxL/e5QcUUPE+CU5Ex
+UjZa+RkAX/cGR4BnP2EfhtImbCUPp9nzWuvfvfAdaolwRcmlkDW++DyQCvT2gmB4czx16NLNgm9K
+kXnfwuxWOM3xTP8PZwixywhfwAGF0l9KojG7nAgG5ZbtjPFQ8MZSdeuogXCq7SV3BKhiYmAoCTpi
+ytsTGRJBS+vKSz2QExmaFY7l9H2m8v7p1PhI555YRHMlWAbAgDC4AEsZkdwSNrV+9UCi4KL77ARR
+rDtFODj9xaHzWTXGpOQwhdiqOcAYoBC3IAgU9FjUEEM+WrjKvdp3mXHNb87JD2DCboTtMkyiXKXn
+/CweuXyQzjSnxMqLjL850C6L6m9OqhiEoA5GMbFXdrDXI0fQ5CG0lSCzjEVmyx4AZba9bYD8WfqH
+EyAAfoI6en0qDIK9QgQekaiMSaIPwZ1GJCg525jdACqo+Pe68LckfxVtT0tlmJNTBDlgDQJZIpnr
+5fvXZGDShcOAwwfrYtZEMh8ARieo8K/I32C5rm9NTyQqyNg8knqlhu4ffIZfxemjdqiQt63KC9BL
+gexerlqf74/RScTNCTe/bMrj5DSIaUOH+xE0ynsr9N3/9uHbsH2kKkHDZrQf+Syj5EccsQsA7HXy
+VSN7/0BK49iGe1+afClsqZlj6lcmoTqfL+1rfDV6WaSnd9LnN0jnk6Y0cczn85jTNvSoaOx37C4u
+OIh7LHWq3Zhxo7hfVKcs0m2uChScvG772v9XNrNsQVxKm5w0qICKbjOlNb3a6c2MOHzl9U4VlSku
+xAd2dPW9D2eg7vPFi3+3vXeumFHllZk1vIB+Z8a6B7rl3roWGYBPExpczSkp8YP/9+A6V4Inzzfa
++T8QHAlpoQ+PLTGHZwJBbigatp0AaXQrDOpcf/OuperI9yfiOzQ7s9nSzRCWE0BmT/xq7/SaUWBA
+HA9ZfGB0Jux7Tz7f6gr06rwCrv4xTkNofpBE5MrC8r+sP4NBRR7wHJXKt4E0cL4vP/Nyvr/ud7Al
+j8nBERalIt7utA+ZdQi38THA9N05OML4YttKuwinFDUtcSwftN7tAgOlkE1Z4KUXVJWuYIRyLEfT
+HRZMNxFkJNEdGRZBA+eohKTyKaomw6Qn1jni8nY4XuA/x2p/WWoz4xpf/Badw+X2uzpDCdNZkKP5
+iMTFlGTY3jrm6PaIyCe/E/rY2hV5s5RhIIFzcA2erY9BUi3w2UCvUZ7UqGi+AlvjsWgTc2WAnRyx
+3SXRn1+TY7sQNzRmzmzspt53wqfzTbLUEt4/QF/umhxYuPKRD6Igyz+uyOBkHNq/oVKFQxPJpdul
+Nn3sRB5LZQh+PvpjSpNO4ewli9x9o5LGg4B7zy/BfRwq2jcr798iNI4XF04mdULNPueDIAVAymxG
+/ZWcMdYWO/65QGj3tOpgCDAeH0F74LhxfiaxLBrZc1ZwaMW+iyC2ZpwbgaIwSYfn8BPa4BMye8rL
+VN0ucbHSsCBFDR2umoY7G64jafABtA3iGZfilz7H8nDWlIopun6PZcA8NUe0MNUAx4BZwaE2gLij
+pjcuprcMkCGowxWsD+lXg+8kJMKZrdi6mpMk/x6NhrRGHanUxCIv3TdgNUfjNmc508rJwZ9O8yf/
+AEChK72BCK2LA8g3VN7mngsie6P+8S9Gp73JHI+hqVAi47ekOwqFcaBg82tCGzoRt/RCZRg7soB9
+PBXKGIoBZ/hSH5mbJqyMStdze1yBSssc6AQ55sdTqwKEwcb2cgHaC0102DopBYn+9bUmeCZjm5sX
+sTMtBVpFuMBKx5yA1yf+HyQHNto4p2r8uBQ+p6gC9XOUk6Z9y+9NoBIgmSNk8T5Kxo9ISkwmzcfi
+613qYG/1clObs5AS3XzzK6JKAKqlMb2cgMC+SM4eJL+PcVzDn+TJ+vOqclrxwkIZi0AHM+TDAG/B
+KZ+PB8O2rviiww9uFTkucJS0iiLdMXOqLK7ZjTU62xZYaoNlYfzoVz8xFykuAiUQhAFUkaZfeVw0
+Ao++pnJHLhd4Fw5kgjpRIz/nKaEo+0emxc+bkxhxN+K/PfjAQ0UT0MQE4nwAA/HwLokrQQXrUojj
+u33ljsuF8zj79ir9NMP0wUs9eQxlCMNsccRUFL8Evws68LhBumQmcHbWBmPkH+DYB5AzHXCN0TY2
+CjiVY+CreQ4TZFGz1I2pv6Z0QVBL46xJ4mVFcOhv/zsEiOlmjHicYKNTR/HNcNxYl4YhRQXuw8uI
+CfGXbgvZjWnbH6LkKsZnGzamT8P3KNhumtIDOCQybYFc6jgNdq0tzTOhe9wW6Pxq/3TRWTCtVvoD
+O/r+t9NkF9dp4oQOeCDHScMAs8g0BVQAi5WfuzNV+oEk0my7FLugEAGo5xvc/O0rpnK+RjMQviYK
++NSO8IytC7PTqv+zmFEvn8f83NUpralTjSf2G2XRfmMJ/rodK9KT0k+it/h/tUemEN6l1CQeX15y
+Lc+jHKcHLEtWdmM1C6Y1OYGgA3Yx3Kk+cvQvjDrIo+SlsIF2uz2WFfq7BR5I/P33WoGZyr+qgpPH
+sEg+jIOgAXrHvsYZxiKUc4pXuT8GhxMCXrHPCSQg5z30h0HzAmCvAkM1Y6653yOHtGUC9CFm5sCC
+k9iJ5U1rc/5P3vMkdNZZYfYfRYxlItpnL8vJmbuh3wVai9IU1o+gapVGXhot3nYEkBP3w1zJjGKV
+/UTRAxk+g42QNwtksgpDXtrmB4H6VmrD1JAl1Um60oYpwLQghcIJBZA6DolN5zn3QAPnjvsvNDtQ
+u7E2/Z7VpycUVG67px8hw9hr9whwObfVC86CHkWTVCSUa2juqtfArVWzNeR+MK4/jH8QVRIw4QXZ
+W0Lm5OVQC9ChZd9Q3P8lLXxPy1F1OqNYvQJAdZauf/nLGwqG04eZQXTvBR6cb22SL555deiPmjgL
+YAhz/8a+rJA9BnJ/0dtKnEQ5quHv+NKgtZigoeRWJ81rJNdcYiaiRPmllAZojKd8vLPvWXuCx0oJ
+6rpoYy/YAA+fJE2b1yae6bILW12uXRutygLjHxA1qOCrgXQOgYvDb7VMYxqqGLoimAfx3inBcjyK
+t79zaWIzeRQ83OOPmkrjLjGwCNAAcCytSYuPBdG3RrpW+qxeB2n1ezy2B/QjiJXBnb2E/pjWKMcm
+X/+nh5aXmYPXFjCjVOZdBJArDa3FXr4MFzdAizsk7nj3ShROO3DY+JaWPxQfWp6plDR7OkP3lSC2
+C4Td0K/V8ATIxzWwiBkZvC9x+KlqDO0kY9NPIEuH1NRNWieFQ58IyQU4WjnscdEFOQMv7DhgAKt1
+OykiGZAQhf6NiRgs0hzbJpnJhIYq8hQOb435Qb9xTjKgyy0x/s06U7qeABuqIkis4PbdEJizG2eN
+4YfmyT4U6/7oCqMX7Rv3JY76mfASjNPigIjNG6d70pdSFCiMWckx707LAgY3CiCAQr3KQTOjZriG
+ycLQJKy8pwISMVXmh7r16nrETU92Dbdn2LcvL6Cl0vA7knvcJfUFVSQTZNnwzRBfbWYc0AqV7MrK
+lhf6BptanW7AexOnbp+PTltH45WdkKW8h0pgd/HcswPkAxJxUrR3oFhCvpPDCPUlBY0yRfcjSWMw
+laE7+nkoxcZFRRF/eXrfENixPbN4E2N54pNAWenHXrifOA2WHvD4reX4LDRWb33cZidWjSdr5xNC
+3898D6U9WRyHlYfywMKcL10b8qn175A+9bhB53ELQGp6z3nHNYLEEhonvDpav7OdbCLLtV/Zwvpb
+kJOPYf3RJza7ljB4MyVZaGN65XgPrS2vamJ3gTXhmGlivqMSjh2moILMSs8b25ZzK8bbr9/C5wEn
+Levn6UvJXsES9ve9bzn1LFzidyPDqwKIa9cZ0/zGOMtTcemcsmYNCo4ebDi/4hWyf4IYX0X8f+TJ
+2raJq+1fP9KpaOGYE9hfg9rPEDgUoIgIJlIdugZnqyWcaca954Xqy3gFrIm4sIq4VpgaEGwvplTq
++G4/Gvv67SklhMo4LV4yA0QsKREUWlpgxmxUPU0MJsdSjfWznn5pl2xFgB9Peyi/fIL6MwZz1QBY
+Xwwyi4qeRsZVQkqut0wDz2otqm1AEQGe3UJ0rtvY7ffjHCgcgGhyn2/0Kiue96fr2B4gSHaDsC+K
+iCa3tY5JUK4Vo6FLLm2Y8ZeYSVUoneuz8Ah5zeM8LbLUhjgVPHM5B9FbyCFtHWrNEqTSaasfCvUz
+HwRSXpLPbWXgHQhzlnOoK8CBlJMnLk2OJE9JVcMPJSWfcaTMp46vza6/xpy5UhqamkNrjsrjUTeB
+JfTfiKSmfkAdNk8aXLGqwJRcOB1uZ0lXLR7aKvR3eUCXKA6mpCyKAsJqm+5ORwuD6uuOJY2URk6A
+4x81HeqEOmaKcpBF7vhfq13HG0bsTLQPXVmS+vCSZoghc7sKMPxfmWaPegJMPZzSPaa0aTC3MBfZ
+pLUVz1E5L9smCqGrbEqxu9m4mXr/h3WMZ0NRj5uqYoV3aiv6ygFe2XhbFrE251mwocyhFoNvfAZK
+QsmG8sjaaApyLtNTfKLW08s/j35OwLG3ZZmlxidhV+Uu52UroBiJWkaMj4JdzHAfd+cQ3DdboWh9
+WBw90/ErwJuxL3sP4oKZ98noTAV0NV8UOAvwvGoECB/dUiKLXHxAX+P2PoC2iaytvfWh1G7bQQNO
+0P3/33W2cQhPeMr0zeHJIFpKpEdjryDQCiqA1upP8nVWcpRVggQSoya4T2plENRRUjmNLuaxpDt7
+WOqX9EY441GtDEUZg1XKtKqs/dHBCNoJYQ4OatCbOaESDphLBjDP9jOEy+DyTmPwU0AuMJiKpV5g
+akmHrFQhqkpbwyHBDIBXjhSCU2vIwh4rK4Ma5IJBcVRQRW6mdnBr7u3GZxBo9Z7f1wEPXoHjS+E4
+v7sKjpkx8K9dUfJZBEiBFsu2mGnmQR/0L0ebTDGD7KtF99vdXLCO+PuY9gBSkTFdKquwlwezHc+S
+ZwHXVAoOGG8uW6Td1zDr8L1hgPgC7PBUs2DdeL0SpxrIJedi5+ZFB9y8g7aF6NWirnRMFqnQXnez
+xr06GoplG9ZhlIetx4k7IeYhEPvpL96AHAHXKmhhBxgYPCbQAf1kW+T9TEO6nnTykFxB9HujzvD2
+/+XDUQ5JxM7J3nTmxYIyywpr9rRymrTbl0C8cnZJMRVSVcGY34wV5C1BWBHLCcroDucQrxeuh8nT
+maHBlEg28cMqJQtHek8lVypvlq88CcJ8aVlAe63dC26OqyV2ZhUJn/0f6w6V1UDGLVMGnCyo99f4
+U17Ki9H4kkCMbH5dsOqMOl0Owt+umD9SVsB6qMeDYGzh8V4iVu1wKuNFQ+ThYixT76JiURucAyEy
+6g6PZWzq2B4nx/5J9jsnABs80cPL+rXDmuJS2KcLTGKpBCKbALNci5Dzvsf975v6wkHofeUQJPYX
+YYzQZj7lJgSUO+C+ts60cOwPfh7u7wi01SPtAijbjcRG2e5fz5e8Y47HcwGH57j8A/vKa55/KuvB
+mLGsfNP4/GE4y1gKu7O8ZxdCka+leIIvnfYge3aiXBMDORh00kwOxU39Bn/kuqnOCC2Mr86NzgPL
+pUK0yo1bixEwrWgWmu0ExavWlOTvt1ah7kYVvV5tzbdDUhsaHeCuIv5snIJUbUMs5HBX4GEa9i+D
+R2N2UWEbzzEP3C3RPhnlIqXpEz5KNEa7iBDHetmLnDpmAX2uJW6+/MJg9SK3f7t2P5My9Cz/1ljs
+A1O/5A9RCeqL7WwyB3wVCXDfM2fD0ueLNdoTBxUYS4Sg0GRNhPGJqofl/5Jn69wk/esZVhDIXFbw
+5fzxqutKWjeh++XhfLQLaXwPN1aI9hypRbXr3gwvQwx3Q7nYehyK2RRSMrYCpyCjelNYGvxVXS1k
+L0TC8e+gKEGHp0ud6VwyiUn/o7b+q3s+a3hYblqHwvJMUNYlzy0D11DU5mqZZijTbr+o1UNR5koB
+yYMIaAOIWTnDSO0zdy2IulGFK1z44FMViu/CV4J2yGLM9cIJk4J+8V5iianSY1f9NCc7OhIlsvv6
+WaPLzbmxAidHaK55FZe5skSiBnFid3sysWyG+sU5KihwhYVfSe74wbUTNzSYz7UU3mxaRENa8kTy
+H3zcYRjhad36nTLtM9EERJrBu69clrijvUMDvD536JYC9FZnz9KYAbUUCh1ZtSu2PxmSEybksFl/
+w5La2E/oyFsZ/hxSeE0YWKp/ZvhmnQHj6hYqgWLqSjMKcO2cFph8nYCsNXvIE8dnok4dMa3PrYPf
+IRFm+vUMDYGNsLEPaCNdhA7HzSLlqH0RAqrjdKDcF7iaeBjW0qyrLBZrQDI8W9PMQx1KcU5fZ8Ni
+skHhTcvZFGLLr339vjH/qSKFHLv+HLBKqBnLNkZgNlt2dwFzvZwVcLdOlvyFTh3CIabHQZ3ZiQTL
+Q02oqiDOjU2AIrlydUA6BIXCxOS5AFJAqx8LKCz2VHB9EAucWmyYUIcmmIqAiOGMIXhKDQx6jfj1
+tEx+YVaF9OlO1go6GTKcoRAQdws21bFpfmHdspw0gZEzBSMH0ECQOX+BsAlLy+D2AIilzHXMcdc3
+jsRLMEZZTKI035CFUyDdszClehP2n5ZAC2c6AU9VcY2eAtWvyxLcIVH+fRnmuVJulItOZJ7dv33G
+PQ7cvC8Oy7dKf5Luy8llc1TJwCxCHapQ7Tkqf4w7BmT5F+gTCMzWNw/+NYXwFQY3SmL3sszfidA1
+7WLXm/jnVmsmzmJ7jovin/5CQDFYv+P4zfS5xyR6Hcub+xGcnh6ctRWpudd48In7Ax0B9cYgcqjJ
+i1i8cYMYNKGc/SOTD3Nukvn46IjHgX/Q6s9kw0oW8mZk2iABcePKC8vYn04fnlHyn1h9zISo6kNT
+th50Mya+4tD0yh3S5qstvKuz62oz+rDYVBK0ShE4abze2e4O97jY+orebahjmMVNJexGw997w2MS
+Z5gQfHw8WaMuYh+NsB3eOZMahlnhOokBKgmIKHVfWmlkUmT5+GhLfbz//msub6qPO2JJ2+eBeX3D
+DRsytGJ1vd+AcEFEZzm34b8dmdm1BrxDdUv/F5XwyNObyuygX8082LZUCtKd2jZt2fArpHn960U5
+lOSanwkpOJd6kqoZdKvWKmtrrVJpErwCCabV9VqzTLIS78UN1tpK/C1PHgSrLRHMQ/Z/rFsSonPa
+s87ErqcGgWgbf9T+H1O0fYRamugNa85NUUeAGS+6AKRYJpDrpMquxsLdmnnXZLtFJSPqqHBlU8Qm
+kAr/MVR130zSJmWIXuzpp4HdfcVdYfDLyft+7PH5dGbVyigB5BQbzrTiU1yNFYFOnFH7I22ur6za
+q31ME25BvUT2LQFLqMfbd5GJP6PQI2NZN6PLXjx6BLDQntTc7h+j9bVREeQslQSiMzbTds0rxkb+
+wOO2CUVk2ILrKUFod2m0LrMmvCngLaLEDhDx+VbEuyUk5WIpVXp4MoKMUP81fhBmIhE0MEnat9dq
+RoPiSA1Iyo2qPdFhj+/pvz7QSbH3xPS2/6WndJ0uG26NskZhMgdwGWy5VBOri6iWvrPYAIiJIyx9
+YJPMcIfpdhaUztbgFQ1ECmPeJ/kDaogIn6hRYXVpTgiCDNhiGA+Mp6534PTJYg/u1AXHBXqEKA5g
+nrWj/3xNwer+Pque2/vaoJU+umvFm9K8b0ywvvfMIJwKHskMqwnN2aqymV6RGwFMA81WhyyZgHNq
+otEQtOehMEMHRqOUm/757OHHHbpAbOrvSx0AB5qYUeQOa7uAYqCvgc+rDd3ZBdjiLTkR9jHmmjUC
+1klA3xIqKMufIsWtO3xaYR7fCJt/pEcmDStlLO8KIxILiFDlTmTKFC5ZG9QoVdZyZDJRlnRr3c6C
+0pfboa+0l7jh4qguIBSHoZZJDA/VuS5S+s/WtD17TOQvTrLFsbe1gJGZKyT8PZeKwNQBRMnCZMw/
+wTNFGANm7LkRzhHFYrAorbzOt2CI0A5JiNL98xl1vGqSbwiE8dpHfpcvRcXnDElF3LQBBbrDn8YM
+P8pfaSFXMHhcLM4ElqapS3nf6zDogyk2QiVFOH7r51kPhNq+XNFILorAkECHyL79JqkJ59FoMvJA
+9IcgAHZBadYvfK/KzUEPbKd9ovTzPdGdzJasa8l/2fEb0ToLwYPRCcjf5HHU/0Wp609iY5C9q/sO
+LalOHa5UfT3db/JKMYMEcxFPioMF3IAB3E/8Hn8iT4RRat/4HKhlnR9UILeJDIn3Pc5MrRpQyVTE
+jT3B4ZjunU6FSXV+DJSiHOUPV2wIg0AFG6dcyihNUfhccx6CM7jJhin+PNFa4T1nw0UsVlfRNgAX
+WMYlSAEbV+QS2nvv4bJvkD88cWDxLSirEzAQYCrAEhbyC6M4I14PmDoiluwPE2gCP29dVlUSihpx
+2gryDlrXn4T7EJrIsRBSrstVauwI+wzVksmygistDkxsPp2vBjY0V6VEXzGhAuHohwNqwXTDfmxy
+9VevWZUwmf42/gr7JaGYfMQzHOeKBTxIM12tzRhb8l5ZU6Gwbg+Y4H09D51HfKuk0MoFpIjfSDnk
+ciJnqykAApmNyj2brBxViSVW6ZaiZUASrsIPJFBBEBvDwZm0HqsxF59qjh8V3h2cfIt2xVH4RmSB
+eY5XVLjsYmadvcEeVQ+TYtWYraUs88xCpFC+cbqQXX2bZquTWzNT3MnEGV0qcJzLSZtxFbja6+BG
+wgh6nMD5WfvASkQlRVFuVVqUnv5l4An2HjPDgeA2VPX8OXvPiIMz+gdcww4JxAt6sWAsnRw4qWmL
+d22NFOewEaVNe7VR7r2ffqM5unzjtY4oFWbfQNDw9zehgFBIsTJil3bMcKJ0geKJgnFzCqQ39gsO
+5HtPJJa3QkwAIN5VcICZMn99JAK2DDxsNhSZ34aho8VNfxfFtpsJl3bf73WT4SngIPDSlRdMzYnA
+S0Hu4CP0BIVIQPMsHTZddb05Xu8Hl7MAN7lH4m14nA1/Y7ebilmPkKdsAqEk4iQRDt5jNFPnPWVi
+nVVN/njT0XjHrozqjgn7yXq4ycPB6pcDicPAwcwRSFv0o308cGmMDGCrDxtgeYQqxUM08iTXP3OT
+ZNM8c8UU74cMFmlNCc+6PgvQteGSzJCvVHbHj7he/G1DQ1w3JeXXelfouriMZamy2YGL+wprEtDS
+1e52vCcY4wulMXoYaNdOrZTqoHFj0z5C4HT/lkUbjwcu9//NKfSBaOpLD+Wks6roF1j7l5JoluYH
+QfBaRwp3wGXWo2DLQE4DBe4lzxM3+tfHDP67FxF6wje6xoGFcPldR9u2xuKywVQLm6y2HulPDeF+
+K+N+cGEnnVr8TWEB9zGhc4xFilc8n0v0UvbsvWsprtOGQjWS+89053NlwagvqlFSkT/LFKNvNZU7
+HPrpmhoufU3gZgW9mgMNIyXSEPXadnfwjRXQAV2O9mDbhF5UEwhzximQdm9LgXaOZrADS+N7pm1+
+BTCvrXj17gxC3ToaMSxDoj4GecMegCAdowqaUxPstvjYK0w10720QxCKm2aSJv8BdVr3SaurizH3
+wr+UlYgIj1I6DUpRKXl5Ye5zbhPH4NGraPjuDNNUQvdwnYcjGoj2W5pph6cDU3sbOsYREVg57jfx
+Lt07KfJejvNl+38R0Ku83Fu5QWBcivSaL7igNZUJ+KeLO1/hlLlOYoXM+nWcQpI4FnqmyBcaCgx0
+Zhsy4JJlkmD7YYq7nAg2ZGJEEGx+0d8cDOYJeT0rJAVGu9BNkWXPS9UnIBcCOS3mRgsf4lx+1Mi8
+Zr9vslr+mIc07rpF8xqvz5jmNJIoRpRpuBObhglxXvCQD3Fxhd6OzLiQjQTNkJz5yFe5QI6B8UXr
+1SRMwC7bCecUCGQ5g9MUpnmGFxGlkPGFtfzcNKdzRUD26pO4e+o5op9/JPpobVOA06ubEsHZhRmd
+lm89z+4jlH7MYyX+Z41FjbA/CGX4joyfKR4ON0kQ6LVf0BELYvoI9EiR092ZL7fFc6MkKrFrE0Bg
+drIjxxoFg0Km0ffpePF7xVpeSHJjLux+wOE/FS2m7bmizIBGFbzpirM1uXQvs0R80FOwJI+dvlqP
+tmuuXdhmt6PZB1GrmXlzpt9HMt3HkmAdKaSEPEy1nSZ5Z1LETxsh07DK67ue8Cctj3gQT/fuppVR
+jxDCi5yPbjehEN4yIYjzXNmmeJfHyHNYGbILYZQzg3Vc9pQ+iRGI6+1ojdHLI96dmgVCE6EcsUoe
+wGiwCmUXPx+frnix5yHOWQ6MCwSXgdg/uUEPPvAVweA3vop1MFKErWjArSamq4PLAjhi+RVYYPGT
+d+qMA+3OBCUKp2rk8abR5rDrBYVstDs3A6IEaEr9ic4b+QY7W8mrPppF0BB4WjaAcs9lydSsZfRs
+vqfSReFARLAu2iNE/3Fja4J6708ccygj8MGPdsWQ0B4bEVnD1q7y1iJlFNh6yhL10FNHyPdPDJ4H
+8sg9Xd0g7WTSozaV2NHsp+/Pu8vH2822zXOV4Yv/fYrAe7nafhG403U43DjUScmHuhqXXkhcGxAT
+CWzOphhgyCVfVZbrYOW4AEw05pTxLcU14c0VQliO5zN1sSgWPZvsL1km+BpGABKSStf4C61MdnZD
+nzeHwHyGLVGZn4FJFRI33KXLlt1+nQlN/Cgh/7RFFXsbNPDw3zcg9ABMWwlxDdKYYQND3aluJZQv
+sRkBOvvaFKDVHzG60lwFEmDLYsM579IxxwiD7mRoO5EUUqhCQu3/aNJAxZVwuT3Dtkrveci1V/p3
+4fNj8TH9GA6aUKebc7XSwvN1jIb4efvmJ75Wud0Lwx/lEoG7yTnl2ePBh8svLsuveERUpVQhX81P
+EHLXOIUNAlLScrv/+BfyRNuhXg4q0I8u2xNe3wyBBkw4iLo/3V0FnQU36aAfl/P52M2SVt68lyKz
+CVMbyaowaHDXtNgNDath67CIS6RLGeCR+Khuh7a73UYkriFTzmJ0PqG2WUxa7G0KgjwImg3anW3M
+7rsbTqZtxS/XdCUnqokWFm462OpLivP+kBRMDmqJ4/U9NsuL8mdiy66dyUZ/NMWDIV6DP/maFb0m
+6XJKsihmfUFBoFoL8Wo2hjOujVChQuqBRTzS8E8CsgfLuaiGrF2oNoEnpizaMfhcqBWhqvzRYl1n
+DNxyfpy+4SECvNyHr/Q6NTnVJI54CTxxJrbXucOJw+tHyZ69XiIn+cenJ0wvCR+UnMyFxUKgZoCu
+eD5Nve419HoylrWtovSU7M9OLR0zJ/Q3ZhSAXSkxaF/ldH+rEz3XNl+3IXExSs64TNnPrat6NmLI
+mjS1J/s7QYkcJp5TlAT992JVXE+boQc3+METug53Qvfg7pZpETg91Qp4lf+VW7Wmajn+HLBe9JFj
++kgS4/1QEi9YNrcd/CuvBBuThRfMrTB5EYGU7Lxah/q5Tq3BPR678cS6mshUtOPy6OlrxvgTlImZ
+Nyi13bFjnMmq8mwkpf7c1wp0NQlr3bepGJA0hEl7k6pmXf3/ST7W3iC7+A+N42CMvuPGfHgaW8Hc
+2uX3xNNyNf/BtQBwtPjxqT2kS37gqntuBM7k9BVgniTIEYarjPLmabA06hLoYHgcdeuVTtxk4e3r
+GKQtbtjIrPN69WkafoH36yED7DObE9LQBPZWshsC7scecsQFqeXf8t2Nqdidr/+mX4MNnamad3eq
+PD1uhApHMJ8tnNz4g8KCIuBwypH1Tai+cGhiVV3S3vGH2tsZnhNwiCeqJtdCvBBr95SJ/MTFaXWE
+OYaSDtgE+RW2zz1onpjRg7dUrSwSUmwCgFmKqCAHdEn7U6V2HFSOtFOOkiZTJfd5lI5wnPmRB+Oo
+NmphZQvmSoyE3q8uWbzVYWICjiZBpNNyEcz7KDzI/z6lpo63FQPe0B4Pqg6bce6e8GNr/vsej3Kl
+nSx5fpbk7kQgkMMcpUL4MYKa+kZa4isds6V7Wqxg12BUEu0wdH8ET1dkYp0lIBBkad31wwkZrkhx
+CUHeE7Zbb6HF4G888UD7CV3Qdi1lzVonv1v8X/VwQtFhgnJZzhmad1oXcfSXMDm2xftNs2D49P4H
+eoaHAnavCwfZXbXllnnOP69I+owee7oXBJDFX8L0+ueeSnsZ9WIkJDqG2tQZD5S+/52XrgQmPDJ6
+CTvMm03bNQQgwe4iabV3xJ0mMOqxssUgVVwnUGqSX2MK3gLmyyIK7+GyN0xeU3NWd02OQYtyQaJB
+NVLf2F4G2Cz5sWZA6oglbV7QJDsfg+9iqB43aoTE4XLJS1Yq1vI9kohWZi5WgaelhXOecZHjElbQ
+jEpL1Cao0FjzvzORfb8ufQ59yIB2Eg/+bdxJh9qOAxO0CsZA7CJTJA5x4ZotlIu4CDavB+Ux8Q9V
+7F1DJC0yypXiX/jUdtG0he2tcJ62y3j4fg/+Xf0/9zumMyJU/zkFSWaRsHMO+MOU8fxyBQXR/2Ci
+94wqDZwq51NhS0v2XxeWb0k4gE98UydMXcDzGXWyT4n9cibxicCtvjetP33/KkeK2FQbAKndrb+T
+uPJk+0vGP56nxrNkb2sALDetLDk876khC1P9DER3HItkb+iFSaRIxQzaG2UKcWdnyH6CLLidIE4h
+IEMqnlL59xxgsnk7hhvMePpcXiC8sKpHdxrtb/15fpzNASQe9bBKY+HMeYXxjveH1POxxku9g4iU
+LHkUWEWA1oBIr+xdtCO3phRSIWtOuUNXAF2A8Kyt5KjCJ1kMgdlj4z+Bu7C0eDyP3d9S3/KfiXqm
+ERCNlKyPyjt0MDDWkoUftIQ4di3a5Zh2iclymItioXatGV5Xe2f0AAzyXpUfHIdEvHf5zhPgW6QG
+eIy/KbXm/cIOURLQqDrlRb3J+VxpNsEh+CaLSx7pSNxLyx0CvxNKORdirWIjmIVbuDFQXwsp30z3
+hyG+//fvx1lcCKfS36Oe1jqQ1jJ8k2MZPMTfqrc6HfUJGjfpj/Zyu+vf1uSN7QPZbhNnzzYrutM1
+uF5XwdjUhpF/DVUu+6PiHOYhS+OhHqBlNqW4ts9U4Ph5APvvqBvRG9ja0W0Ou98dJPXz4JoCcdMQ
+vmV49/ye3sTbHYVdCGLy2pi2dD9q02uMtWzyEkGk76s/EnrYfXz6X68twRNi+yo3cF508FQARxLN
+qD59fk0M6s17noo+0PuCVoLnmQMzGcK4zoBCNQ+mAscmSWt2XoGox1fYAqcDm0TgiqtyCWsjVuNs
+F5qKG4C59wnF3zxWo81tUZokp2dUgeyaHi0gOM+1FQazOG5pWdDxbuOw9vqQA/oL7W9Pe8Mcb53B
+4afer6iRDziZbigB5QWqh03AvHz/lwpkGx+qG7GtpGqy3ljEDVmVWj4UrfOXHT5dIYN1CuXdPAFf
+XYFmG8tegVoHYxTLmVh+9hlR6YwW/IzdU//MwYp85uq+4RCuvEG++IiRUCXpCX7XrHEXJ/5gqRJm
+wDEBcKA8ipBRvYCyHiVUeGivkIYgOUngq00ssuoMyeGQHEGUKxv/tXKRStbIKjzFxDtifC8UCBVP
+tovWULA6wk1OdAARakC+gI5EonI/OBPR65NUkfPsjqxFV8RAuoddRPSqZOCWoJZuYt4Yqm0lLq2U
+JCd69FLpaRZfkev7GrKdHYxlKIxRzniiWlHc+d7CmC3BqIjSf/m2N+SUKBTYmSZx2GiKWvUJ3uVJ
+7fJRKBRydbWaU8kCoX4m7ONrAscsktw7pRj9qQIOumB02Ua+mcVO/RxnfnoHdYDat49PIWSe6uOD
+iDmxTGI/tF3CAysfeSt5x/5kpDDoo7b+eUxSHIVkCidkq5c3jn1clg7wMdiQYhjw9iM1zQ12YnK6
+nUud+Y6O2nnoB2dCy+aEj/Puj8W6cJy8r9PkTYxil2u4kyYMya1HsIz7T0+u+K2CwDdyxaUiwST0
+eaS8o3rZg8WiwpX+CO/2uUlF9tRJrQXmGDBoY2gfqsIgfcBObK3PXz2rS7zSYiQpi7Vf6g21U7mu
+e9dfWy0Ytc197Flw8vtpL75+FdL88LgkSTwSNfRLNKZsZdI15AG3MnP7srIj9WupdkbPBcls25+n
+wPZfSOm+EI42Fzt82w7nkGfaBESV0tjZ0tabXGeqy01KXPDwbceZKIyrVsmQxFwsOK4Wk76IEv+4
+mfVsvzN1p4iEZpe0b+h16OKhZOyCwMny4pvXQ3O8ROafISjFpEDGAiB0jXpRaJaMHnPUH0/JadxE
+jZxweKTsWO3XdmjHYKNApGgMxZ+6OrQxZnnRd7ccNNuvfGB/0okidoqmDG5ua6roImR24wLgSXHY
+T7OT3nIYtz2Wm3YdVdSWZ7ODl0yzln5OqgVpUdaebpFJ6cdpFBEJ6XE7U7oMfeTVdrcS82YSJ2gk
+vytPEbjupjG7CQ==
 `pragma protect end_protected
 `ifndef GLBL
 `define GLBL

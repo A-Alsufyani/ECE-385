@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "Game.h"
+
 // Constants
 #define right_press 0x07
 #define left_press 0x04
@@ -20,10 +21,10 @@ typedef struct {
 extern Player_struct player;
 extern uint8_t die_sig;
 // Function prototypes
-int checkCollision(int x, int y);
-void updatePlayerPosition(Player_struct *player_, BOOT_KBD_REPORT* kbd_buf);
-uint8_t player_movement();
-
+extern int checkCollision(int x, int y);
+extern void updatePlayerPosition(Player_struct *player_, BOOT_KBD_REPORT* kbd_buf);
+extern uint8_t player_movement(BOOT_KBD_REPORT* kbd_buf, BOOT_MOUSE_REPORT* moouse_buf, BYTE device);
+extern void updatePlayerPositionMouse(Player_struct *player_, BOOT_MOUSE_REPORT* mouse_buf);
 #endif // PLAYER_H
 
 

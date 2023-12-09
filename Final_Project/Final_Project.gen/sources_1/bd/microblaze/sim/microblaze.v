@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Wed Dec  6 08:31:57 2023
+//Date        : Sat Dec  9 13:31:16 2023
 //Host        : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
 //Command     : generate_target microblaze.bd
 //Design      : microblaze
@@ -1257,6 +1257,7 @@ module microblaze
   wire axi_uartlite_0_interrupt;
   wire clk_100MHz_1;
   wire clk_wiz_1_locked;
+  wire [31:0]gpio_player_pos_gpio2_io_o;
   wire [31:0]gpio_player_pos_gpio_io_o;
   wire [0:0]gpio_usb_int_GPIO_TRI_I;
   wire gpio_usb_int_ip2intc_irpt;
@@ -1495,7 +1496,8 @@ module microblaze
   assign usb_spi_sclk = spi_usb_sck_o;
   assign usb_spi_ss[0] = spi_usb_ss_o;
   microblaze_GameIP_0_0 GameIP_0
-       (.axi_aclk(microblaze_0_Clk),
+       (.Hardware_to_software(GameIP_0_debugging),
+        .axi_aclk(microblaze_0_Clk),
         .axi_araddr(microblaze_0_axi_periph_M07_AXI_ARADDR[15:0]),
         .axi_aresetn(rst_clk_wiz_1_100M_peripheral_aresetn),
         .axi_arprot(microblaze_0_axi_periph_M07_AXI_ARPROT),
@@ -1516,12 +1518,12 @@ module microblaze
         .axi_wready(microblaze_0_axi_periph_M07_AXI_WREADY),
         .axi_wstrb(microblaze_0_axi_periph_M07_AXI_WSTRB),
         .axi_wvalid(microblaze_0_axi_periph_M07_AXI_WVALID),
-        .debugging(GameIP_0_debugging),
         .hdmi_clk_n(GameIP_0_HDMI_TMDS_CLK_N),
         .hdmi_clk_p(GameIP_0_HDMI_TMDS_CLK_P),
         .hdmi_tx_n(GameIP_0_HDMI_TMDS_DATA_N),
         .hdmi_tx_p(GameIP_0_HDMI_TMDS_DATA_P),
         .player_pos(gpio_player_pos_gpio_io_o),
+        .player_pos_2(gpio_player_pos_gpio2_io_o),
         .seconds(GameIP_0_LEDs_TRI_O));
   microblaze_axi_uartlite_0_0 axi_uartlite_0
        (.interrupt(axi_uartlite_0_interrupt),
@@ -1573,7 +1575,8 @@ module microblaze
         .s_axi_wstrb(microblaze_0_axi_periph_M08_AXI_WSTRB),
         .s_axi_wvalid(microblaze_0_axi_periph_M08_AXI_WVALID));
   microblaze_axi_gpio_0_2 gpio_player_pos
-       (.gpio_io_o(gpio_player_pos_gpio_io_o),
+       (.gpio2_io_o(gpio_player_pos_gpio2_io_o),
+        .gpio_io_o(gpio_player_pos_gpio_io_o),
         .s_axi_aclk(microblaze_0_Clk),
         .s_axi_araddr(microblaze_0_axi_periph_M05_AXI_ARADDR[8:0]),
         .s_axi_aresetn(rst_clk_wiz_1_100M_peripheral_aresetn),

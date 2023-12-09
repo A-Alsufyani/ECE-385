@@ -14,17 +14,18 @@ verilog xil_defaultlib --include "../../../../Final_Project.gen/sources_1/bd/mic
 "../../../bd/microblaze/ip/microblaze_GameIP_0_0/src/hdmi_tx_0/sim/hdmi_tx_0.v" \
 
 sv xil_defaultlib --include "../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/ec67/hdl" --include "../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/30ef" --include "../../../../Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0" \
-"../../../bd/microblaze/ipshared/70dc/src/VGA_controller.sv" \
-"../../../bd/microblaze/ipshared/70dc/src/GameIP_v1_0_AXI.sv" \
-"../../../bd/microblaze/ipshared/70dc/src/Color_Mapper.sv" \
-"../../../bd/microblaze/ipshared/70dc/src/font_rom.sv" \
-"../../../bd/microblaze/ipshared/70dc/src/block_rom.sv" \
-"../../../bd/microblaze/ipshared/70dc/src/player_sprite.sv" \
-"../../../bd/microblaze/ipshared/70dc/src/Clock.sv" \
-"../../../bd/microblaze/ipshared/70dc/src/Game_FSM_Logic.sv" \
-"../../../bd/microblaze/ipshared/70dc/src/bottom_drawing.sv" \
-"../../../bd/microblaze/ipshared/70dc/src/sync_reset.sv" \
-"../../../bd/microblaze/ipshared/70dc/src/GameIP_v1_0.sv" \
+"../../../bd/microblaze/ipshared/e152/src/VGA_controller.sv" \
+"../../../bd/microblaze/ipshared/e152/src/GameIP_v1_0_AXI.sv" \
+"../../../bd/microblaze/ipshared/e152/src/Color_Mapper.sv" \
+"../../../bd/microblaze/ipshared/e152/src/font_rom.sv" \
+"../../../bd/microblaze/ipshared/e152/src/block_rom.sv" \
+"../../../bd/microblaze/ipshared/e152/src/player_sprite.sv" \
+"../../../bd/microblaze/ipshared/e152/src/Clock.sv" \
+"../../../bd/microblaze/ipshared/e152/src/Game_FSM_Logic.sv" \
+"../../../bd/microblaze/ipshared/e152/src/bottom_drawing.sv" \
+"../../../bd/microblaze/ipshared/e152/src/sync_reset.sv" \
+"../../../bd/microblaze/ipshared/e152/src/RAM.sv" \
+"../../../bd/microblaze/ipshared/e152/src/GameIP_v1_0.sv" \
 "../../../bd/microblaze/ip/microblaze_GameIP_0_0/sim/microblaze_GameIP_0_0.sv" \
 
 verilog xil_defaultlib --include "../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/ec67/hdl" --include "../../../../Final_Project.gen/sources_1/bd/microblaze/ipshared/30ef" --include "../../../../Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0" \

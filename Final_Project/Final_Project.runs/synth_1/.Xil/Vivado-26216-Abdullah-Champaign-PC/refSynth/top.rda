@@ -1,0 +1,139 @@
+Data_For_RDAFlowver5.0
+	top levelÈP
+Final_Top_Level¢	
+LinkDesign_Blackboxes@
+mb_block_i/rst_clk_wiz_1_100Mmicroblaze_rst_clk_wiz_1_100M_13
+mb_block_i/gpio_deuggingmicroblaze_axi_gpio_0_3<
+'mb_block_i/microblaze_0_axi_periph/xbarmicroblaze_xbar_0Z
+7mb_block_i/microblaze_0_local_memory/dlmb_bram_if_cntlrmicroblaze_dlmb_bram_if_cntlr_12
+mb_block_i/gpio_usb_rstmicroblaze_axi_gpio_0_1&
+mb_block_i/mdm_1microblaze_mdm_1_11
+mb_block_i/spi_usbmicroblaze_axi_quad_spi_0_02
+mb_block_i/gpio_usb_intmicroblaze_axi_gpio_0_04
+mb_block_i/timer_usb_aximicroblaze_axi_timer_0_04
+mb_block_i/microblaze_0microblaze_microblaze_0_1F
+-mb_block_i/microblaze_0_local_memory/lmb_brammicroblaze_lmb_bram_1F
+ mb_block_i/microblaze_0_axi_intc"microblaze_microblaze_0_axi_intc_1.
+mb_block_i/clk_wiz_1microblaze_clk_wiz_1_18
+mb_block_i/axi_uartlite_0microblaze_axi_uartlite_0_0F
+-mb_block_i/microblaze_0_local_memory/dlmb_v10microblaze_dlmb_v10_1F
+-mb_block_i/microblaze_0_local_memory/ilmb_v10microblaze_ilmb_v10_15
+mb_block_i/gpio_player_posmicroblaze_axi_gpio_0_2Z
+7mb_block_i/microblaze_0_local_memory/ilmb_bram_if_cntlrmicroblaze_ilmb_bram_if_cntlr_1,
+mb_block_i/GameIP_0microblaze_GameIP_0_0¿9
+synthFileNamesJ
+10DC:/Xilinx/Vivado/2023.1/data/vhdl/src/unimacro/BRAM_SINGLE_MACRO.vhdG
+11AC:/Xilinx/Vivado/2023.1/data/vhdl/src/unimacro/BRAM_TDP_MACRO.vhdK
+12EC:/Xilinx/Vivado/2023.1/data/vhdl/src/unimacro/COUNTER_LOAD_MACRO.vhdI
+13CC:/Xilinx/Vivado/2023.1/data/vhdl/src/unimacro/COUNTER_TC_MACRO.vhdI
+14CC:/Xilinx/Vivado/2023.1/data/vhdl/src/unimacro/EQ_COMPARE_MACRO.vhdF
+20@C:/Xilinx/Vivado/2023.1/data/verilog/src/unimacro/ADDSUB_MACRO.vM
+15GC:/Xilinx/Vivado/2023.1/data/vhdl/src/unimacro/FIFO_DUALCLOCK_MACRO.vhdH
+21BC:/Xilinx/Vivado/2023.1/data/verilog/src/unimacro/BRAM_SDP_MACRO.vH
+16BC:/Xilinx/Vivado/2023.1/data/vhdl/src/unimacro/FIFO_SYNC_MACRO.vhdK
+22EC:/Xilinx/Vivado/2023.1/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.vC
+17=C:/Xilinx/Vivado/2023.1/data/vhdl/src/unimacro/MACC_MACRO.vhdC
+18=C:/Xilinx/Vivado/2023.1/data/vhdl/src/unimacro/MULT_MACRO.vhdH
+23BC:/Xilinx/Vivado/2023.1/data/verilog/src/unimacro/BRAM_TDP_MACRO.vG
+19AC:/Xilinx/Vivado/2023.1/data/verilog/src/unimacro/ADDMACC_MACRO.vL
+24FC:/Xilinx/Vivado/2023.1/data/verilog/src/unimacro/COUNTER_LOAD_MACRO.vJ
+25DC:/Xilinx/Vivado/2023.1/data/verilog/src/unimacro/COUNTER_TC_MACRO.vD
+30>C:/Xilinx/Vivado/2023.1/data/verilog/src/unimacro/MULT_MACRO.v
+NumFileNames70J
+26DC:/Xilinx/Vivado/2023.1/data/verilog/src/unimacro/EQ_COMPARE_MACRO.vJ
+31DC:/Xilinx/Vivado/2023.1/data/vhdl/src/unisims/retarget/MULT18X18.vhd=
+18C:/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_VCOMP.vhdN
+27HC:/Xilinx/Vivado/2023.1/data/verilog/src/unimacro/FIFO_DUALCLOCK_MACRO.vK
+32EC:/Xilinx/Vivado/2023.1/data/vhdl/src/unisims/retarget/MULT18X18S.vhd<
+27C:/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_VPKG.vhdI
+28CC:/Xilinx/Vivado/2023.1/data/verilog/src/unimacro/FIFO_SYNC_MACRO.v@
+33:C:/Xilinx/Vivado/2023.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:
+35C:/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.vD
+29>C:/Xilinx/Vivado/2023.1/data/verilog/src/unimacro/MACC_MACRO.vB
+34<C:/Xilinx/Vivado/2023.1/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv=
+48C:/Xilinx/Vivado/2023.1/scripts/rt/data/internal_cells.vF
+35@C:/Xilinx/Vivado/2023.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.svª
+40£C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_dlmb_bram_if_cntlr_1_stub.v3
+5.C:/Xilinx/Vivado/2023.1/scripts/rt/data/BUFT.vj
+36dC:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.srcs/sources_1/new/Final_Top_Level.svª
+41£C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_ilmb_bram_if_cntlr_1_stub.vF
+6AC:/Xilinx/Vivado/2023.1/data/vhdl/src/unimacro/unimacro_VCOMP.vhd¤
+37C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_microblaze_0_1_stub.v 
+42™C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_lmb_bram_1_stub.vE
+7@C:/Xilinx/Vivado/2023.1/data/vhdl/src/unimacro/ADDMACC_MACRO.vhd 
+38™C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_dlmb_v10_1_stub.vœ
+43•C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_xbar_0_stub.vD
+8?C:/Xilinx/Vivado/2023.1/data/vhdl/src/unimacro/ADDSUB_MACRO.vhd 
+39™C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_ilmb_v10_1_stub.v­
+44¦C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_microblaze_0_axi_intc_1_stub.v¢
+50›C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_axi_gpio_0_0_stub.vF
+9AC:/Xilinx/Vivado/2023.1/data/vhdl/src/unimacro/BRAM_SDP_MACRO.vhd
+45–C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_mdm_1_1_stub.v¢
+51›C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_axi_gpio_0_1_stub.v¡
+46šC:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_clk_wiz_1_1_stub.v¢
+52›C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_axi_gpio_0_2_stub.vª
+47£C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_rst_clk_wiz_1_100M_1_stub.v¦
+53ŸC:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_axi_quad_spi_0_0_stub.v¦
+48ŸC:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_axi_uartlite_0_0_stub.v¢
+54›C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_axi_gpio_0_3_stub.v£
+49œC:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_axi_timer_0_0_stub.vg
+60aC:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/1993/src/std_1164.vhd 
+55™C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-27544-Abdullah-Champaign-PC/realtime/microblaze_GameIP_0_0_stub.vg
+61aC:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/1993/src/standard.vhds
+56mc:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/synth/microblaze.vj
+62dC:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/1993/src/numeric_std.vhdŠ
+57ƒc:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.ve
+63_C:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/1993/src/textio.vhd²
+58«c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_xlconcat_1/synth/microblaze_microblaze_0_xlconcat_1.vg
+64aC:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/1993/src/timing_p.vhd7
+591C:/Xilinx/Vivado/2023.1/data/ip/xpm/xpm_VCOMP.vhdg
+65aC:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/1993/src/timing_b.vhdg
+66aC:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/1993/src/prmtvs_p.vhdg
+67aC:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/1993/src/prmtvs_b.vhdg
+68aC:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/1993/src/syn_arit.vhdg
+69aC:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.runs/synth_1/1993/src/syn_unsi.vhd
+
+synthStats
+ElaboratedNamesForRQS™	
+blackBoxInfo@
+mb_block_i/rst_clk_wiz_1_100Mmicroblaze_rst_clk_wiz_1_100M_13
+mb_block_i/gpio_deuggingmicroblaze_axi_gpio_0_3<
+'mb_block_i/microblaze_0_axi_periph/xbarmicroblaze_xbar_0Z
+7mb_block_i/microblaze_0_local_memory/dlmb_bram_if_cntlrmicroblaze_dlmb_bram_if_cntlr_12
+mb_block_i/gpio_usb_rstmicroblaze_axi_gpio_0_1&
+mb_block_i/mdm_1microblaze_mdm_1_11
+mb_block_i/spi_usbmicroblaze_axi_quad_spi_0_02
+mb_block_i/gpio_usb_intmicroblaze_axi_gpio_0_04
+mb_block_i/timer_usb_aximicroblaze_axi_timer_0_04
+mb_block_i/microblaze_0microblaze_microblaze_0_1F
+-mb_block_i/microblaze_0_local_memory/lmb_brammicroblaze_lmb_bram_1F
+ mb_block_i/microblaze_0_axi_intc"microblaze_microblaze_0_axi_intc_1.
+mb_block_i/clk_wiz_1microblaze_clk_wiz_1_18
+mb_block_i/axi_uartlite_0microblaze_axi_uartlite_0_0F
+-mb_block_i/microblaze_0_local_memory/dlmb_v10microblaze_dlmb_v10_1F
+-mb_block_i/microblaze_0_local_memory/ilmb_v10microblaze_ilmb_v10_15
+mb_block_i/gpio_player_posmicroblaze_axi_gpio_0_2Z
+7mb_block_i/microblaze_0_local_memory/ilmb_bram_if_cntlrmicroblaze_ilmb_bram_if_cntlr_1,
+mb_block_i/GameIP_0microblaze_GameIP_0_0Š
+synth_design
+isIncremental0
+Runtime0
+Threads used2^
+argsV-verilog_define default::[not_specified] -top  Final_Top_Level -part  xc7s50csga324-1 
+resynthPerc0.00
+Cputime0
+blackBoxPercinf
+	directive 
+synth_design_metrics$
+mismatchedAddSubOperatorWidths-1
+lowMaxFanout-1
+NumUnregisteredPorts0
+caseNotFullNoDefault-1
+	smallSrls-1
+srlsWithResetLogic-1
+shallowRAMWithAttribute-1
+hierMFO0
+bigRAMs-1
+NetsWithMixedFanouts-1
+DSPsWithKeep0
+RQS_Results

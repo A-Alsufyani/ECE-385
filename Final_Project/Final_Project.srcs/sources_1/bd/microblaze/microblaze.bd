@@ -1536,8 +1536,11 @@
           "C_ALL_OUTPUTS": {
             "value": "1"
           },
+          "C_ALL_OUTPUTS_2": {
+            "value": "1"
+          },
           "C_IS_DUAL": {
-            "value": "0"
+            "value": "1"
           }
         }
       },
@@ -1692,7 +1695,7 @@
     "nets": {
       "GameIP_0_debugging": {
         "ports": [
-          "GameIP_0/debugging",
+          "GameIP_0/Hardware_to_software",
           "gpio_deugging/gpio_io_i"
         ]
       },
@@ -1718,6 +1721,12 @@
         "ports": [
           "clk_wiz_1/locked",
           "rst_clk_wiz_1_100M/dcm_locked"
+        ]
+      },
+      "gpio_player_pos_gpio2_io_o": {
+        "ports": [
+          "gpio_player_pos/gpio2_io_o",
+          "GameIP_0/player_pos_2"
         ]
       },
       "gpio_player_pos_gpio_io_o": {

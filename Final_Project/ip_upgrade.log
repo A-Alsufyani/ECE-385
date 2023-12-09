@@ -1,6 +1,501 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 13:31:05 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 66) to (Rev. 67)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 13:29:12 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 65) to (Rev. 66)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 13:17:32 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 64) to (Rev. 65)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 12:48:53 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0 (Rev. 64)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 12:44:52 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 63) to (Rev. 64)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 12:21:49 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 62) to (Rev. 63)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 12:00:43 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 61) to (Rev. 62)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 11:20:21 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 60) to (Rev. 61)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 11:11:19 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 59) to (Rev. 60)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 10:58:23 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 58) to (Rev. 59)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 10:40:37 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 57) to (Rev. 58)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 10:11:15 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 56) to (Rev. 57)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 09:16:07 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 55) to (Rev. 56)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 07:48:35 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 54) to (Rev. 55)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 06:44:44 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 53) to (Rev. 54)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'microblaze_GameIP_0_0'.
+
+
+-Upgrade has added interface 'player_pos_2' (xilinx.com:interface:gpio:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'microblaze_GameIP_0_0'. These changes may impact your design.
+
+
+-Upgrade has added port 'player_pos_2'
+
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 06:24:07 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 52) to (Rev. 53)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sat Dec  9 06:14:59 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 51) to (Rev. 52)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Thu Dec  7 11:40:20 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 50) to (Rev. 51)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Thu Dec  7 10:57:26 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 49) to (Rev. 50)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Thu Dec  7 09:15:26 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 48) to (Rev. 49)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Thu Dec  7 07:29:19 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 47) to (Rev. 48)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Thu Dec  7 07:28:02 2023
+| Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7s50csga324-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'microblaze_GameIP_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of microblaze_GameIP_0_0 (xilinx.com:user:GameIP:1.0) from (Rev. 46) to (Rev. 47)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'microblaze_GameIP_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'debugging'
+
+-Upgrade has added port 'Hardware_to_software'
+
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
 | Date         : Wed Dec  6 08:30:47 2023
 | Host         : Abdullah-Champaign-PC running 64-bit major release  (build 9200)
 | Command      : upgrade_ip

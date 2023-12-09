@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec  6 08:32:01 2023" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Dec  9 13:31:20 2023" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="spartan7" DEVICE="7s50" NAME="microblaze" PACKAGE="csga324" SPEEDGRADE="-1"/>
 
@@ -114,7 +114,7 @@
   </EXTERNALINTERFACES>
 
   <MODULES>
-    <MODULE COREREVISION="46" FULLNAME="/GameIP_0" HWVERSION="1.0" INSTANCE="GameIP_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="GameIP" VLNV="xilinx.com:user:GameIP:1.0">
+    <MODULE COREREVISION="67" FULLNAME="/GameIP_0" HWVERSION="1.0" INSTANCE="GameIP_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="GameIP" VLNV="xilinx.com:user:GameIP:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="AXI" NAME="AXI_reg" RANGE="4096" USAGE="register"/>
@@ -133,12 +133,17 @@
             <CONNECTION INSTANCE="gpio_player_pos" PORT="gpio_io_o"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" LEFT="31" NAME="player_pos_2" RIGHT="0" SIGIS="undef" SIGNAME="gpio_player_pos_gpio2_io_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="gpio_player_pos" PORT="gpio2_io_o"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" LEFT="15" NAME="seconds" RIGHT="0" SIGIS="undef" SIGNAME="GameIP_0_seconds">
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_imp" PORT="LEDs_0_tri_o"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="debugging" RIGHT="0" SIGIS="undef" SIGNAME="GameIP_0_debugging">
+        <PORT DIR="O" LEFT="31" NAME="Hardware_to_software" RIGHT="0" SIGIS="undef" SIGNAME="GameIP_0_Hardware_to_software">
           <CONNECTIONS>
             <CONNECTION INSTANCE="gpio_deugging" PORT="gpio_io_i"/>
           </CONNECTIONS>
@@ -346,7 +351,12 @@
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="__NOC__" NAME="debugging" TYPE="INITIATOR" VLNV="xilinx.com:interface:gpio:1.0">
           <PORTMAPS>
-            <PORTMAP LOGICAL="TRI_O" PHYSICAL="debugging"/>
+            <PORTMAP LOGICAL="TRI_O" PHYSICAL="Hardware_to_software"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="player_pos_2" TYPE="INITIATOR" VLNV="xilinx.com:interface:gpio:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TRI_I" PHYSICAL="player_pos_2"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
@@ -1642,9 +1652,9 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M08_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="gpio_io_i" RIGHT="0" SIGIS="undef" SIGNAME="GameIP_0_debugging">
+        <PORT DIR="I" LEFT="31" NAME="gpio_io_i" RIGHT="0" SIGIS="undef" SIGNAME="GameIP_0_Hardware_to_software">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="GameIP_0" PORT="debugging"/>
+            <CONNECTION INSTANCE="GameIP_0" PORT="Hardware_to_software"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1891,7 +1901,7 @@
         <PARAMETER NAME="C_INTERRUPT_PRESENT" VALUE="0"/>
         <PARAMETER NAME="C_DOUT_DEFAULT" VALUE="0x00000000"/>
         <PARAMETER NAME="C_TRI_DEFAULT" VALUE="0xFFFFFFFF"/>
-        <PARAMETER NAME="C_IS_DUAL" VALUE="0"/>
+        <PARAMETER NAME="C_IS_DUAL" VALUE="1"/>
         <PARAMETER NAME="C_DOUT_DEFAULT_2" VALUE="0x00000000"/>
         <PARAMETER NAME="C_TRI_DEFAULT_2" VALUE="0xFFFFFFFF"/>
         <PARAMETER NAME="Component_Name" VALUE="microblaze_axi_gpio_0_2"/>
@@ -2003,6 +2013,11 @@
             <CONNECTION INSTANCE="GameIP_0" PORT="player_pos"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" LEFT="31" NAME="gpio2_io_o" RIGHT="0" SIGIS="undef" SIGNAME="gpio_player_pos_gpio2_io_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GameIP_0" PORT="player_pos_2"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES>
         <BUSINTERFACE BUSNAME="microblaze_0_axi_periph_M05_AXI" DATAWIDTH="32" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
@@ -2060,6 +2075,11 @@
         <BUSINTERFACE BUSNAME="__NOC__" NAME="GPIO" TYPE="INITIATOR" VLNV="xilinx.com:interface:gpio:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="TRI_O" PHYSICAL="gpio_io_o"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="GPIO2" TYPE="INITIATOR" VLNV="xilinx.com:interface:gpio:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TRI_O" PHYSICAL="gpio2_io_o"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
@@ -5685,6 +5705,16 @@
             <CONNECTION INSTANCE="rst_clk_wiz_1_100M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="M08_ACLK" SIGIS="clk" SIGNAME="clk_wiz_1_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_1" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M08_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_1_100M_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rst_clk_wiz_1_100M" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" LEFT="31" NAME="S00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_0_M_AXI_DP_AWADDR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_0" PORT="M_AXI_DP_AWADDR"/>
@@ -6482,16 +6512,6 @@
         <PORT DIR="O" NAME="M07_AXI_rready" SIGIS="undef" SIGNAME="GameIP_0_axi_rready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GameIP_0" PORT="axi_rready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M08_ACLK" SIGIS="clk" SIGNAME="clk_wiz_1_clk_out1">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_1" PORT="clk_out1"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M08_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_1_100M_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="rst_clk_wiz_1_100M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="M08_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="gpio_deugging_s_axi_awaddr">

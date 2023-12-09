@@ -63,10 +63,10 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==microblaze_
 # IP: bd/microblaze/ip/microblaze_axi_quad_spi_0_0/microblaze_axi_quad_spi_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==microblaze_axi_quad_spi_0_0 || ORIG_REF_NAME==microblaze_axi_quad_spi_0_0} -quiet] -quiet
 
-# IP: bd/microblaze/ip/microblaze_GameIP_0_0/microblaze_GameIP_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==microblaze_GameIP_0_0 || ORIG_REF_NAME==microblaze_GameIP_0_0} -quiet] -quiet
-
 # IP: bd/microblaze/ip/microblaze_axi_gpio_0_3/microblaze_axi_gpio_0_3.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==microblaze_axi_gpio_0_3 || ORIG_REF_NAME==microblaze_axi_gpio_0_3} -quiet] -quiet
+
+# IP: bd/microblaze/ip/microblaze_GameIP_0_0/microblaze_GameIP_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==microblaze_GameIP_0_0 || ORIG_REF_NAME==microblaze_GameIP_0_0} -quiet] -quiet
 
 # XDC: c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/microblaze_ooc.xdc

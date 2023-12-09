@@ -70,12 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param checkpoint.writeSynthRtdsInDcp 1
 set_param chipscope.maxJobs 4
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7s50csga324-1
 
@@ -137,13 +133,13 @@ set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Down
 set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_axi_quad_spi_0_0/microblaze_axi_quad_spi_0_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_axi_quad_spi_0_0/microblaze_axi_quad_spi_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_axi_quad_spi_0_0/microblaze_axi_quad_spi_0_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_axi_gpio_0_3/microblaze_axi_gpio_0_3_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_axi_gpio_0_3/microblaze_axi_gpio_0_3_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_axi_gpio_0_3/microblaze_axi_gpio_0_3.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0/clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0/clk_wiz_0_late.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_GameIP_0_0/src/clk_wiz_0/clk_wiz_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_axi_gpio_0_3/microblaze_axi_gpio_0_3_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_axi_gpio_0_3/microblaze_axi_gpio_0_3_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_axi_gpio_0_3/microblaze_axi_gpio_0_3.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/microblaze_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Abdullah/Downloads/ECE385/Final_Project/Final_Project.gen/sources_1/bd/microblaze/ip/microblaze_microblaze_0_1/data/mb_bootloop_le.elf]
 
